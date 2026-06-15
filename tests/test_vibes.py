@@ -205,3 +205,137 @@ def test_timeline_merger_complex():
     assert "[00:02:00] Streamer: PoE2おもしろいね" in text
     assert "[00:05:00] Streamer: ご視聴ありがとうございました" in text
     assert "[00:05:10] user3: おつかれさまでした" in text
+
+
+def test_atomic_transaction_behavior():
+    # Why test transaction isolation?
+    # Confirming that database changes are rolled back completely upon failure 
+    # guarantees that we never leave a broken or partially deleted state in SQLite 
+    # if a Twitch download or Gemini API call fails during re-analysis.
+    db = DBManager("sqlite:///:memory:")
+    db.create_tables()
+    
+    # Setup legacy dataset
+    db.get_or_create_streamer("streamer_X", "Streamer X")
+    vod = VOD(
+        vod_id="vod_X",
+        streamer_id="streamer_X",
+        title="Legacy Broadcast Title",
+        duration_seconds=1000,
+    )
+    db.save_vod(vod)
+    
+    legacy_topic = Topic(
+        vod_id="vod_X",
+        start_offset_seconds=10,
+        end_offset_seconds=20,
+        category="other",
+        description="Legacy Topic",
+        is_high_context=False
+    )
+    db.save_topics([legacy_topic])
+    
+    legacy_stats = VODListenerStats(
+        vod_id="vod_X",
+        listener_username="listener_X",
+        total_comments=10,
+        reaction_comments_count=10,
+        question_comments_count=0,
+        insight_comments_count=0,
+        instruction_comments_count=0,
+        other_comments_count=0,
+        persona_type="reaction",
+        comment_details_json='[]'
+    )
+    db.save_listener_stats([legacy_stats])
+    
+    # Verify legacy data exists
+    session = db.get_session()
+    assert session.query(Topic).filter_by(vod_id="vod_X").count() == 1
+    assert session.query(VODListenerStats).filter_by(vod_id="vod_X").count() == 1
+    db.remove_session()
+    
+    # Setup new dataset objects
+    new_vod = VOD(
+        vod_id="vod_X",
+        streamer_id="streamer_X",
+        title="New Upgraded Title",
+        duration_seconds=2000,
+    )
+    
+    new_topic = Topic(
+        vod_id="vod_X",
+        start_offset_seconds=50,
+        end_offset_seconds=60,
+        category="game",
+        description="New Topic",
+        is_high_context=True
+    )
+    
+    new_stats = VODListenerStats(
+        vod_id="vod_X",
+        listener_username="listener_Y",
+        total_comments=5,
+        reaction_comments_count=0,
+        question_comments_count=5,
+        insight_comments_count=0,
+        instruction_comments_count=0,
+        other_comments_count=0,
+        persona_type="question",
+        comment_details_json='[]'
+    )
+    
+    # Run transaction that FAILS
+    session_db = db.get_session()
+    try:
+        session_db.query(Topic).filter_by(vod_id="vod_X").delete()
+        session_db.query(VODListenerStats).filter_by(vod_id="vod_X").delete()
+        
+        session_db.merge(new_vod)
+        session_db.add(new_topic)
+        session_db.merge(new_stats)
+        
+        # Trigger mock exception before commit
+        raise ValueError("Simulated network or API error during compilation")
+        
+        session_db.commit()
+    except Exception:
+        session_db.rollback()
+    finally:
+        db.remove_session()
+        
+    # Verify legacy data is STILL intact and untouched
+    session = db.get_session()
+    fetched_vod = session.query(VOD).filter_by(vod_id="vod_X").first()
+    assert fetched_vod.title == "Legacy Broadcast Title"  # Not upgraded
+    assert session.query(Topic).filter_by(vod_id="vod_X").count() == 1
+    assert session.query(Topic).filter_by(vod_id="vod_X").first().description == "Legacy Topic"
+    assert session.query(VODListenerStats).filter_by(vod_id="vod_X").count() == 1
+    assert session.query(VODListenerStats).filter_by(vod_id="vod_X").first().listener_username == "listener_X"
+    db.remove_session()
+    
+    # Run transaction that SUCCEEDS
+    session_db = db.get_session()
+    try:
+        session_db.query(Topic).filter_by(vod_id="vod_X").delete()
+        session_db.query(VODListenerStats).filter_by(vod_id="vod_X").delete()
+        
+        session_db.merge(new_vod)
+        session_db.add(new_topic)
+        session_db.merge(new_stats)
+        
+        session_db.commit()
+    except Exception:
+        session_db.rollback()
+    finally:
+        db.remove_session()
+        
+    # Verify data has been correctly swapped
+    session = db.get_session()
+    fetched_vod = session.query(VOD).filter_by(vod_id="vod_X").first()
+    assert fetched_vod.title == "New Upgraded Title"  # Upgraded!
+    assert session.query(Topic).filter_by(vod_id="vod_X").count() == 1
+    assert session.query(Topic).filter_by(vod_id="vod_X").first().description == "New Topic"
+    assert session.query(VODListenerStats).filter_by(vod_id="vod_X").count() == 1
+    assert session.query(VODListenerStats).filter_by(vod_id="vod_X").first().listener_username == "listener_Y"
+    db.remove_session()

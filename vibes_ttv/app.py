@@ -268,7 +268,6 @@ def run_real_analysis_thread(runner: AnalysisRunner) -> str:
             merged_timeline_text=timeline_txt,
             chat_velocity_json=vel_json
         )
-        db.save_vod(vod)
         
         topic_analyzer = TopicAnalyzer(api_key=api_key)
         topics_data = topic_analyzer.analyze_topics(timeline_txt)
@@ -283,7 +282,6 @@ def run_real_analysis_thread(runner: AnalysisRunner) -> str:
             )
             for t in topics_data
         ]
-        db.save_topics(db_topics)
         
         comment_analyzer = CommentAnalyzer(api_key=api_key)
         listener_stats = comment_analyzer.analyze_listeners(chat_data, batch_size=batch_size, progress_callback=progress_callback)
@@ -309,21 +307,46 @@ def run_real_analysis_thread(runner: AnalysisRunner) -> str:
                     comment_details_json=details_json
                 )
             )
-        db.save_listener_stats(db_stats)
-        
-        if os.path.exists(audio_path):
-            os.remove(audio_path)
             
         t_ai_analysis = int(time.time() - t_ai_start)
         total_time = int(time.time() - start_time)
         
-        # Update VOD performance stats in DB
-        vod.chat_collection_time_seconds = t_chat_collection
-        vod.extraction_time_seconds = t_extraction
-        vod.transcription_time_seconds = t_transcription
-        vod.ai_analysis_time_seconds = t_ai_analysis
-        vod.total_analysis_time_seconds = total_time
-        db.save_vod(vod)
+        # Database transaction for atomic replacement
+        # Why run deletions and insertions in a single transaction block?
+        # If the re-analysis fails halfway (e.g. VOD already deleted on Twitch), 
+        # the legacy data remains completely intact and safe. We only commit changes 
+        # when all new dataset objects are fully compiled.
+        session_db = db.get_session()
+        try:
+            # Delete legacy associated tables to prevent duplicate records accumulation
+            session_db.query(Topic).filter_by(vod_id=vod_id).delete()
+            session_db.query(VODListenerStats).filter_by(vod_id=vod_id).delete()
+            
+            # Save or update VOD record
+            vod.chat_collection_time_seconds = t_chat_collection
+            vod.extraction_time_seconds = t_extraction
+            vod.transcription_time_seconds = t_transcription
+            vod.ai_analysis_time_seconds = t_ai_analysis
+            vod.total_analysis_time_seconds = total_time
+            session_db.merge(vod)
+            
+            # Save new topics
+            for t in db_topics:
+                session_db.add(t)
+                
+            # Save new listener stats
+            for s in db_stats:
+                session_db.merge(s)
+                
+            session_db.commit()
+        except Exception as e:
+            session_db.rollback()
+            raise e
+        finally:
+            db.remove_session()
+            
+        if os.path.exists(audio_path):
+            os.remove(audio_path)
         
         # Expose stats to the runner
         runner.chat_collection_time = t_chat_collection
@@ -362,6 +385,11 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
     import time
     start_time = time.time()
     
+    t_chat_collection = 0
+    t_extraction = 0
+    t_transcription = 0
+    t_ai_analysis = 0
+    
     def progress_callback(message: str, progress_val: int):
         elapsed = int(time.time() - start_time)
         status_text.text(f"⏱️ 経過時間: {elapsed}秒 | {message}")
@@ -375,22 +403,28 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
         
         # Step 1: Collect chat logs
         progress_callback("🤖 [1/5] Twitchチャットログを収集中...", 10)
+        t_chat_start = time.time()
         chat_data = collector.collect_chat(vod_url, progress_callback=progress_callback)
+        t_chat_collection = int(time.time() - t_chat_start)
         if not chat_data:
             st.error("チャットログの取得に失敗しました。URLが正しいか、VODが公開されているかご確認ください。")
             return None
             
         # Step 2: Download and extract audio
         progress_callback("🎵 [2/5] VODから音声トラックを抽出中 (yt-dlp)...", 30)
+        t_extract_start = time.time()
         audio_coll = AudioCollector()
         audio_path = audio_coll.collect_audio(vod_url, progress_callback=progress_callback)
+        t_extraction = int(time.time() - t_extract_start)
         # Extract VOD ID from audio output filename
         vod_id = os.path.basename(audio_path).replace(".mp3", "")
         
         # Step 3: Transcription using Local Whisper
         progress_callback(f"✍️ [3/5] Whisper ({model_name}) で音声を文字起こし中... (数分かかる場合があります)", 50)
+        t_transcribe_start = time.time()
         transcriber = WhisperTranscriber()
         segments = transcriber.transcribe(audio_path, model_name=model_name)
+        t_transcription = int(time.time() - t_transcribe_start)
         
         # Step 4: Merge chats and text
         progress_callback("🔗 [4/5] チャットログと音声認識タイムスタンプをアラインメント中...", 75)
@@ -400,6 +434,7 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
         
         # Step 5: AI analysis using Gemini API
         progress_callback("🧠 [5/5] Gemini API で話題のコンテキストを抽出中...", 80)
+        t_ai_start = time.time()
         
         # Why fetch from metadata or fallback?
         # Using real Twitch metadata yields accurate titles, streamer IDs, and creation dates,
@@ -439,7 +474,6 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
             merged_timeline_text=timeline_txt,
             chat_velocity_json=vel_json
         )
-        db.save_vod(vod)
         
         # Topic analysis
         topic_analyzer = TopicAnalyzer(api_key=api_key)
@@ -455,7 +489,6 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
             )
             for t in topics_data
         ]
-        db.save_topics(db_topics)
         
         # Comment persona analysis
         comment_analyzer = CommentAnalyzer(api_key=api_key)
@@ -463,6 +496,9 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
         # Different batch sizes strike different balances between Gemini analysis accuracy and rate limits.
         # Allowing it to be passed from the UI dynamically gives flexibility to the analysis process.
         listener_stats = comment_analyzer.analyze_listeners(chat_data, batch_size=batch_size, progress_callback=progress_callback)
+        
+        t_ai_analysis = int(time.time() - t_ai_start)
+        total_time = int(time.time() - start_time)
         
         db_stats = []
         for s in listener_stats:
@@ -485,8 +521,41 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
                     comment_details_json=details_json
                 )
             )
-        db.save_listener_stats(db_stats)
-        
+            
+        # Database transaction for atomic replacement
+        # Why run deletions and insertions in a single transaction block?
+        # If the analysis fails halfway (e.g. VOD already deleted on Twitch), 
+        # the legacy data remains completely intact and safe. We only commit changes 
+        # when all new dataset objects are fully compiled.
+        session_db = db.get_session()
+        try:
+            # Delete legacy associated tables to prevent duplicate records accumulation
+            session_db.query(Topic).filter_by(vod_id=vod_id).delete()
+            session_db.query(VODListenerStats).filter_by(vod_id=vod_id).delete()
+            
+            # Save or update VOD record
+            vod.chat_collection_time_seconds = t_chat_collection
+            vod.extraction_time_seconds = t_extraction
+            vod.transcription_time_seconds = t_transcription
+            vod.ai_analysis_time_seconds = t_ai_analysis
+            vod.total_analysis_time_seconds = total_time
+            session_db.merge(vod)
+            
+            # Save new topics
+            for t in db_topics:
+                session_db.add(t)
+                
+            # Save new listener stats
+            for s in db_stats:
+                session_db.merge(s)
+                
+            session_db.commit()
+        except Exception as e:
+            session_db.rollback()
+            raise e
+        finally:
+            db.remove_session()
+            
         # Clean up audio file to save disk space
         # Why delete the file?
         # MP3 files from multi-hour streams take up massive disk space.
@@ -498,6 +567,11 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
         return vod_id
         
     except Exception as e:
+        try:
+            if 'audio_path' in locals() and os.path.exists(audio_path):
+                os.remove(audio_path)
+        except Exception:
+            pass
         st.error(f"分析パイプライン実行中にエラーが発生しました: {e}")
         return None
 
@@ -622,6 +696,11 @@ def main():
     # ---------------------------------------------------------
     st.sidebar.markdown("### ⚙️ 分析設定")
     
+    # Define variables with default values to prevent NameError in subsequent checks
+    api_key = os.getenv("GEMINI_API_KEY", "")
+    whisper_model = "turbo"
+    listener_batch_size = 30
+    
     # Mode selection
     mode = st.sidebar.radio(
         "分析モードを選択してください",
@@ -661,43 +740,34 @@ def main():
                         selected_vod_id = selected_vod.vod_id
                         st.session_state["vod_id"] = selected_vod_id
                         
-    else:
-        # Real Mode Config
-        # Why not type="password"?
-        # Using type="password" causes browser password managers (like Google Password Manager)
-        # to misinterpret it as a login credential form and offer auto-generation/save popups.
-        # Standard text type provides a better user experience for developer API keys.
-        api_key = st.sidebar.text_input("Gemini API Key", value=os.getenv("GEMINI_API_KEY", ""))
-        # Why add 'turbo' model option?
-        # OpenAI Whisper's 'turbo' model provides a very fast transcription speed (similar to tiny/base) 
-        # while keeping high accuracy comparable to large-v3. It is ideal for local high-speed processing.
-        whisper_model = st.sidebar.selectbox(
-            "Whisperモデルサイズ",
-            ["tiny", "base", "small", "medium", "large", "turbo"],
-            index=5 # default turbo
-        )
+    # Common analysis configuration (always show)
+    # Why show configuration even in view mode?
+    # Keeping the API Key and model configurations visible at all times allows re-triggering analysis
+    # from the main dashboard when viewing legacy incomplete datasets.
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("#### ⚙️ 分析パラメーター")
+    api_key = st.sidebar.text_input("Gemini API Key", value=api_key)
+    whisper_model = st.sidebar.selectbox(
+        "Whisperモデルサイズ",
+        ["tiny", "base", "small", "medium", "large", "turbo"],
+        index=5 # default turbo
+    )
+    listener_batch_size = st.sidebar.slider(
+        "リスナー分析バッチサイズ",
+        min_value=10,
+        max_value=100,
+        value=listener_batch_size,
+        step=10,
+        help="一度にGemini APIに送信するリスナーの数です。値を小さくすると品質が向上する可能性がありますが、API呼び出し回数が増加します。"
+    )
+    
+    if mode == "実際のVODを分析":
+        st.sidebar.markdown("---")
         vod_url = st.sidebar.text_input("Twitch VOD URL", value="https://www.twitch.tv/videos/123456789")
-        # Why not hardcode batch size?
-        # Different batch sizes affect the accuracy of the user persona grouping and Gemini API rate usage.
-        # Letting the user configure it via a sidebar slider from 10 to 100 provides manual optimization.
-        listener_batch_size = st.sidebar.slider(
-            "リスナー分析バッチサイズ",
-            min_value=10,
-            max_value=100,
-            value=30,
-            step=10,
-            help="一度にGemini APIに送信するリスナーの数です。値を小さくすると品質が向上する可能性がありますが、API呼び出し回数が増加します。"
-        )
         
         # Check if analysis is currently running
-        # Why check is_running?
-        # Disabling the trigger button while a background analysis thread is active 
-        # prevents multiple concurrent analysis threads from conflicting over the same SQLite DB 
-        # or spawning duplicate yt-dlp/Whisper subprocesses.
         is_running = "analysis_runner" in st.session_state and not st.session_state["analysis_runner"].is_done
         
-        # Why width="stretch" instead of use_container_width=True?
-        # In newer Streamlit versions, use_container_width is deprecated. Replacing it with width="stretch" resolves warnings.
         if st.sidebar.button("分析を実行する", width="stretch", disabled=is_running):
             if not api_key:
                 st.sidebar.error("Gemini API Key を入力してください。")
@@ -1102,6 +1172,27 @@ def main():
                 st.info("このリスナーの個別コメント詳細がありません。")
         else:
             st.info("このアーカイブには個別のコメント分類詳細データが保存されていません（古いデータなどのため）。")
+            
+            # Check if analysis is currently running
+            # Why check is_running?
+            # Preventing double-triggering of background runners avoids SQLite write conflicts.
+            is_running = "analysis_runner" in st.session_state and not st.session_state["analysis_runner"].is_done
+            
+            # Why use a unique key?
+            # Streamlit requires unique widget keys when multiple buttons can potentially exist in the DOM.
+            if st.button("🔄 このアーカイブを再分析する", disabled=is_running, key="reanalyze_btn", width="stretch"):
+                if not api_key:
+                    st.error("Gemini API Key を入力してください（サイドバーに入力欄があります）。")
+                else:
+                    # Reconstruct Twitch VOD URL from stored ID
+                    # Why reconstruct?
+                    # The VOD URL is needed for the scraper and yt-dlp, but only the ID is stored in the DB.
+                    # Appending the ID to the base Twitch videos URL cleanly reconstructs the URL.
+                    vod_url = f"https://www.twitch.tv/videos/{selected_vod_id}"
+                    runner = AnalysisRunner(db, vod_url, api_key, whisper_model, listener_batch_size)
+                    st.session_state["analysis_runner"] = runner
+                    runner.start()
+                    st.rerun()
 
     # ---------------------------------------------------------
     # Tab 2: Topic Analysis
