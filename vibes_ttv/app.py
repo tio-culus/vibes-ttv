@@ -581,6 +581,73 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
         st.error(f"分析パイプライン実行中にエラーが発生しました: {e}")
         return None
 
+
+@st.fragment
+def render_analysis_progress(runner):
+    # Why use st.fragment?
+    # Rerunning the whole page just to update the timer triggers global DOM refresh (stale opacity drop).
+    # Wrapping this section in a local fragment restricts st.rerun() to this card, ensuring smooth timer updates.
+    import time
+    elapsed = int(time.time() - runner.start_time)
+    st.markdown(f"""
+    <div class="dashboard-card" style="border-color: #a855f7; background-color: rgba(168, 85, 247, 0.05);">
+        <h4 style="margin-top:0; color:#a855f7; display:flex; justify-content:space-between; align-items:center;">
+            <span>⚙️ バックグラウンド分析を実行中</span>
+            <span style="font-size:0.85rem; padding:2px 8px; border-radius:12px; background-color:#a855f7; color:white;">
+                {runner.progress_val}%
+            </span>
+        </h4>
+        <p style="color:#d1d5db; font-size:0.95rem; margin-bottom:0.5rem;">⏱️ 経過時間: {elapsed}秒 | {runner.message}</p>
+    </div>
+    """, unsafe_allow_html=True)
+    
+    st.progress(runner.progress_val / 100.0 if 0 <= runner.progress_val <= 100 else 0.0)
+    
+    col_ctrl1, col_ctrl2 = st.columns(2)
+    with col_ctrl1:
+        # Why check runner.pause_event?
+        # pause_event.is_set() is True when the analysis is running, and False when paused.
+        # Showing the corresponding button dynamically allows clear control.
+        if runner.pause_event.is_set():
+            is_pausable = runner.is_pausable
+            # Why disable pause during yt-dlp/Whisper?
+            # Subprocesses and local C/C++ model execution block CPU execution in a way 
+            # that cannot be paused safely without causing memory leaks or lockouts.
+            st.button(
+                "一時停止", 
+                disabled=not is_pausable, 
+                key="pause_btn", 
+                width="stretch",
+                help="音声抽出中およびWhisper文字起こし中は一時停止できません。" if not is_pausable else None
+            )
+        else:
+            st.button("再開", key="resume_btn", width="stretch")
+            
+    with col_ctrl2:
+        st.button("分析を中止", key="stop_btn", width="stretch")
+        
+    # Handle button actions inside fragment
+    if st.session_state.get("pause_btn"):
+        runner.pause_event.clear()
+        st.rerun()
+    if st.session_state.get("resume_btn"):
+        runner.pause_event.set()
+        st.rerun()
+    if st.session_state.get("stop_btn"):
+        runner.stop_event.set()
+        runner.pause_event.set()  # resume if paused to exit thread quickly
+        st.rerun()
+        
+    # Why check scope="app"?
+    # If the analysis finishes, we must trigger a full app rerun to reload and render the dashboard data.
+    # Otherwise, st.rerun() defaults to rerun only the fragment itself.
+    if runner.is_done:
+        st.rerun(scope="app")
+    else:
+        time.sleep(1.0)
+        st.rerun()
+
+
 # ---------------------------------------------------------
 # Streamlit Dashboard UI
 # ---------------------------------------------------------
@@ -804,59 +871,11 @@ def main():
     if "analysis_runner" in st.session_state:
         runner = st.session_state["analysis_runner"]
         
-        # UI card container for analysis progress
-        import time
-        elapsed = int(time.time() - runner.start_time)
-        st.markdown(f"""
-        <div class="dashboard-card" style="border-color: #a855f7; background-color: rgba(168, 85, 247, 0.05);">
-            <h4 style="margin-top:0; color:#a855f7; display:flex; justify-content:space-between; align-items:center;">
-                <span>⚙️ バックグラウンド分析を実行中</span>
-                <span style="font-size:0.85rem; padding:2px 8px; border-radius:12px; background-color:#a855f7; color:white;">
-                    {runner.progress_val}%
-                </span>
-            </h4>
-            <p style="color:#d1d5db; font-size:0.95rem; margin-bottom:0.5rem;">⏱️ 経過時間: {elapsed}秒 | {runner.message}</p>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        st.progress(runner.progress_val / 100.0 if 0 <= runner.progress_val <= 100 else 0.0)
-        
-        col_ctrl1, col_ctrl2 = st.columns(2)
-        with col_ctrl1:
-            # Why check runner.pause_event?
-            # pause_event.is_set() is True when the analysis is running, and False when paused.
-            # Showing the corresponding button dynamically allows clear control.
-            if runner.pause_event.is_set():
-                is_pausable = runner.is_pausable
-                # Why disable pause during yt-dlp/Whisper?
-                # Subprocesses and local C/C++ model execution block CPU execution in a way 
-                # that cannot be paused safely without causing memory leaks or lockouts.
-                st.button(
-                    "一時停止", 
-                    disabled=not is_pausable, 
-                    key="pause_btn", 
-                    width="stretch",
-                    help="音声抽出中およびWhisper文字起こし中は一時停止できません。" if not is_pausable else None
-                )
-            else:
-                st.button("再開", key="resume_btn", width="stretch")
-                
-        with col_ctrl2:
-            st.button("分析を中止", key="stop_btn", width="stretch")
-            
-        # Handle button actions
-        if st.session_state.get("pause_btn"):
-            runner.pause_event.clear()
-            st.rerun()
-        if st.session_state.get("resume_btn"):
-            runner.pause_event.set()
-            st.rerun()
-        if st.session_state.get("stop_btn"):
-            runner.stop_event.set()
-            runner.pause_event.set()  # resume if paused to exit thread quickly
-            st.rerun()
-            
         if runner.is_done:
+            # Handle post-analysis state transitions on the main app execution context
+            # Why not run inside the fragment?
+            # State cleanup (deleting the runner, switching selected VOD IDs) affects the layout 
+            # of the entire page, which requires a full app-level rerun to reflect.
             if runner.error:
                 st.error(f"分析中にエラーが発生しました: {runner.error}")
             elif runner.vod_id:
@@ -865,12 +884,11 @@ def main():
             del st.session_state["analysis_runner"]
             st.rerun()
         else:
-            # Why sleep and rerun?
-            # To keep the UI reactive and update the progress bar in near real-time, 
-            # we sleep for 1 second and trigger st.rerun(). This acts as a client-side polling loop.
-            import time
-            time.sleep(1.0)
-            st.rerun()
+            # Call the fragment function for dynamic local updates
+            # Why call render_analysis_progress?
+            # restricting the 1-second rerun loop inside a fragment keeps other dashboard elements 
+            # stable and prevents flickering across the whole page.
+            render_analysis_progress(runner)
     
     if not selected_vod_id:
         st.info("👈 左側のサイドバーから「過去の分析結果を閲覧」するか、「実際のVOD」を分析してください。")
