@@ -1157,7 +1157,6 @@ def main():
                 {"カテゴリ": k, "時間(分)": round(v / 60, 1)} for k, v in cat_durations.items()
             ])
             
-            import altair as alt
             # Donut chart rendering with Altair
             # Why use donut chart?
             # Donut charts match the dashboard's premium styling and visualize category distributions cleanly.
