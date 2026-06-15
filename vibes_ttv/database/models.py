@@ -93,4 +93,10 @@ class VODListenerStats(Base):
     other_comments_count = Column(Integer, default=0)
     persona_type = Column(String, nullable=False)  # reaction, question, insight, instruction, other
     
+    # Why save comment classifications as a serialized JSON string in VODListenerStats?
+    # Saving a list of classified comment text-offset-category tuples as a serialized JSON 
+    # string avoids creating a highly redundant chats-classification table with millions of rows, 
+    # optimizing query speeds and keeping SQLite performance lightweight.
+    comment_details_json = Column(String, nullable=True)
+    
     vod = relationship("VOD", back_populates="listener_stats")

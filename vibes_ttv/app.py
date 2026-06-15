@@ -271,20 +271,28 @@ def run_real_analysis_thread(runner: AnalysisRunner) -> str:
         
         comment_analyzer = CommentAnalyzer(api_key=api_key)
         listener_stats = comment_analyzer.analyze_listeners(chat_data, batch_size=batch_size, progress_callback=progress_callback)
-        db_stats = [
-            VODListenerStats(
-                vod_id=vod_id,
-                listener_username=s["username"],
-                total_comments=s["total_comments"],
-                reaction_comments_count=s["reaction_comments_count"],
-                question_comments_count=s["question_comments_count"],
-                insight_comments_count=s["insight_comments_count"],
-                instruction_comments_count=s["instruction_comments_count"],
-                other_comments_count=s["other_comments_count"],
-                persona_type=s["persona_type"]
+        
+        db_stats = []
+        for s in listener_stats:
+            import json
+            # Why serialize comment_details to JSON string?
+            # Storing the list of specific comments with their offsets and categories as a JSON string 
+            # avoids table duplication while retaining the detail view for UI inspection.
+            details_json = json.dumps(s.get("comment_details", []), ensure_ascii=False)
+            db_stats.append(
+                VODListenerStats(
+                    vod_id=vod_id,
+                    listener_username=s["username"],
+                    total_comments=s["total_comments"],
+                    reaction_comments_count=s["reaction_comments_count"],
+                    question_comments_count=s["question_comments_count"],
+                    insight_comments_count=s["insight_comments_count"],
+                    instruction_comments_count=s["instruction_comments_count"],
+                    other_comments_count=s["other_comments_count"],
+                    persona_type=s["persona_type"],
+                    comment_details_json=details_json
+                )
             )
-            for s in listener_stats
-        ]
         db.save_listener_stats(db_stats)
         
         if os.path.exists(audio_path):
@@ -439,20 +447,28 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
         # Different batch sizes strike different balances between Gemini analysis accuracy and rate limits.
         # Allowing it to be passed from the UI dynamically gives flexibility to the analysis process.
         listener_stats = comment_analyzer.analyze_listeners(chat_data, batch_size=batch_size, progress_callback=progress_callback)
-        db_stats = [
-            VODListenerStats(
-                vod_id=vod_id,
-                listener_username=s["username"],
-                total_comments=s["total_comments"],
-                reaction_comments_count=s["reaction_comments_count"],
-                question_comments_count=s["question_comments_count"],
-                insight_comments_count=s["insight_comments_count"],
-                instruction_comments_count=s["instruction_comments_count"],
-                other_comments_count=s["other_comments_count"],
-                persona_type=s["persona_type"]
+        
+        db_stats = []
+        for s in listener_stats:
+            import json
+            # Why serialize comment_details to JSON string?
+            # Storing the list of specific comments with their offsets and categories as a JSON string 
+            # avoids table duplication while retaining the detail view for UI inspection.
+            details_json = json.dumps(s.get("comment_details", []), ensure_ascii=False)
+            db_stats.append(
+                VODListenerStats(
+                    vod_id=vod_id,
+                    listener_username=s["username"],
+                    total_comments=s["total_comments"],
+                    reaction_comments_count=s["reaction_comments_count"],
+                    question_comments_count=s["question_comments_count"],
+                    insight_comments_count=s["insight_comments_count"],
+                    instruction_comments_count=s["instruction_comments_count"],
+                    other_comments_count=s["other_comments_count"],
+                    persona_type=s["persona_type"],
+                    comment_details_json=details_json
+                )
             )
-            for s in listener_stats
-        ]
         db.save_listener_stats(db_stats)
         
         # Clean up audio file to save disk space
@@ -974,6 +990,96 @@ def main():
         # Why width="stretch" instead of use_container_width=True?
         # Resolves Streamlit deprecation warnings for dataframes.
         st.dataframe(stats_df, width="stretch")
+        
+        # Why filter by hasattr and non-empty?
+        # Checking for comment_details_json ensures that we only show the detailed logs 
+        # when the data is available (for newer runs), maintaining backward compatibility.
+        listeners_with_details = [s for s in stats if hasattr(s, "comment_details_json") and s.comment_details_json]
+        if listeners_with_details:
+            st.markdown("---")
+            st.markdown("#### 💬 コメントの分類詳細")
+            
+            listener_names = sorted([s.listener_username for s in listeners_with_details])
+            selected_user = st.selectbox("詳細を表示するリスナーを選択", listener_names)
+            
+            user_stat = next(s for s in listeners_with_details if s.listener_username == selected_user)
+            
+            try:
+                import json
+                comment_details = json.loads(user_stat.comment_details_json)
+            except Exception:
+                comment_details = []
+                
+            if comment_details:
+                cat_options = {
+                    "reaction": "リアクション",
+                    "question": "質問",
+                    "insight": "考察",
+                    "instruction": "指示・提案",
+                    "other": "その他"
+                }
+                rev_cat_map = {v: k for k, v in cat_options.items()}
+                
+                # Filter categories
+                selected_cats = st.multiselect(
+                    "表示する態度カテゴリ（複数選択可）",
+                    options=list(cat_options.values()),
+                    default=list(cat_options.values())
+                )
+                
+                filter_keys = [rev_cat_map[c] for c in selected_cats]
+                filtered_details = [c for c in comment_details if c.get("category") in filter_keys]
+                
+                if filtered_details:
+                    badge_styles = {
+                        "reaction": "background-color: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);",
+                        "question": "background-color: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);",
+                        "insight": "background-color: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3);",
+                        "instruction": "background-color: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3);",
+                        "other": "background-color: rgba(156, 163, 175, 0.15); color: #9ca3af; border: 1px solid rgba(156, 163, 175, 0.3);"
+                    }
+                    
+                    html_rows = []
+                    for c in filtered_details:
+                        time_str = format_seconds(c.get("offset_seconds", 0))
+                        msg = c.get("message", "")
+                        cat = c.get("category", "other")
+                        badge_style = badge_styles.get(cat, badge_styles["other"])
+                        cat_jp = cat_options.get(cat, "その他")
+                        
+                        html_rows.append(f"""
+                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                            <td style="padding: 0.6rem 0.8rem; color: #9ca3af; font-family: monospace; font-size: 0.9rem; white-space: nowrap;">🕒 {time_str}</td>
+                            <td style="padding: 0.6rem 0.8rem; color: #f3f4f6; text-align: left; font-size: 0.95rem;">{msg}</td>
+                            <td style="padding: 0.6rem 0.8rem; text-align: right; white-space: nowrap;">
+                                <span style="padding: 0.2rem 0.5rem; border-radius: 6px; font-size: 0.78rem; font-weight: 700; {badge_style}">
+                                    {cat_jp}
+                                </span>
+                            </td>
+                        </tr>
+                        """)
+                        
+                    table_html = f"""
+                    <table style="width: 100%; border-collapse: collapse; background-color: rgba(30, 41, 59, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; overflow: hidden; margin-top: 1rem;">
+                        <thead>
+                            <tr style="background-color: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                                <th style="padding: 0.6rem 0.8rem; text-align: left; color: #9ca3af; font-size: 0.85rem; font-weight: 600; width: 100px;">時間</th>
+                                <th style="padding: 0.6rem 0.8rem; text-align: left; color: #9ca3af; font-size: 0.85rem; font-weight: 600;">コメント内容</th>
+                                <th style="padding: 0.6rem 0.8rem; text-align: right; color: #9ca3af; font-size: 0.85rem; font-weight: 600; width: 120px;">判定された態度</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {"".join(html_rows)}
+                        </tbody>
+                    </table>
+                    """
+                    st.markdown(table_html, unsafe_allow_html=True)
+                else:
+                    st.info("選択された態度カテゴリに該当するコメントはありません。")
+            else:
+                st.info("このリスナーの個別コメント詳細がありません。")
+        else:
+            st.info("このアーカイブには個別のコメント分類詳細データが保存されていません（古いデータなどのため）。")
 
     # ---------------------------------------------------------
     # Tab 2: Topic Analysis

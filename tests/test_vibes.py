@@ -45,6 +45,30 @@ def test_database_manager():
     assert fetched_vod.transcription_time_seconds == 300
     assert fetched_vod.ai_analysis_time_seconds == 40
     assert fetched_vod.total_analysis_time_seconds == 370
+    
+    # Why verify VODListenerStats serialization?
+    # Ensuring that VODListenerStats correctly serializes and stores the JSON payload for comment details 
+    # protects the UI features from schema regression or mapping failures in production.
+    stats = VODListenerStats(
+        vod_id="test_vod_01",
+        listener_username="listener_alpha",
+        total_comments=5,
+        reaction_comments_count=3,
+        question_comments_count=1,
+        insight_comments_count=0,
+        instruction_comments_count=1,
+        other_comments_count=0,
+        persona_type="reaction",
+        comment_details_json='[{"message": "www", "offset_seconds": 12, "category": "reaction"}]'
+    )
+    db.save_listener_stats([stats])
+    
+    session = db.get_session()
+    fetched_stats = session.query(VODListenerStats).filter_by(vod_id="test_vod_01", listener_username="listener_alpha").first()
+    assert fetched_stats is not None
+    assert fetched_stats.total_comments == 5
+    assert fetched_stats.comment_details_json == '[{"message": "www", "offset_seconds": 12, "category": "reaction"}]'
+    db.remove_session()
 
 
 def test_timeline_merger():
