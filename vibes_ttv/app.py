@@ -36,6 +36,22 @@ def format_seconds(seconds: float) -> str:
         return f"{h:02d}:{m:02d}:{s:02d}"
     return f"{m:02d}:{s:02d}"
 
+def format_twitch_offset(seconds: int) -> str:
+    # Why format as XhYmZs instead of raw seconds?
+    # Twitch's query parameters natively parsing jump times requires time segments (e.g. ?t=1h2m3s).
+    # Sending raw seconds (?t=300) is deprecated on Twitch VOD player and fails on mobile web views,
+    # so standard segmented format guarantees reliable playback navigation.
+    h = int(seconds // 3600)
+    m = int((seconds % 3600) // 60)
+    s = int(seconds % 60)
+    parts = []
+    if h > 0:
+        parts.append(f"{h}h")
+    if m > 0 or h > 0:
+        parts.append(f"{m}m")
+    parts.append(f"{s}s")
+    return "".join(parts)
+
 def calculate_chat_velocities(chat_data: list[dict], duration_seconds: int) -> tuple[float, int, str]:
     import json
     if not chat_data:
@@ -592,6 +608,12 @@ def main():
             display: inline-block;
             margin-left: 8px;
         }
+        
+        /* Prevent stale components from flickering during analysis runner reruns */
+        [data-stale="true"] {
+            opacity: 0.7 !important;
+            transition: none !important;
+        }
     </style>
     """, unsafe_allow_html=True)
     
@@ -1121,6 +1143,38 @@ def main():
             best_3 = sorted_pairs[:3]
             worst_3 = sorted(topic_velocity_pairs, key=lambda x: x[1])[:3]
             
+            # Why calculate occupy durations for category percentages?
+            # Calculating category ratios by duration sum (start-to-end seconds) instead of simple topic count
+            # accurately reflects how much stream time was spent on each topic type.
+            st.markdown("##### 📊 話題の分類比率")
+            cat_durations = {}
+            for t in topics:
+                dur = t.end_offset_seconds - t.start_offset_seconds
+                cat_label = cat_jp_map.get(t.category, t.category)
+                cat_durations[cat_label] = cat_durations.get(cat_label, 0) + dur
+                
+            topic_breakdown = pd.DataFrame([
+                {"カテゴリ": k, "時間(分)": round(v / 60, 1)} for k, v in cat_durations.items()
+            ])
+            
+            import altair as alt
+            # Donut chart rendering with Altair
+            # Why use donut chart?
+            # Donut charts match the dashboard's premium styling and visualize category distributions cleanly.
+            donut_topic = alt.Chart(topic_breakdown).mark_arc(innerRadius=50, outerRadius=90).encode(
+                theta=alt.Theta(field="時間(分)", type="quantitative"),
+                color=alt.Color(
+                    field="カテゴリ",
+                    type="nominal",
+                    scale=alt.Scale(scheme="purples") # Aesthetic purple color scale matching Twitch theme
+                ),
+                tooltip=["カテゴリ", "時間(分)"]
+            ).properties(
+                height=220
+            )
+            st.altair_chart(donut_topic, width="stretch")
+            st.markdown("<br/>", unsafe_allow_html=True)
+            
             st.markdown("##### 📈 話題の盛り上がりランキング")
             r_col1, r_col2 = st.columns(2)
             
@@ -1138,9 +1192,11 @@ def main():
                 for idx, (t, vel) in enumerate(best_3):
                     time_range = f"{format_seconds(t.start_offset_seconds)} 〜 {format_seconds(t.end_offset_seconds)}"
                     desc = t.description[:40] + "..." if len(t.description) > 40 else t.description
+                    twitch_url = f"https://www.twitch.tv/videos/{vod.vod_id}?t={format_twitch_offset(t.start_offset_seconds)}"
+                    
                     st.markdown(f"""
                     <div style="margin-bottom:0.75rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom:0.5rem; text-align:left;">
-                        <strong style="color:#f3f4f6;">{medals[idx]} | {time_range}</strong> <span style="color:#10b981; font-weight:700;">({vel} 件/分)</span><br/>
+                        <strong style="color:#f3f4f6;">{medals[idx]} | <a href="{twitch_url}" target="_blank" style="color: #c084fc; text-decoration: none; border-bottom: 1px dashed rgba(192, 132, 252, 0.4);">{time_range} 🔗</a></strong> <span style="color:#10b981; font-weight:700;">({vel} 件/分)</span><br/>
                         <span style="color:#9ca3af; font-size:0.85rem;">{desc}</span>
                     </div>
                     """, unsafe_allow_html=True)
@@ -1159,9 +1215,11 @@ def main():
                 for idx, (t, vel) in enumerate(worst_3):
                     time_range = f"{format_seconds(t.start_offset_seconds)} 〜 {format_seconds(t.end_offset_seconds)}"
                     desc = t.description[:40] + "..." if len(t.description) > 40 else t.description
+                    twitch_url = f"https://www.twitch.tv/videos/{vod.vod_id}?t={format_twitch_offset(t.start_offset_seconds)}"
+                    
                     st.markdown(f"""
                     <div style="margin-bottom:0.75rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom:0.5rem; text-align:left;">
-                        <strong style="color:#f3f4f6;">{slugs[idx]} | {time_range}</strong> <span style="color:#f87171; font-weight:700;">({vel} 件/分)</span><br/>
+                        <strong style="color:#f3f4f6;">{slugs[idx]} | <a href="{twitch_url}" target="_blank" style="color: #c084fc; text-decoration: none; border-bottom: 1px dashed rgba(192, 132, 252, 0.4);">{time_range} 🔗</a></strong> <span style="color:#f87171; font-weight:700;">({vel} 件/分)</span><br/>
                         <span style="color:#9ca3af; font-size:0.85rem;">{desc}</span>
                     </div>
                     """, unsafe_allow_html=True)
@@ -1190,10 +1248,12 @@ def main():
             hc_badge_html = "<span class='hc-badge'>⚠ ハイコンテクスト</span>" if t.is_high_context else "<span class='lc-badge'>✓ ローコンテクスト</span>"
             hc_class = "topic-row-hc" if t.is_high_context else ""
             
+            twitch_url = f"https://www.twitch.tv/videos/{vod.vod_id}?t={format_twitch_offset(t.start_offset_seconds)}"
+            
             st.markdown(f"""
             <div class="topic-row {hc_class}" style="display: flex; justify-content: space-between; align-items: stretch;">
                 <div style="flex: 1; padding-right: 1.5rem;">
-                    <strong>🕒 {time_range} | 分類: {cat_label}</strong>
+                    <strong><a href="{twitch_url}" target="_blank" style="color: #c084fc; text-decoration: none; border-bottom: 1px dashed rgba(192, 132, 252, 0.4); padding-bottom: 1px;">🕒 {time_range} | 分類: {cat_label} 🔗</a></strong>
                     <div style="margin-top: 0.5rem; color: #d1d5db; font-size: 0.95rem;">
                         {t.description}
                     </div>
