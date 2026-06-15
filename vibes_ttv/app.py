@@ -319,21 +319,11 @@ def run_real_analysis_thread(runner: AnalysisRunner) -> str:
         session_db = db.get_session()
         try:
             # Delete legacy associated tables to prevent duplicate records accumulation
-            # Why delete both v-prefixed and raw numeric VOD IDs?
-            # When re-analyzing, Twitch or external libs (like yt-dlp) might return a different ID format 
-            # (e.g. raw numeric vs v-prefixed). Checking for both ensures that legacy orphan records 
-            # are fully cleared, and only the newest analyzed VOD datasets are kept.
-            target_ids = [vod_id]
-            if vod_id.startswith('v'):
-                target_ids.append(vod_id[1:])
-            else:
-                target_ids.append(f"v{vod_id}")
-                
-            for tid in target_ids:
-                session_db.query(Topic).filter_by(vod_id=tid).delete()
-                session_db.query(VODListenerStats).filter_by(vod_id=tid).delete()
-                if tid != vod_id:
-                    session_db.query(VOD).filter_by(vod_id=tid).delete()
+            # Why delete by vod_id?
+            # Since both selected_vod_id and the newly analyzed vod_id maintain 'v'-prefixed consistency,
+            # we can safely delete old records by the exact same vod_id in a single transaction block.
+            session_db.query(Topic).filter_by(vod_id=vod_id).delete()
+            session_db.query(VODListenerStats).filter_by(vod_id=vod_id).delete()
             
             # Save or update VOD record
             vod.chat_collection_time_seconds = t_chat_collection
@@ -543,21 +533,11 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
         session_db = db.get_session()
         try:
             # Delete legacy associated tables to prevent duplicate records accumulation
-            # Why delete both v-prefixed and raw numeric VOD IDs?
-            # When re-analyzing, Twitch or external libs (like yt-dlp) might return a different ID format 
-            # (e.g. raw numeric vs v-prefixed). Checking for both ensures that legacy orphan records 
-            # are fully cleared, and only the newest analyzed VOD datasets are kept.
-            target_ids = [vod_id]
-            if vod_id.startswith('v'):
-                target_ids.append(vod_id[1:])
-            else:
-                target_ids.append(f"v{vod_id}")
-                
-            for tid in target_ids:
-                session_db.query(Topic).filter_by(vod_id=tid).delete()
-                session_db.query(VODListenerStats).filter_by(vod_id=tid).delete()
-                if tid != vod_id:
-                    session_db.query(VOD).filter_by(vod_id=tid).delete()
+            # Why delete by vod_id?
+            # Since both selected_vod_id and the newly analyzed vod_id maintain 'v'-prefixed consistency,
+            # we can safely delete old records by the exact same vod_id in a single transaction block.
+            session_db.query(Topic).filter_by(vod_id=vod_id).delete()
+            session_db.query(VODListenerStats).filter_by(vod_id=vod_id).delete()
             
             # Save or update VOD record
             vod.chat_collection_time_seconds = t_chat_collection
