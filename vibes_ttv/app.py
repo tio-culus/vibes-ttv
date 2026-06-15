@@ -1165,7 +1165,10 @@ def main():
                 color=alt.Color(
                     field="カテゴリ",
                     type="nominal",
-                    scale=alt.Scale(scheme="purples") # Aesthetic purple color scale matching Twitch theme
+                    scale=alt.Scale(
+                        domain=["ゲーム内容", "時事・日常会話", "過去配信の話題", "その他・雑談"],
+                        range=["#a855f7", "#3b82f6", "#10b981", "#6b7280"]
+                    )
                 ),
                 tooltip=["カテゴリ", "時間(分)"]
             ).properties(
