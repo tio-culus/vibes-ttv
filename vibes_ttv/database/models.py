@@ -44,6 +44,22 @@ class VOD(Base):
     # and lets us show a historical log to the user.
     merged_timeline_text = Column(String, nullable=True)
     
+    # Why save serialized JSON instead of a separate table?
+    # Saving velocity time-series data as a JSON string within the VOD table avoids database JOIN 
+    # overhead and batch-insert complexity for simple one-dimensional data. This keeps the database 
+    # query performance high and simplifies data modeling.
+    chat_velocity_json = Column(String, nullable=True)
+    
+    # Why save execution times in the database?
+    # Persisting performance metrics directly inside the database allows the user to analyze 
+    # Whisper's transcription throughput (processing speeds) and Gemini's analysis latencies 
+    # historically, ensuring that performance diagnostics are retained across sessions.
+    chat_collection_time_seconds = Column(Integer, nullable=True)
+    extraction_time_seconds = Column(Integer, nullable=True)
+    transcription_time_seconds = Column(Integer, nullable=True)
+    ai_analysis_time_seconds = Column(Integer, nullable=True)
+    total_analysis_time_seconds = Column(Integer, nullable=True)
+    
     streamer = relationship("Streamer", back_populates="vods")
     topics = relationship("Topic", back_populates="vod")
     listener_stats = relationship("VODListenerStats", back_populates="vod")

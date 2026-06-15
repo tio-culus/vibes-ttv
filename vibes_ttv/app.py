@@ -36,9 +36,10 @@ def format_seconds(seconds: float) -> str:
         return f"{h:02d}:{m:02d}:{s:02d}"
     return f"{m:02d}:{s:02d}"
 
-def calculate_chat_velocities(chat_data: list[dict], duration_seconds: int) -> tuple[float, int]:
+def calculate_chat_velocities(chat_data: list[dict], duration_seconds: int) -> tuple[float, int, str]:
+    import json
     if not chat_data:
-        return 0.0, 0
+        return 0.0, 0, "[]"
     df = pd.DataFrame(chat_data)
     total_chats = len(df)
     hours = max(duration_seconds / 3600.0, 0.01)
@@ -47,7 +48,23 @@ def calculate_chat_velocities(chat_data: list[dict], duration_seconds: int) -> t
     df['minute_bin'] = (df['offset_seconds'] // 60).astype(int)
     chats_per_minute = df.groupby('minute_bin').size()
     max_velocity_min = int(chats_per_minute.max()) if not chats_per_minute.empty else 0
-    return avg_velocity_hour, max_velocity_min
+    
+    # Why fill zero for missing minutes?
+    # Skipping minutes without chats would make the line chart discontinuous 
+    # and skew the timeline representation. Generating a complete range of minutes 
+    # filled with zeros preserves temporal fidelity.
+    duration_minutes = int(duration_seconds // 60)
+    max_minute = duration_minutes
+    if not chats_per_minute.empty:
+        max_minute = max(max_minute, int(chats_per_minute.index.max()))
+        
+    velocity_list = []
+    for m in range(max_minute + 1):
+        count = int(chats_per_minute.get(m, 0))
+        velocity_list.append({"minute": m, "count": count})
+        
+    velocity_json = json.dumps(velocity_list)
+    return avg_velocity_hour, max_velocity_min, velocity_json
 
 def extract_vod_id(url: str) -> str:
     # Why use regex for VOD ID extraction?
@@ -59,153 +76,259 @@ def extract_vod_id(url: str) -> str:
     # Fallback to alphanumeric cleaning if format differs slightly
     return re.sub(r'\W+', '', url.split('/')[-1])
 
+import threading
+
+class AnalysisRunner:
+    # Why use a thread-safe AnalysisRunner?
+    # Streamlit execution is stateless and synchronous, which makes direct UI button interaction 
+    # during long processes impossible. Running the analysis pipeline in a background thread 
+    # and tracking progress metrics inside a thread-safe runner object allows the UI to poll 
+    # status and render action buttons (pause, resume, stop) reliably.
+    def __init__(self, db, vod_url: str, api_key: str, model_name: str, batch_size: int):
+        self.db = db
+        self.vod_url = vod_url
+        self.api_key = api_key
+        self.model_name = model_name
+        self.batch_size = batch_size
+        
+        self.progress_val = 0
+        self.message = "初期化中..."
+        self.is_pausable = True
+        self.is_done = False
+        self.error = None
+        self.vod_id = None
+        
+        # Why track start_time in the runner?
+        # Storing start_time allows the main thread (UI loop) to calculate elapsed time dynamically 
+        # during st.rerun() polling, preventing the timer from freezing when the background thread 
+        # is executing blocking operations (like Whisper) and not pushing callback updates.
+        import time
+        self.start_time = time.time()
+        
+        self.chat_collection_time = 0
+        self.extraction_time = 0
+        self.transcription_time = 0
+        self.ai_analysis_time = 0
+        self.total_analysis_time = 0
+        
+        self.pause_event = threading.Event()
+        self.pause_event.set()  # True means "Running"
+        self.stop_event = threading.Event()
+        
+        self._thread = None
+        
+    def start(self):
+        self._thread = threading.Thread(target=self._run)
+        self._thread.daemon = True
+        self._thread.start()
+        
+    def _run(self):
+        try:
+            self.vod_id = run_real_analysis_thread(self)
+            self.is_done = True
+        except Exception as e:
+            self.error = str(e)
+            self.is_done = True
+            
+    def check_pause(self):
+        # Why raise custom Exception on stop?
+        # Raising an exception immediately halts the execution of loops in submodules 
+        # (like chat collection or Gemini batching) and ensures that execution is stopped safely.
+        if self.stop_event.is_set():
+            raise Exception("分析が中止されました。")
+        while not self.pause_event.is_set():
+            if self.stop_event.is_set():
+                raise Exception("分析が中止されました。")
+            import time
+            time.sleep(0.5)
+            
+    def set_pausable(self, pausable: bool):
+        self.is_pausable = pausable
+
+
+def run_real_analysis_thread(runner: AnalysisRunner) -> str:
+    db = runner.db
+    vod_url = runner.vod_url
+    api_key = runner.api_key
+    model_name = runner.model_name
+    batch_size = runner.batch_size
+    
+    import time
+    start_time = time.time()
+    
+    t_chat_collection = 0
+    t_extraction = 0
+    t_transcription = 0
+    t_ai_analysis = 0
+    
+    def progress_callback(message: str, progress_val: int):
+        runner.check_pause()
+        runner.message = message
+        runner.progress_val = progress_val
+        
+    try:
+        # Step 0: Get VOD metadata
+        runner.set_pausable(True)
+        progress_callback("🔍 [0/5] Twitch VOD メタデータを取得中...", 5)
+        collector = ChatCollector()
+        metadata = collector.get_video_metadata(vod_url)
+        
+        # Step 1: Collect chat logs
+        runner.set_pausable(True)
+        progress_callback("🤖 [1/5] Twitchチャットログを収集中...", 10)
+        t_chat_start = time.time()
+        chat_data = collector.collect_chat(vod_url, progress_callback=progress_callback)
+        t_chat_collection = int(time.time() - t_chat_start)
+        if not chat_data:
+            raise Exception("チャットログの取得に失敗しました。URLが正しいか、VODが公開されているかご確認ください。")
+            
+        # Step 2: Download and extract audio
+        # Why disable pause during download?
+        # Audio download runs as a subprocess via yt-dlp. Stopping a subprocess in PyTorch/Python 
+        # is unpredictable and prone to resource leaks. Disabling pause is safer.
+        runner.set_pausable(False)
+        progress_callback("🎵 [2/5] VODから音声トラックを抽出中 (yt-dlp)...", 30)
+        t_extract_start = time.time()
+        audio_coll = AudioCollector()
+        audio_path = audio_coll.collect_audio(vod_url, progress_callback=progress_callback)
+        t_extraction = int(time.time() - t_extract_start)
+        vod_id = os.path.basename(audio_path).replace(".mp3", "")
+        
+        # Step 3: Transcription using Local Whisper
+        # Why disable pause during Whisper?
+        # Local model transcription runs highly optimized blocking PyTorch code. Forcing 
+        # it to stop requires complex multi-processing hacks. Completing it without pause is more robust.
+        runner.set_pausable(False)
+        progress_callback(f"✍️ [3/5] Whisper ({model_name}) で音声を文字起こし中... (数分かかる場合があります)", 50)
+        t_transcribe_start = time.time()
+        transcriber = WhisperTranscriber()
+        segments = transcriber.transcribe(audio_path, model_name=model_name)
+        t_transcription = int(time.time() - t_transcribe_start)
+        
+        # Step 4: Merge chats and text
+        runner.set_pausable(True)
+        progress_callback("🔗 [4/5] チャットログと音声認識タイムスタンプをアラインメント中...", 75)
+        merger = TimelineMerger()
+        merged_events = merger.merge(segments, chat_data)
+        timeline_txt = merger.format_to_text(merged_events)
+        
+        # Step 5: AI analysis using Gemini API
+        runner.set_pausable(True)
+        progress_callback("🧠 [5/5] Gemini API で話題のコンテキストを抽出中...", 80)
+        t_ai_start = time.time()
+        
+        if metadata:
+            streamer_id = metadata.get("streamer_id") or "twitch_streamer"
+            streamer_name = metadata.get("streamer_name") or "Twitch Streamer"
+            title = metadata.get("title") or f"Twitch配信アーカイブ (ID: {vod_id})"
+            duration = metadata.get("duration_seconds") or int(merged_events[-1]["offset_seconds"]) if merged_events else 3600
+            
+            streamed_at = datetime.now()
+            created_at_str = metadata.get("created_at")
+            if created_at_str:
+                try:
+                    streamed_at = datetime.fromisoformat(created_at_str.replace("Z", "+00:00"))
+                except Exception:
+                    pass
+        else:
+            streamer_id = "twitch_streamer"
+            streamer_name = "Twitch Streamer"
+            title = f"Twitch配信アーカイブ (ID: {vod_id})"
+            duration = int(merged_events[-1]["offset_seconds"]) if merged_events else 3600
+            streamed_at = datetime.now()
+            
+        streamer = db.get_or_create_streamer(streamer_id, streamer_name)
+        avg_vel, max_vel, vel_json = calculate_chat_velocities(chat_data, duration)
+        
+        vod = VOD(
+            vod_id=vod_id,
+            streamer_id=streamer.streamer_id,
+            title=title,
+            duration_seconds=duration,
+            streamed_at=streamed_at,
+            average_viewers=0,
+            avg_chat_velocity_hour=avg_vel,
+            max_chat_velocity_min=max_vel,
+            merged_timeline_text=timeline_txt,
+            chat_velocity_json=vel_json
+        )
+        db.save_vod(vod)
+        
+        topic_analyzer = TopicAnalyzer(api_key=api_key)
+        topics_data = topic_analyzer.analyze_topics(timeline_txt)
+        db_topics = [
+            Topic(
+                vod_id=vod_id,
+                start_offset_seconds=t["start_offset_seconds"],
+                end_offset_seconds=t["end_offset_seconds"],
+                category=t["category"],
+                description=t["description"],
+                is_high_context=t["is_high_context"]
+            )
+            for t in topics_data
+        ]
+        db.save_topics(db_topics)
+        
+        comment_analyzer = CommentAnalyzer(api_key=api_key)
+        listener_stats = comment_analyzer.analyze_listeners(chat_data, batch_size=batch_size, progress_callback=progress_callback)
+        db_stats = [
+            VODListenerStats(
+                vod_id=vod_id,
+                listener_username=s["username"],
+                total_comments=s["total_comments"],
+                reaction_comments_count=s["reaction_comments_count"],
+                question_comments_count=s["question_comments_count"],
+                insight_comments_count=s["insight_comments_count"],
+                instruction_comments_count=s["instruction_comments_count"],
+                other_comments_count=s["other_comments_count"],
+                persona_type=s["persona_type"]
+            )
+            for s in listener_stats
+        ]
+        db.save_listener_stats(db_stats)
+        
+        if os.path.exists(audio_path):
+            os.remove(audio_path)
+            
+        t_ai_analysis = int(time.time() - t_ai_start)
+        total_time = int(time.time() - start_time)
+        
+        # Update VOD performance stats in DB
+        vod.chat_collection_time_seconds = t_chat_collection
+        vod.extraction_time_seconds = t_extraction
+        vod.transcription_time_seconds = t_transcription
+        vod.ai_analysis_time_seconds = t_ai_analysis
+        vod.total_analysis_time_seconds = total_time
+        db.save_vod(vod)
+        
+        # Expose stats to the runner
+        runner.chat_collection_time = t_chat_collection
+        runner.extraction_time = t_extraction
+        runner.transcription_time = t_transcription
+        runner.ai_analysis_time = t_ai_analysis
+        runner.total_analysis_time = total_time
+        
+        progress_callback("✨ 分析完了！", 100)
+        return vod_id
+        
+    except Exception as e:
+        try:
+            if 'audio_path' in locals() and os.path.exists(audio_path):
+                os.remove(audio_path)
+        except Exception:
+            pass
+        raise e
+
+
 # ---------------------------------------------------------
 # Mock Data Generator (for Quick Validation)
 # ---------------------------------------------------------
-def create_mock_data(db: DBManager) -> str:
-    # Why not generate dynamically every page load?
-    # Keeping mock data persistent in SQLite mirrors real usage 
-    # and tests the DB fetch logic correctly on subsequent loads.
-    streamer = db.get_or_create_streamer("tio_vtuber", "ティオ Ch.")
-    
-    vod_id = "mock_vod_001"
-    existing_vod = db.get_vod(vod_id)
-    if existing_vod:
-        return vod_id
-        
-    vod = VOD(
-        vod_id=vod_id,
-        streamer_id=streamer.streamer_id,
-        title="【大感謝】雑談しながら難関ボス攻略！新アプデも確認していくぞ【ティオ】",
-        duration_seconds=5400,
-        streamed_at=datetime.now(),
-        average_viewers=150,
-        avg_chat_velocity_hour=800.0,
-        max_chat_velocity_min=75
-    )
-    db.save_vod(vod)
-    
-    topics = [
-        Topic(
-            vod_id=vod_id,
-            start_offset_seconds=0,
-            end_offset_seconds=900,
-            category="daily_news",
-            description="最近オープンした美味しいカフェの話と、昨日のニュースについての雑談。ニュースの前置きや前提説明が省かれているため、初見リスナーには少し難解。",
-            is_high_context=True
-        ),
-        Topic(
-            vod_id=vod_id,
-            start_offset_seconds=900,
-            end_offset_seconds=3600,
-            category="game",
-            description="アプデ後の高難易度ボス『真・魔王』への挑戦。ボスのギミックやアプデ内容を初見リスナー向けに解説しながらプレイ。",
-            is_high_context=False
-        ),
-        Topic(
-            vod_id=vod_id,
-            start_offset_seconds=3600,
-            end_offset_seconds=4500,
-            category="past_stream",
-            description="先週のホラゲ配信で発生したバグや、その時のリスナーとの身内ネタについてのトーク。過去枠を見ていないと伝わりづらいハイコンテクストな話題。",
-            is_high_context=True
-        ),
-        Topic(
-            vod_id=vod_id,
-            start_offset_seconds=4500,
-            end_offset_seconds=5400,
-            category="other",
-            description="配信のエンディング、今後の配信スケジュールの告知、及びスパチャ・支援者への感謝読み上げ。",
-            is_high_context=False
-        ),
-    ]
-    db.save_topics(topics)
-    
-    # Generate Mock Listener Stats
-    stats_list = []
-    # 45 reaction users
-    for i in range(45):
-        stats_list.append(VODListenerStats(
-            vod_id=vod_id,
-            listener_username=f"listener_react_{i:02d}",
-            total_comments=15,
-            reaction_comments_count=12,
-            question_comments_count=1,
-            insight_comments_count=0,
-            instruction_comments_count=0,
-            other_comments_count=2,
-            persona_type="reaction"
-        ))
-    # 15 question users
-    for i in range(15):
-        stats_list.append(VODListenerStats(
-            vod_id=vod_id,
-            listener_username=f"listener_quest_{i:02d}",
-            total_comments=8,
-            reaction_comments_count=1,
-            question_comments_count=6,
-            insight_comments_count=0,
-            instruction_comments_count=0,
-            other_comments_count=1,
-            persona_type="question"
-        ))
-    # 10 insight users
-    for i in range(10):
-        stats_list.append(VODListenerStats(
-            vod_id=vod_id,
-            listener_username=f"listener_insight_{i:02d}",
-            total_comments=5,
-            reaction_comments_count=0,
-            question_comments_count=1,
-            insight_comments_count=4,
-            instruction_comments_count=0,
-            other_comments_count=0,
-            persona_type="insight"
-        ))
-    # 5 instruction users
-    for i in range(5):
-        stats_list.append(VODListenerStats(
-            vod_id=vod_id,
-            listener_username=f"listener_inst_{i:02d}",
-            total_comments=6,
-            reaction_comments_count=1,
-            question_comments_count=0,
-            insight_comments_count=0,
-            instruction_comments_count=4,
-            other_comments_count=1,
-            persona_type="instruction"
-        ))
-    # 25 other users
-    for i in range(25):
-        stats_list.append(VODListenerStats(
-            vod_id=vod_id,
-            listener_username=f"listener_other_{i:02d}",
-            total_comments=10,
-            reaction_comments_count=2,
-            question_comments_count=1,
-            insight_comments_count=0,
-            instruction_comments_count=0,
-            other_comments_count=7,
-            persona_type="other"
-        ))
-    db.save_listener_stats(stats_list)
-    return vod_id
 
-def get_mock_velocity_data() -> pd.DataFrame:
-    minutes = list(range(90))
-    np.random.seed(42)
-    base = 15 + np.sin(np.array(minutes) / 5) * 10
-    # Add peak for boss fight (minutes 15 to 60)
-    for i in range(15, 60):
-        base[i] += 25 + np.random.randint(0, 25)
-    base[50] = 75  # absolute peak when boss dies
-    velocities = [max(int(v), 2) for v in base]
-    return pd.DataFrame({"時間 (分)": minutes, "コメント分速": velocities})
 
 # ---------------------------------------------------------
 # Real Pipeline Runner
 # ---------------------------------------------------------
-def run_real_analysis(db: DBManager, vod_url: str, avg_viewers: int, api_key: str, model_name: str, batch_size: int = 30) -> str:
+def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str, batch_size: int = 30) -> str:
     status_text = st.empty()
     progress_bar = st.progress(0)
     
@@ -278,7 +401,7 @@ def run_real_analysis(db: DBManager, vod_url: str, avg_viewers: int, api_key: st
             streamed_at = datetime.now()
             
         streamer = db.get_or_create_streamer(streamer_id, streamer_name)
-        avg_vel, max_vel = calculate_chat_velocities(chat_data, duration)
+        avg_vel, max_vel, vel_json = calculate_chat_velocities(chat_data, duration)
         
         vod = VOD(
             vod_id=vod_id,
@@ -286,10 +409,11 @@ def run_real_analysis(db: DBManager, vod_url: str, avg_viewers: int, api_key: st
             title=title,
             duration_seconds=duration,
             streamed_at=streamed_at,
-            average_viewers=avg_viewers,
+            average_viewers=0,  # Viewer count input is removed from UI
             avg_chat_velocity_hour=avg_vel,
             max_chat_velocity_min=max_vel,
-            merged_timeline_text=timeline_txt
+            merged_timeline_text=timeline_txt,
+            chat_velocity_json=vel_json
         )
         db.save_vod(vod)
         
@@ -463,7 +587,7 @@ def main():
     # Mode selection
     mode = st.sidebar.radio(
         "分析モードを選択してください",
-        ["過去の分析結果を閲覧", "デモ・モックデータ", "実際のVODを分析"]
+        ["過去の分析結果を閲覧", "実際のVODを分析"]
     )
     
     selected_vod_id = None
@@ -499,15 +623,6 @@ def main():
                         selected_vod_id = selected_vod.vod_id
                         st.session_state["vod_id"] = selected_vod_id
                         
-    elif mode == "デモ・モックデータ":
-        st.sidebar.info("💡 ティオさん、デモモードではRTX 4070やGeminiのAPIキーを使用せず、プリセットのデータで即座にダッシュボードを確認できます。")
-        # Why width="stretch" instead of use_container_width=True?
-        # In newer Streamlit versions (1.58.0+), use_container_width is deprecated and throws console warnings.
-        # Replacing it with width="stretch" eliminates warnings while keeping the responsive button layout.
-        if st.sidebar.button("デモデータを読み込む", width="stretch"):
-            selected_vod_id = create_mock_data(db)
-            st.session_state["vod_id"] = selected_vod_id
-            st.sidebar.success("デモデータをデータベースに作成しました！")
     else:
         # Real Mode Config
         # Why not type="password"?
@@ -524,7 +639,6 @@ def main():
             index=5 # default turbo
         )
         vod_url = st.sidebar.text_input("Twitch VOD URL", value="https://www.twitch.tv/videos/123456789")
-        avg_viewers = st.sidebar.number_input("平均同接数 (コメント比率計算用)", min_value=1, value=150)
         # Why not hardcode batch size?
         # Different batch sizes affect the accuracy of the user persona grouping and Gemini API rate usage.
         # Letting the user configure it via a sidebar slider from 10 to 100 provides manual optimization.
@@ -537,9 +651,16 @@ def main():
             help="一度にGemini APIに送信するリスナーの数です。値を小さくすると品質が向上する可能性がありますが、API呼び出し回数が増加します。"
         )
         
+        # Check if analysis is currently running
+        # Why check is_running?
+        # Disabling the trigger button while a background analysis thread is active 
+        # prevents multiple concurrent analysis threads from conflicting over the same SQLite DB 
+        # or spawning duplicate yt-dlp/Whisper subprocesses.
+        is_running = "analysis_runner" in st.session_state and not st.session_state["analysis_runner"].is_done
+        
         # Why width="stretch" instead of use_container_width=True?
         # In newer Streamlit versions, use_container_width is deprecated. Replacing it with width="stretch" resolves warnings.
-        if st.sidebar.button("分析を実行する", width="stretch"):
+        if st.sidebar.button("分析を実行する", width="stretch", disabled=is_running):
             if not api_key:
                 st.sidebar.error("Gemini API Key を入力してください。")
             else:
@@ -552,11 +673,10 @@ def main():
                     st.session_state["vod_id"] = vod_id
                     st.sidebar.success("データベースから既存の分析結果を読み込みました！")
                 else:
-                    with st.spinner("配信データを分析中..."):
-                        res_id = run_real_analysis(db, vod_url, avg_viewers, api_key, whisper_model, batch_size=listener_batch_size)
-                        if res_id:
-                            st.session_state["vod_id"] = res_id
-                            st.sidebar.success("分析が完了しました！")
+                    runner = AnalysisRunner(db, vod_url, api_key, whisper_model, listener_batch_size)
+                    st.session_state["analysis_runner"] = runner
+                    runner.start()
+                    st.rerun()
                         
     # Load default session state if exists
     if "vod_id" in st.session_state:
@@ -566,8 +686,80 @@ def main():
     st.markdown("<h1 class='main-header'>vibes-ttv</h1>", unsafe_allow_html=True)
     st.markdown("<div class='sub-header'>Twitch配信アーカイブ（VOD）の態度・話題分析ダッシュボード</div>", unsafe_allow_html=True)
     
+    # Progress rendering and controls if analysis is running
+    if "analysis_runner" in st.session_state:
+        runner = st.session_state["analysis_runner"]
+        
+        # UI card container for analysis progress
+        import time
+        elapsed = int(time.time() - runner.start_time)
+        st.markdown(f"""
+        <div class="dashboard-card" style="border-color: #a855f7; background-color: rgba(168, 85, 247, 0.05);">
+            <h4 style="margin-top:0; color:#a855f7; display:flex; justify-content:space-between; align-items:center;">
+                <span>⚙️ バックグラウンド分析を実行中</span>
+                <span style="font-size:0.85rem; padding:2px 8px; border-radius:12px; background-color:#a855f7; color:white;">
+                    {runner.progress_val}%
+                </span>
+            </h4>
+            <p style="color:#d1d5db; font-size:0.95rem; margin-bottom:0.5rem;">⏱️ 経過時間: {elapsed}秒 | {runner.message}</p>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.progress(runner.progress_val / 100.0 if 0 <= runner.progress_val <= 100 else 0.0)
+        
+        col_ctrl1, col_ctrl2 = st.columns(2)
+        with col_ctrl1:
+            # Why check runner.pause_event?
+            # pause_event.is_set() is True when the analysis is running, and False when paused.
+            # Showing the corresponding button dynamically allows clear control.
+            if runner.pause_event.is_set():
+                is_pausable = runner.is_pausable
+                # Why disable pause during yt-dlp/Whisper?
+                # Subprocesses and local C/C++ model execution block CPU execution in a way 
+                # that cannot be paused safely without causing memory leaks or lockouts.
+                st.button(
+                    "一時停止", 
+                    disabled=not is_pausable, 
+                    key="pause_btn", 
+                    width="stretch",
+                    help="音声抽出中およびWhisper文字起こし中は一時停止できません。" if not is_pausable else None
+                )
+            else:
+                st.button("再開", key="resume_btn", width="stretch")
+                
+        with col_ctrl2:
+            st.button("分析を中止", key="stop_btn", width="stretch")
+            
+        # Handle button actions
+        if st.session_state.get("pause_btn"):
+            runner.pause_event.clear()
+            st.rerun()
+        if st.session_state.get("resume_btn"):
+            runner.pause_event.set()
+            st.rerun()
+        if st.session_state.get("stop_btn"):
+            runner.stop_event.set()
+            runner.pause_event.set()  # resume if paused to exit thread quickly
+            st.rerun()
+            
+        if runner.is_done:
+            if runner.error:
+                st.error(f"分析中にエラーが発生しました: {runner.error}")
+            elif runner.vod_id:
+                st.session_state["vod_id"] = runner.vod_id
+                st.success(f"分析が完了しました！ (合計処理時間: {runner.total_analysis_time}秒)")
+            del st.session_state["analysis_runner"]
+            st.rerun()
+        else:
+            # Why sleep and rerun?
+            # To keep the UI reactive and update the progress bar in near real-time, 
+            # we sleep for 1 second and trigger st.rerun(). This acts as a client-side polling loop.
+            import time
+            time.sleep(1.0)
+            st.rerun()
+    
     if not selected_vod_id:
-        st.info("👈 左側のサイドバーから「デモ・モックデータ」を読み込むか、「実際のVOD」を分析してください。")
+        st.info("👈 左側のサイドバーから「過去の分析結果を閲覧」するか、「実際のVOD」を分析してください。")
         return
         
     # Fetch data from DB
@@ -599,8 +791,8 @@ def main():
     with m_col2:
         st.markdown(f"""
         <div class="dashboard-card">
-            <div class="metric-title">平均同接数 / コメントリスナー数</div>
-            <div class="metric-value">{vod.average_viewers} 人 / {len(stats)} 人</div>
+            <div class="metric-title">コメントリスナー数</div>
+            <div class="metric-value">{len(stats)} 人</div>
         </div>
         """, unsafe_allow_html=True)
         
@@ -619,6 +811,25 @@ def main():
             <div class="metric-value">{vod.max_chat_velocity_min} 回/分</div>
         </div>
         """, unsafe_allow_html=True)
+        
+    # Why check performance attributes?
+    # Older analyzed VODs in the database might not have performance execution times.
+    # We display the panel only if the total time is stored, ensuring a clean dashboard layout.
+    if hasattr(vod, "total_analysis_time_seconds") and vod.total_analysis_time_seconds:
+        with st.expander("⌛ 分析処理のパフォーマンス (処理時間サマリー)", expanded=False):
+            t_trans = vod.transcription_time_seconds or 1
+            ratio = vod.duration_seconds / t_trans
+            
+            p_col1, p_col2, p_col3 = st.columns(3)
+            with p_col1:
+                st.metric("全体の所要時間", f"{vod.total_analysis_time_seconds} 秒")
+                st.metric("音声抽出 (yt-dlp)", f"{vod.extraction_time_seconds or 0} 秒")
+            with p_col2:
+                st.metric("Whisper文字起こし", f"{vod.transcription_time_seconds or 0} 秒")
+                st.metric("チャットログ収集", f"{vod.chat_collection_time_seconds or 0} 秒")
+            with p_col3:
+                st.metric("Whisper推論倍速", f"{ratio:.1f} 倍速")
+                st.metric("Gemini AI分析", f"{vod.ai_analysis_time_seconds or 0} 秒")
         
     # ---------------------------------------------------------
     # Tabs layout for detailed analysis
@@ -697,37 +908,53 @@ def main():
             # Resolves Streamlit deprecation warnings for charts.
             st.altair_chart(donut_persona, width="stretch")
             
-        # Metric: Comment Ratio
-        # Unique chatters / average viewers
-        unique_chatters = len(stats)
-        comment_ratio = unique_chatters / max(vod.average_viewers, 1)
-        
-        st.markdown("<hr/>", unsafe_allow_html=True)
-        col_metric_r, col_desc_r = st.columns([1, 3])
-        with col_metric_r:
-            st.metric("コメント比率 (リスナー数/平均同接)", f"{comment_ratio:.1%}")
-        with col_desc_r:
-            st.markdown(
-                "**コメント比率の評価:**\n"
-                "- **20%以上**: 視聴者のエンゲージメントが非常に高く、一体感がある配信環境です。\n"
-                "- **10%〜20%**: 標準的な配信で、適度なコミュニケーションが行われています。\n"
-                "- **10%以下**: 視聴者の多くはROM（見るだけ）であり、配信者主体の進行になっています。"
-            )
+
             
         # Chart: Velocity line chart
         st.markdown("#### コメント速度の推移")
-        if selected_vod_id == "mock_vod_001":
-            vel_df = get_mock_velocity_data()
-            line_chart = alt.Chart(vel_df).mark_line(color="#a855f7", strokeWidth=2).encode(
-                x="時間 (分):Q",
-                y="コメント分速:Q",
-                tooltip=["時間 (分)", "コメント分速"]
-            ).properties(height=250)
-            # Why width="stretch" instead of use_container_width=True?
-            # Resolves Streamlit deprecation warnings for charts.
-            st.altair_chart(line_chart, width="stretch")
+        # Why check chat_velocity_json?
+        # Older analyzed records or mock data might not have the chat velocity time-series text.
+        # Handling None safely prevents Streamlit rendering exceptions.
+        if hasattr(vod, 'chat_velocity_json') and vod.chat_velocity_json:
+            import json
+            try:
+                vel_data = json.loads(vod.chat_velocity_json)
+                if vel_data:
+                    vel_df = pd.DataFrame(vel_data)
+                    
+                    # Why use Altair layered line and area chart instead of st.line_chart?
+                    # Streamlit's built-in charts offer minimal customization. Overlaying a semi-transparent 
+                    # area chart with a solid line styled in Twitch-theme violet (#a855f7) creates a beautiful 
+                    # glowing trend graph that aligns perfectly with our dark mode theme and supports interactive tooltips.
+                    base = alt.Chart(vel_df).encode(
+                        x=alt.X('minute:Q', title='経過時間 (分)'),
+                        y=alt.Y('count:Q', title='コメント分速 (件/分)'),
+                        tooltip=[
+                            alt.Tooltip('minute:Q', title='経過時間 (分)'),
+                            alt.Tooltip('count:Q', title='コメント数')
+                        ]
+                    )
+                    
+                    area = base.mark_area(
+                        color='#a855f7',
+                        opacity=0.2
+                    )
+                    
+                    line = base.mark_line(
+                        color='#a855f7',
+                        strokeWidth=2
+                    )
+                    
+                    chart = alt.layer(area, line).properties(
+                        height=280
+                    )
+                    st.altair_chart(chart, width="stretch")
+                else:
+                    st.info("コメント速度のデータが空です。")
+            except Exception as e:
+                st.error(f"コメント速度グラフの描画中にエラーが発生しました: {e}")
         else:
-            st.info("リアル分析時のコメント分速時系列チャートは、タイムスタンプベースで集計したものが表示されます。")
+            st.info("このアーカイブには時系列のコメント速度データが保存されていません（古いデータなどのため）。")
             
         # Table: Listener detail list
         st.markdown("#### リスナー詳細一覧")
@@ -761,6 +988,81 @@ def main():
             "other": "その他・雑談"
         }
         
+        # Parse velocity data if exists
+        vel_list = []
+        if hasattr(vod, "chat_velocity_json") and vod.chat_velocity_json:
+            import json
+            try:
+                vel_list = json.loads(vod.chat_velocity_json)
+            except Exception:
+                pass
+                
+        # Collect velocity for all topics to generate rankings
+        topic_velocity_pairs = []
+        for t in topics:
+            start_min = int(t.start_offset_seconds // 60)
+            end_min = int(t.end_offset_seconds // 60)
+            topic_counts = [item["count"] for item in vel_list if start_min <= item["minute"] <= end_min]
+            topic_max_vel = max(topic_counts) if topic_counts else 0
+            topic_velocity_pairs.append((t, topic_max_vel))
+            
+        if topics:
+            # Sort by velocity descending
+            # Why sort topics by velocity?
+            # Sorting allows us to easily slice the top 3 (best) and bottom 3 (worst) topics.
+            # This gives a quick summary of stream highlights and lowlights.
+            sorted_pairs = sorted(topic_velocity_pairs, key=lambda x: x[1], reverse=True)
+            best_3 = sorted_pairs[:3]
+            worst_3 = sorted(topic_velocity_pairs, key=lambda x: x[1])[:3]
+            
+            st.markdown("##### 📈 話題の盛り上がりランキング")
+            r_col1, r_col2 = st.columns(2)
+            
+            with r_col1:
+                # Why use custom inline HTML/CSS?
+                # Streamlit's default container elements lack premium styling features. 
+                # Implementing a custom semi-transparent green background with Outfit-aligned 
+                # typography creates a visually distinct best-3 ranking card.
+                st.markdown("""
+                <div style="background-color: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
+                    <h5 style="margin-top:0; color:#10b981; font-weight:700;">🔥 盛り上がった話題ベスト3</h5>
+                """, unsafe_allow_html=True)
+                
+                medals = ["🥇 1位", "🥈 2位", "🥉 3位"]
+                for idx, (t, vel) in enumerate(best_3):
+                    time_range = f"{format_seconds(t.start_offset_seconds)} 〜 {format_seconds(t.end_offset_seconds)}"
+                    desc = t.description[:40] + "..." if len(t.description) > 40 else t.description
+                    st.markdown(f"""
+                    <div style="margin-bottom:0.75rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom:0.5rem; text-align:left;">
+                        <strong style="color:#f3f4f6;">{medals[idx]} | {time_range}</strong> <span style="color:#10b981; font-weight:700;">({vel} 件/分)</span><br/>
+                        <span style="color:#9ca3af; font-size:0.85rem;">{desc}</span>
+                    </div>
+                    """, unsafe_allow_html=True)
+                st.markdown("</div>", unsafe_allow_html=True)
+                
+            with r_col2:
+                # Why use custom inline HTML/CSS?
+                # Creating a red themed companion card to represent the lowest-activity segments 
+                # gives the user a clear comparative view of silent stream moments.
+                st.markdown("""
+                <div style="background-color: rgba(239, 68, 68, 0.05); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem;">
+                    <h5 style="margin-top:0; color:#f87171; font-weight:700;">💤 静かだった話題ワースト3</h5>
+                """, unsafe_allow_html=True)
+                
+                slugs = ["🐌 1位", "🥈 2位", "🥉 3位"]
+                for idx, (t, vel) in enumerate(worst_3):
+                    time_range = f"{format_seconds(t.start_offset_seconds)} 〜 {format_seconds(t.end_offset_seconds)}"
+                    desc = t.description[:40] + "..." if len(t.description) > 40 else t.description
+                    st.markdown(f"""
+                    <div style="margin-bottom:0.75rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom:0.5rem; text-align:left;">
+                        <strong style="color:#f3f4f6;">{slugs[idx]} | {time_range}</strong> <span style="color:#f87171; font-weight:700;">({vel} 件/分)</span><br/>
+                        <span style="color:#9ca3af; font-size:0.85rem;">{desc}</span>
+                    </div>
+                    """, unsafe_allow_html=True)
+                st.markdown("</div>", unsafe_allow_html=True)
+                
+            st.markdown("<hr/>", unsafe_allow_html=True)
+        
         # Sort topics chronologically
         sorted_topics = sorted(topics, key=lambda x: x.start_offset_seconds)
         
@@ -768,17 +1070,33 @@ def main():
             time_range = f"{format_seconds(t.start_offset_seconds)} 〜 {format_seconds(t.end_offset_seconds)}"
             cat_label = cat_jp_map.get(t.category, t.category)
             
+            # Calculate maximum velocity in the topic's time range
+            start_min = int(t.start_offset_seconds // 60)
+            end_min = int(t.end_offset_seconds // 60)
+            
+            # Why filter and get max?
+            # Instead of performing complex queries or recalculations, we can scan the VOD's 
+            # pre-calculated chat_velocity_json. This delivers maximum instant lookup performance 
+            # and works transparently for all historical data without database re-creation.
+            topic_counts = [item["count"] for item in vel_list if start_min <= item["minute"] <= end_min]
+            topic_max_vel = max(topic_counts) if topic_counts else 0
+            
             hc_badge_html = "<span class='hc-badge'>⚠ ハイコンテクスト</span>" if t.is_high_context else "<span class='lc-badge'>✓ ローコンテクスト</span>"
             hc_class = "topic-row-hc" if t.is_high_context else ""
             
             st.markdown(f"""
-            <div class="topic-row {hc_class}">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="topic-row {hc_class}" style="display: flex; justify-content: space-between; align-items: stretch;">
+                <div style="flex: 1; padding-right: 1.5rem;">
                     <strong>🕒 {time_range} | 分類: {cat_label}</strong>
-                    {hc_badge_html}
+                    <div style="margin-top: 0.5rem; color: #d1d5db; font-size: 0.95rem;">
+                        {t.description}
+                    </div>
                 </div>
-                <div style="margin-top: 0.5rem; color: #d1d5db; font-size: 0.95rem;">
-                    {t.description}
+                <div style="display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; min-width: 145px; text-align: right;">
+                    {hc_badge_html}
+                    <div style="color: #c084fc; font-size: 0.85rem; font-weight: 700; margin-top: 0.5rem; white-space: nowrap;">
+                        🚀 最大瞬間分速: {topic_max_vel} 件/分
+                    </div>
                 </div>
             </div>
             """, unsafe_allow_html=True)

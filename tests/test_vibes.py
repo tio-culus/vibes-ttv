@@ -26,13 +26,25 @@ def test_database_manager():
         vod_id="test_vod_01",
         streamer_id="test_user",
         title="Test Stream Title",
-        duration_seconds=3600
+        duration_seconds=3600,
+        chat_velocity_json='[{"minute": 0, "count": 10}]',
+        chat_collection_time_seconds=10,
+        extraction_time_seconds=20,
+        transcription_time_seconds=300,
+        ai_analysis_time_seconds=40,
+        total_analysis_time_seconds=370
     )
     db.save_vod(vod)
     
     fetched_vod = db.get_vod("test_vod_01")
     assert fetched_vod is not None
     assert fetched_vod.title == "Test Stream Title"
+    assert fetched_vod.chat_velocity_json == '[{"minute": 0, "count": 10}]'
+    assert fetched_vod.chat_collection_time_seconds == 10
+    assert fetched_vod.extraction_time_seconds == 20
+    assert fetched_vod.transcription_time_seconds == 300
+    assert fetched_vod.ai_analysis_time_seconds == 40
+    assert fetched_vod.total_analysis_time_seconds == 370
 
 
 def test_timeline_merger():
@@ -95,3 +107,77 @@ def test_chat_collector_file_cache():
     finally:
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
+
+
+def test_calculate_chat_velocities():
+    # Why import locally?
+    # Importing locally in test functions isolates module loading errors 
+    # and ensures that test cases remain modular.
+    from vibes_ttv.app import calculate_chat_velocities
+    chat_data = [
+        {"offset_seconds": 10.0, "username": "user1", "message": "hello"},
+        {"offset_seconds": 70.0, "username": "user2", "message": "world"},
+        {"offset_seconds": 130.0, "username": "user1", "message": "again"}
+    ]
+    avg_vel, max_vel, vel_json = calculate_chat_velocities(chat_data, 180)
+    assert avg_vel == 60.0  # 3 chats / 0.05 hours = 60.0
+    assert max_vel == 1     # max chats in a single minute bin is 1
+    
+    import json
+    parsed = json.loads(vel_json)
+    # duration is 180 seconds, so max_minute is 3. range(4) -> 0, 1, 2, 3
+    assert len(parsed) == 4
+    assert parsed[0] == {"minute": 0, "count": 1}
+    assert parsed[1] == {"minute": 1, "count": 1}
+    assert parsed[2] == {"minute": 2, "count": 1}
+    assert parsed[3] == {"minute": 3, "count": 0}
+
+
+def test_timeline_merger_complex():
+    # Why not test with live Whisper model?
+    # Feeding a complex pre-defined list of segments to the TimelineMerger allows us to verify 
+    # the chronological merging logic and formatting robustness directly without actual model 
+    # load overhead. This is faster and isolates merging correctness from transcription variables.
+    from vibes_ttv.analyzers.timeline_merger import TimelineMerger
+    merger = TimelineMerger()
+    
+    # Dummy transcription data representing streamer talk segments
+    whisper_segs = [
+        {"start": 30.0, "end": 35.0, "text": "配信開始しました"},
+        {"start": 120.0, "end": 125.0, "text": "PoE2おもしろいね"},
+        {"start": 300.0, "end": 305.0, "text": "ご視聴ありがとうございました"}
+    ]
+    
+    # Chat data from viewers
+    chat_data = [
+        {"offset_seconds": 10.0, "username": "user1", "message": "待機画面"},
+        {"offset_seconds": 32.0, "username": "user2", "message": "きた！"},
+        {"offset_seconds": 122.0, "username": "user1", "message": "神ゲー"},
+        {"offset_seconds": 310.0, "username": "user3", "message": "おつかれさまでした"}
+    ]
+    
+    merged = merger.merge(whisper_segs, chat_data)
+    
+    # Event count: 3 segments + 4 chats = 7 events
+    assert len(merged) == 7
+    
+    # Chronological sort order validation
+    offsets = [event["offset_seconds"] for event in merged]
+    assert offsets == sorted(offsets)
+    
+    # Format and content verification
+    assert merged[0]["type"] == "listener"
+    assert merged[0]["text"] == "待機画面"
+    
+    assert merged[1]["type"] == "streamer"
+    assert merged[1]["text"] == "配信開始しました"
+    
+    assert merged[-1]["type"] == "listener"
+    assert merged[-1]["text"] == "おつかれさまでした"
+    
+    text = merger.format_to_text(merged)
+    assert "[00:00:10] user1: 待機画面" in text
+    assert "[00:00:30] Streamer: 配信開始しました" in text
+    assert "[00:02:00] Streamer: PoE2おもしろいね" in text
+    assert "[00:05:00] Streamer: ご視聴ありがとうございました" in text
+    assert "[00:05:10] user3: おつかれさまでした" in text
