@@ -1,0 +1,9 @@
+google-genai
+openai-whisper
+yt-dlp
+streamlit
+sqlalchemy
+pydantic>=2.0
+pandas
+numpy
+pytest
