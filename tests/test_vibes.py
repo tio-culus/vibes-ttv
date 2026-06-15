@@ -133,6 +133,23 @@ def test_chat_collector_file_cache():
             os.remove(tmp_path)
 
 
+def test_chat_collector_url_parsing():
+    # Why verify URL parsing with optional 'v' prefix?
+    # Ensuring that the ChatCollector correctly parses VOD IDs from URLs 
+    # with or without a 'v' prefix prevents pipeline crashes on legacy IDs.
+    collector = ChatCollector()
+    
+    # Standard URL
+    assert collector._extract_vod_id("https://www.twitch.tv/videos/123456789") == "123456789"
+    # URL with 'v' prefix in ID
+    assert collector._extract_vod_id("https://www.twitch.tv/videos/v2786816848") == "2786816848"
+    # Fallback/alternative format
+    assert collector._extract_vod_id("https://www.twitch.tv/v/987654321") == "987654321"
+    # Invalid URL should raise ValueError
+    with pytest.raises(ValueError):
+        collector._extract_vod_id("https://www.twitch.tv/invalid_url")
+
+
 def test_calculate_chat_velocities():
     # Why import locally?
     # Importing locally in test functions isolates module loading errors 

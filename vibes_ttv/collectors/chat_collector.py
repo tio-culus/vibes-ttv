@@ -15,7 +15,10 @@ class ChatCollector:
     VIDEO_METADATA_HASH = '45111672eea2e507f8ba44d101a61862f9c56b11dee09a15634cb75cb9b9084d'
     VIDEO_COMMENTS_HASH = 'b70a3591ff0f4e0313d126c6a1502d79a1c02baebb288227c582044aa76adf6a'
     
-    VOD_ID_PATTERN = re.compile(r'(?:videos|video|v)/(?P<id>\d+)')
+    # Why match optional 'v' prefix?
+    # Some external integrations or legacy formats might structure the URL as '/videos/v123456789'.
+    # Supporting the optional 'v' character ensures robust ID extraction.
+    VOD_ID_PATTERN = re.compile(r'(?:videos|video|v)/v?(?P<id>\d+)')
     
     def _extract_vod_id(self, url: str) -> str:
         match = self.VOD_ID_PATTERN.search(url)
