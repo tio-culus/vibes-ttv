@@ -319,8 +319,21 @@ def run_real_analysis_thread(runner: AnalysisRunner) -> str:
         session_db = db.get_session()
         try:
             # Delete legacy associated tables to prevent duplicate records accumulation
-            session_db.query(Topic).filter_by(vod_id=vod_id).delete()
-            session_db.query(VODListenerStats).filter_by(vod_id=vod_id).delete()
+            # Why delete both v-prefixed and raw numeric VOD IDs?
+            # When re-analyzing, Twitch or external libs (like yt-dlp) might return a different ID format 
+            # (e.g. raw numeric vs v-prefixed). Checking for both ensures that legacy orphan records 
+            # are fully cleared, and only the newest analyzed VOD datasets are kept.
+            target_ids = [vod_id]
+            if vod_id.startswith('v'):
+                target_ids.append(vod_id[1:])
+            else:
+                target_ids.append(f"v{vod_id}")
+                
+            for tid in target_ids:
+                session_db.query(Topic).filter_by(vod_id=tid).delete()
+                session_db.query(VODListenerStats).filter_by(vod_id=tid).delete()
+                if tid != vod_id:
+                    session_db.query(VOD).filter_by(vod_id=tid).delete()
             
             # Save or update VOD record
             vod.chat_collection_time_seconds = t_chat_collection
@@ -530,8 +543,21 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
         session_db = db.get_session()
         try:
             # Delete legacy associated tables to prevent duplicate records accumulation
-            session_db.query(Topic).filter_by(vod_id=vod_id).delete()
-            session_db.query(VODListenerStats).filter_by(vod_id=vod_id).delete()
+            # Why delete both v-prefixed and raw numeric VOD IDs?
+            # When re-analyzing, Twitch or external libs (like yt-dlp) might return a different ID format 
+            # (e.g. raw numeric vs v-prefixed). Checking for both ensures that legacy orphan records 
+            # are fully cleared, and only the newest analyzed VOD datasets are kept.
+            target_ids = [vod_id]
+            if vod_id.startswith('v'):
+                target_ids.append(vod_id[1:])
+            else:
+                target_ids.append(f"v{vod_id}")
+                
+            for tid in target_ids:
+                session_db.query(Topic).filter_by(vod_id=tid).delete()
+                session_db.query(VODListenerStats).filter_by(vod_id=tid).delete()
+                if tid != vod_id:
+                    session_db.query(VOD).filter_by(vod_id=tid).delete()
             
             # Save or update VOD record
             vod.chat_collection_time_seconds = t_chat_collection
@@ -1188,7 +1214,9 @@ def main():
                     # Why reconstruct?
                     # The VOD URL is needed for the scraper and yt-dlp, but only the ID is stored in the DB.
                     # Appending the ID to the base Twitch videos URL cleanly reconstructs the URL.
-                    vod_url = f"https://www.twitch.tv/videos/{selected_vod_id}"
+                    # We strip the optional 'v' prefix because yt-dlp fails if the URL path contains a non-numeric ID.
+                    clean_id = selected_vod_id[1:] if selected_vod_id.startswith('v') else selected_vod_id
+                    vod_url = f"https://www.twitch.tv/videos/{clean_id}"
                     runner = AnalysisRunner(db, vod_url, api_key, whisper_model, listener_batch_size)
                     st.session_state["analysis_runner"] = runner
                     runner.start()
