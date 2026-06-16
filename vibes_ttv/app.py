@@ -25,6 +25,11 @@ from vibes_ttv.analyzers.timeline_merger import TimelineMerger
 from vibes_ttv.analyzers.comment_analyzer import CommentAnalyzer
 from vibes_ttv.analyzers.topic_analyzer import TopicAnalyzer
 
+# Why start preload on import?
+# Preloading the heavy Whisper-turbo model asynchronously during application startup 
+# reduces the waiting time when transcription actually starts.
+WhisperTranscriber.start_preload()
+
 # ---------------------------------------------------------
 # Helper Functions
 # ---------------------------------------------------------
@@ -35,6 +40,16 @@ def format_seconds(seconds: float) -> str:
     if h > 0:
         return f"{h:02d}:{m:02d}:{s:02d}"
     return f"{m:02d}:{s:02d}"
+
+def get_twitch_vod_url(vod_id: str, offset_seconds: float = None) -> str:
+    # Why strip 'v' prefix?
+    # The database stores VOD IDs with a 'v' prefix (e.g. 'v2786816848') for historical consistency, 
+    # but the actual Twitch VOD URL only accepts raw numerical IDs.
+    clean_id = vod_id.lstrip('v')
+    url = f"https://www.twitch.tv/videos/{clean_id}"
+    if offset_seconds is not None:
+        url += f"?t={format_twitch_offset(int(offset_seconds))}"
+    return url
 
 def format_twitch_offset(seconds: int) -> str:
     # Why format as XhYmZs instead of raw seconds?
@@ -100,11 +115,14 @@ class AnalysisRunner:
     # during long processes impossible. Running the analysis pipeline in a background thread 
     # and tracking progress metrics inside a thread-safe runner object allows the UI to poll 
     # status and render action buttons (pause, resume, stop) reliably.
-    def __init__(self, db, vod_url: str, api_key: str, model_name: str, batch_size: int):
+    def __init__(self, db, vod_url: str, api_key: str, batch_size: int):
         self.db = db
         self.vod_url = vod_url
         self.api_key = api_key
-        self.model_name = model_name
+        # Why fix model_name to turbo?
+        # Standardizing on the turbo model ensures maximum transcription quality and speed,
+        # and simplifies the UI by removing model selection configurations.
+        self.model_name = "turbo"
         self.batch_size = batch_size
         
         self.progress_val = 0
@@ -385,7 +403,11 @@ def run_real_analysis_thread(runner: AnalysisRunner) -> str:
 # ---------------------------------------------------------
 # Real Pipeline Runner
 # ---------------------------------------------------------
-def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str, batch_size: int = 30) -> str:
+def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int = 30) -> str:
+    # Why fix model_name to turbo?
+    # Standardizing on the turbo model ensures maximum transcription quality and speed,
+    # and simplifies the UI by removing model selection configurations.
+    model_name = "turbo"
     status_text = st.empty()
     progress_bar = st.progress(0)
     
@@ -835,11 +857,10 @@ def main():
     st.sidebar.markdown("---")
     st.sidebar.markdown("#### ⚙️ 分析パラメーター")
     api_key = st.sidebar.text_input("Gemini API Key", value=api_key)
-    whisper_model = st.sidebar.selectbox(
-        "Whisperモデルサイズ",
-        ["tiny", "base", "small", "medium", "large", "turbo"],
-        index=5 # default turbo
-    )
+    # Why fix whisper_model to turbo?
+    # Keeping the model selection hidden simplifies the sidebar UI and ensures 
+    # the cached, high-performance turbo model is consistently used.
+    whisper_model = "turbo"
     listener_batch_size = st.sidebar.slider(
         "リスナー分析バッチサイズ",
         min_value=10,
@@ -869,7 +890,7 @@ def main():
                     st.session_state["vod_id"] = vod_id
                     st.sidebar.success("データベースから既存の分析結果を読み込みました！")
                 else:
-                    runner = AnalysisRunner(db, vod_url, api_key, whisper_model, listener_batch_size)
+                    runner = AnalysisRunner(db, vod_url, api_key, listener_batch_size)
                     st.session_state["analysis_runner"] = runner
                     runner.start()
                     st.rerun()
@@ -1232,11 +1253,9 @@ def main():
                     # Reconstruct Twitch VOD URL from stored ID
                     # Why reconstruct?
                     # The VOD URL is needed for the scraper and yt-dlp, but only the ID is stored in the DB.
-                    # Appending the ID to the base Twitch videos URL cleanly reconstructs the URL.
-                    # We strip the optional 'v' prefix because yt-dlp fails if the URL path contains a non-numeric ID.
-                    clean_id = selected_vod_id[1:] if selected_vod_id.startswith('v') else selected_vod_id
-                    vod_url = f"https://www.twitch.tv/videos/{clean_id}"
-                    runner = AnalysisRunner(db, vod_url, api_key, whisper_model, listener_batch_size)
+                    # We utilize get_twitch_vod_url to cleanly format the URL and strip 'v' prefix automatically.
+                    vod_url = get_twitch_vod_url(selected_vod_id)
+                    runner = AnalysisRunner(db, vod_url, api_key, listener_batch_size)
                     st.session_state["analysis_runner"] = runner
                     runner.start()
                     st.rerun()
@@ -1332,7 +1351,7 @@ def main():
                 for idx, (t, vel) in enumerate(best_3):
                     time_range = f"{format_seconds(t.start_offset_seconds)} 〜 {format_seconds(t.end_offset_seconds)}"
                     desc = t.description[:40] + "..." if len(t.description) > 40 else t.description
-                    twitch_url = f"https://www.twitch.tv/videos/{vod.vod_id}?t={format_twitch_offset(t.start_offset_seconds)}"
+                    twitch_url = get_twitch_vod_url(vod.vod_id, t.start_offset_seconds)
                     
                     st.markdown(f"""
                     <div style="margin-bottom:0.75rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom:0.5rem; text-align:left;">
@@ -1355,7 +1374,7 @@ def main():
                 for idx, (t, vel) in enumerate(worst_3):
                     time_range = f"{format_seconds(t.start_offset_seconds)} 〜 {format_seconds(t.end_offset_seconds)}"
                     desc = t.description[:40] + "..." if len(t.description) > 40 else t.description
-                    twitch_url = f"https://www.twitch.tv/videos/{vod.vod_id}?t={format_twitch_offset(t.start_offset_seconds)}"
+                    twitch_url = get_twitch_vod_url(vod.vod_id, t.start_offset_seconds)
                     
                     st.markdown(f"""
                     <div style="margin-bottom:0.75rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom:0.5rem; text-align:left;">
@@ -1388,7 +1407,7 @@ def main():
             hc_badge_html = "<span class='hc-badge'>⚠ ハイコンテクスト</span>" if t.is_high_context else "<span class='lc-badge'>✓ ローコンテクスト</span>"
             hc_class = "topic-row-hc" if t.is_high_context else ""
             
-            twitch_url = f"https://www.twitch.tv/videos/{vod.vod_id}?t={format_twitch_offset(t.start_offset_seconds)}"
+            twitch_url = get_twitch_vod_url(vod.vod_id, t.start_offset_seconds)
             
             st.markdown(f"""
             <div class="topic-row {hc_class}" style="display: flex; justify-content: space-between; align-items: stretch;">

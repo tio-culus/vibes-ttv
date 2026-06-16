@@ -413,3 +413,16 @@ def test_comment_analyzer_sliced_context():
     assert details[0]["category"] == "reaction"
     assert details[1]["message"] == "このボスは火属性に弱いと思います"
     assert details[1]["category"] == "insight"
+
+
+def test_get_twitch_vod_url():
+    # Why import locally?
+    # Keeping imports scoped to the test cases prevents cluttering the module-level namespace.
+    from vibes_ttv.app import get_twitch_vod_url
+    
+    # Standard numerical ID
+    assert get_twitch_vod_url("2786816848") == "https://www.twitch.tv/videos/2786816848"
+    # ID with 'v' prefix
+    assert get_twitch_vod_url("v2786816848") == "https://www.twitch.tv/videos/2786816848"
+    # With offset_seconds
+    assert get_twitch_vod_url("v2786816848", 3661) == "https://www.twitch.tv/videos/2786816848?t=1h1m1s"
