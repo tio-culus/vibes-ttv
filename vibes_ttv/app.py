@@ -1163,32 +1163,38 @@ def main():
                         badge_style = badge_styles.get(cat, badge_styles["other"])
                         cat_jp = cat_options.get(cat, "その他")
                         
-                        html_rows.append(f"""
-                        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
-                            <td style="padding: 0.6rem 0.8rem; color: #9ca3af; font-family: monospace; font-size: 0.9rem; white-space: nowrap;">🕒 {time_str}</td>
-                            <td style="padding: 0.6rem 0.8rem; color: #f3f4f6; text-align: left; font-size: 0.95rem;">{msg}</td>
-                            <td style="padding: 0.6rem 0.8rem; text-align: right; white-space: nowrap;">
-                                <span style="padding: 0.2rem 0.5rem; border-radius: 6px; font-size: 0.78rem; font-weight: 700; {badge_style}">
-                                    {cat_jp}
-                                </span>
-                            </td>
-                        </tr>
-                        """)
+                        # Why avoid multi-line string indentation?
+                        # In Streamlit st.markdown, lines starting with 4 or more spaces 
+                        # are treated as indented code blocks, which escapes and prints HTML raw text.
+                        # Using explicit string concatenation with no leading spaces avoids code block detection.
+                        html_rows.append(
+                            '<tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">'
+                            f'<td style="padding: 0.6rem 0.8rem; color: #9ca3af; font-family: monospace; font-size: 0.9rem; white-space: nowrap;">🕒 {time_str}</td>'
+                            f'<td style="padding: 0.6rem 0.8rem; color: #f3f4f6; text-align: left; font-size: 0.95rem;">{msg}</td>'
+                            '<td style="padding: 0.6rem 0.8rem; text-align: right; white-space: nowrap;">'
+                            f'<span style="padding: 0.2rem 0.5rem; border-radius: 6px; font-size: 0.78rem; font-weight: 700; {badge_style}">'
+                            f'{cat_jp}'
+                            '</span>'
+                            '</td>'
+                            '</tr>'
+                        )
                         
-                    table_html = f"""
-                    <table style="width: 100%; border-collapse: collapse; background-color: rgba(30, 41, 59, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; overflow: hidden; margin-top: 1rem;">
-                        <thead>
-                            <tr style="background-color: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                                <th style="padding: 0.6rem 0.8rem; text-align: left; color: #9ca3af; font-size: 0.85rem; font-weight: 600; width: 100px;">時間</th>
-                                <th style="padding: 0.6rem 0.8rem; text-align: left; color: #9ca3af; font-size: 0.85rem; font-weight: 600;">コメント内容</th>
-                                <th style="padding: 0.6rem 0.8rem; text-align: right; color: #9ca3af; font-size: 0.85rem; font-weight: 600; width: 120px;">判定された態度</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {"".join(html_rows)}
-                        </tbody>
-                    </table>
-                    """
+                    # Why avoid multi-line string indentation here?
+                    # Using flat concatenated strings keeps table elements out of Markdown pre/code block parsing.
+                    table_html = (
+                        '<table style="width: 100%; border-collapse: collapse; background-color: rgba(30, 41, 59, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; overflow: hidden; margin-top: 1rem;">'
+                        '<thead>'
+                        '<tr style="background-color: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">'
+                        '<th style="padding: 0.6rem 0.8rem; text-align: left; color: #9ca3af; font-size: 0.85rem; font-weight: 600; width: 100px;">時間</th>'
+                        '<th style="padding: 0.6rem 0.8rem; text-align: left; color: #9ca3af; font-size: 0.85rem; font-weight: 600;">コメント内容</th>'
+                        '<th style="padding: 0.6rem 0.8rem; text-align: right; color: #9ca3af; font-size: 0.85rem; font-weight: 600; width: 120px;">判定された態度</th>'
+                        '</tr>'
+                        '</thead>'
+                        '<tbody>'
+                        f'{"".join(html_rows)}'
+                        '</tbody>'
+                        '</table>'
+                    )
                     st.markdown(table_html, unsafe_allow_html=True)
                 else:
                     st.info("選択された態度カテゴリに該当するコメントはありません。")
