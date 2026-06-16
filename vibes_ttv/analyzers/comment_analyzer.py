@@ -21,6 +21,16 @@ class ListenerClassification(BaseModel):
 class BatchClassificationResponse(BaseModel):
     results: list[ListenerClassification]
 
+# Why define slice schemas?
+# Structured output from Gemini during timeline slice analysis maps classifications directly 
+# to a timeline index (line_id), guaranteeing robust mapping results without textual mismatch.
+class LineClassification(BaseModel):
+    line_id: str
+    category: str # 'reaction', 'question', 'insight', 'instruction', 'other'
+
+class SliceClassificationResponse(BaseModel):
+    results: list[LineClassification]
+
 
 class CommentAnalyzer:
     # Why not use legacy google-generativeai package?
@@ -52,7 +62,205 @@ class CommentAnalyzer:
             return True
         return False
 
-    def analyze_listeners(self, chat_data: list[dict], batch_size: int = 30, progress_callback=None) -> list[dict]:
+    def analyze_listeners(self, chat_data: list[dict], batch_size: int = 30, progress_callback=None, merged_events: list[dict] = None) -> list[dict]:
+        # Why support merged_events = None?
+        # Keeping a fallback mode preserves compatibility with legacy unit test suites 
+        # that feed raw chat_data dict lists without time alignment text mapping.
+        if not merged_events:
+            return self._analyze_listeners_fallback(chat_data, batch_size=batch_size, progress_callback=progress_callback)
+            
+        # 1. Initialize result stores
+        classified_events = {} # global_idx -> category
+        pre_classified = {} # global_idx -> category
+        
+        # 2. Slice processing loops (100 events per slice)
+        slice_size = 100
+        total_slices = (len(merged_events) + slice_size - 1) // slice_size
+        
+        for slice_idx, i in enumerate(range(0, len(merged_events), slice_size)):
+            current_slice = slice_idx + 1
+            if progress_callback:
+                progress_val = 80 + int((slice_idx / total_slices) * 18)
+                progress_callback(f"🧠 [5/5] リスナーコメント分析中... (スライス {current_slice}/{total_slices} を処理中)", progress_val)
+                
+            if slice_idx > 0:
+                time.sleep(2.0)
+                
+            slice_events = merged_events[i:i+slice_size]
+            
+            # Format timeline text for this slice
+            lines = []
+            to_classify = []
+            
+            for idx, ev in enumerate(slice_events):
+                global_idx = i + idx
+                
+                # Format timestamp
+                h = int(ev["offset_seconds"] // 3600)
+                m = int((ev["offset_seconds"] % 3600) // 60)
+                s = int(ev["offset_seconds"] % 60)
+                timestamp_str = f"{h:02d}:{m:02d}:{s:02d}"
+                
+                # Format timeline line
+                # Why use L{idx} prefix?
+                # Adding line identifiers allows the LLM to return exact classifications mapped 
+                # to these line IDs, avoiding unstable text matches or list size mismatches.
+                if ev["type"] == "streamer":
+                    lines.append(f"(L{global_idx}) [{timestamp_str}] Streamer: {ev['text']}")
+                else:
+                    lines.append(f"(L{global_idx}) [{timestamp_str}] {ev['name']}: {ev['text']}")
+                    
+                    # Local pre-classification check
+                    msg = ev["text"]
+                    if self._is_simple_reaction(msg):
+                        pre_classified[global_idx] = "reaction"
+                    else:
+                        to_classify.append({
+                            "line_id": f"L{global_idx}",
+                            "comment": msg
+                        })
+                        
+            # Apply pre-classified reactions
+            for g_idx, cat in pre_classified.items():
+                if i <= g_idx < i + len(slice_events):
+                    classified_events[g_idx] = cat
+                    
+            if not to_classify:
+                # No complex comments in this slice. Skip Gemini API.
+                continue
+                
+            # Call Gemini with slice context
+            prompt_timeline = "\n".join(lines)
+            prompt = (
+                "あなたはTwitchのライブ配信のチャットモデレーター兼分析者です。\n"
+                "提示された【統合タイムライン】の文脈（配信者の発言や他のリスナーのコメントの流れ）を考慮して、\n"
+                "指定された【分類依頼対象コメント】が以下のどのカテゴリに属するかを分類してください。\n\n"
+                "【カテゴリ分類ルール】\n"
+                "- reaction: 感想、相槌、笑い（www）、感情表現、簡単なツッコミ、または配信に対する単純な反応コメント\n"
+                "- question: 配信者への質問（「今何したの？」「何て言った？」など）\n"
+                "- insight: 配信状況やゲーム内容に対する考察、状況の要約、論理的な指摘、または比較的長文の文脈を必要とするコメント\n"
+                "- instruction: 配信者に対するアドバイス、提案、指示、指示厨的発言、プレイ方針の提示（「右に進もう」「〇〇を装備して」など）\n"
+                "- other: 上記のいずれにも当てはまらない日常雑談やその他無関係なコメント\n\n"
+                "【統合タイムライン】\n"
+                f"{prompt_timeline}\n\n"
+                "【分類依頼対象コメント】\n"
+                f"{json.dumps(to_classify, ensure_ascii=False, indent=2)}\n\n"
+                "それぞれの comment に対する line_id を維持し、各コメントのカテゴリ分類を出力してください。"
+            )
+            
+            try:
+                max_retries = 3
+                backoff_factor = 2.0
+                response = None
+                
+                for attempt in range(max_retries):
+                    try:
+                        response = self.client.models.generate_content(
+                            model="gemini-3.1-flash-lite",
+                            contents=prompt,
+                            config=types.GenerateContentConfig(
+                                response_mime_type="application/json",
+                                response_schema=SliceClassificationResponse,
+                            )
+                        )
+                        break
+                    except Exception as e:
+                        err_msg = str(e)
+                        is_transient = ("503" in err_msg or "429" in err_msg or "unavailable" in err_msg.lower() or "resource exhausted" in err_msg.lower())
+                        if is_transient and attempt < max_retries - 1:
+                            retry_match = re.search(r"Please retry in (\d+\.?\d*)s", err_msg)
+                            if retry_match:
+                                sleep_time = float(retry_match.group(1)) + 1.0
+                            else:
+                                sleep_time = (backoff_factor ** attempt) * 5.0
+                            time.sleep(sleep_time)
+                        else:
+                            raise e
+                            
+                parsed_res: SliceClassificationResponse = response.parsed
+                if parsed_res and parsed_res.results:
+                    for line_res in parsed_res.results:
+                        try:
+                            g_idx = int(line_res.line_id[1:])
+                            classified_events[g_idx] = line_res.category
+                        except Exception:
+                            pass
+                            
+            except Exception as e:
+                print(f"Error calling Gemini in slice: {e}")
+                # Fallback to 'other' for Gemini failures in this slice
+                for item in to_classify:
+                    try:
+                        g_idx = int(item["line_id"][1:])
+                        classified_events[g_idx] = "other"
+                    except Exception:
+                        pass
+                        
+        # 3. Aggregate classifications per listener
+        user_stats = {} # username -> counts & details
+        for global_idx, ev in enumerate(merged_events):
+            if ev["type"] == "listener":
+                username = ev["name"]
+                msg = ev["text"]
+                offset = ev["offset_seconds"]
+                cat = classified_events.get(global_idx, "other")
+                if cat not in ("reaction", "question", "insight", "instruction", "other"):
+                    cat = "other"
+                    
+                if username not in user_stats:
+                    user_stats[username] = {
+                        "reaction": 0,
+                        "question": 0,
+                        "insight": 0,
+                        "instruction": 0,
+                        "other": 0,
+                        "details": []
+                    }
+                    
+                user_stats[username][cat] += 1
+                user_stats[username]["details"].append({
+                    "message": msg,
+                    "offset_seconds": offset,
+                    "category": cat
+                })
+                
+        # 4. Generate final stats and persona type
+        final_results = []
+        for username, counts in user_stats.items():
+            total = (counts["reaction"] + counts["question"] + 
+                     counts["insight"] + counts["instruction"] + counts["other"])
+                     
+            # Persona determination (highest count, fallback hierarchy)
+            # Why prioritize insight/instruction over reaction/other on ties?
+            # Higher context actions (like logical insights or game instructions) define a viewer's
+            # engagement profile more strongly than generic reaction spams, so we bias ties towards them.
+            persona_candidates = [
+                ("insight", counts["insight"]),
+                ("instruction", counts["instruction"]),
+                ("question", counts["question"]),
+                ("reaction", counts["reaction"]),
+                ("other", counts["other"])
+            ]
+            persona_candidates.sort(key=lambda x: x[1], reverse=True)
+            best_persona = persona_candidates[0][0]
+            
+            sorted_details = sorted(counts["details"], key=lambda x: x["offset_seconds"])
+            
+            final_results.append({
+                "username": username,
+                "total_comments": total,
+                "reaction_comments_count": counts["reaction"],
+                "question_comments_count": counts["question"],
+                "insight_comments_count": counts["insight"],
+                "instruction_comments_count": counts["instruction"],
+                "other_comments_count": counts["other"],
+                "persona_type": best_persona,
+                "comment_details": sorted_details
+            })
+            
+        return final_results
+
+    def _analyze_listeners_fallback(self, chat_data: list[dict], batch_size: int = 30, progress_callback=None) -> list[dict]:
         # Group chats by username
         # Why capture message and offset_seconds together?
         # Preserving the comment text and offset_seconds as dictionary items allows us to reconstruct 
@@ -239,6 +447,7 @@ class CommentAnalyzer:
             except Exception as e:
                 print(f"Error calling Gemini in batch: {e}")
                 for item in batch:
+                    username = item["username"]
                     fallback_details = []
                     r_c = len(item["pre_classified"])
                     o_c = 0

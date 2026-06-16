@@ -356,3 +356,60 @@ def test_atomic_transaction_behavior():
     assert session.query(VODListenerStats).filter_by(vod_id="vod_X").count() == 1
     assert session.query(VODListenerStats).filter_by(vod_id="vod_X").first().listener_username == "listener_Y"
     db.remove_session()
+
+
+def test_comment_analyzer_sliced_context():
+    # Why mock Gemini client for generate_content?
+    # We want to isolate the timeline-slicing parser, local pre-classification, 
+    # and persona tie-breaker logic from actual network calls. 
+    # Mocking the generate_content call to return a validated SliceClassificationResponse
+    # makes the test deterministic, robust, and fast.
+    from unittest.mock import MagicMock
+    from vibes_ttv.analyzers.comment_analyzer import CommentAnalyzer, SliceClassificationResponse, LineClassification
+    
+    analyzer = CommentAnalyzer(api_key="mock_key")
+    
+    # Mocking the client's generate_content call
+    mock_response = MagicMock()
+    mock_response.parsed = SliceClassificationResponse(
+        results=[
+            LineClassification(line_id="L2", category="insight")
+        ]
+    )
+    analyzer.client.models.generate_content = MagicMock(return_value=mock_response)
+    
+    # Setup chat_data and merged_events
+    # Line 0: Streamer comment (context only, ignored for client classification)
+    # Line 1: 'www' is a simple reaction (pre-classified locally, no Gemini call)
+    # Line 2: 'このボスは火属性に弱いと思います' is a complex comment (Gemini classified as 'insight')
+    merged_events = [
+        {"type": "streamer", "offset_seconds": 10.0, "text": "ゲームを開始します"},
+        {"type": "listener", "name": "user_a", "offset_seconds": 12.0, "text": "www"},
+        {"type": "listener", "name": "user_a", "offset_seconds": 15.0, "text": "このボスは火属性に弱いと思います"},
+    ]
+    chat_data = [
+        {"username": "user_a", "message": "www", "offset_seconds": 12.0},
+        {"username": "user_a", "message": "このボスは火属性に弱いと思います", "offset_seconds": 15.0},
+    ]
+    
+    results = analyzer.analyze_listeners(chat_data, merged_events=merged_events)
+    
+    # Assertions
+    assert len(results) == 1
+    stats = results[0]
+    assert stats["username"] == "user_a"
+    assert stats["total_comments"] == 2
+    assert stats["reaction_comments_count"] == 1
+    assert stats["insight_comments_count"] == 1
+    assert stats["other_comments_count"] == 0
+    
+    # Tie-breaker logic: 'insight' (1) vs 'reaction' (1) -> 'insight' should win
+    assert stats["persona_type"] == "insight"
+    
+    # Check detail content order
+    details = stats["comment_details"]
+    assert len(details) == 2
+    assert details[0]["message"] == "www"
+    assert details[0]["category"] == "reaction"
+    assert details[1]["message"] == "このボスは火属性に弱いと思います"
+    assert details[1]["category"] == "insight"

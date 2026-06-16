@@ -283,8 +283,15 @@ def run_real_analysis_thread(runner: AnalysisRunner) -> str:
             for t in topics_data
         ]
         
-        comment_analyzer = CommentAnalyzer(api_key=api_key)
-        listener_stats = comment_analyzer.analyze_listeners(chat_data, batch_size=batch_size, progress_callback=progress_callback)
+        # Why pass merged_events?
+        # Providing the chronological timeline events list enables context-aware (streamer talk + other chats)
+        # comment classification, yielding superior semantic accuracy.
+        listener_stats = comment_analyzer.analyze_listeners(
+            chat_data, 
+            batch_size=batch_size, 
+            progress_callback=progress_callback,
+            merged_events=merged_events
+        )
         
         db_stats = []
         for s in listener_stats:
@@ -498,7 +505,15 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, model_name: str
         # Why pass configurable batch_size?
         # Different batch sizes strike different balances between Gemini analysis accuracy and rate limits.
         # Allowing it to be passed from the UI dynamically gives flexibility to the analysis process.
-        listener_stats = comment_analyzer.analyze_listeners(chat_data, batch_size=batch_size, progress_callback=progress_callback)
+        # Why pass merged_events?
+        # Providing the chronological timeline events list enables context-aware (streamer talk + other chats)
+        # comment classification, yielding superior semantic accuracy.
+        listener_stats = comment_analyzer.analyze_listeners(
+            chat_data,
+            batch_size=batch_size,
+            progress_callback=progress_callback,
+            merged_events=merged_events
+        )
         
         t_ai_analysis = int(time.time() - t_ai_start)
         total_time = int(time.time() - start_time)
