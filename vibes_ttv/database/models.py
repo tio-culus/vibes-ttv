@@ -38,11 +38,11 @@ class VOD(Base):
     average_viewers = Column(Integer, default=0)
     avg_chat_velocity_hour = Column(Float, default=0.0)
     max_chat_velocity_min = Column(Integer, default=0)
-    # Why save the raw merged timeline text?
-    # Keeping the generated timeline text (combining transcriber text and chats) in the database 
-    # allows displaying it on the dashboard without needing to re-run transcription or chat collectors,
-    # and lets us show a historical log to the user.
-    merged_timeline_text = Column(String, nullable=True)
+    # Why save the merged timeline as a structured JSON array?
+    # Storing the combined whisper segments and chat messages as a raw JSON string 
+    # enables rich UI formatting (like categorization badges, streamer highlight, etc.) 
+    # on the dashboard without database reconstruction, avoiding fixed-text parsing limitations.
+    merged_timeline_json = Column(String, nullable=True)
     
     # Why save serialized JSON instead of a separate table?
     # Saving velocity time-series data as a JSON string within the VOD table avoids database JOIN 
@@ -92,11 +92,5 @@ class VODListenerStats(Base):
     instruction_comments_count = Column(Integer, default=0)
     other_comments_count = Column(Integer, default=0)
     persona_type = Column(String, nullable=False)  # reaction, question, insight, instruction, other
-    
-    # Why save comment classifications as a serialized JSON string in VODListenerStats?
-    # Saving a list of classified comment text-offset-category tuples as a serialized JSON 
-    # string avoids creating a highly redundant chats-classification table with millions of rows, 
-    # optimizing query speeds and keeping SQLite performance lightweight.
-    comment_details_json = Column(String, nullable=True)
     
     vod = relationship("VOD", back_populates="listener_stats")

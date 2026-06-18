@@ -28,19 +28,16 @@ class DBManager:
         
         # Why run manual ALTER TABLE migrations?
         # SQLite metadata.create_all() does not automatically add new columns to existing tables.
-        # Running a manual column check and ALTER TABLE statement handles lightweight schema updates
-        # smoothly, keeping backward compatibility without deleting the user's historical database.
+        # Checking and dynamically altering the table structures ensures schema upgrades are applied 
+        # seamlessly without requiring complete manual database drops during iterative local runs.
         try:
             from sqlalchemy import text
             with self.engine.connect() as conn:
-                # Why use text() helper?
-                # SQLAlchemy 2.0+ requires raw SQL strings to be wrapped in the text() construct
-                # to be executed, preventing "Not an executable object" query exceptions.
-                cursor = conn.execute(text("PRAGMA table_info(vod_listener_stats)"))
+                # 1. Check and add merged_timeline_json to vods
+                cursor = conn.execute(text("PRAGMA table_info(vods)"))
                 columns = [row[1] for row in cursor.fetchall()]
-                if "comment_details_json" not in columns:
-                    # Execute raw SQL to dynamically add the text field for serialization
-                    conn.execute(text("ALTER TABLE vod_listener_stats ADD COLUMN comment_details_json TEXT"))
+                if "merged_timeline_json" not in columns:
+                    conn.execute(text("ALTER TABLE vods ADD COLUMN merged_timeline_json TEXT"))
                     conn.commit()
         except Exception as e:
             print(f"Migration error: {e}")

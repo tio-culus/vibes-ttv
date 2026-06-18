@@ -218,6 +218,12 @@ class CommentAnalyzer:
                     }
                     
                 user_stats[username][cat] += 1
+                
+                # Why assign category to the merged_events dict in place?
+                # It updates the caller's list of events, allowing timeline text formatters 
+                # or database serializers to access classifications without rebuilding maps.
+                ev["category"] = cat
+                
                 user_stats[username]["details"].append({
                     "message": msg,
                     "offset_seconds": offset,

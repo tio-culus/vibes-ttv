@@ -1,5 +1,6 @@
 import sys
 import os
+import json # Why not import json at file level? To serialize the merged events for the database cleanly.
 
 # Why append parent directory to sys.path programmatically?
 # When executing 'streamlit run vibes_ttv/app.py', Streamlit resolves paths relative 
@@ -8,9 +9,10 @@ import os
 # to manually configure the PYTHONPATH environment variable on Windows.
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# pyrefly: ignore [missing-import]
 import streamlit as st
 import pandas as pd
-import numpy as np
+# pyrefly: ignore [missing-import]
 import altair as alt
 import re
 from datetime import datetime
@@ -68,7 +70,6 @@ def format_twitch_offset(seconds: int) -> str:
     return "".join(parts)
 
 def calculate_chat_velocities(chat_data: list[dict], duration_seconds: int) -> tuple[float, int, str]:
-    import json
     if not chat_data:
         return 0.0, 0, "[]"
     df = pd.DataFrame(chat_data)
@@ -109,292 +110,6 @@ def extract_vod_id(url: str) -> str:
 
 import threading
 
-class AnalysisRunner:
-    # Why use a thread-safe AnalysisRunner?
-    # Streamlit execution is stateless and synchronous, which makes direct UI button interaction 
-    # during long processes impossible. Running the analysis pipeline in a background thread 
-    # and tracking progress metrics inside a thread-safe runner object allows the UI to poll 
-    # status and render action buttons (pause, resume, stop) reliably.
-    def __init__(self, db, vod_url: str, api_key: str, batch_size: int):
-        self.db = db
-        self.vod_url = vod_url
-        self.api_key = api_key
-        # Why fix model_name to turbo?
-        # Standardizing on the turbo model ensures maximum transcription quality and speed,
-        # and simplifies the UI by removing model selection configurations.
-        self.model_name = "turbo"
-        self.batch_size = batch_size
-        
-        self.progress_val = 0
-        self.message = "初期化中..."
-        self.is_pausable = True
-        self.is_done = False
-        self.error = None
-        self.vod_id = None
-        
-        # Why track start_time in the runner?
-        # Storing start_time allows the main thread (UI loop) to calculate elapsed time dynamically 
-        # during st.rerun() polling, preventing the timer from freezing when the background thread 
-        # is executing blocking operations (like Whisper) and not pushing callback updates.
-        import time
-        self.start_time = time.time()
-        
-        self.chat_collection_time = 0
-        self.extraction_time = 0
-        self.transcription_time = 0
-        self.ai_analysis_time = 0
-        self.total_analysis_time = 0
-        
-        self.pause_event = threading.Event()
-        self.pause_event.set()  # True means "Running"
-        self.stop_event = threading.Event()
-        
-        self._thread = None
-        
-    def start(self):
-        self._thread = threading.Thread(target=self._run)
-        self._thread.daemon = True
-        self._thread.start()
-        
-    def _run(self):
-        try:
-            self.vod_id = run_real_analysis_thread(self)
-            self.is_done = True
-        except Exception as e:
-            self.error = str(e)
-            self.is_done = True
-            
-    def check_pause(self):
-        # Why raise custom Exception on stop?
-        # Raising an exception immediately halts the execution of loops in submodules 
-        # (like chat collection or Gemini batching) and ensures that execution is stopped safely.
-        if self.stop_event.is_set():
-            raise Exception("分析が中止されました。")
-        while not self.pause_event.is_set():
-            if self.stop_event.is_set():
-                raise Exception("分析が中止されました。")
-            import time
-            time.sleep(0.5)
-            
-    def set_pausable(self, pausable: bool):
-        self.is_pausable = pausable
-
-
-def run_real_analysis_thread(runner: AnalysisRunner) -> str:
-    db = runner.db
-    vod_url = runner.vod_url
-    api_key = runner.api_key
-    model_name = runner.model_name
-    batch_size = runner.batch_size
-    
-    import time
-    start_time = time.time()
-    
-    t_chat_collection = 0
-    t_extraction = 0
-    t_transcription = 0
-    t_ai_analysis = 0
-    
-    def progress_callback(message: str, progress_val: int):
-        runner.check_pause()
-        runner.message = message
-        runner.progress_val = progress_val
-        
-    try:
-        # Step 0: Get VOD metadata
-        runner.set_pausable(True)
-        progress_callback("🔍 [0/5] Twitch VOD メタデータを取得中...", 5)
-        collector = ChatCollector()
-        metadata = collector.get_video_metadata(vod_url)
-        
-        # Step 1: Collect chat logs
-        runner.set_pausable(True)
-        progress_callback("🤖 [1/5] Twitchチャットログを収集中...", 10)
-        t_chat_start = time.time()
-        chat_data = collector.collect_chat(vod_url, progress_callback=progress_callback)
-        t_chat_collection = int(time.time() - t_chat_start)
-        if not chat_data:
-            raise Exception("チャットログの取得に失敗しました。URLが正しいか、VODが公開されているかご確認ください。")
-            
-        # Step 2: Download and extract audio
-        # Why disable pause during download?
-        # Audio download runs as a subprocess via yt-dlp. Stopping a subprocess in PyTorch/Python 
-        # is unpredictable and prone to resource leaks. Disabling pause is safer.
-        runner.set_pausable(False)
-        progress_callback("🎵 [2/5] VODから音声トラックを抽出中 (yt-dlp)...", 30)
-        t_extract_start = time.time()
-        audio_coll = AudioCollector()
-        audio_path = audio_coll.collect_audio(vod_url, progress_callback=progress_callback)
-        t_extraction = int(time.time() - t_extract_start)
-        vod_id = os.path.basename(audio_path).replace(".mp3", "")
-        
-        # Step 3: Transcription using Local Whisper
-        # Why disable pause during Whisper?
-        # Local model transcription runs highly optimized blocking PyTorch code. Forcing 
-        # it to stop requires complex multi-processing hacks. Completing it without pause is more robust.
-        runner.set_pausable(False)
-        progress_callback(f"✍️ [3/5] Whisper ({model_name}) で音声を文字起こし中... (数分かかる場合があります)", 50)
-        t_transcribe_start = time.time()
-        transcriber = WhisperTranscriber()
-        segments = transcriber.transcribe(audio_path, model_name=model_name)
-        t_transcription = int(time.time() - t_transcribe_start)
-        
-        # Step 4: Merge chats and text
-        runner.set_pausable(True)
-        progress_callback("🔗 [4/5] チャットログと音声認識タイムスタンプをアラインメント中...", 75)
-        merger = TimelineMerger()
-        merged_events = merger.merge(segments, chat_data)
-        timeline_txt = merger.format_to_text(merged_events)
-        
-        # Step 5: AI analysis using Gemini API
-        runner.set_pausable(True)
-        progress_callback("🧠 [5/5] Gemini API で話題のコンテキストを抽出中...", 80)
-        t_ai_start = time.time()
-        
-        if metadata:
-            streamer_id = metadata.get("streamer_id") or "twitch_streamer"
-            streamer_name = metadata.get("streamer_name") or "Twitch Streamer"
-            title = metadata.get("title") or f"Twitch配信アーカイブ (ID: {vod_id})"
-            duration = metadata.get("duration_seconds") or int(merged_events[-1]["offset_seconds"]) if merged_events else 3600
-            
-            streamed_at = datetime.now()
-            created_at_str = metadata.get("created_at")
-            if created_at_str:
-                try:
-                    streamed_at = datetime.fromisoformat(created_at_str.replace("Z", "+00:00"))
-                except Exception:
-                    pass
-        else:
-            streamer_id = "twitch_streamer"
-            streamer_name = "Twitch Streamer"
-            title = f"Twitch配信アーカイブ (ID: {vod_id})"
-            duration = int(merged_events[-1]["offset_seconds"]) if merged_events else 3600
-            streamed_at = datetime.now()
-            
-        streamer = db.get_or_create_streamer(streamer_id, streamer_name)
-        avg_vel, max_vel, vel_json = calculate_chat_velocities(chat_data, duration)
-        
-        vod = VOD(
-            vod_id=vod_id,
-            streamer_id=streamer.streamer_id,
-            title=title,
-            duration_seconds=duration,
-            streamed_at=streamed_at,
-            average_viewers=0,
-            avg_chat_velocity_hour=avg_vel,
-            max_chat_velocity_min=max_vel,
-            merged_timeline_text=timeline_txt,
-            chat_velocity_json=vel_json
-        )
-        
-        topic_analyzer = TopicAnalyzer(api_key=api_key)
-        topics_data = topic_analyzer.analyze_topics(timeline_txt)
-        db_topics = [
-            Topic(
-                vod_id=vod_id,
-                start_offset_seconds=t["start_offset_seconds"],
-                end_offset_seconds=t["end_offset_seconds"],
-                category=t["category"],
-                description=t["description"],
-                is_high_context=t["is_high_context"]
-            )
-            for t in topics_data
-        ]
-        
-        # Why pass merged_events?
-        # Providing the chronological timeline events list enables context-aware (streamer talk + other chats)
-        # comment classification, yielding superior semantic accuracy.
-        listener_stats = comment_analyzer.analyze_listeners(
-            chat_data, 
-            batch_size=batch_size, 
-            progress_callback=progress_callback,
-            merged_events=merged_events
-        )
-        
-        db_stats = []
-        for s in listener_stats:
-            import json
-            # Why serialize comment_details to JSON string?
-            # Storing the list of specific comments with their offsets and categories as a JSON string 
-            # avoids table duplication while retaining the detail view for UI inspection.
-            details_json = json.dumps(s.get("comment_details", []), ensure_ascii=False)
-            db_stats.append(
-                VODListenerStats(
-                    vod_id=vod_id,
-                    listener_username=s["username"],
-                    total_comments=s["total_comments"],
-                    reaction_comments_count=s["reaction_comments_count"],
-                    question_comments_count=s["question_comments_count"],
-                    insight_comments_count=s["insight_comments_count"],
-                    instruction_comments_count=s["instruction_comments_count"],
-                    other_comments_count=s["other_comments_count"],
-                    persona_type=s["persona_type"],
-                    comment_details_json=details_json
-                )
-            )
-            
-        t_ai_analysis = int(time.time() - t_ai_start)
-        total_time = int(time.time() - start_time)
-        
-        # Database transaction for atomic replacement
-        # Why run deletions and insertions in a single transaction block?
-        # If the re-analysis fails halfway (e.g. VOD already deleted on Twitch), 
-        # the legacy data remains completely intact and safe. We only commit changes 
-        # when all new dataset objects are fully compiled.
-        session_db = db.get_session()
-        try:
-            # Delete legacy associated tables to prevent duplicate records accumulation
-            # Why delete by vod_id?
-            # Since both selected_vod_id and the newly analyzed vod_id maintain 'v'-prefixed consistency,
-            # we can safely delete old records by the exact same vod_id in a single transaction block.
-            session_db.query(Topic).filter_by(vod_id=vod_id).delete()
-            session_db.query(VODListenerStats).filter_by(vod_id=vod_id).delete()
-            
-            # Save or update VOD record
-            vod.chat_collection_time_seconds = t_chat_collection
-            vod.extraction_time_seconds = t_extraction
-            vod.transcription_time_seconds = t_transcription
-            vod.ai_analysis_time_seconds = t_ai_analysis
-            vod.total_analysis_time_seconds = total_time
-            session_db.merge(vod)
-            
-            # Save new topics
-            for t in db_topics:
-                session_db.add(t)
-                
-            # Save new listener stats
-            for s in db_stats:
-                session_db.merge(s)
-                
-            session_db.commit()
-        except Exception as e:
-            session_db.rollback()
-            raise e
-        finally:
-            db.remove_session()
-            
-        if os.path.exists(audio_path):
-            os.remove(audio_path)
-        
-        # Expose stats to the runner
-        runner.chat_collection_time = t_chat_collection
-        runner.extraction_time = t_extraction
-        runner.transcription_time = t_transcription
-        runner.ai_analysis_time = t_ai_analysis
-        runner.total_analysis_time = total_time
-        
-        progress_callback("✨ 分析完了！", 100)
-        return vod_id
-        
-    except Exception as e:
-        try:
-            if 'audio_path' in locals() and os.path.exists(audio_path):
-                os.remove(audio_path)
-        except Exception:
-            pass
-        raise e
-
-
 # ---------------------------------------------------------
 # Mock Data Generator (for Quick Validation)
 # ---------------------------------------------------------
@@ -403,13 +118,14 @@ def run_real_analysis_thread(runner: AnalysisRunner) -> str:
 # ---------------------------------------------------------
 # Real Pipeline Runner
 # ---------------------------------------------------------
-def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int = 30) -> str:
+# Why add optional progress_callback?
+# Adding progress_callback parameter allows callers (like st.status flow in UI) to capture 
+# and render execution steps natively, while keeping a fallback st.empty() logic for standalone runner cases.
+def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int = 30, progress_callback=None) -> str:
     # Why fix model_name to turbo?
     # Standardizing on the turbo model ensures maximum transcription quality and speed,
     # and simplifies the UI by removing model selection configurations.
     model_name = "turbo"
-    status_text = st.empty()
-    progress_bar = st.progress(0)
     
     # Why track start_time?
     # Knowing the elapsed time helps reassure the user that the pipeline is active 
@@ -422,50 +138,60 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int
     t_transcription = 0
     t_ai_analysis = 0
     
-    def progress_callback(message: str, progress_val: int):
-        elapsed = int(time.time() - start_time)
-        status_text.text(f"⏱️ 経過時間: {elapsed}秒 | {message}")
-        progress_bar.progress(progress_val)
+    # Why define callback helper wrapper?
+    # By assigning progress_callback to local variable name or defining it locally,
+    # we avoid modifying every single downstream call site in the function while
+    # supporting custom callback integration (like st.status flow).
+    if progress_callback is None:
+        status_text = st.empty()
+        progress_bar = st.progress(0)
+        def local_progress_callback(message: str, progress_val: int):
+            elapsed = int(time.time() - start_time)
+            status_text.text(f"⏱️ 経過時間: {elapsed}秒 | {message}")
+            progress_bar.progress(progress_val)
+        actual_callback = local_progress_callback
+    else:
+        actual_callback = progress_callback
         
     try:
         # Step 0: Get VOD metadata
-        progress_callback("🔍 [0/5] Twitch VOD メタデータを取得中...", 5)
+        actual_callback("🔍 [0/5] Twitch VOD メタデータを取得中...", 5)
         collector = ChatCollector()
         metadata = collector.get_video_metadata(vod_url)
         
         # Step 1: Collect chat logs
-        progress_callback("🤖 [1/5] Twitchチャットログを収集中...", 10)
+        actual_callback("🤖 [1/5] Twitchチャットログを収集中...", 10)
         t_chat_start = time.time()
-        chat_data = collector.collect_chat(vod_url, progress_callback=progress_callback)
+        chat_data = collector.collect_chat(vod_url, progress_callback=actual_callback)
         t_chat_collection = int(time.time() - t_chat_start)
         if not chat_data:
             st.error("チャットログの取得に失敗しました。URLが正しいか、VODが公開されているかご確認ください。")
             return None
             
         # Step 2: Download and extract audio
-        progress_callback("🎵 [2/5] VODから音声トラックを抽出中 (yt-dlp)...", 30)
+        actual_callback("🎵 [2/5] VODから音声トラックを抽出中 (yt-dlp)...", 30)
         t_extract_start = time.time()
         audio_coll = AudioCollector()
-        audio_path = audio_coll.collect_audio(vod_url, progress_callback=progress_callback)
+        audio_path = audio_coll.collect_audio(vod_url, progress_callback=actual_callback)
         t_extraction = int(time.time() - t_extract_start)
         # Extract VOD ID from audio output filename
         vod_id = os.path.basename(audio_path).replace(".mp3", "")
         
         # Step 3: Transcription using Local Whisper
-        progress_callback(f"✍️ [3/5] Whisper ({model_name}) で音声を文字起こし中... (数分かかる場合があります)", 50)
+        actual_callback(f"✍️ [3/5] Whisper ({model_name}) で音声を文字起こし中... (数分かかる場合があります)", 50)
         t_transcribe_start = time.time()
         transcriber = WhisperTranscriber()
         segments = transcriber.transcribe(audio_path, model_name=model_name)
         t_transcription = int(time.time() - t_transcribe_start)
         
         # Step 4: Merge chats and text
-        progress_callback("🔗 [4/5] チャットログと音声認識タイムスタンプをアラインメント中...", 75)
+        actual_callback("🔗 [4/5] チャットログと音声認識タイムスタンプをアラインメント中...", 75)
         merger = TimelineMerger()
         merged_events = merger.merge(segments, chat_data)
         timeline_txt = merger.format_to_text(merged_events)
         
         # Step 5: AI analysis using Gemini API
-        progress_callback("🧠 [5/5] Gemini API で話題のコンテキストを抽出中...", 80)
+        actual_callback("🧠 [5/5] Gemini API で話題 of コンテキストを抽出中...", 80)
         t_ai_start = time.time()
         
         # Why fetch from metadata or fallback?
@@ -503,7 +229,7 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int
             average_viewers=0,  # Viewer count input is removed from UI
             avg_chat_velocity_hour=avg_vel,
             max_chat_velocity_min=max_vel,
-            merged_timeline_text=timeline_txt,
+            merged_timeline_json=None,
             chat_velocity_json=vel_json
         )
         
@@ -533,20 +259,23 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int
         listener_stats = comment_analyzer.analyze_listeners(
             chat_data,
             batch_size=batch_size,
-            progress_callback=progress_callback,
+            progress_callback=actual_callback,
             merged_events=merged_events
         )
+        
+        # Why save timeline as serialized JSON in the VOD record?
+        # Overwriting with a JSON string of merged_events (which now has classification categories) 
+        # avoids text parsing during reload and facilitates rich formatting in the UI.
+        vod.merged_timeline_json = json.dumps(merged_events, ensure_ascii=False)
         
         t_ai_analysis = int(time.time() - t_ai_start)
         total_time = int(time.time() - start_time)
         
         db_stats = []
         for s in listener_stats:
-            import json
-            # Why serialize comment_details to JSON string?
-            # Storing the list of specific comments with their offsets and categories as a JSON string 
-            # avoids table duplication while retaining the detail view for UI inspection.
-            details_json = json.dumps(s.get("comment_details", []), ensure_ascii=False)
+            # Why not save comment details here?
+            # Individual comment classifications are now embedded directly in the structured
+            # VOD.merged_timeline_json array, so we omit details_json here to optimize space.
             db_stats.append(
                 VODListenerStats(
                     vod_id=vod_id,
@@ -557,8 +286,7 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int
                     insight_comments_count=s["insight_comments_count"],
                     instruction_comments_count=s["instruction_comments_count"],
                     other_comments_count=s["other_comments_count"],
-                    persona_type=s["persona_type"],
-                    comment_details_json=details_json
+                    persona_type=s["persona_type"]
                 )
             )
             
@@ -606,7 +334,7 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int
         if os.path.exists(audio_path):
             os.remove(audio_path)
             
-        progress_callback("✨ 分析完了！", 100)
+        actual_callback("✨ 分析完了！", 100)
         return vod_id
         
     except Exception as e:
@@ -615,74 +343,10 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int
                 os.remove(audio_path)
         except Exception:
             pass
-        st.error(f"分析パイプライン実行中にエラーが発生しました: {e}")
-        return None
-
-
-@st.fragment
-def render_analysis_progress(runner):
-    # Why use st.fragment?
-    # Rerunning the whole page just to update the timer triggers global DOM refresh (stale opacity drop).
-    # Wrapping this section in a local fragment restricts st.rerun() to this card, ensuring smooth timer updates.
-    import time
-    elapsed = int(time.time() - runner.start_time)
-    st.markdown(f"""
-    <div class="dashboard-card" style="border-color: #a855f7; background-color: rgba(168, 85, 247, 0.05);">
-        <h4 style="margin-top:0; color:#a855f7; display:flex; justify-content:space-between; align-items:center;">
-            <span>⚙️ バックグラウンド分析を実行中</span>
-            <span style="font-size:0.85rem; padding:2px 8px; border-radius:12px; background-color:#a855f7; color:white;">
-                {runner.progress_val}%
-            </span>
-        </h4>
-        <p style="color:#d1d5db; font-size:0.95rem; margin-bottom:0.5rem;">⏱️ 経過時間: {elapsed}秒 | {runner.message}</p>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    st.progress(runner.progress_val / 100.0 if 0 <= runner.progress_val <= 100 else 0.0)
-    
-    col_ctrl1, col_ctrl2 = st.columns(2)
-    with col_ctrl1:
-        # Why check runner.pause_event?
-        # pause_event.is_set() is True when the analysis is running, and False when paused.
-        # Showing the corresponding button dynamically allows clear control.
-        if runner.pause_event.is_set():
-            is_pausable = runner.is_pausable
-            # Why disable pause during yt-dlp/Whisper?
-            # Subprocesses and local C/C++ model execution block CPU execution in a way 
-            # that cannot be paused safely without causing memory leaks or lockouts.
-            st.button(
-                "一時停止", 
-                disabled=not is_pausable, 
-                key="pause_btn", 
-                width="stretch",
-                help="音声抽出中およびWhisper文字起こし中は一時停止できません。" if not is_pausable else None
-            )
-        else:
-            st.button("再開", key="resume_btn", width="stretch")
-            
-    with col_ctrl2:
-        st.button("分析を中止", key="stop_btn", width="stretch")
-        
-    # Handle button actions inside fragment
-    if st.session_state.get("pause_btn"):
-        runner.pause_event.clear()
-        st.rerun()
-    if st.session_state.get("resume_btn"):
-        runner.pause_event.set()
-        st.rerun()
-    if st.session_state.get("stop_btn"):
-        runner.stop_event.set()
-        runner.pause_event.set()  # resume if paused to exit thread quickly
-        st.rerun()
-        
-    # Why check scope="app"?
-    # If the analysis finishes, we must trigger a full app rerun to reload and render the dashboard data.
-    # Otherwise, st.rerun() defaults to rerun only the fragment itself.
-    if runner.is_done:
-        st.rerun(scope="app")
-    else:
-        time.sleep(1.0)
-        st.rerun()
+        # Why raise the exception?
+        # Propagating the error to the caller (main loop) ensures that the exact stack trace 
+        # is stored in st.session_state and shown in the UI, rather than swallowed here.
+        raise e
 
 
 # ---------------------------------------------------------
@@ -814,7 +478,8 @@ def main():
     # Mode selection
     mode = st.sidebar.radio(
         "分析モードを選択してください",
-        ["過去の分析結果を閲覧", "実際のVODを分析"]
+        ["過去の分析結果を閲覧", "実際のVODを分析"],
+        key="analysis_mode"
     )
     
     selected_vod_id = None
@@ -856,7 +521,7 @@ def main():
     # from the main dashboard when viewing legacy incomplete datasets.
     st.sidebar.markdown("---")
     st.sidebar.markdown("#### ⚙️ 分析パラメーター")
-    api_key = st.sidebar.text_input("Gemini API Key", value=api_key)
+    api_key = st.sidebar.text_input("Gemini API Key", value=api_key, key="gemini_api_key")
     # Why fix whisper_model to turbo?
     # Keeping the model selection hidden simplifies the sidebar UI and ensures 
     # the cached, high-performance turbo model is consistently used.
@@ -872,12 +537,12 @@ def main():
     
     if mode == "実際のVODを分析":
         st.sidebar.markdown("---")
-        vod_url = st.sidebar.text_input("Twitch VOD URL", value="https://www.twitch.tv/videos/123456789")
+        vod_url = st.sidebar.text_input("Twitch VOD URL", value="https://www.twitch.tv/videos/123456789", key="vod_url")
         
-        # Check if analysis is currently running
-        is_running = "analysis_runner" in st.session_state and not st.session_state["analysis_runner"].is_done
+        # Check if analysis trigger is armed
+        is_running = bool(st.session_state.get("start_analysis"))
         
-        if st.sidebar.button("分析を実行する", width="stretch", disabled=is_running):
+        if st.sidebar.button("分析を実行する", width="stretch", disabled=is_running, key="run_analysis_btn"):
             if not api_key:
                 st.sidebar.error("Gemini API Key を入力してください。")
             else:
@@ -890,9 +555,12 @@ def main():
                     st.session_state["vod_id"] = vod_id
                     st.sidebar.success("データベースから既存の分析結果を読み込みました！")
                 else:
-                    runner = AnalysisRunner(db, vod_url, api_key, listener_batch_size)
-                    st.session_state["analysis_runner"] = runner
-                    runner.start()
+                    # Why set trigger state?
+                    # Streamlit execution is synchronous. Setting a trigger state and rerunning 
+                    # allows us to intercept execution at the top of the main area, showing 
+                    # an isolated st.status container for synchronous visual updates without flickering.
+                    st.session_state["start_analysis"] = True
+                    st.session_state["analysis_vod_url"] = vod_url
                     st.rerun()
                         
     # Load default session state if exists
@@ -903,28 +571,73 @@ def main():
     st.markdown("<h1 class='main-header'>vibes-ttv</h1>", unsafe_allow_html=True)
     st.markdown("<div class='sub-header'>Twitch配信アーカイブ（VOD）の態度・話題分析ダッシュボード</div>", unsafe_allow_html=True)
     
-    # Progress rendering and controls if analysis is running
-    if "analysis_runner" in st.session_state:
-        runner = st.session_state["analysis_runner"]
+    # ---------------------------------------------------------
+    # Notification Messages Rendering
+    # ---------------------------------------------------------
+    # Why check and render message here?
+    # This renders the success/error messages compiled during the pipeline execution
+    # immediately after the page reruns, then clears them from session state to prevent repeated displays.
+    if "analysis_message" in st.session_state:
+        msg = st.session_state["analysis_message"]
+        if msg["type"] == "success":
+            st.success(msg["text"])
+        elif msg["type"] == "error":
+            st.error(msg["text"])
+        del st.session_state["analysis_message"]
         
-        if runner.is_done:
-            # Handle post-analysis state transitions on the main app execution context
-            # Why not run inside the fragment?
-            # State cleanup (deleting the runner, switching selected VOD IDs) affects the layout 
-            # of the entire page, which requires a full app-level rerun to reflect.
-            if runner.error:
-                st.error(f"分析中にエラーが発生しました: {runner.error}")
-            elif runner.vod_id:
-                st.session_state["vod_id"] = runner.vod_id
-                st.success(f"分析が完了しました！ (合計処理時間: {runner.total_analysis_time}秒)")
-            del st.session_state["analysis_runner"]
-            st.rerun()
-        else:
-            # Call the fragment function for dynamic local updates
-            # Why call render_analysis_progress?
-            # restricting the 1-second rerun loop inside a fragment keeps other dashboard elements 
-            # stable and prevents flickering across the whole page.
-            render_analysis_progress(runner)
+    # ---------------------------------------------------------
+    # Active Analysis Flow using st.status
+    # ---------------------------------------------------------
+    # Why run analysis synchronously inside st.status?
+    # Keeping execution synchronous avoids multi-threading race conditions and memory leaks,
+    # while the st.status container dynamically updates progress logs in place without 
+    # triggering page-wide reruns (stale flickering).
+    if st.session_state.get("start_analysis"):
+        analysis_url = st.session_state.get("analysis_vod_url")
+        
+        with st.status("🔍 Twitch VOD の分析を実行中...", expanded=True) as status:
+            # Why use st.empty()?
+            # st.empty() creates a single placeholder slot inside the st.status container.
+            # Calling progress_placeholder.write() repeatedly overwrites the previous message in-place,
+            # preventing log duplication and keeping the visual display clean.
+            progress_placeholder = st.empty()
+            
+            def sync_progress_callback(message: str, progress_val: int):
+                progress_placeholder.write(message)
+                
+            try:
+                vod_id = run_real_analysis(
+                    db, 
+                    analysis_url, 
+                    api_key, 
+                    batch_size=listener_batch_size, 
+                    progress_callback=sync_progress_callback
+                )
+                if vod_id:
+                    status.update(label="✨ 分析が完了しました！", state="complete", expanded=False)
+                    st.session_state["vod_id"] = vod_id
+                    st.session_state["analysis_message"] = {
+                        "type": "success",
+                        "text": "分析が正常に完了しました！ダッシュボードを表示します。"
+                    }
+                else:
+                    status.update(label="⚠️ 分析に失敗しました。", state="error", expanded=True)
+                    st.session_state["analysis_message"] = {
+                        "type": "error",
+                        "text": "分析処理に失敗しました。チャットログまたは音声抽出エラーをご確認ください。"
+                    }
+            except Exception as e:
+                status.update(label="❌ エラーが発生しました。", state="error", expanded=True)
+                st.session_state["analysis_message"] = {
+                    "type": "error",
+                    "text": f"分析実行中に想定外のエラーが発生しました: {e}"
+                }
+                
+        # Reset trigger flags and reload page to render dashboard
+        del st.session_state["start_analysis"]
+        if "analysis_vod_url" in st.session_state:
+            del st.session_state["analysis_vod_url"]
+        st.rerun()
     
     if not selected_vod_id:
         st.info("👈 左側のサイドバーから「過去の分析結果を閲覧」するか、「実際のVOD」を分析してください。")
@@ -1084,7 +797,6 @@ def main():
         # Older analyzed records or mock data might not have the chat velocity time-series text.
         # Handling None safely prevents Streamlit rendering exceptions.
         if hasattr(vod, 'chat_velocity_json') and vod.chat_velocity_json:
-            import json
             try:
                 vel_data = json.loads(vod.chat_velocity_json)
                 if vel_data:
@@ -1143,22 +855,26 @@ def main():
         # Resolves Streamlit deprecation warnings for dataframes.
         st.dataframe(stats_df, width="stretch")
         
-        # Why filter by hasattr and non-empty?
-        # Checking for comment_details_json ensures that we only show the detailed logs 
-        # when the data is available (for newer runs), maintaining backward compatibility.
-        listeners_with_details = [s for s in stats if hasattr(s, "comment_details_json") and s.comment_details_json]
-        if listeners_with_details:
+        # Why fetch comment details from merged_timeline_json?
+        # Storing all comments in a single merged_timeline_json array allows us to filter details 
+        # dynamically at query time, keeping the database schema normalized and lightweight.
+        if hasattr(vod, "merged_timeline_json") and vod.merged_timeline_json:
             st.markdown("---")
             st.markdown("#### 💬 コメントの分類詳細")
             
-            listener_names = sorted([s.listener_username for s in listeners_with_details])
+            listener_names = sorted([s.listener_username for s in stats])
             selected_user = st.selectbox("詳細を表示するリスナーを選択", listener_names)
             
-            user_stat = next(s for s in listeners_with_details if s.listener_username == selected_user)
-            
             try:
-                import json
-                comment_details = json.loads(user_stat.comment_details_json)
+                events = json.loads(vod.merged_timeline_json)
+                comment_details = [
+                    {
+                        "message": ev["text"],
+                        "offset_seconds": ev["offset_seconds"],
+                        "category": ev.get("category", "other")
+                    }
+                    for ev in events if ev["type"] == "listener" and ev["name"] == selected_user
+                ]
             except Exception:
                 comment_details = []
                 
@@ -1276,7 +992,6 @@ def main():
         # Parse velocity data if exists
         vel_list = []
         if hasattr(vod, "chat_velocity_json") and vod.chat_velocity_json:
-            import json
             try:
                 vel_list = json.loads(vod.chat_velocity_json)
             except Exception:
@@ -1444,10 +1159,24 @@ def main():
             "配信全体の文脈や、どの瞬間にどのような会話が行われていたかを詳細に振り返ることができます。"
         )
         
-        # Why check merged_timeline_text?
-        # Older analyzed records or mock data might not have the merged timeline text.
-        # Handling None safely prevents Streamlit exceptions.
-        if hasattr(vod, 'merged_timeline_text') and vod.merged_timeline_text:
+        # Why check merged_timeline_json?
+        # Loading the structured JSON array and rendering it dynamically via format_to_text 
+        # ensures category annotations display beautifully without duplicate DB serialization.
+        if hasattr(vod, 'merged_timeline_json') and vod.merged_timeline_json:
+            try:
+                events = json.loads(vod.merged_timeline_json)
+                merger = TimelineMerger()
+                timeline_txt = merger.format_to_text(events, show_categories=True)
+                st.text_area(
+                    label="統合タイムラインログ (コピー・スクロール可能)",
+                    value=timeline_txt,
+                    height=500,
+                    disabled=True
+                )
+            except Exception as e:
+                st.error(f"統合タイムラインの読み込み中にエラーが発生しました: {e}")
+        elif hasattr(vod, 'merged_timeline_text') and vod.merged_timeline_text:
+            # Fallback for old database rows (though we drop DB in tests/dev)
             st.text_area(
                 label="統合タイムラインログ (コピー・スクロール可能)",
                 value=vod.merged_timeline_text,
@@ -1455,7 +1184,7 @@ def main():
                 disabled=True
             )
         else:
-            st.info("このアーカイブには統合タイムラインテキストが保存されていません（デモデータ等のため）。")
+            st.info("このアーカイブには統合タイムラインデータが保存されていません（デモデータ等のため）。")
 
     # Close DB session safely
     db.remove_session()

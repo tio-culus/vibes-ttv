@@ -32,7 +32,8 @@ def test_database_manager():
         extraction_time_seconds=20,
         transcription_time_seconds=300,
         ai_analysis_time_seconds=40,
-        total_analysis_time_seconds=370
+        total_analysis_time_seconds=370,
+        merged_timeline_json='[{"type": "streamer", "offset_seconds": 10.0, "text": "Hello"}]'
     )
     db.save_vod(vod)
     
@@ -45,9 +46,10 @@ def test_database_manager():
     assert fetched_vod.transcription_time_seconds == 300
     assert fetched_vod.ai_analysis_time_seconds == 40
     assert fetched_vod.total_analysis_time_seconds == 370
+    assert fetched_vod.merged_timeline_json == '[{"type": "streamer", "offset_seconds": 10.0, "text": "Hello"}]'
     
-    # Why verify VODListenerStats serialization?
-    # Ensuring that VODListenerStats correctly serializes and stores the JSON payload for comment details 
+    # Why verify VODListenerStats fields?
+    # Ensuring that VODListenerStats correctly stores basic listener counts and persona type
     # protects the UI features from schema regression or mapping failures in production.
     stats = VODListenerStats(
         vod_id="test_vod_01",
@@ -58,8 +60,7 @@ def test_database_manager():
         insight_comments_count=0,
         instruction_comments_count=1,
         other_comments_count=0,
-        persona_type="reaction",
-        comment_details_json='[{"message": "www", "offset_seconds": 12, "category": "reaction"}]'
+        persona_type="reaction"
     )
     db.save_listener_stats([stats])
     
@@ -67,7 +68,6 @@ def test_database_manager():
     fetched_stats = session.query(VODListenerStats).filter_by(vod_id="test_vod_01", listener_username="listener_alpha").first()
     assert fetched_stats is not None
     assert fetched_stats.total_comments == 5
-    assert fetched_stats.comment_details_json == '[{"message": "www", "offset_seconds": 12, "category": "reaction"}]'
     db.remove_session()
 
 
@@ -261,8 +261,7 @@ def test_atomic_transaction_behavior():
         insight_comments_count=0,
         instruction_comments_count=0,
         other_comments_count=0,
-        persona_type="reaction",
-        comment_details_json='[]'
+        persona_type="reaction"
     )
     db.save_listener_stats([legacy_stats])
     
@@ -298,8 +297,7 @@ def test_atomic_transaction_behavior():
         insight_comments_count=0,
         instruction_comments_count=0,
         other_comments_count=0,
-        persona_type="question",
-        comment_details_json='[]'
+        persona_type="question"
     )
     
     # Run transaction that FAILS
@@ -426,3 +424,79 @@ def test_get_twitch_vod_url():
     assert get_twitch_vod_url("v2786816848") == "https://www.twitch.tv/videos/2786816848"
     # With offset_seconds
     assert get_twitch_vod_url("v2786816848", 3661) == "https://www.twitch.tv/videos/2786816848?t=1h1m1s"
+
+
+def test_comment_serialization_flow():
+    import json
+    from unittest.mock import MagicMock
+    from vibes_ttv.database.db_manager import DBManager
+    from vibes_ttv.database.models import VOD
+    from vibes_ttv.analyzers.comment_analyzer import CommentAnalyzer, SliceClassificationResponse, LineClassification
+    from vibes_ttv.analyzers.timeline_merger import TimelineMerger
+    
+    # 1. DB setup
+    db = DBManager("sqlite:///:memory:")
+    db.create_tables()
+    
+    # 2. Setup mock CommentAnalyzer and output
+    analyzer = CommentAnalyzer(api_key="mock_key")
+    mock_response = MagicMock()
+    mock_response.parsed = SliceClassificationResponse(
+        results=[
+            LineClassification(line_id="L2", category="insight")
+        ]
+    )
+    analyzer.client.models.generate_content = MagicMock(return_value=mock_response)
+    
+    # 3. Setup events
+    merged_events = [
+        {"type": "streamer", "offset_seconds": 10.0, "text": "配信開始"},
+        {"type": "listener", "name": "user_a", "offset_seconds": 12.0, "text": "www"},
+        {"type": "listener", "name": "user_a", "offset_seconds": 15.0, "text": "ここは火属性ですね"},
+    ]
+    chat_data = [
+        {"username": "user_a", "message": "www", "offset_seconds": 12.0},
+        {"username": "user_a", "message": "ここは火属性ですね", "offset_seconds": 15.0},
+    ]
+    
+    # 4. Run analyzer
+    results = analyzer.analyze_listeners(chat_data, merged_events=merged_events)
+    
+    # Verify categories are assigned in-place
+    assert merged_events[1]["category"] == "reaction"
+    assert merged_events[2]["category"] == "insight"
+    
+    # 5. Format to text with categories
+    merger = TimelineMerger()
+    formatted = merger.format_to_text(merged_events, show_categories=True)
+    assert "[00:00:12] [reaction] user_a: www" in formatted
+    assert "[00:00:15] [insight] user_a: ここは火属性ですね" in formatted
+    
+    # 6. JSON serialization check
+    serialized = json.dumps(merged_events, ensure_ascii=False)
+    assert isinstance(serialized, str)
+    
+    # 7. DB Save and Load check
+    db.get_or_create_streamer("streamer_test", "Tester")
+    vod = VOD(
+        vod_id="vod_test_serial",
+        streamer_id="streamer_test",
+        title="Test Serialization",
+        duration_seconds=100,
+        merged_timeline_json=serialized
+    )
+    db.save_vod(vod)
+    
+    fetched = db.get_vod("vod_test_serial")
+    assert fetched is not None
+    assert fetched.merged_timeline_json == serialized
+    
+    # 8. Dynamic filtering check
+    loaded_events = json.loads(fetched.merged_timeline_json)
+    user_comments = [
+        {"message": ev["text"], "offset_seconds": ev["offset_seconds"], "category": ev.get("category", "other")}
+        for ev in loaded_events if ev["type"] == "listener" and ev["name"] == "user_a"
+    ]
+    assert len(user_comments) == 2
+    assert user_comments[0]["category"] == "reaction"
+    assert user_comments[1]["category"] == "insight"

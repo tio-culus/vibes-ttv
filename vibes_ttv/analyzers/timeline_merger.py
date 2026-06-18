@@ -33,7 +33,7 @@ class TimelineMerger:
         events.sort(key=lambda x: (x["offset_seconds"], 0 if x["type"] == "streamer" else 1))
         return events
 
-    def format_to_text(self, merged_events: list[dict], max_chats_per_minute: int = 30) -> str:
+    def format_to_text(self, merged_events: list[dict], max_chats_per_minute: int = 30, show_categories: bool = False) -> str:
         # Why limit chats per minute in the text format?
         # In highly active streams, chat rates can exceed 100/min.
         # Injecting all chat messages into the Gemini prompt leads to high latency and redundant tokens.
@@ -61,7 +61,13 @@ class TimelineMerger:
                     chat_count_this_minute = 0
                     
                 if chat_count_this_minute < max_chats_per_minute:
-                    lines.append(f"[{timestamp_str}] {ev['name']}: {ev['text']}")
+                    # Why check show_categories?
+                    # When formatting the timeline for Gemini prompts, categories should be hidden to avoid clutter.
+                    # When formatting for the UI log presentation, showing categories helps the user examine classification accuracy in context.
+                    category_str = ""
+                    if show_categories and "category" in ev:
+                        category_str = f" [{ev['category']}]"
+                    lines.append(f"[{timestamp_str}]{category_str} {ev['name']}: {ev['text']}")
                     chat_count_this_minute += 1
                     
         return "\n".join(lines)
