@@ -22,6 +22,20 @@ class CommentCategory(str, Enum):
     OTHER = 'other'
 
     @property
+    def display_label(self) -> str:
+        # Why not hardcode display labels in UI?
+        # Centralizing display labels within the Enum guarantees UI label consistency 
+        # and eliminates translation mapping tables scattered across the app modules.
+        labels = {
+            CommentCategory.REACTION: "感想・リアクション",
+            CommentCategory.QUESTION: "質問",
+            CommentCategory.INSIGHT: "考察",
+            CommentCategory.INSTRUCTION: "指示・提案",
+            CommentCategory.OTHER: "その他",
+        }
+        return labels[self]
+
+    @property
     def description(self) -> str:
         # Why not embed descriptions directly inside a property?
         # Dynamic properties keep the Enum values simple strings for serialization,

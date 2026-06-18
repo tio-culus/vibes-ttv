@@ -720,23 +720,25 @@ def main():
     with tab_attitude:
         st.markdown("#### 態度とコメントの内訳")
         
-        # Why not load category counts directly?
-        # Extracting counts from the deserialized category_counts dictionary provides a dynamic mapping 
-        # that doesn't break if schema columns are removed or database fields change.
-        total_reaction = sum(s.category_counts.get("reaction", 0) for s in stats)
-        total_question = sum(s.category_counts.get("question", 0) for s in stats)
-        total_insight = sum(s.category_counts.get("insight", 0) for s in stats)
-        total_instruction = sum(s.category_counts.get("instruction", 0) for s in stats)
-        total_other = sum(s.category_counts.get("other", 0) for s in stats)
+        # Why not define total_counts dynamically using CommentCategory?
+        # Extracting counts directly using the CommentCategory Enum loop ensures that if a new category 
+        # is added, it will automatically be calculated and displayed without changing UI code.
+        category_totals = {
+            cat: sum(s.category_counts.get(cat.value, 0) for s in stats)
+            for cat in CommentCategory
+        }
         total_chats = sum(s.total_comments for s in stats)
         
         col_chart1, col_chart2 = st.columns(2)
         
         with col_chart1:
             # Comment type distribution donut chart
+            # Why not hardcode category names and totals?
+            # Building the dataframe dynamically from the CommentCategory Enum and category_totals 
+            # prevents UI discrepancy and makes it future-proof against enum definition updates.
             comment_breakdown = pd.DataFrame({
-                "分類": ["感想・リアクション", "質問", "考察", "指示・提案", "その他"],
-                "件数": [total_reaction, total_question, total_insight, total_instruction, total_other]
+                "分類": [cat.display_label for cat in CommentCategory],
+                "件数": [category_totals[cat] for cat in CommentCategory]
             })
             
             # Donut chart via Altair
@@ -840,19 +842,17 @@ def main():
         stats_data = []
         for s in stats:
             counts = s.category_counts
-            # Why not access properties directly?
-            # Fetching from the category_counts dictionary keeps UI representation completely decoupled 
-            # from deprecated SQLAlchemy table column attributes.
-            stats_data.append({
+            # Why not hardcode table columns?
+            # Building rows dynamically from CommentCategory maps UI columns cleanly 
+            # and prevents broken displays when schema modifications happen.
+            row = {
                 "リスナー名": s.listener_username,
                 "総コメント数": s.total_comments,
-                "リアクション": counts.get("reaction", 0),
-                "質問": counts.get("question", 0),
-                "考察": counts.get("insight", 0),
-                "指示・提案": counts.get("instruction", 0),
-                "その他": counts.get("other", 0),
-                "ペルソナ種類": p_jp_map.get(s.persona_type, s.persona_type)
-            })
+            }
+            for cat in CommentCategory:
+                row[cat.display_label] = counts.get(cat.value, 0)
+            row["ペルソナ種類"] = p_jp_map.get(s.persona_type, s.persona_type)
+            stats_data.append(row)
         stats_df = pd.DataFrame(stats_data)
         # Why width="stretch" instead of use_container_width=True?
         # Resolves Streamlit deprecation warnings for dataframes.
