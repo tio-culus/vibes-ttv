@@ -1,6 +1,7 @@
 import json
 import re
 import time
+from enum import Enum
 from google import genai
 from google.genai import types
 from pydantic import BaseModel
@@ -10,9 +11,19 @@ from pydantic import BaseModel
 # The SDK automatically parses this JSON into a Pydantic object accessible via `response.parsed`,
 # eliminating fragile manual string parsing or json.loads logic.
 
+# Why not inherit from str as well (str, Enum)?
+# Inheriting from str ensures the enum values act as native strings,
+# allowing seamless JSON serialization and preserving backward compatibility with downstream DB/UI models.
+class CommentCategory(str, Enum):
+    REACTION = 'reaction'
+    QUESTION = 'question'
+    INSIGHT = 'insight'
+    INSTRUCTION = 'instruction'
+    OTHER = 'other'
+
 class CommentClassification(BaseModel):
     message: str
-    category: str # 'reaction', 'question', 'insight', 'instruction', 'other'
+    category: CommentCategory
 
 class ListenerClassification(BaseModel):
     username: str
@@ -26,7 +37,7 @@ class BatchClassificationResponse(BaseModel):
 # to a timeline index (line_id), guaranteeing robust mapping results without textual mismatch.
 class LineClassification(BaseModel):
     line_id: str
-    category: str # 'reaction', 'question', 'insight', 'instruction', 'other'
+    category: CommentCategory
 
 class SliceClassificationResponse(BaseModel):
     results: list[LineClassification]
@@ -113,7 +124,7 @@ class CommentAnalyzer:
                     # Local pre-classification check
                     msg = ev["text"]
                     if self._is_simple_reaction(msg):
-                        pre_classified[global_idx] = "reaction"
+                        pre_classified[global_idx] = CommentCategory.REACTION
                     else:
                         to_classify.append({
                             "line_id": f"L{global_idx}",
@@ -192,7 +203,7 @@ class CommentAnalyzer:
                 for item in to_classify:
                     try:
                         g_idx = int(item["line_id"][1:])
-                        classified_events[g_idx] = "other"
+                        classified_events[g_idx] = CommentCategory.OTHER
                     except Exception:
                         pass
                         
@@ -203,9 +214,11 @@ class CommentAnalyzer:
                 username = ev["name"]
                 msg = ev["text"]
                 offset = ev["offset_seconds"]
-                cat = classified_events.get(global_idx, "other")
-                if cat not in ("reaction", "question", "insight", "instruction", "other"):
-                    cat = "other"
+                raw_cat = classified_events.get(global_idx, CommentCategory.OTHER)
+                try:
+                    cat = CommentCategory(raw_cat)
+                except ValueError:
+                    cat = CommentCategory.OTHER
                     
                 if username not in user_stats:
                     user_stats[username] = {
@@ -217,17 +230,18 @@ class CommentAnalyzer:
                         "details": []
                     }
                     
-                user_stats[username][cat] += 1
+                cat_str = cat.value
+                user_stats[username][cat_str] += 1
                 
                 # Why assign category to the merged_events dict in place?
                 # It updates the caller's list of events, allowing timeline text formatters 
                 # or database serializers to access classifications without rebuilding maps.
-                ev["category"] = cat
+                ev["category"] = cat_str
                 
                 user_stats[username]["details"].append({
                     "message": msg,
                     "offset_seconds": offset,
-                    "category": cat
+                    "category": cat_str
                 })
                 
         # 4. Generate final stats and persona type
@@ -295,7 +309,7 @@ class CommentAnalyzer:
                     pre_classified_details.append({
                         "message": msg,
                         "offset_seconds": offset,
-                        "category": "reaction"
+                        "category": CommentCategory.REACTION.value
                     })
                 else:
                     remaining_items.append(item)
@@ -310,7 +324,7 @@ class CommentAnalyzer:
                     "insight_comments_count": 0,
                     "instruction_comments_count": 0,
                     "other_comments_count": 0,
-                    "persona_type": "reaction",
+                    "persona_type": CommentCategory.REACTION.value,
                     "comment_details": pre_classified_details
                 })
             else:
@@ -348,7 +362,7 @@ class CommentAnalyzer:
                 "- insight: 「これは〇〇かもしれない」「おそらく〇〇だからこうなった」などの考察系コメント（比較的長文や論理的なもの）\n"
                 "- instruction: 「〇〇しよう」「〇〇するのはどうですか？」などの指示、アドバイス、提案系コメント\n"
                 "- other: 上記のいずれにも当てはまらない日常雑談やその他コメント\n\n"
-                f"分析対象のデータ:\n{json.dumps(prompt_data, ensure_ascii=False, indent=2)}"
+                f"分析対象 of データ:\n{json.dumps(prompt_data, ensure_ascii=False, indent=2)}"
             )
             
             try:
@@ -402,17 +416,20 @@ class CommentAnalyzer:
                         offset = c_item["offset_seconds"]
                         
                         # Find classification or default to other
-                        cat = classified_map.get(msg, "other")
-                        if cat not in ("reaction", "question", "insight", "instruction", "other"):
-                            cat = "other"
+                        raw_cat = classified_map.get(msg, CommentCategory.OTHER)
+                        try:
+                            cat = CommentCategory(raw_cat)
+                        except ValueError:
+                            cat = CommentCategory.OTHER
                             
-                        if cat == "reaction":
+                        cat_str = cat.value
+                        if cat_str == "reaction":
                             r_c += 1
-                        elif cat == "question":
+                        elif cat_str == "question":
                             q_c += 1
-                        elif cat == "insight":
+                        elif cat_str == "insight":
                             in_c += 1
-                        elif cat == "instruction":
+                        elif cat_str == "instruction":
                             ins_c += 1
                         else:
                             o_c += 1
@@ -420,7 +437,7 @@ class CommentAnalyzer:
                         gemini_classified_details.append({
                             "message": msg,
                             "offset_seconds": offset,
-                            "category": cat
+                            "category": cat_str
                         })
                         
                     # Combine pre-classified (regex) and gemini-classified comments
@@ -461,7 +478,7 @@ class CommentAnalyzer:
                         fallback_details.append({
                             "message": c_item["message"],
                             "offset_seconds": c_item["offset_seconds"],
-                            "category": "other"
+                            "category": CommentCategory.OTHER.value
                         })
                         o_c += 1
                         
@@ -476,7 +493,7 @@ class CommentAnalyzer:
                         "insight_comments_count": 0,
                         "instruction_comments_count": 0,
                         "other_comments_count": o_c,
-                        "persona_type": "reaction" if r_c > 0 else "other",
+                        "persona_type": CommentCategory.REACTION.value if r_c > 0 else CommentCategory.OTHER.value,
                         "comment_details": all_details
                     })
                     

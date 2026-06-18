@@ -956,9 +956,10 @@ def main():
             st.info("このアーカイブには個別のコメント分類詳細データが保存されていません（古いデータなどのため）。")
             
             # Check if analysis is currently running
-            # Why check is_running?
-            # Preventing double-triggering of background runners avoids SQLite write conflicts.
-            is_running = "analysis_runner" in st.session_state and not st.session_state["analysis_runner"].is_done
+            # Why not check session_state["analysis_runner"]?
+            # AnalysisRunner has been deprecated and removed in favor of the synchronous st.status flow,
+            # so we check start_analysis state directly to verify execution status and prevent double-triggering.
+            is_running = bool(st.session_state.get("start_analysis"))
             
             # Why use a unique key?
             # Streamlit requires unique widget keys when multiple buttons can potentially exist in the DOM.
@@ -971,9 +972,8 @@ def main():
                     # The VOD URL is needed for the scraper and yt-dlp, but only the ID is stored in the DB.
                     # We utilize get_twitch_vod_url to cleanly format the URL and strip 'v' prefix automatically.
                     vod_url = get_twitch_vod_url(selected_vod_id)
-                    runner = AnalysisRunner(db, vod_url, api_key, listener_batch_size)
-                    st.session_state["analysis_runner"] = runner
-                    runner.start()
+                    st.session_state["start_analysis"] = True
+                    st.session_state["analysis_vod_url"] = vod_url
                     st.rerun()
 
     # ---------------------------------------------------------
