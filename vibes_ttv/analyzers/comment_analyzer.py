@@ -87,13 +87,16 @@ class CommentAnalyzer:
             return True
         return False
 
-    def analyze_listeners(self, chat_data: list[dict], merged_events: list[dict], batch_size: int = 30, progress_callback=None) -> list[dict]:
+    def analyze_listeners(self, merged_events: list[dict], slice_size: int = 100, progress_callback=None) -> list[dict]:
         # 1. Initialize result stores
         classified_events = {} # global_idx -> category
         pre_classified = {} # global_idx -> category
         
-        # 2. Slice processing loops (100 events per slice)
-        slice_size = 100
+        # 2. Slice processing loops
+        # Why not hardcode slice_size to 100?
+        # Allowing it to be passed dynamically from the caller allows fine-tuning the 
+        # context window size and API call counts (which affects rate limits and response speed)
+        # depending on stream lengths and user preferences.
         total_slices = (len(merged_events) + slice_size - 1) // slice_size
         
         for slice_idx, i in enumerate(range(0, len(merged_events), slice_size)):

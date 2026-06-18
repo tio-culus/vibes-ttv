@@ -250,17 +250,18 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int
         
         # Comment persona analysis
         comment_analyzer = CommentAnalyzer(api_key=api_key)
-        # Why pass configurable batch_size?
-        # Different batch sizes strike different balances between Gemini analysis accuracy and rate limits.
-        # Allowing it to be passed from the UI dynamically gives flexibility to the analysis process.
+        # Why pass configurable slice_size?
+        # Setting the slice_size allows the user to balance API rate-limits vs context window range.
+        # Why not hardcode slice_size?
+        # Exposing it to the UI via batch_size allows the user to optimize request speed 
+        # and prevent "Resource Exhausted" Gemini API errors during analysis.
         # Why pass merged_events?
         # Providing the chronological timeline events list enables context-aware (streamer talk + other chats)
         # comment classification, yielding superior semantic accuracy.
         listener_stats = comment_analyzer.analyze_listeners(
-            chat_data,
-            batch_size=batch_size,
-            progress_callback=actual_callback,
-            merged_events=merged_events
+            merged_events=merged_events,
+            slice_size=batch_size,
+            progress_callback=actual_callback
         )
         
         # Why save timeline as serialized JSON in the VOD record?

@@ -1,3 +1,4 @@
+# pyrefly: ignore [missing-import]
 import pytest
 import os
 import tempfile
@@ -385,12 +386,8 @@ def test_comment_analyzer_sliced_context():
         {"type": "listener", "name": "user_a", "offset_seconds": 12.0, "text": "www"},
         {"type": "listener", "name": "user_a", "offset_seconds": 15.0, "text": "このボスは火属性に弱いと思います"},
     ]
-    chat_data = [
-        {"username": "user_a", "message": "www", "offset_seconds": 12.0},
-        {"username": "user_a", "message": "このボスは火属性に弱いと思います", "offset_seconds": 15.0},
-    ]
     
-    results = analyzer.analyze_listeners(chat_data, merged_events=merged_events)
+    results = analyzer.analyze_listeners(merged_events=merged_events)
     
     # Assertions
     assert len(results) == 1
@@ -454,13 +451,9 @@ def test_comment_serialization_flow():
         {"type": "listener", "name": "user_a", "offset_seconds": 12.0, "text": "www"},
         {"type": "listener", "name": "user_a", "offset_seconds": 15.0, "text": "ここは火属性ですね"},
     ]
-    chat_data = [
-        {"username": "user_a", "message": "www", "offset_seconds": 12.0},
-        {"username": "user_a", "message": "ここは火属性ですね", "offset_seconds": 15.0},
-    ]
     
     # 4. Run analyzer
-    results = analyzer.analyze_listeners(chat_data, merged_events=merged_events)
+    results = analyzer.analyze_listeners(merged_events=merged_events)
     
     # Verify categories are assigned in-place
     assert merged_events[1]["category"] == "reaction"
