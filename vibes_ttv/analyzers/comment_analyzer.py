@@ -226,14 +226,11 @@ class CommentAnalyzer:
                     cat = CommentCategory.OTHER
                     
                 if username not in user_stats:
-                    user_stats[username] = {
-                        "reaction": 0,
-                        "question": 0,
-                        "insight": 0,
-                        "instruction": 0,
-                        "other": 0,
-                        "details": []
-                    }
+                    # Why not hardcode key values?
+                    # Generating the initial dictionary keys dynamically from CommentCategory Enum
+                    # prevents missing keys if new categories are added to the system in the future.
+                    user_stats[username] = {cat.value: 0 for cat in CommentCategory}
+                    user_stats[username]["details"] = []
                     
                 cat_str = cat.value
                 user_stats[username][cat_str] += 1
@@ -252,35 +249,30 @@ class CommentAnalyzer:
         # 4. Generate final stats and persona type
         final_results = []
         for username, counts in user_stats.items():
-            total = (counts["reaction"] + counts["question"] + 
-                     counts["insight"] + counts["instruction"] + counts["other"])
+            # Why not sum dynamically?
+            # Summing values dynamically from the CommentCategory Enum prevents mathematical 
+            # errors and ensures the total is accurate if categories are added or modified.
+            total = sum(counts[cat.value] for cat in CommentCategory)
                      
             # Persona determination (highest count, fallback hierarchy)
-            # Why prioritize insight/instruction over reaction/other on ties?
-            # Higher context actions (like logical insights or game instructions) define a viewer's
-            # engagement profile more strongly than generic reaction spams, so we bias ties towards them.
-            persona_candidates = [
-                ("insight", counts["insight"]),
-                ("instruction", counts["instruction"]),
-                ("question", counts["question"]),
-                ("reaction", counts["reaction"]),
-                ("other", counts["other"])
-            ]
+            # Why sort CommentCategory alphabetically (via sorted)?
+            # Using sorted() provides a simple, consistent, and automatic priority order (alphabetical)
+            # for tie-breakers without requiring custom mapping logic or order tables.
+            persona_candidates = [(cat.value, counts[cat.value]) for cat in sorted(CommentCategory)]
             persona_candidates.sort(key=lambda x: x[1], reverse=True)
             best_persona = persona_candidates[0][0]
             
             sorted_details = sorted(counts["details"], key=lambda x: x["offset_seconds"])
             
+            # Why not hardcode count keys?
+            # Generating category count keys dynamically (e.g. 'reaction_comments_count') from the Enum
+            # eliminates duplicate string boilerplate and prevents omissions when schema changes occur.
             final_results.append({
                 "username": username,
                 "total_comments": total,
-                "reaction_comments_count": counts["reaction"],
-                "question_comments_count": counts["question"],
-                "insight_comments_count": counts["insight"],
-                "instruction_comments_count": counts["instruction"],
-                "other_comments_count": counts["other"],
                 "persona_type": best_persona,
-                "comment_details": sorted_details
+                "comment_details": sorted_details,
+                **{f"{cat.value}_comments_count": counts[cat.value] for cat in CommentCategory}
             })
             
         return final_results
