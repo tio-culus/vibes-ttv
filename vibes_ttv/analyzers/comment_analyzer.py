@@ -21,6 +21,20 @@ class CommentCategory(str, Enum):
     INSTRUCTION = 'instruction'
     OTHER = 'other'
 
+    @property
+    def description(self) -> str:
+        # Why not embed descriptions directly inside a property?
+        # Dynamic properties keep the Enum values simple strings for serialization,
+        # while centralizing prompt instruction text to a single source of truth.
+        descriptions = {
+            CommentCategory.REACTION: "感想、相槌、笑い（www）、「やばい」「すごい」などの感情表現、簡単なツッコミ、または配信に対する単純な反応コメント",
+            CommentCategory.QUESTION: "配信者への質問（「今何したの？」「何て言った？」「今なんで〇〇したんですか？」など）",
+            CommentCategory.INSIGHT: "配信状況やゲーム内容に対する考察、状況の要約、論理的な指摘、または比較的長文の文脈を必要とするコメント",
+            CommentCategory.INSTRUCTION: "配信者に対するアドバイス、提案、指示、指示厨的発言、プレイ方針の提示（「右に進もう」「〇〇を装備して」など）",
+            CommentCategory.OTHER: "上記のいずれにも当てはまらない日常雑談やその他無関係なコメント",
+        }
+        return descriptions[self]
+
 class CommentClassification(BaseModel):
     message: str
     category: CommentCategory
@@ -142,16 +156,13 @@ class CommentAnalyzer:
                 
             # Call Gemini with slice context
             prompt_timeline = "\n".join(lines)
+            category_rules = "\n".join(f"- {cat.value}: {cat.description}" for cat in CommentCategory)
             prompt = (
                 "あなたはTwitchのライブ配信のチャットモデレーター兼分析者です。\n"
                 "提示された【統合タイムライン】の文脈（配信者の発言や他のリスナーのコメントの流れ）を考慮して、\n"
                 "指定された【分類依頼対象コメント】が以下のどのカテゴリに属するかを分類してください。\n\n"
                 "【カテゴリ分類ルール】\n"
-                "- reaction: 感想、相槌、笑い（www）、感情表現、簡単なツッコミ、または配信に対する単純な反応コメント\n"
-                "- question: 配信者への質問（「今何したの？」「何て言った？」など）\n"
-                "- insight: 配信状況やゲーム内容に対する考察、状況の要約、論理的な指摘、または比較的長文の文脈を必要とするコメント\n"
-                "- instruction: 配信者に対するアドバイス、提案、指示、指示厨的発言、プレイ方針の提示（「右に進もう」「〇〇を装備して」など）\n"
-                "- other: 上記のいずれにも当てはまらない日常雑談やその他無関係なコメント\n\n"
+                f"{category_rules}\n\n"
                 "【統合タイムライン】\n"
                 f"{prompt_timeline}\n\n"
                 "【分類依頼対象コメント】\n"
@@ -354,14 +365,11 @@ class CommentAnalyzer:
                     "comments": [c["message"] for c in item["items"]]
                 })
                 
+            category_rules = "\n".join(f"- {cat.value}: {cat.description}" for cat in CommentCategory)
             prompt = (
                 "以下のTwitchリスナーたちのコメント内容を分析し、それぞれのコメントが以下のどのカテゴリに属するかを分類してください。\n"
                 "【カテゴリ分類ルール】\n"
-                "- reaction: 「www」「やばい」「すごい」などの感想、相槌、感情表現、リアクション系コメント\n"
-                "- question: 「今なんで〇〇したんですか？」「それ何ですか？」などの質問系コメント\n"
-                "- insight: 「これは〇〇かもしれない」「おそらく〇〇だからこうなった」などの考察系コメント（比較的長文や論理的なもの）\n"
-                "- instruction: 「〇〇しよう」「〇〇するのはどうですか？」などの指示、アドバイス、提案系コメント\n"
-                "- other: 上記のいずれにも当てはまらない日常雑談やその他コメント\n\n"
+                f"{category_rules}\n\n"
                 f"分析対象 of データ:\n{json.dumps(prompt_data, ensure_ascii=False, indent=2)}"
             )
             
