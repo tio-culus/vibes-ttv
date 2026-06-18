@@ -24,7 +24,7 @@ from vibes_ttv.collectors.chat_collector import ChatCollector
 from vibes_ttv.collectors.audio_collector import AudioCollector
 from vibes_ttv.analyzers.whisper_transcriber import WhisperTranscriber
 from vibes_ttv.analyzers.timeline_merger import TimelineMerger
-from vibes_ttv.analyzers.comment_analyzer import CommentAnalyzer
+from vibes_ttv.analyzers.comment_analyzer import CommentAnalyzer, CommentCategory
 from vibes_ttv.analyzers.topic_analyzer import TopicAnalyzer
 
 # Why start preload on import?
@@ -274,19 +274,15 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int
         
         db_stats = []
         for s in listener_stats:
-            # Why not save comment details here?
-            # Individual comment classifications are now embedded directly in the structured
-            # VOD.merged_timeline_json array, so we omit details_json here to optimize space.
+            # Why not rebuild counts dictionary manually?
+            # comment_analyzer now returns a clean "category_counts" dictionary directly, 
+            # so we can serialize and store it without redundant mapping logic.
             db_stats.append(
                 VODListenerStats(
                     vod_id=vod_id,
                     listener_username=s["username"],
                     total_comments=s["total_comments"],
-                    reaction_comments_count=s["reaction_comments_count"],
-                    question_comments_count=s["question_comments_count"],
-                    insight_comments_count=s["insight_comments_count"],
-                    instruction_comments_count=s["instruction_comments_count"],
-                    other_comments_count=s["other_comments_count"],
+                    category_counts_json=json.dumps(s["category_counts"], ensure_ascii=False),
                     persona_type=s["persona_type"]
                 )
             )
@@ -724,12 +720,14 @@ def main():
     with tab_attitude:
         st.markdown("#### 態度とコメントの内訳")
         
-        # Calculate overall comments count by type
-        total_reaction = sum(s.reaction_comments_count for s in stats)
-        total_question = sum(s.question_comments_count for s in stats)
-        total_insight = sum(s.insight_comments_count for s in stats)
-        total_instruction = sum(s.instruction_comments_count for s in stats)
-        total_other = sum(s.other_comments_count for s in stats)
+        # Why not load category counts directly?
+        # Extracting counts from the deserialized category_counts dictionary provides a dynamic mapping 
+        # that doesn't break if schema columns are removed or database fields change.
+        total_reaction = sum(s.category_counts.get("reaction", 0) for s in stats)
+        total_question = sum(s.category_counts.get("question", 0) for s in stats)
+        total_insight = sum(s.category_counts.get("insight", 0) for s in stats)
+        total_instruction = sum(s.category_counts.get("instruction", 0) for s in stats)
+        total_other = sum(s.category_counts.get("other", 0) for s in stats)
         total_chats = sum(s.total_comments for s in stats)
         
         col_chart1, col_chart2 = st.columns(2)
@@ -841,14 +839,18 @@ def main():
         st.markdown("#### リスナー詳細一覧")
         stats_data = []
         for s in stats:
+            counts = s.category_counts
+            # Why not access properties directly?
+            # Fetching from the category_counts dictionary keeps UI representation completely decoupled 
+            # from deprecated SQLAlchemy table column attributes.
             stats_data.append({
                 "リスナー名": s.listener_username,
                 "総コメント数": s.total_comments,
-                "リアクション": s.reaction_comments_count,
-                "質問": s.question_comments_count,
-                "考察": s.insight_comments_count,
-                "指示・提案": s.instruction_comments_count,
-                "その他": s.other_comments_count,
+                "リアクション": counts.get("reaction", 0),
+                "質問": counts.get("question", 0),
+                "考察": counts.get("insight", 0),
+                "指示・提案": counts.get("instruction", 0),
+                "その他": counts.get("other", 0),
                 "ペルソナ種類": p_jp_map.get(s.persona_type, s.persona_type)
             })
         stats_df = pd.DataFrame(stats_data)

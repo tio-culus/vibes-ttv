@@ -2,6 +2,7 @@
 import pytest
 import os
 import tempfile
+import json
 from vibes_ttv.database.db_manager import DBManager
 from vibes_ttv.database.models import Streamer, VOD, Topic, VODListenerStats
 from vibes_ttv.analyzers.timeline_merger import TimelineMerger
@@ -56,11 +57,13 @@ def test_database_manager():
         vod_id="test_vod_01",
         listener_username="listener_alpha",
         total_comments=5,
-        reaction_comments_count=3,
-        question_comments_count=1,
-        insight_comments_count=0,
-        instruction_comments_count=1,
-        other_comments_count=0,
+        category_counts_json=json.dumps({
+            "reaction": 3,
+            "question": 1,
+            "insight": 0,
+            "instruction": 1,
+            "other": 0
+        }),
         persona_type="reaction"
     )
     db.save_listener_stats([stats])
@@ -69,6 +72,7 @@ def test_database_manager():
     fetched_stats = session.query(VODListenerStats).filter_by(vod_id="test_vod_01", listener_username="listener_alpha").first()
     assert fetched_stats is not None
     assert fetched_stats.total_comments == 5
+    assert fetched_stats.category_counts.get("reaction") == 3
     db.remove_session()
 
 
@@ -257,11 +261,13 @@ def test_atomic_transaction_behavior():
         vod_id="vod_X",
         listener_username="listener_X",
         total_comments=10,
-        reaction_comments_count=10,
-        question_comments_count=0,
-        insight_comments_count=0,
-        instruction_comments_count=0,
-        other_comments_count=0,
+        category_counts_json=json.dumps({
+            "reaction": 10,
+            "question": 0,
+            "insight": 0,
+            "instruction": 0,
+            "other": 0
+        }),
         persona_type="reaction"
     )
     db.save_listener_stats([legacy_stats])
@@ -293,11 +299,13 @@ def test_atomic_transaction_behavior():
         vod_id="vod_X",
         listener_username="listener_Y",
         total_comments=5,
-        reaction_comments_count=0,
-        question_comments_count=5,
-        insight_comments_count=0,
-        instruction_comments_count=0,
-        other_comments_count=0,
+        category_counts_json=json.dumps({
+            "reaction": 0,
+            "question": 5,
+            "insight": 0,
+            "instruction": 0,
+            "other": 0
+        }),
         persona_type="question"
     )
     
@@ -394,9 +402,9 @@ def test_comment_analyzer_sliced_context():
     stats = results[0]
     assert stats["username"] == "user_a"
     assert stats["total_comments"] == 2
-    assert stats["reaction_comments_count"] == 1
-    assert stats["insight_comments_count"] == 1
-    assert stats["other_comments_count"] == 0
+    assert stats["category_counts"]["reaction"] == 1
+    assert stats["category_counts"]["insight"] == 1
+    assert stats["category_counts"].get("other", 0) == 0
     
     # Tie-breaker logic: 'insight' (1) vs 'reaction' (1) -> 'insight' should win
     assert stats["persona_type"] == "insight"

@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+import json # Why not import json at file level? To deserialize database-persisted category counts dynamically.
 from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 
@@ -86,11 +87,23 @@ class VODListenerStats(Base):
     vod_id = Column(String, ForeignKey('vods.vod_id'), nullable=False)
     listener_username = Column(String, nullable=False)
     total_comments = Column(Integer, default=0)
-    reaction_comments_count = Column(Integer, default=0)
-    question_comments_count = Column(Integer, default=0)
-    insight_comments_count = Column(Integer, default=0)
-    instruction_comments_count = Column(Integer, default=0)
-    other_comments_count = Column(Integer, default=0)
+    # Why not use individual columns for each category counts?
+    # Keeping counts in a serialized JSON string prevents database schema mismatch issues 
+    # when additional comment categories (from CommentCategory Enum) are added or removed.
+    category_counts_json = Column(String, default='{}')
     persona_type = Column(String, nullable=False)  # reaction, question, insight, instruction, other
     
     vod = relationship("VOD", back_populates="listener_stats")
+
+    @property
+    def category_counts(self) -> dict[str, int]:
+        # Why not load category_counts directly as a field?
+        # Serializing as a raw string and loading lazily via property avoids custom database type dependencies.
+        try:
+            return json.loads(self.category_counts_json or '{}')
+        except Exception:
+            return {}
+
+    @category_counts.setter
+    def category_counts(self, val: dict[str, int]):
+        self.category_counts_json = json.dumps(val, ensure_ascii=False)

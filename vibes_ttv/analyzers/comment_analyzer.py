@@ -267,15 +267,15 @@ class CommentAnalyzer:
             
             sorted_details = sorted(counts["details"], key=lambda x: x["offset_seconds"])
             
-            # Why not hardcode count keys?
-            # Generating category count keys dynamically (e.g. 'reaction_comments_count') from the Enum
-            # eliminates duplicate string boilerplate and prevents omissions when schema changes occur.
+            # Why not flatten category counts with suffix keys?
+            # Keeping counts grouped under a single nested "category_counts" dictionary 
+            # keeps the interface clean and aligns with the database serialization format.
             final_results.append({
                 "username": username,
                 "total_comments": total,
                 "persona_type": best_persona,
                 "comment_details": sorted_details,
-                **{f"{cat.value}_comments_count": counts[cat.value] for cat in CommentCategory}
+                "category_counts": {cat.value: counts[cat.value] for cat in CommentCategory}
             })
             
         return final_results
