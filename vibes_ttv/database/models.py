@@ -91,7 +91,7 @@ class VODListenerStats(Base):
     # Keeping counts in a serialized JSON string prevents database schema mismatch issues 
     # when additional comment categories (from CommentCategory Enum) are added or removed.
     category_counts_json = Column(String, default='{}')
-    persona_type = Column(String, nullable=False)  # reaction, question, insight, instruction, other
+    persona_type = Column(String, nullable=False) 
     
     vod = relationship("VOD", back_populates="listener_stats")
 

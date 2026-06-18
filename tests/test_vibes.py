@@ -6,7 +6,7 @@ import json
 from vibes_ttv.database.db_manager import DBManager
 from vibes_ttv.database.models import Streamer, VOD, Topic, VODListenerStats
 from vibes_ttv.analyzers.timeline_merger import TimelineMerger
-from vibes_ttv.analyzers.comment_analyzer import CommentAnalyzer
+from vibes_ttv.analyzers.comment_analyzer import CommentAnalyzer, CommentCategory
 from vibes_ttv.collectors.chat_collector import ChatCollector
 
 # Why test database inside memory instead of using local file?
@@ -53,17 +53,19 @@ def test_database_manager():
     # Why verify VODListenerStats fields?
     # Ensuring that VODListenerStats correctly stores basic listener counts and persona type
     # protects the UI features from schema regression or mapping failures in production.
+    # Why not hardcode category names in test data?
+    # Populating from CommentCategory Enum ensures we do not have stale string keys 
+    # if category names change.
+    counts = {cat.value: 0 for cat in CommentCategory}
+    counts[CommentCategory.REACTION.value] = 3
+    counts[CommentCategory.QUESTION.value] = 1
+    counts[CommentCategory.INSTRUCTION.value] = 1
+
     stats = VODListenerStats(
         vod_id="test_vod_01",
         listener_username="listener_alpha",
         total_comments=5,
-        category_counts_json=json.dumps({
-            "reaction": 3,
-            "question": 1,
-            "insight": 0,
-            "instruction": 1,
-            "other": 0
-        }),
+        category_counts_json=json.dumps(counts, ensure_ascii=False),
         persona_type="reaction"
     )
     db.save_listener_stats([stats])
@@ -257,17 +259,16 @@ def test_atomic_transaction_behavior():
     )
     db.save_topics([legacy_topic])
     
+    # Why not hardcode category names?
+    # Using CommentCategory Enum loop ensures data shape matches current categories dynamically.
+    legacy_counts = {cat.value: 0 for cat in CommentCategory}
+    legacy_counts[CommentCategory.REACTION.value] = 10
+
     legacy_stats = VODListenerStats(
         vod_id="vod_X",
         listener_username="listener_X",
         total_comments=10,
-        category_counts_json=json.dumps({
-            "reaction": 10,
-            "question": 0,
-            "insight": 0,
-            "instruction": 0,
-            "other": 0
-        }),
+        category_counts_json=json.dumps(legacy_counts, ensure_ascii=False),
         persona_type="reaction"
     )
     db.save_listener_stats([legacy_stats])
@@ -295,17 +296,16 @@ def test_atomic_transaction_behavior():
         is_high_context=True
     )
     
+    # Why not hardcode category names?
+    # Populating counts from CommentCategory Enum prevents display discrepancies and testing logic lock-in.
+    new_counts = {cat.value: 0 for cat in CommentCategory}
+    new_counts[CommentCategory.QUESTION.value] = 5
+
     new_stats = VODListenerStats(
         vod_id="vod_X",
         listener_username="listener_Y",
         total_comments=5,
-        category_counts_json=json.dumps({
-            "reaction": 0,
-            "question": 5,
-            "insight": 0,
-            "instruction": 0,
-            "other": 0
-        }),
+        category_counts_json=json.dumps(new_counts, ensure_ascii=False),
         persona_type="question"
     )
     
