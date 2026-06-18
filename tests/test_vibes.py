@@ -58,8 +58,8 @@ def test_database_manager():
     # if category names change.
     counts = {cat.value: 0 for cat in CommentCategory}
     counts[CommentCategory.REACTION.value] = 3
-    counts[CommentCategory.QUESTION.value] = 1
-    counts[CommentCategory.INSTRUCTION.value] = 1
+    counts[CommentCategory.RESPONSE.value] = 1
+    counts[CommentCategory.ADVICE.value] = 1
 
     stats = VODListenerStats(
         vod_id="test_vod_01",
@@ -299,14 +299,14 @@ def test_atomic_transaction_behavior():
     # Why not hardcode category names?
     # Populating counts from CommentCategory Enum prevents display discrepancies and testing logic lock-in.
     new_counts = {cat.value: 0 for cat in CommentCategory}
-    new_counts[CommentCategory.QUESTION.value] = 5
+    new_counts[CommentCategory.RESPONSE.value] = 5
 
     new_stats = VODListenerStats(
         vod_id="vod_X",
         listener_username="listener_Y",
         total_comments=5,
         category_counts_json=json.dumps(new_counts, ensure_ascii=False),
-        persona_type="question"
+        persona_type="response"
     )
     
     # Run transaction that FAILS
@@ -380,7 +380,7 @@ def test_comment_analyzer_sliced_context():
     mock_response = MagicMock()
     mock_response.parsed = SliceClassificationResponse(
         results=[
-            LineClassification(line_id="L2", category="insight")
+            LineClassification(line_id="L2", category="spoiler")
         ]
     )
     analyzer.client.models.generate_content = MagicMock(return_value=mock_response)
@@ -388,7 +388,7 @@ def test_comment_analyzer_sliced_context():
     # Setup chat_data and merged_events
     # Line 0: Streamer comment (context only, ignored for client classification)
     # Line 1: 'www' is a simple reaction (pre-classified locally, no Gemini call)
-    # Line 2: 'このボスは火属性に弱いと思います' is a complex comment (Gemini classified as 'insight')
+    # Line 2: 'このボスは火属性に弱いと思います' is a complex comment (Gemini classified as 'spoiler')
     merged_events = [
         {"type": "streamer", "offset_seconds": 10.0, "text": "ゲームを開始します"},
         {"type": "listener", "name": "user_a", "offset_seconds": 12.0, "text": "www"},
@@ -403,11 +403,11 @@ def test_comment_analyzer_sliced_context():
     assert stats["username"] == "user_a"
     assert stats["total_comments"] == 2
     assert stats["category_counts"]["reaction"] == 1
-    assert stats["category_counts"]["insight"] == 1
+    assert stats["category_counts"]["spoiler"] == 1
     assert stats["category_counts"].get("other", 0) == 0
     
-    # Tie-breaker logic: 'insight' (1) vs 'reaction' (1) -> 'insight' should win
-    assert stats["persona_type"] == "insight"
+    # Tie-breaker logic: 'spoiler' (1) vs 'reaction' (1) -> 'spoiler' should win
+    assert stats["persona_type"] == "spoiler"
     
     # Check detail content order
     details = stats["comment_details"]
@@ -448,7 +448,7 @@ def test_comment_serialization_flow():
     mock_response = MagicMock()
     mock_response.parsed = SliceClassificationResponse(
         results=[
-            LineClassification(line_id="L2", category="insight")
+            LineClassification(line_id="L2", category="spoiler")
         ]
     )
     analyzer.client.models.generate_content = MagicMock(return_value=mock_response)
@@ -465,13 +465,13 @@ def test_comment_serialization_flow():
     
     # Verify categories are assigned in-place
     assert merged_events[1]["category"] == "reaction"
-    assert merged_events[2]["category"] == "insight"
+    assert merged_events[2]["category"] == "spoiler"
     
     # 5. Format to text with categories
     merger = TimelineMerger()
     formatted = merger.format_to_text(merged_events, show_categories=True)
     assert "[00:00:12] [reaction] user_a: www" in formatted
-    assert "[00:00:15] [insight] user_a: ここは火属性ですね" in formatted
+    assert "[00:00:15] [spoiler] user_a: ここは火属性ですね" in formatted
     
     # 6. JSON serialization check
     serialized = json.dumps(merged_events, ensure_ascii=False)

@@ -16,9 +16,12 @@ from pydantic import BaseModel
 # allowing seamless JSON serialization and preserving backward compatibility with downstream DB/UI models.
 class CommentCategory(str, Enum):
     REACTION = 'reaction'
-    QUESTION = 'question'
-    INSIGHT = 'insight'
-    INSTRUCTION = 'instruction'
+    RESPONSE = 'response'
+    SPOILER = 'spoiler'
+    CROSS_CHAT = 'cross-chat'
+    BLOGPOST = 'blogpost'
+    BACKSEAT = 'backseat'
+    ADVICE = 'advice'
     OTHER = 'other'
 
     @property
@@ -27,10 +30,13 @@ class CommentCategory(str, Enum):
         # Centralizing display labels within the Enum guarantees UI label consistency 
         # and eliminates translation mapping tables scattered across the app modules.
         labels = {
-            CommentCategory.REACTION: "感想・リアクション",
-            CommentCategory.QUESTION: "質問",
-            CommentCategory.INSIGHT: "考察",
-            CommentCategory.INSTRUCTION: "指示・提案",
+            CommentCategory.REACTION: "リアクション",
+            CommentCategory.RESPONSE: "レスポンス",
+            CommentCategory.SPOILER: "ネタバレ",
+            CommentCategory.CROSS_CHAT: "鳩",
+            CommentCategory.BLOGPOST: "自分語り",
+            CommentCategory.BACKSEAT: "指示",
+            CommentCategory.ADVICE: "アドバイス",
             CommentCategory.OTHER: "その他",
         }
         return labels[self]
@@ -40,11 +46,14 @@ class CommentCategory(str, Enum):
         # Why not map persona labels in UI modules?
         # Defining persona labels directly in the Enum centralizes behavior classification terms.
         labels = {
-            CommentCategory.REACTION: "リアクション型",
-            CommentCategory.QUESTION: "質問型",
-            CommentCategory.INSIGHT: "考察型",
-            CommentCategory.INSTRUCTION: "指示・提案型",
-            CommentCategory.OTHER: "その他雑談型",
+            CommentCategory.REACTION: "リアクション",
+            CommentCategory.RESPONSE: "レスポンス",
+            CommentCategory.SPOILER: "ネタバレ",
+            CommentCategory.CROSS_CHAT: "鳩",
+            CommentCategory.BLOGPOST: "自分語り",
+            CommentCategory.BACKSEAT: "指示",
+            CommentCategory.ADVICE: "アドバイス",
+            CommentCategory.OTHER: "その他",
         }
         return labels[self]
 
@@ -55,9 +64,12 @@ class CommentCategory(str, Enum):
         # both graphs, badges, and any highlighting styles consistently.
         colors = {
             CommentCategory.REACTION: "#c084fc",      # Light purple (originally #c084fc / rgba(168, 85, 247))
-            CommentCategory.QUESTION: "#60a5fa",      # Light blue (originally #60a5fa / rgba(59, 130, 246))
-            CommentCategory.INSIGHT: "#facc15",       # Light yellow (originally #facc15 / rgba(234, 179, 8))
-            CommentCategory.INSTRUCTION: "#f87171",   # Light red (originally #f87171 / rgba(239, 68, 68))
+            CommentCategory.RESPONSE: "#60a5fa",      # Light blue (originally #60a5fa / rgba(59, 130, 246))
+            CommentCategory.SPOILER: "#facc15",       # Light yellow (originally #facc15 / rgba(234, 179, 8))
+            CommentCategory.CROSS_CHAT: "#f87171",   # Light red (originally #f87171 / rgba(239, 68, 68))
+            CommentCategory.BLOGPOST: "#03f0fd",      # Cyan
+            CommentCategory.BACKSEAT: "#f01dff",      # Pink
+            CommentCategory.ADVICE: "#07d903",         # Green
             CommentCategory.OTHER: "#9ca3af",         # Gray (originally #9ca3af / rgba(156, 163, 175))
         }
         return colors[self]
@@ -68,11 +80,14 @@ class CommentCategory(str, Enum):
         # Dynamic properties keep the Enum values simple strings for serialization,
         # while centralizing prompt instruction text to a single source of truth.
         descriptions = {
-            CommentCategory.REACTION: "感想、相槌、笑い（www）、「やばい」「すごい」などの感情表現、簡単なツッコミ、または配信に対する単純な反応コメント",
-            CommentCategory.QUESTION: "配信者への質問（「今何したの？」「何て言った？」「今なんで〇〇したんですか？」など）",
-            CommentCategory.INSIGHT: "配信状況やゲーム内容に対する考察、状況の要約、論理的な指摘、または比較的長文の文脈を必要とするコメント",
-            CommentCategory.INSTRUCTION: "配信者に対するアドバイス、提案、指示、指示厨的発言、プレイ方針の提示（「右に進もう」「〇〇を装備して」など）",
-            CommentCategory.OTHER: "上記のいずれにも当てはまらない日常雑談やその他無関係なコメント",
+            CommentCategory.REACTION: "話題や配信で起こっていることに対する感想。例、すごい、しらなかった、面白い、なるほど、今の何？",
+            CommentCategory.RESPONSE: "話題や配信に関連したコメント。例、それって本当はこうらしいよ、こういうものもあるんだって、自分の時はこうだった。",
+            CommentCategory.SPOILER: "ストリーマーから聞かれていないのに、まだ起こってないことについてのコメント: 上からくるよ。",
+            CommentCategory.CROSS_CHAT: "話題に上がっていない他の人物についてのコメント。例、 〇〇さんはこうしてたよ、〇〇さんが困っている。",
+            CommentCategory.BLOGPOST: "話題と脈絡のない自分についてのコメント。例、ガチャ爆死しました、ポンデリング食べました、今日風邪気味です。",
+            CommentCategory.BACKSEAT: "ストリーマーから求められていない助言・提案。例、右に行くと楽だよ、その武器は強化したほうが良いよ。",
+            CommentCategory.ADVICE: "ストリーマーから尋ねられたことに対しての適切な量の助言・提案。例、それで合ってるよ。",
+            CommentCategory.OTHER: "上記に分類できないコメント。",
         }
         return descriptions[self]
 
