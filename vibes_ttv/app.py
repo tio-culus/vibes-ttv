@@ -742,12 +742,18 @@ def main():
             })
             
             # Donut chart via Altair
+            # Why not hardcode chart colors?
+            # Syncing the Altair Scale range directly with CommentCategory color_hex properties 
+            # maintains a unified theme color palette across both charts and HTML badges.
             donut_comment = alt.Chart(comment_breakdown).mark_arc(innerRadius=60, outerRadius=110).encode(
                 theta=alt.Theta(field="件数", type="quantitative"),
                 color=alt.Color(
                     field="分類", 
                     type="nominal",
-                    scale=alt.Scale(domain=comment_breakdown["分類"].tolist(), range=["#a855f7", "#3b82f6", "#10b981", "#f59e0b", "#6b7280"])
+                    scale=alt.Scale(
+                        domain=comment_breakdown["分類"].tolist(), 
+                        range=[cat.color_hex for cat in CommentCategory]
+                    )
                 ),
                 tooltip=["分類", "件数"]
             ).properties(title="コメントの内訳（全体）", height=280)
@@ -762,14 +768,10 @@ def main():
             for s in stats:
                 persona_counts[s.persona_type] = persona_counts.get(s.persona_type, 0) + 1
                 
-            # Maps persona names to Japanese
-            p_jp_map = {
-                "reaction": "リアクション型",
-                "question": "質問型",
-                "insight": "考察型",
-                "instruction": "指示・提案型",
-                "other": "その他雑談型"
-            }
+            # Why not hardcode persona names?
+            # Creating the mapping from CommentCategory dynamically ensures 
+            # that any persona references across the dashboard stay updated.
+            p_jp_map = {cat.value: cat.persona_label for cat in CommentCategory}
             
             persona_breakdown = pd.DataFrame({
                 "ペルソナ": [p_jp_map.get(k, k) for k in persona_counts.keys()],
@@ -882,13 +884,10 @@ def main():
                 comment_details = []
                 
             if comment_details:
-                cat_options = {
-                    "reaction": "リアクション",
-                    "question": "質問",
-                    "insight": "考察",
-                    "instruction": "指示・提案",
-                    "other": "その他"
-                }
+                # Why not hardcode filter categories?
+                # Building option mappings dynamically from CommentCategory ensures 
+                # that if categories evolve, filters update automatically without broken keys.
+                cat_options = {cat.value: cat.display_label for cat in CommentCategory}
                 rev_cat_map = {v: k for k, v in cat_options.items()}
                 
                 # Filter categories
@@ -902,12 +901,12 @@ def main():
                 filtered_details = [c for c in comment_details if c.get("category") in filter_keys]
                 
                 if filtered_details:
+                    # Why not hardcode badge CSS styles?
+                    # Generating CSS dynamically from CommentCategory color_hex keeps badge styles 
+                    # perfectly in sync with the category's theme color while defining alpha opacities.
                     badge_styles = {
-                        "reaction": "background-color: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3);",
-                        "question": "background-color: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3);",
-                        "insight": "background-color: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3);",
-                        "instruction": "background-color: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3);",
-                        "other": "background-color: rgba(156, 163, 175, 0.15); color: #9ca3af; border: 1px solid rgba(156, 163, 175, 0.3);"
+                        cat.value: f"background-color: {cat.color_hex}26; color: {cat.color_hex}; border: 1px solid {cat.color_hex}4d;"
+                        for cat in CommentCategory
                     }
                     
                     html_rows = []

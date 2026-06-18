@@ -36,6 +36,33 @@ class CommentCategory(str, Enum):
         return labels[self]
 
     @property
+    def persona_label(self) -> str:
+        # Why not map persona labels in UI modules?
+        # Defining persona labels directly in the Enum centralizes behavior classification terms.
+        labels = {
+            CommentCategory.REACTION: "リアクション型",
+            CommentCategory.QUESTION: "質問型",
+            CommentCategory.INSIGHT: "考察型",
+            CommentCategory.INSTRUCTION: "指示・提案型",
+            CommentCategory.OTHER: "その他雑談型",
+        }
+        return labels[self]
+
+    @property
+    def color_hex(self) -> str:
+        # Why not hardcode color hexes in UI styles?
+        # Defining base brand/theme color codes in the Enum allows synchronizing 
+        # both graphs, badges, and any highlighting styles consistently.
+        colors = {
+            CommentCategory.REACTION: "#c084fc",      # Light purple (originally #c084fc / rgba(168, 85, 247))
+            CommentCategory.QUESTION: "#60a5fa",      # Light blue (originally #60a5fa / rgba(59, 130, 246))
+            CommentCategory.INSIGHT: "#facc15",       # Light yellow (originally #facc15 / rgba(234, 179, 8))
+            CommentCategory.INSTRUCTION: "#f87171",   # Light red (originally #f87171 / rgba(239, 68, 68))
+            CommentCategory.OTHER: "#9ca3af",         # Gray (originally #9ca3af / rgba(156, 163, 175))
+        }
+        return colors[self]
+
+    @property
     def description(self) -> str:
         # Why not embed descriptions directly inside a property?
         # Dynamic properties keep the Enum values simple strings for serialization,
