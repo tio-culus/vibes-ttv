@@ -67,9 +67,9 @@ class CommentCategory(str, Enum):
             CommentCategory.RESPONSE: "#60a5fa",      # Light blue (originally #60a5fa / rgba(59, 130, 246))
             CommentCategory.SPOILER: "#facc15",       # Light yellow (originally #facc15 / rgba(234, 179, 8))
             CommentCategory.CROSS_CHAT: "#f87171",   # Light red (originally #f87171 / rgba(239, 68, 68))
-            CommentCategory.BLOGPOST: "#03f0fd",      # Cyan
-            CommentCategory.BACKSEAT: "#f01dff",      # Pink
-            CommentCategory.ADVICE: "#07d903",         # Green
+            CommentCategory.BLOGPOST: "#4ade80",      # Light green (originally #4ade80 / rgba(74, 222, 128))
+            CommentCategory.BACKSEAT: "#fb923c",      # Light red (originally #fb923c / rgba(251, 146, 60))
+            CommentCategory.ADVICE: "#f472b6",         # Light pink (originally #f472b6 / rgba(244, 114, 182))
             CommentCategory.OTHER: "#9ca3af",         # Gray (originally #9ca3af / rgba(156, 163, 175))
         }
         return colors[self]

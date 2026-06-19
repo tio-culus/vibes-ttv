@@ -783,7 +783,8 @@ def main():
                 color=alt.Color(
                     field="ペルソナ", 
                     type="nominal",
-                    scale=alt.Scale(domain=persona_breakdown["ペルソナ"].tolist(), range=["#c084fc", "#60a5fa", "#34d399", "#fbbf24", "#9ca3af"])
+                    scale=alt.Scale(domain=persona_breakdown["ペルソナ"].tolist(), 
+                    range=[cat.color_hex for cat in CommentCategory])
                 ),
                 tooltip=["ペルソナ", "人数"]
             ).properties(title="コメントリスナーのペルソナ内訳", height=280)
