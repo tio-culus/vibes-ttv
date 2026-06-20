@@ -1163,19 +1163,116 @@ def main():
         )
         
         # Why check merged_timeline_json?
-        # Loading the structured JSON array and rendering it dynamically via format_to_text 
-        # ensures category annotations display beautifully without duplicate DB serialization.
+        # Loading the structured JSON array and rendering it dynamically via HTML table
+        # allows users to filter events by speaker or comment category seamlessly in the UI.
         if hasattr(vod, 'merged_timeline_json') and vod.merged_timeline_json:
             try:
                 events = json.loads(vod.merged_timeline_json)
-                merger = TimelineMerger()
-                timeline_txt = merger.format_to_text(events, show_categories=True)
-                st.text_area(
-                    label="統合タイムラインログ (コピー・スクロール可能)",
-                    value=timeline_txt,
-                    height=500,
-                    disabled=True
-                )
+                
+                # Get unique speakers list
+                names = sorted(list(set(ev["name"] for ev in events)))
+                
+                # Filter widgets
+                col1, col2 = st.columns(2)
+                with col1:
+                    # Why set unique key?
+                    # Streamlit throws DuplicateWidgetID error if keys are omitted and same widget exists elsewhere.
+                    selected_user = st.selectbox(
+                        "表示する発言者を選択",
+                        ["すべての発言者"] + names,
+                        key="timeline_user_selectbox"
+                    )
+                with col2:
+                    cat_options = {cat.value: cat.display_label for cat in CommentCategory}
+                    cat_options["streamer"] = "配信者の発言"
+                    # Why set unique key?
+                    # Clarifying the key prevents widget ID collisions with other multiselect items.
+                    selected_cats = st.multiselect(
+                        "表示する分類（複数選択可）",
+                        options=list(cat_options.values()),
+                        default=list(cat_options.values()),
+                        key="timeline_cat_multiselect"
+                    )
+                
+                rev_cat_map = {v: k for k, v in cat_options.items()}
+                filter_keys = [rev_cat_map[c] for c in selected_cats]
+                
+                filtered_events = []
+                for ev in events:
+                    if selected_user != "すべての発言者" and ev["name"] != selected_user:
+                        continue
+                    
+                    if ev["type"] == "streamer":
+                        cat_key = "streamer"
+                    else:
+                        cat_key = ev.get("category", "other")
+                        
+                    if cat_key in filter_keys:
+                        filtered_events.append(ev)
+                
+                if filtered_events:
+                    badge_styles = {
+                        cat.value: f"background-color: {cat.color_hex}26; color: {cat.color_hex}; border: 1px solid {cat.color_hex}4d;"
+                        for cat in CommentCategory
+                    }
+                    # Why specify custom style for streamer?
+                    # Highlighting the streamer with distinct violet branding theme makes it much easier
+                    # to identify conversation turnpoints when scrolling through long chronological threads.
+                    badge_styles["streamer"] = "background-color: #a855f726; color: #a855f7; border: 1px solid #a855f74d;"
+                    
+                    html_rows = []
+                    for ev in filtered_events:
+                        time_str = format_seconds(ev.get("offset_seconds", 0))
+                        name = ev.get("name", "")
+                        msg = ev.get("text", "")
+                        
+                        if ev["type"] == "streamer":
+                            cat_key = "streamer"
+                            name_style = 'color: #c084fc; font-weight: bold;'
+                        else:
+                            cat_key = ev.get("category", "other")
+                            name_style = 'color: #f3f4f6;'
+                            
+                        badge_style = badge_styles.get(cat_key, badge_styles["other"])
+                        cat_jp = cat_options.get(cat_key, "その他")
+                        
+                        # Why avoid indentation in HTML strings?
+                        # Preventing leading spaces in markdown multiline string prevents Streamlit's parser
+                        # from mistakenly escaping tags into standard markdown blockquotes or pre blocks.
+                        html_rows.append(
+                            '<tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">'
+                            f'<td style="padding: 0.6rem 0.8rem; color: #9ca3af; font-family: monospace; font-size: 0.9rem; white-space: nowrap;">🕒 {time_str}</td>'
+                            f'<td style="padding: 0.6rem 0.8rem; text-align: left; font-size: 0.95rem; {name_style}">{name}</td>'
+                            f'<td style="padding: 0.6rem 0.8rem; color: #f3f4f6; text-align: left; font-size: 0.95rem;">{msg}</td>'
+                            '<td style="padding: 0.6rem 0.8rem; text-align: right; white-space: nowrap;">'
+                            f'<span style="padding: 0.2rem 0.5rem; border-radius: 6px; font-size: 0.78rem; font-weight: 700; {badge_style}">'
+                            f'{cat_jp}'
+                            '</span>'
+                            '</td>'
+                            '</tr>'
+                        )
+                        
+                    # Why render HTML instead of using st.dataframe?
+                    # The default dataframe component does not allow custom HTML color-coded badges
+                    # or custom text styles for different speakers, reducing user readability.
+                    table_html = (
+                        '<table style="width: 100%; border-collapse: collapse; background-color: rgba(30, 41, 59, 0.2); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 8px; overflow: hidden; margin-top: 1rem;">'
+                        '<thead>'
+                        '<tr style="background-color: rgba(255, 255, 255, 0.02); border-bottom: 1px solid rgba(255, 255, 255, 0.08);">'
+                        '<th style="padding: 0.6rem 0.8rem; text-align: left; color: #9ca3af; font-size: 0.85rem; font-weight: 600; width: 100px;">時間</th>'
+                        '<th style="padding: 0.6rem 0.8rem; text-align: left; color: #9ca3af; font-size: 0.85rem; font-weight: 600; width: 150px;">発言者</th>'
+                        '<th style="padding: 0.6rem 0.8rem; text-align: left; color: #9ca3af; font-size: 0.85rem; font-weight: 600;">コメント内容</th>'
+                        '<th style="padding: 0.6rem 0.8rem; text-align: right; color: #9ca3af; font-size: 0.85rem; font-weight: 600; width: 150px;">分類</th>'
+                        '</tr>'
+                        '</thead>'
+                        '<tbody>'
+                        f'{"".join(html_rows)}'
+                        '</tbody>'
+                        '</table>'
+                    )
+                    st.markdown(table_html, unsafe_allow_html=True)
+                else:
+                    st.info("選択されたフィルタに一致する発言はありません。")
             except Exception as e:
                 st.error(f"統合タイムラインの読み込み中にエラーが発生しました: {e}")
         elif hasattr(vod, 'merged_timeline_text') and vod.merged_timeline_text:
