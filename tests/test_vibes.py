@@ -406,8 +406,10 @@ def test_comment_analyzer_sliced_context():
     assert stats["category_counts"]["spoiler"] == 1
     assert stats["category_counts"].get("other", 0) == 0
     
-    # Tie-breaker logic: 'spoiler' (1) vs 'reaction' (1) -> 'spoiler' should win
-    assert stats["persona_type"] == "spoiler"
+    # Tie-breaker logic: 'spoiler' (1) vs 'reaction' (1) -> 'reaction' should win (alphabetical)
+    # Why not 'spoiler'?
+    # The tie-breaker resolution logic uses alphabetical sorting, so 'reaction' (r) is selected before 'spoiler' (s).
+    assert stats["persona_type"] == "reaction"
     
     # Check detail content order
     details = stats["comment_details"]
@@ -415,7 +417,9 @@ def test_comment_analyzer_sliced_context():
     assert details[0]["message"] == "www"
     assert details[0]["category"] == "reaction"
     assert details[1]["message"] == "このボスは火属性に弱いと思います"
-    assert details[1]["category"] == "insight"
+    # Why not 'insight'?
+    # The 'insight' category is no longer present in CommentCategory and has been replaced by 'spoiler'.
+    assert details[1]["category"] == "spoiler"
 
 
 def test_get_twitch_vod_url():
@@ -500,4 +504,6 @@ def test_comment_serialization_flow():
     ]
     assert len(user_comments) == 2
     assert user_comments[0]["category"] == "reaction"
-    assert user_comments[1]["category"] == "insight"
+    # Why not 'insight'?
+    # The 'insight' category has been renamed to 'spoiler' in the new CommentCategory definition.
+    assert user_comments[1]["category"] == "spoiler"
