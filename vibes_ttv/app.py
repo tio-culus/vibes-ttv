@@ -22,15 +22,16 @@ from vibes_ttv.database.db_manager import DBManager
 from vibes_ttv.database.models import VOD, Streamer, Topic, VODListenerStats
 from vibes_ttv.collectors.chat_collector import ChatCollector
 from vibes_ttv.collectors.audio_collector import AudioCollector
-from vibes_ttv.analyzers.whisper_transcriber import WhisperTranscriber
+from vibes_ttv.analyzers.stt.factory import get_transcriber
+from vibes_ttv.analyzers.stt.whisper_transcriber import WhisperTranscriber
 from vibes_ttv.analyzers.timeline_merger import TimelineMerger
 from vibes_ttv.analyzers.comment_analyzer import CommentAnalyzer, CommentCategory
 from vibes_ttv.analyzers.topic_analyzer import TopicAnalyzer
 
-# Why start preload on import?
-# Preloading the heavy Whisper-turbo model asynchronously during application startup 
-# reduces the waiting time when transcription actually starts.
-WhisperTranscriber.start_preload()
+# Why not start preload on import?
+# Preloading the heavy Whisper model automatically consumes 1.6GB+ of RAM/VRAM even if the user
+# selects Google Cloud STT. We defer preloading until Whisper is confirmed as the active engine in the UI.
+
 
 # ---------------------------------------------------------
 # Helper Functions
@@ -121,15 +122,20 @@ import threading
 # Why add optional progress_callback?
 # Adding progress_callback parameter allows callers (like st.status flow in UI) to capture 
 # and render execution steps natively, while keeping a fallback st.empty() logic for standalone runner cases.
-def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int = 30, progress_callback=None) -> str:
-    # Why fix model_name to turbo?
-    # Standardizing on the turbo model ensures maximum transcription quality and speed,
-    # and simplifies the UI by removing model selection configurations.
-    model_name = "turbo"
+def run_real_analysis(
+    db: DBManager, 
+    vod_url: str, 
+    api_key: str, 
+    batch_size: int = 30, 
+    progress_callback=None,
+    stt_engine: str = "whisper",
+    google_project_id: str = "vibes-ttv",
+    google_bucket_name: str = "temporary-speech-files"
+) -> str:
     
     # Why track start_time?
     # Knowing the elapsed time helps reassure the user that the pipeline is active 
-    # even when processing heavy steps (like Whisper transcription).
+    # even when processing heavy steps (like STT transcription).
     import time
     start_time = time.time()
     
@@ -177,11 +183,22 @@ def run_real_analysis(db: DBManager, vod_url: str, api_key: str, batch_size: int
         # Extract VOD ID from audio output filename
         vod_id = os.path.basename(audio_path).replace(".mp3", "")
         
-        # Step 3: Transcription using Local Whisper
-        actual_callback(f"✍️ [3/5] Whisper ({model_name}) で音声を文字起こし中... (数分かかる場合があります)", 50)
+        # Step 3: Transcription using selected STT engine
+        engine_label = "Google Cloud STT" if stt_engine == "google_stt" else "Whisper (turbo)"
+        actual_callback(f"✍️ [3/5] {engine_label} で音声を文字起こし中... (数分かかる場合があります)", 50)
         t_transcribe_start = time.time()
-        transcriber = WhisperTranscriber()
-        segments = transcriber.transcribe(audio_path, model_name=model_name)
+        
+        # Why parameterize via factory?
+        # Decoupling transcription implementation from the main analysis loop allows 
+        # switching backends (e.g. Whisper, Google Cloud STT, or custom mock transcribers) 
+        # transparently by changing config arguments.
+        transcriber_kwargs = {}
+        if stt_engine == "google_stt":
+            transcriber_kwargs["project_id"] = google_project_id
+            transcriber_kwargs["bucket_name"] = google_bucket_name
+            
+        transcriber = get_transcriber(stt_engine, **transcriber_kwargs)
+        segments = transcriber.transcribe(audio_path)
         t_transcription = int(time.time() - t_transcribe_start)
         
         # Step 4: Merge chats and text
@@ -469,7 +486,9 @@ def main():
     
     # Define variables with default values to prevent NameError in subsequent checks
     api_key = os.getenv("GEMINI_API_KEY", "")
-    whisper_model = "turbo"
+    stt_engine = "whisper"
+    google_project_id = "vibes-ttv"
+    google_bucket_name = "temporary-speech-files"
     listener_batch_size = 30
     
     # Mode selection
@@ -519,10 +538,39 @@ def main():
     st.sidebar.markdown("---")
     st.sidebar.markdown("#### ⚙️ 分析パラメーター")
     api_key = st.sidebar.text_input("Gemini API Key", value=api_key, key="gemini_api_key")
-    # Why fix whisper_model to turbo?
-    # Keeping the model selection hidden simplifies the sidebar UI and ensures 
-    # the cached, high-performance turbo model is consistently used.
-    whisper_model = "turbo"
+    
+    # Why make STT engine configurable?
+    # Exposing STT engines allows switching between local Whisper (high GPU/CPU utilization but free)
+    # and Google Cloud STT (zero local compute overhead, requires Google Cloud account/GCS).
+    stt_option = st.sidebar.selectbox(
+        "音声文字起こし (STT) エンジンの選択",
+        options=["ローカル Whisper (turbo)", "Google Cloud Speech-to-Text"],
+        index=0,
+        key="stt_option_select"
+    )
+    stt_engine = "whisper" if stt_option == "ローカル Whisper (turbo)" else "google_stt"
+    
+    if stt_engine == "google_stt":
+        # Why expose project_id and bucket_name settings?
+        # Streamlit sidebar input fields allow runtime configuration of GCP assets 
+        # without hardcoding project specifics, increasing usability.
+        google_project_id = st.sidebar.text_input(
+            "GCP プロジェクトID",
+            value=google_project_id,
+            key="gcp_project_id_input"
+        )
+        google_bucket_name = st.sidebar.text_input(
+            "GCS バケット名",
+            value=google_bucket_name,
+            key="gcs_bucket_name_input"
+        )
+    else:
+        # Why trigger preload here?
+        # Initializing Whisper model preload asynchronously when Whisper is active 
+        # avoids loading the heavy model if the user plans to use Google Cloud STT, 
+        # saving RAM and VRAM.
+        WhisperTranscriber.start_preload()
+
     listener_batch_size = st.sidebar.slider(
         "リスナー分析バッチサイズ",
         min_value=10,
@@ -608,7 +656,10 @@ def main():
                     analysis_url, 
                     api_key, 
                     batch_size=listener_batch_size, 
-                    progress_callback=sync_progress_callback
+                    progress_callback=sync_progress_callback,
+                    stt_engine=stt_engine,
+                    google_project_id=google_project_id,
+                    google_bucket_name=google_bucket_name
                 )
                 if vod_id:
                     status.update(label="✨ 分析が完了しました！", state="complete", expanded=False)
@@ -895,11 +946,17 @@ def main():
                 selected_cats = st.multiselect(
                     "表示する態度カテゴリ（複数選択可）",
                     options=list(cat_options.values()),
-                    default=list(cat_options.values())
+                    default=[]
                 )
                 
                 filter_keys = [rev_cat_map[c] for c in selected_cats]
-                filtered_details = [c for c in comment_details if c.get("category") in filter_keys]
+                # Why check filter_keys?
+                # If no filters are selected (empty filter_keys), we show all comments by default.
+                # If filters are selected, only show comments that match the OR criteria.
+                if filter_keys:
+                    filtered_details = [c for c in comment_details if c.get("category") in filter_keys]
+                else:
+                    filtered_details = comment_details
                 
                 if filtered_details:
                     # Why not hardcode badge CSS styles?
@@ -1190,7 +1247,7 @@ def main():
                     selected_cats = st.multiselect(
                         "表示する分類（複数選択可）",
                         options=list(cat_options.values()),
-                        default=list(cat_options.values()),
+                        default=[],
                         key="timeline_cat_multiselect"
                     )
                 
@@ -1207,7 +1264,10 @@ def main():
                     else:
                         cat_key = ev.get("category", "other")
                         
-                    if cat_key in filter_keys:
+                    # Why check filter_keys?
+                    # If no filters are selected, show all events (no filter applied).
+                    # Otherwise, only show events that match one of the selected categories (OR logic).
+                    if not filter_keys or cat_key in filter_keys:
                         filtered_events.append(ev)
                 
                 if filtered_events:

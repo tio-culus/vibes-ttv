@@ -1,8 +1,9 @@
 import whisper
 import torch
 import threading
+from vibes_ttv.analyzers.stt.base import BaseTranscriber
 
-class WhisperTranscriber:
+class WhisperTranscriber(BaseTranscriber):
     # Why not faster-whisper?
     # While faster-whisper is highly optimized, it requires specific C++ libraries (ctranslate2) 
     # which can be complex to compile or configure on Windows. 

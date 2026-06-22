@@ -7,3 +7,5 @@ pydantic>=2.0
 pandas
 numpy
 pytest
+google-cloud-speech
+google-cloud-storage
