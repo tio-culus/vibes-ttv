@@ -104,6 +104,47 @@ $env:GEMINI_API_KEY="あなたのGeminiAPIキー"
 
 ---
 
+## コメント分類ベンチマークの実行
+
+リスナーコメント分類器の精度（Accuracy, Precision, Recall, F1スコア）および処理速度を客観的に検証できるベンチマークツールが用意されています。
+
+### 1. テストデータの生成（DBからエクスポート）
+本番で分析済みの統合タイムラインデータを SQLite DB からエクスポートし、手動アノテーション用のテストデータを作成します。
+
+```powershell
+# データベースから分析済みのタイムラインデータをエクスポート
+.\venv\Scripts\python tests/create_reference_from_db.py
+```
+*※ `tests/fixtures/reference_timeline.json` にエクスポートされます。必要に応じてJSONファイル内の `"expected_category"` （初期値はDB上での分類結果）を手動で修正・校正して正解ラベル（リファレンス）を確定させます。DBにまだ分析済みデータが無い場合は、自動的に全カテゴリを含んだダミーのタイムラインデータがフォールバック生成されます。*
+
+### 2. ベンチマーク測定の実行
+
+#### A. ルールベース分類器（ベースライン・ローカル動作）
+APIキー不要で即座に動作し、LLM導入の費用対効果を評価するための基準（ベースライン）となります。
+```powershell
+.\venv\Scripts\python tests/run_classifier_benchmark.py --classifier rule-based
+```
+
+#### B. Gemini 分類器（LLM評価）
+環境変数 `GEMINI_API_KEY` を設定するか、`--api-key` オプションでキーを指定して実行します。
+```powershell
+.\venv\Scripts\python tests/run_classifier_benchmark.py --classifier gemini --api-key "あなたのGeminiAPIキー"
+```
+
+#### C. 全ての分類器を一括実行して比較
+```powershell
+.\venv\Scripts\python tests/run_classifier_benchmark.py --classifier all --api-key "あなたのGeminiAPIキー"
+```
+
+#### D. 各種設定パラメータの指定
+評価対象モデルや、一度に分類器へ渡すチャットの件数（スライスサイズ）を調整して、最適なモデル・分割パラメータを検証することができます。
+```powershell
+# モデル名とスライスサイズを指定して実行
+.\venv\Scripts\python tests/run_classifier_benchmark.py --classifier gemini --model gemini-3.5-flash --slice-size 50 --api-key "あなたのGeminiAPIキー"
+```
+
+---
+
 ## テストの実行
 
 単体テストを走らせる場合は、以下のコマンドを実行します。
