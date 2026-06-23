@@ -184,7 +184,14 @@ def run_real_analysis(
         vod_id = os.path.basename(audio_path).replace(".mp3", "")
         
         # Step 3: Transcription using selected STT engine
-        engine_label = "Google Cloud STT" if stt_engine == "google_stt" else "Whisper (turbo)"
+        # Why expose custom labels?
+        # Decoupling human-readable engine names in logs from engine identifiers increases UI friendliness.
+        if stt_engine == "google_stt":
+            engine_label = "Google Cloud STT"
+        elif stt_engine == "gemini":
+            engine_label = "Gemini 3.1 Flash-Lite"
+        else:
+            engine_label = "Whisper (turbo)"
         actual_callback(f"✍️ [3/5] {engine_label} で音声を文字起こし中... (数分かかる場合があります)", 50)
         t_transcribe_start = time.time()
         
@@ -196,6 +203,8 @@ def run_real_analysis(
         if stt_engine == "google_stt":
             transcriber_kwargs["project_id"] = google_project_id
             transcriber_kwargs["bucket_name"] = google_bucket_name
+        elif stt_engine == "gemini":
+            transcriber_kwargs["api_key"] = api_key
             
         transcriber = get_transcriber(stt_engine, **transcriber_kwargs)
         segments = transcriber.transcribe(audio_path)
@@ -540,15 +549,21 @@ def main():
     api_key = st.sidebar.text_input("Gemini API Key", value=api_key, key="gemini_api_key")
     
     # Why make STT engine configurable?
-    # Exposing STT engines allows switching between local Whisper (high GPU/CPU utilization but free)
-    # and Google Cloud STT (zero local compute overhead, requires Google Cloud account/GCS).
+    # Exposing STT engines allows switching between local Whisper (high GPU/CPU utilization but free),
+    # Google Cloud STT (zero local compute overhead, requires Google Cloud account/GCS), and 
+    # Gemini (fast cloud STT using Gemini API with high quality diarization).
     stt_option = st.sidebar.selectbox(
         "音声文字起こし (STT) エンジンの選択",
-        options=["ローカル Whisper (turbo)", "Google Cloud Speech-to-Text"],
+        options=["ローカル Whisper (turbo)", "Google Cloud Speech-to-Text", "Gemini 3.1 Flash-Lite"],
         index=0,
         key="stt_option_select"
     )
-    stt_engine = "whisper" if stt_option == "ローカル Whisper (turbo)" else "google_stt"
+    if stt_option == "ローカル Whisper (turbo)":
+        stt_engine = "whisper"
+    elif stt_option == "Google Cloud Speech-to-Text":
+        stt_engine = "google_stt"
+    else:
+        stt_engine = "gemini"
     
     if stt_engine == "google_stt":
         # Why expose project_id and bucket_name settings?

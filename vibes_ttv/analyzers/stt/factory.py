@@ -1,6 +1,7 @@
 from vibes_ttv.analyzers.stt.base import BaseTranscriber
 from vibes_ttv.analyzers.stt.whisper_transcriber import WhisperTranscriber
 from vibes_ttv.analyzers.stt.google_transcriber import GoogleSpeechTranscriber
+from vibes_ttv.analyzers.stt.gemini_transcriber import GeminiSpeechTranscriber
 
 # Register transcribers here for extensibility
 # Why use a registry dictionary?
@@ -10,6 +11,7 @@ from vibes_ttv.analyzers.stt.google_transcriber import GoogleSpeechTranscriber
 TRANSCRIBER_REGISTRY = {
     "whisper": WhisperTranscriber,
     "google_stt": GoogleSpeechTranscriber,
+    "gemini": GeminiSpeechTranscriber,
 }
 
 def get_transcriber(engine_type: str, **kwargs) -> BaseTranscriber:

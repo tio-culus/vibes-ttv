@@ -5,16 +5,34 @@ class TimelineMerger:
     # to help Gemini easily distinguish who said what in the downstream prompt.
     
     def merge(self, whisper_segments: list[dict], chat_data: list[dict]) -> list[dict]:
+        import re
         events = []
         
         # Add streamer speaking events
         for seg in whisper_segments:
+            # Why extract speaker dynamically using regex?
+            # Different STT engines (like Gemini or Google STT) output speaker tags prefixing the text: "[Streamer X] text".
+            # Parsing this tag lets us assign the correct dynamic speaker name (e.g. "Streamer 0", "Streamer 1")
+            # to the event, while keeping the message text clean of raw markup.
+            text_raw = seg["text"].strip()
+            speaker_match = re.match(r"^\[(Streamer \d+|話者 \d+)\]\s*(.*)$", text_raw, re.DOTALL)
+            
+            if speaker_match:
+                speaker_name = speaker_match.group(1)
+                text_clean = speaker_match.group(2).strip()
+            else:
+                speaker_name = "Streamer"
+                text_clean = text_raw
+                
             events.append({
                 "type": "streamer",
+                # Why use start time as offset_seconds?
+                # Using the start time of the speech segment represents the instant the streamer begins speaking,
+                # aligning chronologically with incoming listener chats in real-time.
                 "offset_seconds": seg["start"],
                 "end_seconds": seg["end"],
-                "name": "Streamer",
-                "text": seg["text"].strip()
+                "name": speaker_name,
+                "text": text_clean
             })
             
         # Add viewer chat events
@@ -32,7 +50,7 @@ class TimelineMerger:
         # the chat is likely a reaction to the speech, so listing the speech first preserves the causal flow.
         events.sort(key=lambda x: (x["offset_seconds"], 0 if x["type"] == "streamer" else 1))
         return events
-
+ 
     def format_to_text(self, merged_events: list[dict], max_chats_per_minute: int = 30, show_categories: bool = False) -> str:
         # Why limit chats per minute in the text format?
         # In highly active streams, chat rates can exceed 100/min.
@@ -53,7 +71,11 @@ class TimelineMerger:
             timestamp_str = f"{h:02d}:{m:02d}:{s:02d}"
             
             if ev["type"] == "streamer":
-                lines.append(f"[{timestamp_str}] Streamer: {ev['text']}")
+                # Why use ev.get("name")?
+                # Using get("name", "Streamer") prevents KeyError if dynamic speaker names are missing 
+                # (e.g. in manual legacy events or mock objects inside unit tests).
+                speaker_name = ev.get("name", "Streamer")
+                lines.append(f"[{timestamp_str}] {speaker_name}: {ev['text']}")
             else:
                 # Reset chat limiter count on new minute
                 if current_minute != last_minute:

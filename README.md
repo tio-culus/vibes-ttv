@@ -59,6 +59,51 @@ Twitchの配信アーカイブ（VOD）からチャットログと配信音声�
 
 ---
 
+## 音声認識 (STT) ベンチマークの実行
+
+各種STTエンジン（ローカル Whisper、Google Cloud STT、Gemini）の処理速度（実行時間）と文字起こし精度（文字一致度、文字数回収率など）を、客観的に比較・検証できるベンチマークスクリプトが用意されています。
+
+### 1. 基準データ（リファレンス）の作成
+まず、比較の基準となる高品質な文字起こしデータ（デフォルトでは Whisper (turbo) の出力）を生成します。
+
+```powershell
+# 仮想環境を有効化した状態で実行
+.\venv\Scripts\python scratch/create_reference.py --audio-path "C:\Users\ratio\Downloads\1782089179_v2799586321.mp3"
+```
+*※ `tests/fixtures/reference_transcription.json` に基準データが保存されます。*
+
+### 2. 各STTエンジンのベンチマーク測定
+
+#### A. ローカル Whisper (turbo)
+```powershell
+.\venv\Scripts\python scratch/run_stt_benchmark.py --engine whisper
+```
+
+#### B. Google Cloud Speech-to-Text (5分モノラルチャンク分割方式)
+```powershell
+.\venv\Scripts\python scratch/run_stt_benchmark.py --engine google_stt --project-id "あなたのGCPプロジェクトID" --bucket-name "あなたのGCSバケット名"
+```
+
+#### C. Gemini (4分ステレオ・1分オーバーラップ/16並列方式)
+```powershell
+# APIキーを環境変数に設定して実行
+$env:GEMINI_API_KEY="あなたのGeminiAPIキー"
+.\venv\Scripts\python scratch/run_stt_benchmark.py --engine gemini --model-name gemini-3.1-flash-lite
+```
+*※ モデル名は `--model-name` オプションで `gemini-3.1-flash-lite` (標準・高コスパ) や `gemini-3.5-flash` を指定可能です。*
+
+### 3. 過去の測定結果のオフライン比較
+過去に実行されたベンチマーク結果のJSONファイルを指定し、APIを実行せずに再度リファレンスとの一致度や差分（diff）を表示できます。
+
+```powershell
+.\venv\Scripts\python scratch/run_stt_benchmark.py --compare-file scratch/benchmark_results_YYYYMMDD_HHMMSS.json
+```
+
+### 4. 実行結果の保存
+`--compare-file` オプションなしで測定を実行すると、実行日時が付与された個別結果ファイル（例: `scratch/benchmark_results_20260622_174905.json`）が自動生成され、処理時間、一致スコア、すべてのパース済みセグメントなどが保存されます。
+
+---
+
 ## テストの実行
 
 単体テストを走らせる場合は、以下のコマンドを実行します。

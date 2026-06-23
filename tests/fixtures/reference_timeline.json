@@ -1,0 +1,8325 @@
+[
+  {
+    "type": "listener",
+    "offset_seconds": 18,
+    "name": "wizebot",
+    "text": "✔️ LIVEはPath of Exile 2カテゴリーでオンラインです。稼働時間が始まります。",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 36,
+    "name": "shonya0w0",
+    "text": "mizuna13Konmaru",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 43,
+    "name": "589_sirayuki",
+    "text": "mizuna13Paku mizuna13Paku mizuna13Paku mizuna13Paku mizuna13Paku mizuna13Paku",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 43,
+    "name": "kanitama02",
+    "text": "mizuna13Konmaru",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 49,
+    "name": "youtuberkimura",
+    "text": "こん mizuna13PEROPERO",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 51,
+    "name": "tio_culus",
+    "text": "こんまるちゃん mizuna13Konmaru",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 51,
+    "name": "fumianmaomao",
+    "text": "mochi8401 mochi8401 mochi8401",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 56,
+    "name": "wutnev3r",
+    "text": "mizuna13Tyukii",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 65,
+    "name": "fumianmaomao",
+    "text": "こんまる mochi8401",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 92,
+    "name": "steroidyazawa",
+    "text": "こんばんは",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 100,
+    "name": "589_sirayuki",
+    "text": "ぽえぽえだ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 107,
+    "name": "589_sirayuki",
+    "text": "mizuna13WAAAI mizuna13WAAAI",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 113,
+    "name": "ho_o_neko",
+    "text": "ビリビリ～～",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 114,
+    "name": "wutnev3r",
+    "text": "ww",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 115,
+    "name": "wutnev3r",
+    "text": "え",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 117,
+    "name": "steroidyazawa",
+    "text": "ロボになってる",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 117,
+    "name": "wutnev3r",
+    "text": "マイク",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 117,
+    "name": "589_sirayuki",
+    "text": "まるちゃんんんんんんんんんんんんんんんんんんんんんんんんんんんんんんんｎ",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 120,
+    "name": "tio_culus",
+    "text": "マイクにノイズ載ってるかも",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 121,
+    "name": "shonya0w0",
+    "text": "すんごいｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 128,
+    "name": "wutnev3r",
+    "text": "声びりびりしてるよ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 129,
+    "name": "youtuberkimura",
+    "text": "なんか声おかしくなってるね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 132,
+    "name": "steroidyazawa",
+    "text": "喉のダメージが相当ですね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 133,
+    "name": "imamu_mamu",
+    "text": "こんまるちゃん～",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 136,
+    "name": "589_sirayuki",
+    "text": "なんかロボマイクになってるｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 137,
+    "name": "shonya0w0",
+    "text": "百均のイヤホンくらいのノイズになってる",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 146,
+    "name": "gil_blood",
+    "text": "こんばんは",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 149,
+    "name": "wutnev3r",
+    "text": "びりびり",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 150,
+    "name": "henachocoaim",
+    "text": "接触悪いですって感じのノイズ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 151.0,
+    "end_seconds": 213.0,
+    "name": "Streamer 0",
+    "text": "あ、あ、あ、あ、聞こえますか？これ。ちょっとごめん、喉が最近痛くて。喉が痛くて。あいしゃちゃん、ごあくちゃん、かりんたまさん、みゃじょっこさん、こんちゃ。いしきまさん、こんて。ておさん、こんちゃ。まーまーこんちゃ。ういくん、こんちゃ。しろいさん、こんちゃ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 151,
+    "name": "shonya0w0",
+    "text": "まだなってる",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 153,
+    "name": "youtuberkimura",
+    "text": "かわらないね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 155,
+    "name": "steroidyazawa",
+    "text": "ロボです",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 158,
+    "name": "gil_blood",
+    "text": "あ”あ”あ”あ”",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 159,
+    "name": "ho_o_neko",
+    "text": "治ってない",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 162,
+    "name": "wutnev3r",
+    "text": "ぴかちゅうのモノマネうまいね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 165,
+    "name": "imamu_mamu",
+    "text": "ＡＩ ＭＡＲＵ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 201,
+    "name": "henachocoaim",
+    "text": "なおってない",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 203,
+    "name": "wutnev3r",
+    "text": "びりびり",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 203,
+    "name": "tio_culus",
+    "text": "まだっぽいですね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 207,
+    "name": "steroidyazawa",
+    "text": "ﾀﾞﾒｯ!",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 221,
+    "name": "wutnev3r",
+    "text": "びりびりだって",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 222,
+    "name": "shonya0w0",
+    "text": "まだだめ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 223,
+    "name": "henachocoaim",
+    "text": "まだ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 235,
+    "name": "589_sirayuki",
+    "text": "ｗｗｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 238,
+    "name": "kuroryun1",
+    "text": "こんばんわ水無瀬",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 238,
+    "name": "youtuberkimura",
+    "text": "マイクの接触とかどうだろう",
+    "expected_category": "advise"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 238.5,
+    "end_seconds": 241.5,
+    "name": "Streamer 0",
+    "text": "あ、どう？あー"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 247,
+    "name": "gil_blood",
+    "text": "コードの接触とかじゃ？",
+    "expected_category": "advise"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 250.0,
+    "end_seconds": 252.5,
+    "name": "Streamer 0",
+    "text": "直ってない？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 253,
+    "name": "shonya0w0",
+    "text": "しょにゃ watched 140 consecutive streams and sparked a watch streak! コードになにか接触か抜け掛けてるか",
+    "expected_category": "advise"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 259.0,
+    "end_seconds": 265.5,
+    "name": "Streamer 0",
+    "text": "ああああああ、どう？ああ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 260,
+    "name": "steroidyazawa",
+    "text": "なおったぞ？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 261,
+    "name": "henachocoaim",
+    "text": "なおった",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 263,
+    "name": "ho_o_neko",
+    "text": "うん？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 263,
+    "name": "youtuberkimura",
+    "text": "あ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 267,
+    "name": "589_sirayuki",
+    "text": "なおった",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 269,
+    "name": "ho_o_neko",
+    "text": "治った",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 270.5,
+    "end_seconds": 275.0,
+    "name": "Streamer 0",
+    "text": "まだダメ？ええ、なんで？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 271,
+    "name": "youtuberkimura",
+    "text": "なおったわｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 274,
+    "name": "wutnev3r",
+    "text": "治った",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 279,
+    "name": "shonya0w0",
+    "text": "おかえり",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 280,
+    "name": "tio_culus",
+    "text": "なおりましたね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 293,
+    "name": "gil_blood",
+    "text": "ノイズの感じが接触だったよね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 293,
+    "name": "youtuberkimura",
+    "text": "お子さん何かさわっちゃったかな",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 294,
+    "name": "imamu_mamu",
+    "text": "叩いたら治ったの？",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 296,
+    "name": "589_sirayuki",
+    "text": "ロボまるいた？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 312,
+    "name": "steroidyazawa",
+    "text": "PC叩くなしwww",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 321.5,
+    "end_seconds": 323.5,
+    "name": "Streamer 0",
+    "text": "なんだろう"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 340,
+    "name": "youtuberkimura",
+    "text": "早めにやすみましょ",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 343,
+    "name": "imamu_mamu",
+    "text": "お大事に",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 344,
+    "name": "589_sirayuki",
+    "text": "むりしないようにね",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 351.0,
+    "end_seconds": 354.0,
+    "name": "Streamer 0",
+    "text": "あいしゃん、140連続ありがとう"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 356.0,
+    "end_seconds": 369.0,
+    "name": "Streamer 0",
+    "text": "叩いて、叩いてない。何も触ってないんだけどな。接触あった？本当？なんかマウスが落ちただけ。叩いてない。叩いてないし、別に"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 373.0,
+    "end_seconds": 388.0,
+    "name": "Streamer 0",
+    "text": "ちょっとはね、風邪っぽくて明日。喉ずっと痛いから、ちょっと明日もやることがね、いっぱいあるので、24時まででお願いいたします。ごめんなさい。本当に申し訳ない"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 389.0,
+    "end_seconds": 391.0,
+    "name": "Streamer 1",
+    "text": "ボイスボックスが見つかりません"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 392.0,
+    "end_seconds": 395.0,
+    "name": "Streamer 1",
+    "text": "ボイスボックスと通信ができません"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 394,
+    "name": "589_sirayuki",
+    "text": "１月前",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 395.0,
+    "end_seconds": 396.0,
+    "name": "Streamer 0",
+    "text": "ありがとう"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 396.0,
+    "end_seconds": 398.0,
+    "name": "Streamer 1",
+    "text": "ボイスボックスと通信ができません"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 407,
+    "name": "589_sirayuki",
+    "text": "（多分",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 409,
+    "name": "wutnev3r",
+    "text": "まるちゃんかわいいね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 413,
+    "name": "nekornata",
+    "text": "ぽぇ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 426,
+    "name": "kuritoru3",
+    "text": "こんばんわまるちゃん",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 436,
+    "name": "tio_culus",
+    "text": "えらいね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 439,
+    "name": "wutnev3r",
+    "text": "16日まえらしい",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 440,
+    "name": "kuroryun1",
+    "text": "くろろん1 watched 130 consecutive streams and sparked a watch streak! 出会って130日経ちましたね。長い間配信ありがとうございます、じゃ　おやすみ",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 444,
+    "name": "kuroryun1",
+    "text": "ｚｚｚ",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 444,
+    "name": "nekornata",
+    "text": "けっこうやっつる",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 447,
+    "name": "seeker9119",
+    "text": "きたきたー",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 461.0,
+    "end_seconds": 471.0,
+    "name": "Streamer 0",
+    "text": "あ、くららさん、130日連続ありがとう。130日達しました。長い間配信ありがとうございました。おやすみ。おやすみ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 471.0,
+    "end_seconds": 473.0,
+    "name": "Streamer 0",
+    "text": "結構やってるよ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 471,
+    "name": "tadanotawashi73yen",
+    "text": "まるちゃんだああああああああああああああああ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 473.0,
+    "end_seconds": 476.0,
+    "name": "Streamer 0",
+    "text": "あい、しぇかさん、こんちゃ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 476,
+    "name": "tadanotawashi73yen",
+    "text": "こんまるこんまるこんまるこんまるこんまる",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 480.0,
+    "end_seconds": 484.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、うまるちゃんだー。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 482.0,
+    "end_seconds": 484.0,
+    "name": "Streamer 0",
+    "text": "うまるちゃんですよ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 483,
+    "name": "tadanotawashi73yen",
+    "text": "こおおおおおおおおおおんまあああああああああああああああるううううううううううううう",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 485.0,
+    "end_seconds": 491.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、うこんまるこんまるこんまるこんまる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 490.0,
+    "end_seconds": 491.0,
+    "name": "Streamer 0",
+    "text": "あい、こんまる。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 490,
+    "name": "kuroryun1",
+    "text": "すきいいいいいいいいいいいいいいいい",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 492.0,
+    "end_seconds": 498.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、うこー。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 496.0,
+    "end_seconds": 498.0,
+    "name": "Streamer 0",
+    "text": "あい、こんまる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 499.0,
+    "end_seconds": 503.0,
+    "name": "Streamer 1",
+    "text": "クロロンちゃん、うすきー。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 502.0,
+    "end_seconds": 503.0,
+    "name": "Streamer 0",
+    "text": "あ、うすきー。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 502,
+    "name": "kuroryun1",
+    "text": "よし",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 505.0,
+    "end_seconds": 510.0,
+    "name": "Streamer 0",
+    "text": "伝説のウルバランの足跡をたどり、バスリ、ん？バスリの"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 510.0,
+    "end_seconds": 513.0,
+    "name": "Streamer 1",
+    "text": "クロロンちゃん、うよし。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 512.0,
+    "end_seconds": 513.0,
+    "name": "Streamer 0",
+    "text": "よし？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 513,
+    "name": "tadanotawashi73yen",
+    "text": "とられた",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 513,
+    "name": "589_sirayuki",
+    "text": "wwww",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 515.0,
+    "end_seconds": 520.0,
+    "name": "Streamer 0",
+    "text": "けがれの痕跡。どういうゲームだったっけ？これ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 521.0,
+    "end_seconds": 525.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、うとられた。たく雪琥珀ちゃん、可愛い。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 525.0,
+    "end_seconds": 528.0,
+    "name": "Streamer 0",
+    "text": "たわしさんは1人しかいないよ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 525,
+    "name": "589_sirayuki",
+    "text": "なにくらべ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 528,
+    "name": "wutnev3r",
+    "text": "モブを倒すゲーム",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 533.0,
+    "end_seconds": 539.0,
+    "name": "Streamer 1",
+    "text": "たく雪琥珀ちゃん、うなにくらべ。Vくんちゃん、うもぶを倒すゲーム。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 538.0,
+    "end_seconds": 540.0,
+    "name": "Streamer 0",
+    "text": "もぶを倒すゲーム。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 538,
+    "name": "kuroryun1",
+    "text": "イマジナリーたわしは いるよおおぉおんんんんえぬ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 546.0,
+    "end_seconds": 554.0,
+    "name": "Streamer 1",
+    "text": "クロロンちゃん、うイマジナリーたわしはいるよ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 552,
+    "name": "wutnev3r",
+    "text": "なんかビックリマーク出たら推す、とりあえずモブを倒す",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 554.0,
+    "end_seconds": 557.0,
+    "name": "Streamer 0",
+    "text": "あ、ここ行くってこと？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 559,
+    "name": "tio_culus",
+    "text": "マップ上にピン立ってるところにクエストあるので、そこに行けば良いかもですね",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 560.0,
+    "end_seconds": 566.0,
+    "name": "Streamer 1",
+    "text": "光なきものの通路。うなんかびっくりマーク出たら押す。とりあえずモブを倒す。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 567.0,
+    "end_seconds": 575.0,
+    "name": "Streamer 1",
+    "text": "きよちゃん、うマップ上にピン立ってるところにクエストあるので、そこに行けば良いかもですね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 576.0,
+    "end_seconds": 579.0,
+    "name": "Streamer 0",
+    "text": "あ、ここに行くってことね。じゃあここ行こうか"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 581.0,
+    "end_seconds": 583.0,
+    "name": "Streamer 0",
+    "text": "そういうことなんだ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 582,
+    "name": "kuroryun1",
+    "text": "そうするとクエストが受けれるのでそうするといいですね",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 583,
+    "name": "wutnev3r",
+    "text": "でも今立ってる場所にも￥ぴんあるよね？",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 588.0,
+    "end_seconds": 590.0,
+    "name": "Streamer 0",
+    "text": "え、めっちゃ久しぶりにやるじゃん、びより"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 590.0,
+    "end_seconds": 594.0,
+    "name": "Streamer 1",
+    "text": "クロロンちゃん、そうするとクエストが受けれるのでそうするといいですね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 594.0,
+    "end_seconds": 595.5,
+    "name": "Streamer 0",
+    "text": "了解"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 596.0,
+    "end_seconds": 599.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、でも今立ってる場所にもピンあるよね"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 596,
+    "name": "seeker9119",
+    "text": "まるちゃんこのゲームギルドあるらしいぞ、作ってくれ",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 602.0,
+    "end_seconds": 604.5,
+    "name": "Streamer 0",
+    "text": "マップってどうやって出すっけ？ここ？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 606.0,
+    "end_seconds": 610.0,
+    "name": "Streamer 1",
+    "text": "ちかちゃん、うまるちゃんこのゲームギルドあるらしいぞ。作ってくれ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 610.0,
+    "end_seconds": 611.5,
+    "name": "Streamer 0",
+    "text": "オッケー"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 610,
+    "name": "tio_culus",
+    "text": "ワールドマップならUかな",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 612.0,
+    "end_seconds": 614.0,
+    "name": "Streamer 0",
+    "text": "シェアしたな、ギルド"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 619.0,
+    "end_seconds": 621.5,
+    "name": "Streamer 1",
+    "text": "きよちゃん、ワールドマップならかな"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 621,
+    "name": "589_sirayuki",
+    "text": "ウェイポイントで見れる",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 623.0,
+    "end_seconds": 626.0,
+    "name": "Streamer 0",
+    "text": "ワールドマップだったら、あ、本当だ。こうか"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 623,
+    "name": "kuroryun1",
+    "text": "ギルド名は poepoeきゅんですか？",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 629.0,
+    "end_seconds": 632.0,
+    "name": "Streamer 1",
+    "text": "白雪コハクちゃん、ウェイポイントで見れる"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 633.0,
+    "end_seconds": 636.0,
+    "name": "Streamer 1",
+    "text": "クロロンちゃん、ギルド名はぽきゅんずですか？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 636.0,
+    "end_seconds": 638.0,
+    "name": "Streamer 0",
+    "text": "ぽきゅんず、悪くない"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 643.0,
+    "end_seconds": 645.0,
+    "name": "Streamer 0",
+    "text": "悪くない"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 654.0,
+    "end_seconds": 657.0,
+    "name": "Streamer 0",
+    "text": "あー、マジ喉痛い。なんだこれ本当に"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 658.0,
+    "end_seconds": 660.0,
+    "name": "Streamer 0",
+    "text": "あ、何してんだ、本当に。バカバカ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 669.0,
+    "end_seconds": 672.5,
+    "name": "Streamer 0",
+    "text": "え、痛い、この辺。行けばいいんだよね、多分だけど。いまいち分かってない"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 681.0,
+    "end_seconds": 683.5,
+    "name": "Streamer 0",
+    "text": "あ、スキルも忘れちゃった"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 689.0,
+    "end_seconds": 692.0,
+    "name": "Streamer 0",
+    "text": "でも大丈夫。まだやれる。やれる子だから"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 707,
+    "name": "kuritoru3",
+    "text": "やってるうちに思い出すね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 709.0,
+    "end_seconds": 713.0,
+    "name": "Streamer 0",
+    "text": "え、行かん、この辺。行けばいいんだよね、多分だけど。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 713.0,
+    "end_seconds": 715.0,
+    "name": "Streamer 0",
+    "text": "お前怒ってない？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 721.0,
+    "end_seconds": 723.0,
+    "name": "Streamer 0",
+    "text": "あ、スキルも外せちゃった。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 729.0,
+    "end_seconds": 733.0,
+    "name": "Streamer 0",
+    "text": "でも大丈夫。まだやれる。やれる子だから。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 733,
+    "name": "seeker9119",
+    "text": "へへ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 736.0,
+    "end_seconds": 738.0,
+    "name": "Streamer 0",
+    "text": "アルタロはやれる子だから大丈夫。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 745.0,
+    "end_seconds": 747.0,
+    "name": "Streamer 0",
+    "text": "体が覚えてる。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 745,
+    "name": "wutnev3r",
+    "text": "マルちゃん今20レべぐらい？かわいいね＾＾",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 745,
+    "name": "kuroryun1",
+    "text": "だいじょうぶやってない",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 753.0,
+    "end_seconds": 755.0,
+    "name": "Streamer 0",
+    "text": "みんなとスタートして"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 755.0,
+    "end_seconds": 758.0,
+    "name": "Streamer 1",
+    "text": "トリトルちゃん、やってるうちに思い出すね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 758.0,
+    "end_seconds": 760.0,
+    "name": "Streamer 0",
+    "text": "思い出す、思い出す。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 762,
+    "name": "kuritoru3",
+    "text": "アクト４まで進めちゃったよ",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 763,
+    "name": "seeker9119",
+    "text": "Act4終わるくらい！",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 774,
+    "name": "kuroryun1",
+    "text": "まるちゃんを 抜かす可能性があるゲームなんてやらないよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 776,
+    "name": "nekornata",
+    "text": "2週間で140時間こえてた",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 781,
+    "name": "589_sirayuki",
+    "text": "まるちゃんと進行同じにしたくてやってないんだよね",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 801.0,
+    "end_seconds": 805.0,
+    "name": "Streamer 0",
+    "text": "みんなとスタートしてさ、なんかスタートダッシュ決めて、もうみんなに、痛っ！"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 819,
+    "name": "kuroryun1",
+    "text": "誰を滅した？みつハチさん？",
+    "expected_category": "cross-chat"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 820,
+    "name": "wutnev3r",
+    "text": "僕も同じ進行にしたくて今日やってないよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 834,
+    "name": "kazuha1019",
+    "text": "こんばんは mizuna13Zii",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 850,
+    "name": "wutnev3r",
+    "text": "だってやりたいんだもん mizuna13Batabatabata",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 851,
+    "name": "589_sirayuki",
+    "text": "そしてアンインストールした.. mizuna13Zii （おい",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 863,
+    "name": "seeker9119",
+    "text": "サブスクしないしな！",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 883,
+    "name": "kuroryun1",
+    "text": "いないとこでぼろかすいわれてかわいそう",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 885,
+    "name": "kuroryun1",
+    "text": "もっとやれ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 894,
+    "name": "wutnev3r",
+    "text": "うらやましい",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 896,
+    "name": "589_sirayuki",
+    "text": "まるちゃんができないと思って",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 916,
+    "name": "jagaas",
+    "text": "こんまる",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 931.0,
+    "end_seconds": 934.0,
+    "name": "Streamer 0",
+    "text": "気持ちはあるが。ちょっと待って"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 958.0,
+    "end_seconds": 960.0,
+    "name": "Streamer 0",
+    "text": "なんかこれやばそう"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 961.0,
+    "end_seconds": 963.0,
+    "name": "Streamer 0",
+    "text": "感じるんだけど"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 963.0,
+    "end_seconds": 966.0,
+    "name": "Streamer 0",
+    "text": "私の弓なんか強くね？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 964,
+    "name": "tio_culus",
+    "text": "つよい",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 966.0,
+    "end_seconds": 968.0,
+    "name": "Streamer 0",
+    "text": "あ、こんな強く育ってたの？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 968.0,
+    "end_seconds": 971.0,
+    "name": "Streamer 0",
+    "text": "えらいな、本当に。何も知らないくせに"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 972.0,
+    "end_seconds": 973.0,
+    "name": "Streamer 1",
+    "text": "りゅうちゃん、強い"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 973.0,
+    "end_seconds": 975.0,
+    "name": "Streamer 0",
+    "text": "うわ、本当に"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 975.0,
+    "end_seconds": 978.0,
+    "name": "Streamer 0",
+    "text": "むちながら"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 985,
+    "name": "kuritoru3",
+    "text": "弓は序盤の覇権武器",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 989.0,
+    "end_seconds": 993.0,
+    "name": "Streamer 0",
+    "text": "進んでる、みな。笑ってにしゃー"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 993.0,
+    "end_seconds": 994.0,
+    "name": "Streamer 0",
+    "text": "それが強い"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 994.0,
+    "end_seconds": 997.0,
+    "name": "Streamer 1",
+    "text": "ぷりとるちゃん、弓は序盤の派遣武器"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 997.0,
+    "end_seconds": 998.0,
+    "name": "Streamer 0",
+    "text": "あ、そうなんだ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1001,
+    "name": "wutnev3r",
+    "text": "ニコニコで見てるよ",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1005,
+    "name": "tio_culus",
+    "text": "うまいね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1009.0,
+    "end_seconds": 1012.0,
+    "name": "Streamer 1",
+    "text": "ぶいくんちゃん、ニコニコで見てるよ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1010,
+    "name": "589_sirayuki",
+    "text": "ほなまたインストールするか mizuna13Paku",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1012.0,
+    "end_seconds": 1015.0,
+    "name": "Streamer 1",
+    "text": "りゅうちゃん、うまいね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1015.0,
+    "end_seconds": 1016.0,
+    "name": "Streamer 0",
+    "text": "ありがとう"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1018.0,
+    "end_seconds": 1023.0,
+    "name": "Streamer 1",
+    "text": "かくゆきこはくちゃん、りなはまたインストールする"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1023.0,
+    "end_seconds": 1025.0,
+    "name": "Streamer 0",
+    "text": "うん、やりたくなったらインストールしな"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1024,
+    "name": "wutnev3r",
+    "text": "まるちゃんだ～ってにこにこしてるよ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1027.0,
+    "end_seconds": 1030.0,
+    "name": "Streamer 0",
+    "text": "ゲームなんかやりたいときにやるべきなんだから"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1031.0,
+    "end_seconds": 1033.0,
+    "name": "Streamer 0",
+    "text": "飽きたらやめる。眠くなったら寝るのと一緒"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1033.0,
+    "end_seconds": 1036.0,
+    "name": "Streamer 1",
+    "text": "ぶいくんちゃん、うまるちゃんだってニコニコしてるよ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1036.0,
+    "end_seconds": 1037.0,
+    "name": "Streamer 0",
+    "text": "おお"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1046.0,
+    "end_seconds": 1047.0,
+    "name": "Streamer 0",
+    "text": "おお"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1057,
+    "name": "wutnev3r",
+    "text": "レベルアップしてるじゃん",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1062.0,
+    "end_seconds": 1065.0,
+    "name": "Streamer 0",
+    "text": "うん、やりたくなったらインストールしな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1067.0,
+    "end_seconds": 1070.0,
+    "name": "Streamer 0",
+    "text": "ゲームなんかやりたい時にやるべきんだから。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1070.0,
+    "end_seconds": 1073.0,
+    "name": "Streamer 0",
+    "text": "飽きたらやめる。眠くなったら寝るのと一緒。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1073.0,
+    "end_seconds": 1077.0,
+    "name": "Streamer 1",
+    "text": "ぷりっとるちゃん、うまるちゃんダークもニコニコしてるよ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1074,
+    "name": "wutnev3r",
+    "text": "左下にパッシブポイント振ってないよ",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1077.0,
+    "end_seconds": 1078.0,
+    "name": "Streamer 0",
+    "text": "おお。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1084,
+    "name": "kuritoru3",
+    "text": "下に＋マーク出てる",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1085.0,
+    "end_seconds": 1086.0,
+    "name": "Streamer 0",
+    "text": "なんか。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1086,
+    "name": "kuroryun1",
+    "text": "あーるがなにかしりたい？ きゅーのつぎだよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1089,
+    "name": "589_sirayuki",
+    "text": "ｗｗｗｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1093.0,
+    "end_seconds": 1097.0,
+    "name": "Streamer 0",
+    "text": "Rって何だっけ？ああ、これか。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1098,
+    "name": "tio_culus",
+    "text": "いいね。余裕ある大人の対応ですね。",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1098,
+    "name": "589_sirayuki",
+    "text": "パッシブ警察",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1105.0,
+    "end_seconds": 1109.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、レベルアップしてるじゃん。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1105,
+    "name": "wutnev3r",
+    "text": "いつでもいいけどｗ忘れてないかなーって久しぶりだし",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1109.0,
+    "end_seconds": 1112.0,
+    "name": "Streamer 0",
+    "text": "え、私30レベルになってる？なんでわかんの？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1112,
+    "name": "nekornata",
+    "text": "ドパガキだからむずむずするんご",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1120,
+    "name": "kuroryun1",
+    "text": "りゅうじのあーるってわけ、つまり らぶってこと！？それはえるだよ しずかに",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1133,
+    "name": "tadanotawashi73yen",
+    "text": "ぽえたのしいんご？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1136,
+    "name": "nekornata",
+    "text": "がはは",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1138,
+    "name": "wutnev3r",
+    "text": "mizuna13E",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1147,
+    "name": "jagaas",
+    "text": "とりあえず端までまっすぐ進んだらいいよ",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1156,
+    "name": "kuroryun1",
+    "text": "この画面見ると頭痛いからやめてほしい 宇宙ネコになりそう",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1162.0,
+    "end_seconds": 1166.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、左下にパッシブポイント振ってないよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1166.0,
+    "end_seconds": 1169.0,
+    "name": "Streamer 0",
+    "text": "パッシブ警察いる、もしかして。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1168,
+    "name": "jagaas",
+    "text": "ｗｗｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1169.0,
+    "end_seconds": 1172.0,
+    "name": "Streamer 0",
+    "text": "まあ、焦るな、そんな。ちょっと待っとけ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1176,
+    "name": "kuroryun1",
+    "text": "ふ、、ふるい？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1178,
+    "name": "wutnev3r",
+    "text": "宇宙猫すき",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1183.0,
+    "end_seconds": 1185.0,
+    "name": "Streamer 1",
+    "text": "ぽたのしいんご？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1183,
+    "name": "589_sirayuki",
+    "text": "ういいあーい？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1185.0,
+    "end_seconds": 1186.0,
+    "name": "Streamer 0",
+    "text": "ぽたのしいよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1186.0,
+    "end_seconds": 1188.0,
+    "name": "Streamer 1",
+    "text": "三つ又の猫またちゃん、わわ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1188.0,
+    "end_seconds": 1190.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1190.0,
+    "end_seconds": 1195.0,
+    "name": "Streamer 0",
+    "text": "面白いよ、このゲーム。私は好き。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1195.0,
+    "end_seconds": 1200.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、とりあえず端まで真っ直ぐ進んだらいいよ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1195,
+    "name": "wutnev3r",
+    "text": "白黒猫もっとすき",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1198,
+    "name": "kuroryun1",
+    "text": "それまわってるほうのミーム猫",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1200.0,
+    "end_seconds": 1204.0,
+    "name": "Streamer 0",
+    "text": "ええ？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1204.0,
+    "end_seconds": 1211.0,
+    "name": "Streamer 1",
+    "text": "くろろんちゃん、どこの画面見ると頭痛いからやめてほしい。宇宙猫になりそう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1211.0,
+    "end_seconds": 1215.0,
+    "name": "Streamer 0",
+    "text": "古いな、ちょっと。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1215.0,
+    "end_seconds": 1218.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、わらわら。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1218.0,
+    "end_seconds": 1223.0,
+    "name": "Streamer 0",
+    "text": "ほんとに？脳で何だ？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1221,
+    "name": "tio_culus",
+    "text": "いいね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1223.0,
+    "end_seconds": 1226.0,
+    "name": "Streamer 1",
+    "text": "くろろんちゃん、古い？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1226.0,
+    "end_seconds": 1229.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、宇宙猫好き。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1226,
+    "name": "wutnev3r",
+    "text": "それがいい",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1227,
+    "name": "589_sirayuki",
+    "text": "あー宇宙黒猫ね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1231.0,
+    "end_seconds": 1234.0,
+    "name": "Streamer 1",
+    "text": "かくゆきこはくちゃん、ういいい。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1232,
+    "name": "kuritoru3",
+    "text": "最近バズってる山でこけてる猫すこ",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1233,
+    "name": "kuroryun1",
+    "text": "それを ちまたでなんていうかしりたい？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1236.0,
+    "end_seconds": 1280.0,
+    "name": "Streamer 0",
+    "text": "感電効果とかどうだの、これ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1238,
+    "name": "seeker9119",
+    "text": "今なんて言ったの？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1251,
+    "name": "rino0408",
+    "text": "りのちゃん__ subscribed at Tier 1. They've subscribed for 4 months! こんばんは mizuna13Rabubiiimu",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1252,
+    "name": "wizebot",
+    "text": "⭐️ リサブ ⭐️ りのちゃん__ (rino0408)（+1） ⭐️",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1253,
+    "name": "kuroryun1",
+    "text": "のうきんめすごりら",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1253,
+    "name": "wizebot",
+    "text": "⭐️ リサブ ⭐️ 兎雪はみぃ (hami_i)（+2） ⭐️",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1257,
+    "name": "nekornata",
+    "text": "みんなそんなもんだよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1265,
+    "name": "seeker9119",
+    "text": "ああ！脳が筋肉で出来てるって言ったんだ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1283.0,
+    "end_seconds": 1286.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、牛よごれ猫もっと好き。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1286.0,
+    "end_seconds": 1290.0,
+    "name": "Streamer 1",
+    "text": "くろろんちゃん、それ回ってる方のミニ猫。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1293,
+    "name": "jagaas",
+    "text": "だいたいあってる",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1300,
+    "name": "nekornata",
+    "text": "うん",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1301.0,
+    "end_seconds": 1311.0,
+    "name": "Streamer 1",
+    "text": "ちゃん、うりさぶ。うりちゃん、うりちゃん。くろろんちゃん、うのうきんめすゴリラ。ちゃん、うりさぶ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1301,
+    "name": "kuroryun1",
+    "text": "まるちゃんのリスナーが考えてると思う？",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1303.0,
+    "end_seconds": 1308.0,
+    "name": "Streamer 0",
+    "text": "あー、うりのちゃん、さ、サブスク4ヶ月ありがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1311.0,
+    "end_seconds": 1324.0,
+    "name": "Streamer 1",
+    "text": "みかちゃん、みつまたのねこまたちゃん、うみんなそんなもんだよ。ちーかーちゃん、わー、うのうが筋肉でできてるって言ったんだ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1311,
+    "name": "589_sirayuki",
+    "text": "脳筋しかかたんだよ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1313.0,
+    "end_seconds": 1316.0,
+    "name": "Streamer 0",
+    "text": "あー、みーちゃん、10ヶ月サブスクありがとう。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1319,
+    "name": "wutnev3r",
+    "text": "ゴリゴリガイドみてる",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1320.0,
+    "end_seconds": 1322.0,
+    "name": "Streamer 0",
+    "text": "ありがとう。たいちゃんもありがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1325.0,
+    "end_seconds": 1328.0,
+    "name": "Streamer 0",
+    "text": "そうだよ。みんなそんなもんでしょ。考えてやってる？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1325,
+    "name": "tio_culus",
+    "text": "今こっち見ました？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1325,
+    "name": "kuroryun1",
+    "text": "考えてるふりする人もいるよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1329.0,
+    "end_seconds": 1334.0,
+    "name": "Streamer 0",
+    "text": "もうこれちょっとみんなも私と同じ風に言うのは良くないと思うんだけど。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1337.0,
+    "end_seconds": 1340.0,
+    "name": "Streamer 0",
+    "text": "結構そんな考えてないんじゃない？実を言うと。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1338,
+    "name": "seeker9119",
+    "text": "ビルドプランナーってやつで人のやつを参考にしてる",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1341.0,
+    "end_seconds": 1343.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、だいたいあってる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1343.0,
+    "end_seconds": 1344.0,
+    "name": "Streamer 0",
+    "text": "そうでしょ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1344,
+    "name": "tmsao",
+    "text": "mizuna13Konmaru",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1345,
+    "name": "589_sirayuki",
+    "text": "右クリックで売れる",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1347.0,
+    "end_seconds": 1351.0,
+    "name": "Streamer 1",
+    "text": "みつまたのねこまたちゃん、うーん、くろろんちゃん。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1347,
+    "name": "nekornata",
+    "text": "人のビルド見てまねしてる",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1351.0,
+    "end_seconds": 1352.0,
+    "name": "Streamer 0",
+    "text": "うん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1352.0,
+    "end_seconds": 1356.0,
+    "name": "Streamer 1",
+    "text": "うまるちゃんのリスナーが考えてると思う？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1356.0,
+    "end_seconds": 1403.0,
+    "name": "Streamer 1",
+    "text": "たくゆきこはくちゃん、うのうすじしか勝たん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1356.0,
+    "end_seconds": 1401.0,
+    "name": "Streamer 0",
+    "text": "なー、もう考えとる人もおるやろなと思うけど。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1368,
+    "name": "nekornata",
+    "text": "mizuna13PEROPERO",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1378,
+    "name": "seeker9119",
+    "text": "パッシブツリーオリジナルで振るなんて無理よ無理無理",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1378,
+    "name": "tio_culus",
+    "text": "攻略情報見ずにこのゲームクリアした人いるのかな？",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1382,
+    "name": "kuroryun1",
+    "text": "たぶんこういうのやったら 拳で解決したくなるからむいてない",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1386,
+    "name": "hami_i",
+    "text": "兎雪はみぃ is gifting 2 Tier 1 Subs to 水無瀬まる's community!",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1386,
+    "name": "wizebot",
+    "text": "🎁 兎雪はみぃ (hami_i) ⭐️がコミュニティにサブスクリプションを2回提供しました！",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1387,
+    "name": "hami_i",
+    "text": "兎雪はみぃ gifted a Tier 1 sub to monmon_216!",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1387,
+    "name": "hami_i",
+    "text": "兎雪はみぃ gifted a Tier 1 sub to MonkWTF!",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1390,
+    "name": "wutnev3r",
+    "text": "おおお",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1393,
+    "name": "seeker9119",
+    "text": "うんちぶりぶり",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1395,
+    "name": "wutnev3r",
+    "text": "mizuna13Naigihu",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1407.0,
+    "end_seconds": 1409.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、うゴリゴリガイド見てる。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1407,
+    "name": "kuroryun1",
+    "text": "mizuna13Kyaaaa mizuna13Kyaaaa mizuna13Niceee",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1409.0,
+    "end_seconds": 1411.0,
+    "name": "Streamer 1",
+    "text": "ひよちゃん、今こっち見ました？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1412,
+    "name": "589_sirayuki",
+    "text": "自分で新しいビルドを作ったらすごいよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1412,
+    "name": "youtuberkimura",
+    "text": "mizuna13Naigihu",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1415,
+    "name": "tio_culus",
+    "text": "水無瀬さんがそうなるなら、あまりにも偉大ですね",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1415,
+    "name": "kuroryun1",
+    "text": "mizuna13Naigihu mizuna13Naigihu",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1419,
+    "name": "nekornata",
+    "text": "mizuna13Naigihu",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1420,
+    "name": "hami_i",
+    "text": "mizuna13Untiti mizuna13Untiti",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1427.0,
+    "end_seconds": 1433.0,
+    "name": "Streamer 1",
+    "text": "ちぃかぁちゃん、私物理オリジナルでフルなんて無理無理無理。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1433.0,
+    "end_seconds": 1437.5,
+    "name": "Streamer 1",
+    "text": "りおちゃん、攻略情報見ずにこのゲームクリアした人いるのかな？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1437.5,
+    "end_seconds": 1443.5,
+    "name": "Streamer 0",
+    "text": "あたし。お、いいの？ほみちゃん、ありがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1446.0,
+    "end_seconds": 1451.5,
+    "name": "Streamer 1",
+    "text": "うさぎゆきはみ、がコミュニティにサブスクリプションを"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1451.5,
+    "end_seconds": 1454.5,
+    "name": "Streamer 0",
+    "text": "いいの？ありがとう。嬉しいけど、いいの？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1454.5,
+    "end_seconds": 1458.0,
+    "name": "Streamer 1",
+    "text": "ちぃかぁちゃん、うんちブリブリ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1458.0,
+    "end_seconds": 1465.5,
+    "name": "Streamer 1",
+    "text": "かくゆきこはくちゃん、自分で新しいビルドを作ったらすごいよ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1462,
+    "name": "589_sirayuki",
+    "text": "mizuna13WAAAI mizuna13WAAAI mizuna13WAAAI mizuna13WAAAI",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1465.5,
+    "end_seconds": 1467.5,
+    "name": "Streamer 0",
+    "text": "私すごいよ、本当に。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1467.5,
+    "end_seconds": 1473.5,
+    "name": "Streamer 1",
+    "text": "りおちゃん、水瀬さんがそうなるなら、あまりにも偉大ですね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1473.5,
+    "end_seconds": 1476.5,
+    "name": "Streamer 0",
+    "text": "私がそうなってやるぜ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1484,
+    "name": "tio_culus",
+    "text": "いまのところ、誰もいませんね。未踏の地ですよ。",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1489,
+    "name": "kuroryun1",
+    "text": "それはもしかしたら たいしたもん、なのかもしれないですね。",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1509,
+    "name": "wutnev3r",
+    "text": "えっ初めてのガイドはだれが作ったの？",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1514,
+    "name": "kuroryun1",
+    "text": "たいしたもん もおおおおおおだもおおおお",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1524.0,
+    "end_seconds": 1527.5,
+    "name": "Streamer 0",
+    "text": "507のライフフラスコ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1526,
+    "name": "589_sirayuki",
+    "text": "積んだら装備更新だね",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1529.0,
+    "end_seconds": 1532.5,
+    "name": "Streamer 0",
+    "text": "ありがとう、サブギフありがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1535.0,
+    "end_seconds": 1538.0,
+    "name": "Streamer 1",
+    "text": "伯雪コハクちゃん、詰んだら装備更新でね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1539.0,
+    "end_seconds": 1543.0,
+    "name": "Streamer 0",
+    "text": "まー、まー、まー"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1540,
+    "name": "wutnev3r",
+    "text": "いや、好奇心が mizuna13Odoodo",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1549.0,
+    "end_seconds": 1552.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、いや、好奇心が"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1552.0,
+    "end_seconds": 1554.0,
+    "name": "Streamer 0",
+    "text": "ん？今日って木曜日？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1552,
+    "name": "kuroryun1",
+    "text": "そうだよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1559.0,
+    "end_seconds": 1561.0,
+    "name": "Streamer 1",
+    "text": "フロロンちゃん、そうだよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1561.0,
+    "end_seconds": 1563.0,
+    "name": "Streamer 0",
+    "text": "あ、今日木曜日か。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1570,
+    "name": "seeker9119",
+    "text": "なんか、地味だね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1571,
+    "name": "wutnev3r",
+    "text": "でも僕明日休みだよ",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1574.0,
+    "end_seconds": 1577.0,
+    "name": "Streamer 0",
+    "text": "私、金曜日だから配信してんな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1578.0,
+    "end_seconds": 1581.0,
+    "name": "Streamer 1",
+    "text": "ちーかーちゃん、なんか地味だね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1581.0,
+    "end_seconds": 1584.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、でも僕明日休みだよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1584.0,
+    "end_seconds": 1587.0,
+    "name": "Streamer 0",
+    "text": "急に悪口言われたけど、何？地味だねって。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1588,
+    "name": "seeker9119",
+    "text": "かわい",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1591.0,
+    "end_seconds": 1593.0,
+    "name": "Streamer 0",
+    "text": "こっちなんかあんの？なんだこれ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1595.0,
+    "end_seconds": 1596.0,
+    "name": "Streamer 0",
+    "text": "何もなし。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1596.0,
+    "end_seconds": 1598.0,
+    "name": "Streamer 1",
+    "text": "ちーかーちゃん、可愛い。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1597,
+    "name": "kuroryun1",
+    "text": "じゃあ おまえは！はでなのかああああああああ それとも！！はげかああ！",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1602.0,
+    "end_seconds": 1608.0,
+    "name": "Streamer 0",
+    "text": "あ、そうやって自分がアクト4まで進んでるから、私のキャラクター貶し始めるんだ。ほーん、そういう人なんだ、ほーん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1608.0,
+    "end_seconds": 1611.0,
+    "name": "Streamer 1",
+    "text": "じゅんちゃん、お前は派手なのか。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1610,
+    "name": "589_sirayuki",
+    "text": "装備を更新してなおクリアできないならパッシブを振りなおすの考える",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1611.0,
+    "end_seconds": 1613.0,
+    "name": "Streamer 1",
+    "text": "それとも、上着か。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1613,
+    "name": "kuroryun1",
+    "text": "ｗｗｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1617.0,
+    "end_seconds": 1625.0,
+    "name": "Streamer 1",
+    "text": "伯雪コハクちゃん、装備を更新してなおクリアできないなら、パッシブを振り直すのを考える。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1621,
+    "name": "gil_blood",
+    "text": "ふーーーーーん",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1624,
+    "name": "seeker9119",
+    "text": "おいハゲじゃないよ頭皮がちょっと臭いだけだよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1625.0,
+    "end_seconds": 1627.0,
+    "name": "Streamer 1",
+    "text": "フロロンちゃん、わらわら。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1625,
+    "name": "kuroryun1",
+    "text": "後者に噴射",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1629.0,
+    "end_seconds": 1631.0,
+    "name": "Streamer 1",
+    "text": "ちゃんふー"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1631.0,
+    "end_seconds": 1636.0,
+    "name": "Streamer 1",
+    "text": "ちーかーちゃん、おいハゲじゃないよ。頭皮がちょっと高いだけだよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1636.0,
+    "end_seconds": 1638.0,
+    "name": "Streamer 1",
+    "text": "フロロンちゃん、おこしゃにふうしゃ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1645.0,
+    "end_seconds": 1647.0,
+    "name": "Streamer 0",
+    "text": "自虐が過ぎるな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1654.0,
+    "end_seconds": 1655.0,
+    "name": "Streamer 0",
+    "text": "は。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1655.0,
+    "end_seconds": 1665.0,
+    "name": "Streamer 0",
+    "text": "いや、強い。待って、大きい声出すの、のど痛い。やめて、大きい声出させんな、マジでやめろ。怒るぞ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1661,
+    "name": "589_sirayuki",
+    "text": "ジェット噴射",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1669.0,
+    "end_seconds": 1670.0,
+    "name": "Streamer 0",
+    "text": "なんかファイヤーって聞こえん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1670.0,
+    "end_seconds": 1673.0,
+    "name": "Streamer 1",
+    "text": "ジェット風車。ジェット風車。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1679.0,
+    "end_seconds": 1681.0,
+    "name": "Streamer 0",
+    "text": "これは。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1681,
+    "name": "kuroryun1",
+    "text": "水力噴射 じぇっとふんしゃ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1685,
+    "name": "ariettaheals",
+    "text": "ariettaheals watched 15 consecutive streams and sparked a watch streak! こんにちは、マルちゃん。元気にしてる？また配信で会えて嬉しいよ <3",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1690.0,
+    "end_seconds": 1695.0,
+    "name": "Streamer 1",
+    "text": "プロロンちゃん、水力風車、ジェット風車。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1697,
+    "name": "589_sirayuki",
+    "text": "あ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1698.0,
+    "end_seconds": 1701.0,
+    "name": "Streamer 0",
+    "text": "あ、やりたさん、15ヶ月連続ありがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1701.0,
+    "end_seconds": 1705.0,
+    "name": "Streamer 0",
+    "text": "元気にしてるよ。ごめん、ちょっと配信頻度落ちちゃってね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1705.0,
+    "end_seconds": 1706.0,
+    "name": "Streamer 1",
+    "text": "ティーカちゃん、わ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1707,
+    "name": "shadowmimickingbox_fairy",
+    "text": "mizuna13Konmaru ROM",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1712.0,
+    "end_seconds": 1714.0,
+    "name": "Streamer 0",
+    "text": "申し訳ない。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1715.0,
+    "end_seconds": 1718.0,
+    "name": "Streamer 1",
+    "text": "誰を模倣する箱妖精ちゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1719.0,
+    "end_seconds": 1722.0,
+    "name": "Streamer 0",
+    "text": "あ、よしさん、アイロンもありがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1724.0,
+    "end_seconds": 1725.0,
+    "name": "Streamer 0",
+    "text": "何の？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1727.0,
+    "end_seconds": 1729.0,
+    "name": "Streamer 0",
+    "text": "え、何の？今の。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1730,
+    "name": "kuroryun1",
+    "text": "い",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1736,
+    "name": "wutnev3r",
+    "text": "し",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1738.0,
+    "end_seconds": 1740.0,
+    "name": "Streamer 1",
+    "text": "プロロンちゃん、う。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1741.0,
+    "end_seconds": 1743.0,
+    "name": "Streamer 0",
+    "text": "何の「う」？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1743,
+    "name": "589_sirayuki",
+    "text": "ううんなんでもなかった mizuna13Paku",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1744.0,
+    "end_seconds": 1746.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、し。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1746.0,
+    "end_seconds": 1747.0,
+    "name": "Streamer 0",
+    "text": "し？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1747.0,
+    "end_seconds": 1749.0,
+    "name": "Streamer 0",
+    "text": "何の「し」？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1747,
+    "name": "seeker9119",
+    "text": "て",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1750,
+    "name": "tio_culus",
+    "text": "る",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1751.0,
+    "end_seconds": 1754.0,
+    "name": "Streamer 1",
+    "text": "はくゆきこはくちゃん、ううん、なんでもなかった。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1751,
+    "name": "jagaas",
+    "text": "あ（かわいい）言葉もなくなるくらい可愛いって思ったんだよ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1754.0,
+    "end_seconds": 1755.0,
+    "name": "Streamer 0",
+    "text": "何？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1755.0,
+    "end_seconds": 1757.0,
+    "name": "Streamer 1",
+    "text": "ティーカちゃん、て。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1757.0,
+    "end_seconds": 1758.0,
+    "name": "Streamer 0",
+    "text": "何の「て」？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1758.0,
+    "end_seconds": 1759.0,
+    "name": "Streamer 1",
+    "text": "りゆちゃん、る。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1759.0,
+    "end_seconds": 1766.0,
+    "name": "Streamer 1",
+    "text": "と可愛い。言葉も無くなるくらい可愛いって思った。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1764,
+    "name": "kuritoru3",
+    "text": "今の子ドリカムわかるんか",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1766.0,
+    "end_seconds": 1767.0,
+    "name": "Streamer 0",
+    "text": "そういうこと？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1767.0,
+    "end_seconds": 1772.0,
+    "name": "Streamer 0",
+    "text": "いや、そういうのは言葉にしてほしいよね。言葉にならない言葉をしようよね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1771,
+    "name": "wutnev3r",
+    "text": "あいしてるの”あ”、あいしてるの”い”以下略",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1772.5,
+    "end_seconds": 1775.5,
+    "name": "Streamer 1",
+    "text": "ぷりぷるちゃん、今のコドルカもわかるんか。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1779.0,
+    "end_seconds": 1785.5,
+    "name": "Streamer 1",
+    "text": "ぶいくんちゃん、愛してるのは、愛してるの、みかや。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1782,
+    "name": "seeker9119",
+    "text": "まるちゃんサドンアタックCBT募集してたよ",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1791.0,
+    "end_seconds": 1795.5,
+    "name": "Streamer 1",
+    "text": "ちーかーちゃん、生まれてちゃうサドアタックボス見つけたいよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1795.5,
+    "end_seconds": 1797.5,
+    "name": "Streamer 0",
+    "text": "サドアタックはやらんな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1797.5,
+    "end_seconds": 1799.5,
+    "name": "Streamer 0",
+    "text": "あ、サドアタック座ってないからな、それ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1802,
+    "name": "589_sirayuki",
+    "text": "なにそのゲーム",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1804,
+    "name": "seeker9119",
+    "text": "世代じゃん",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1808,
+    "name": "tio_culus",
+    "text": "お、ピンだ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1811.0,
+    "end_seconds": 1814.0,
+    "name": "Streamer 1",
+    "text": "白雪コハクちゃん、何このゲーム。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1814.0,
+    "end_seconds": 1816.0,
+    "name": "Streamer 1",
+    "text": "ちーかーちゃん、世代ちゃん。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1814,
+    "name": "kuroryun1",
+    "text": "ベータからやってた",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1816.0,
+    "end_seconds": 1818.0,
+    "name": "Streamer 0",
+    "text": "まあ、世代だけどね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1818.0,
+    "end_seconds": 1819.5,
+    "name": "Streamer 1",
+    "text": "ぴんだ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1821.0,
+    "end_seconds": 1824.0,
+    "name": "Streamer 1",
+    "text": "クロロンちゃん、ベータからやってた。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1821,
+    "name": "seeker9119",
+    "text": "サドンアタック楽しかったー",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1824.0,
+    "end_seconds": 1826.0,
+    "name": "Streamer 0",
+    "text": "え、すごいな。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1825,
+    "name": "kuroryun1",
+    "text": "サドンで育ったといっても過言ではない",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1829.0,
+    "end_seconds": 1833.0,
+    "name": "Streamer 1",
+    "text": "ちーかーちゃん、サドアタック楽しかった。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1833.0,
+    "end_seconds": 1834.5,
+    "name": "Streamer 0",
+    "text": "なんか、"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1834.5,
+    "end_seconds": 1838.5,
+    "name": "Streamer 1",
+    "text": "クロロンちゃん、サドドンで育ったと言っても過言ではない。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1841.0,
+    "end_seconds": 1846.5,
+    "name": "Streamer 0",
+    "text": "友達に誘われてちょっとやってたぐらいなんだ。サドに力入れてないからな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1849.0,
+    "end_seconds": 1853.5,
+    "name": "Streamer 0",
+    "text": "でもなんか知らんけど大会は見てたな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1854.0,
+    "end_seconds": 1855.5,
+    "name": "Streamer 0",
+    "text": "懐かしいな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1856.0,
+    "end_seconds": 1859.5,
+    "name": "Streamer 0",
+    "text": "いった、何何何、何マジで、邪魔。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1876.0,
+    "end_seconds": 1879.5,
+    "name": "Streamer 0",
+    "text": "ああ、シールドもういらないよね。ベルトも。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1885.0,
+    "end_seconds": 1889.0,
+    "name": "Streamer 0",
+    "text": "これクエストアイテムだから持ってないといかん。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1902,
+    "name": "wutnev3r",
+    "text": "マジックは青いやつでレアは金のやつかな",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1909,
+    "name": "nekornata",
+    "text": "いえーす",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1916.0,
+    "end_seconds": 1920.0,
+    "name": "Streamer 0",
+    "text": "シールドもういらないよね、ベルトも"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1925.0,
+    "end_seconds": 1929.0,
+    "name": "Streamer 0",
+    "text": "これクエストアイテムだから持ってないといかんか"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1931.0,
+    "end_seconds": 1935.0,
+    "name": "Streamer 0",
+    "text": "マジックアイテム、レアアイテムに行こうか"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1944.0,
+    "end_seconds": 1947.0,
+    "name": "Streamer 0",
+    "text": "レアアイテムって黄色のことだよね、多分"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1948.0,
+    "end_seconds": 1950.0,
+    "name": "Streamer 0",
+    "text": "多分そうだよね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1950.0,
+    "end_seconds": 1953.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、魔マジックは青い奴、黄色はレアとか"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1953.0,
+    "end_seconds": 1956.0,
+    "name": "Streamer 0",
+    "text": "いや、お風呂入ってる、もぐさん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1956.0,
+    "end_seconds": 1959.0,
+    "name": "Streamer 1",
+    "text": "三つ又の猫またちゃん、レア"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 1959.0,
+    "end_seconds": 1961.0,
+    "name": "Streamer 0",
+    "text": "そうだね"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1985,
+    "name": "tio_culus",
+    "text": "いいですね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 1987,
+    "name": "wutnev3r",
+    "text": "それ、残像ですよ（イケボ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2033.0,
+    "end_seconds": 2035.0,
+    "name": "Streamer 1",
+    "text": "りゆちゃん、いいですね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2035.0,
+    "end_seconds": 2036.0,
+    "name": "Streamer 0",
+    "text": "うん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2036.0,
+    "end_seconds": 2038.0,
+    "name": "Streamer 1",
+    "text": "ぷい君ちゃん、おそれ、残像です。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2038.0,
+    "end_seconds": 2040.0,
+    "name": "Streamer 0",
+    "text": "残像です。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2045,
+    "name": "jagaas",
+    "text": "盾持ってるからね",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2058,
+    "name": "tio_culus",
+    "text": "www",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2067.0,
+    "end_seconds": 2072.0,
+    "name": "Streamer 0",
+    "text": "これ、竹持ち硬すぎるんだが、普通に。異様な硬さを放ってる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2075.0,
+    "end_seconds": 2076.0,
+    "name": "Streamer 0",
+    "text": "本当に硬い。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2075,
+    "name": "tio_culus",
+    "text": "盾持ち固いですよね、盾持ってますもんね",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2087,
+    "name": "nekornata",
+    "text": "ｗｗｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2090,
+    "name": "kuroryun1",
+    "text": "ばかになった？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2101,
+    "name": "rabibirabi07",
+    "text": "ぽぇぽぇにぃ～♪",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2141.0,
+    "end_seconds": 2144.0,
+    "name": "Streamer 0",
+    "text": "おお、バカになった。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2143,
+    "name": "jagaas",
+    "text": "矢を気にしなくていいのがいいよね",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2144.0,
+    "end_seconds": 2147.0,
+    "name": "Streamer 0",
+    "text": "大好き、そういうの。大好物すぎる。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2147,
+    "name": "aoi_tachibana7",
+    "text": "立華あおい subscribed at Tier 1. They've subscribed for 11 months, currently on a 11 month streak! おはにょ",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2148.0,
+    "end_seconds": 2151.0,
+    "name": "Streamer 1",
+    "text": "りおびびちょ。ぽえぽえに。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2148,
+    "name": "wizebot",
+    "text": "⭐️ リサブ ⭐️ 立華あおい (aoi_tachibana7)（+5） ⭐️",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2151.0,
+    "end_seconds": 2154.0,
+    "name": "Streamer 0",
+    "text": "あ、アイラさん、こんにちは。ぽえぽえに。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2154.0,
+    "end_seconds": 2159.0,
+    "name": "Streamer 0",
+    "text": "死ぬぞ。死ぬぞ。死ぬぞ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2157,
+    "name": "purplemaguro",
+    "text": "mizuna13Konmaru",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2169,
+    "name": "aoi_tachibana7",
+    "text": "POE2とは懐かしい",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2172,
+    "name": "jagaas",
+    "text": "でも矢が無くなってヤ～ネ～って言わせれないのは残念",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2175.0,
+    "end_seconds": 2179.0,
+    "name": "Streamer 0",
+    "text": "お、なんか金色の良さそうなの手に入れたけど、どうですかね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2185.0,
+    "end_seconds": 2191.0,
+    "name": "Streamer 0",
+    "text": "いや、右から開通させたほうがいいのかな。でも、どういうマップだか分かんないから。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2188,
+    "name": "wutnev3r",
+    "text": "本当にこのままだとロルの英ディーシーもできそう",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2189,
+    "name": "tio_culus",
+    "text": "いいね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2191.0,
+    "end_seconds": 2196.0,
+    "name": "Streamer 1",
+    "text": "じゃがちゃん、矢を気にしなくていいのがいいよね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2196.0,
+    "end_seconds": 2197.0,
+    "name": "Streamer 0",
+    "text": "最高、本当に。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2197.0,
+    "end_seconds": 2198.0,
+    "name": "Streamer 1",
+    "text": "じゃ、リサブ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2198.0,
+    "end_seconds": 2243.0,
+    "name": "Streamer 0",
+    "text": "あ、お兄さん、10ヶ月ありがとう。助かる。サブスクありがとう。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2199,
+    "name": "aoi_tachibana7",
+    "text": "リリースした時にめっちゃやってた！",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2214,
+    "name": "tio_culus",
+    "text": "ADC向いてそうだと思います",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2235,
+    "name": "aoi_tachibana7",
+    "text": "もうやりたい遊びはやり尽くした！",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2242,
+    "name": "tio_culus",
+    "text": "エイムが良いのと、キルラインの見極めがうまそうですし、回避も上手です",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2245.0,
+    "end_seconds": 2248.0,
+    "name": "Streamer 1",
+    "text": "まぶろちゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2248.0,
+    "end_seconds": 2249.0,
+    "name": "Streamer 0",
+    "text": "あ、まぶろさん、こんまいちゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2249.0,
+    "end_seconds": 2252.0,
+    "name": "Streamer 0",
+    "text": "え、待って、死ぬかも。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2259,
+    "name": "tio_culus",
+    "text": "wwww",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2260,
+    "name": "wutnev3r",
+    "text": "ｗｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2262.0,
+    "end_seconds": 2266.0,
+    "name": "Streamer 1",
+    "text": "きうちゃん、向いてそうだと思います。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2263,
+    "name": "tio_culus",
+    "text": "ちょろすぎて草",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2266.0,
+    "end_seconds": 2268.0,
+    "name": "Streamer 0",
+    "text": "え、本当？なんで？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2270,
+    "name": "kuroryun1",
+    "text": "多分ですが 彼女に似合うのはトゥイッチです",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2277,
+    "name": "kuroryun1",
+    "text": "なぜならちくちくうつのがすきそうだから",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2283.0,
+    "end_seconds": 2287.0,
+    "name": "Streamer 1",
+    "text": "たてはな あおいちゃん、もうやりたい遊びはやり尽くした。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2287.0,
+    "end_seconds": 2291.0,
+    "name": "Streamer 0",
+    "text": "そんぐらいやったってこと？すごいな。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2288,
+    "name": "imamu_mamu",
+    "text": "まるさんはＡＤＣのＡだよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2291.0,
+    "end_seconds": 2297.0,
+    "name": "Streamer 1",
+    "text": "きうちゃん、エイムが良いのと、キルラインの見極めが上手そうですし、回避も上手です。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2294,
+    "name": "wutnev3r",
+    "text": "マーベルうまそうだよねまるちゃん、ＯＷうまいし",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2297.0,
+    "end_seconds": 2301.0,
+    "name": "Streamer 0",
+    "text": "え、すごい褒めてくれる。もうロル民になっていい？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2297,
+    "name": "seeker9119",
+    "text": "まるちゃんフレンド送ってもいいー？",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2306.0,
+    "end_seconds": 2311.0,
+    "name": "Streamer 1",
+    "text": "きうちゃん、わらわら。ういくんちゃん、わらわら。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2311.0,
+    "end_seconds": 2314.0,
+    "name": "Streamer 1",
+    "text": "きうちゃん、おちょろすぎて草。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2311,
+    "name": "wutnev3r",
+    "text": "どう？マーベルやりたくなった？",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2319.0,
+    "end_seconds": 2364.0,
+    "name": "Streamer 1",
+    "text": "ぷろろんちゃん、多分ですね、彼女に似合うのはTwitchです。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2326,
+    "name": "aoi_tachibana7",
+    "text": "マーベルはもういいwww",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2336,
+    "name": "kuroryun1",
+    "text": "せいかくわるいってこと？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2339,
+    "name": "wutnev3r",
+    "text": "後ろからちまちまって言っちゃだめだよね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2347,
+    "name": "nekornata",
+    "text": "安全圏から石を投げたい性格なのか",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2351,
+    "name": "imamu_mamu",
+    "text": "まるさん斧やハンマー持ってほしいときあるね",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2364.0,
+    "end_seconds": 2366.0,
+    "name": "Streamer 0",
+    "text": "小賢しいキャラ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2366.0,
+    "end_seconds": 2369.0,
+    "name": "Streamer 1",
+    "text": "なぜならチクチク撃つのが好きそうだから。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2368,
+    "name": "tio_culus",
+    "text": "一方的に殴れるからですかね",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2371,
+    "name": "kuroryun1",
+    "text": "できるのかな？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2372.0,
+    "end_seconds": 2375.5,
+    "name": "Streamer 0",
+    "text": "シンプルに強いじゃん。なんか中距離、遠距離って。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2372,
+    "name": "seeker9119",
+    "text": "マーベルってくっそ狭い界隈の癖に上位ランクにいるガキンチョが調子乗ってるだけよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2376.0,
+    "end_seconds": 2380.0,
+    "name": "Streamer 1",
+    "text": "ひよちゃん、一方的に殴れるからですか？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2380.0,
+    "end_seconds": 2382.0,
+    "name": "Streamer 0",
+    "text": "あ、そうそうそうそう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2382.0,
+    "end_seconds": 2383.5,
+    "name": "Streamer 1",
+    "text": "うどんちゃん、"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2383.5,
+    "end_seconds": 2385.0,
+    "name": "Streamer 1",
+    "text": "それ敵にいたら"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2385.0,
+    "end_seconds": 2391.0,
+    "name": "Streamer 1",
+    "text": "ちかちゃん、ウマ娘ってくっそ狭い界隈のくせに上位ランクにいるガキンチョが調子乗ってるだけよ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2390,
+    "name": "tio_culus",
+    "text": "実際、スペースを維持しながら叩くの大事ですからね",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2391.0,
+    "end_seconds": 2393.5,
+    "name": "Streamer 0",
+    "text": "急に火力高い。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2396,
+    "name": "kuroryun1",
+    "text": "PVPで敵に居たら ガチできらいで台パンするレベルの相手だと思ってるまるちゃんは",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2398.0,
+    "end_seconds": 2403.0,
+    "name": "Streamer 1",
+    "text": "みうちゃん、一定距離維持しながら戦うの大事ですからね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2403.0,
+    "end_seconds": 2405.0,
+    "name": "Streamer 0",
+    "text": "そう、見極めだよね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2405.0,
+    "end_seconds": 2406.5,
+    "name": "Streamer 1",
+    "text": "うどんちゃん、"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2406.5,
+    "end_seconds": 2413.0,
+    "name": "Streamer 1",
+    "text": "それ敵にいたら、イライラ嫌いでリタイアするレベルの相手だと思ってる、ねむちゃんは。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2410,
+    "name": "youtuberkimura",
+    "text": "一時いっしょにやってた子16歳だったわ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2413.0,
+    "end_seconds": 2414.5,
+    "name": "Streamer 0",
+    "text": "そうだよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2415.0,
+    "end_seconds": 2418.5,
+    "name": "Streamer 0",
+    "text": "PvPもともとやってた勢だけどさ、私。結構。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2418.5,
+    "end_seconds": 2423.0,
+    "name": "Streamer 1",
+    "text": "こくたきむらちゃん、一時一緒にやってた子16歳だったわ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2422,
+    "name": "kuroryun1",
+    "text": "自分近接しか使わないから遠距離職に発狂してる",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2423.0,
+    "end_seconds": 2424.5,
+    "name": "Streamer 0",
+    "text": "若いね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2431.0,
+    "end_seconds": 2433.0,
+    "name": "Streamer 0",
+    "text": "まあ、実年齢が若くても中身が、"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2433.0,
+    "end_seconds": 2437.0,
+    "name": "Streamer 1",
+    "text": "近接しか使わないから遠距離職に発狂してる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2437.0,
+    "end_seconds": 2440.0,
+    "name": "Streamer 0",
+    "text": "中身が落ち着いていれば、私は好きだけどな。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2439,
+    "name": "kuroryun1",
+    "text": "え、ありがと",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2447.0,
+    "end_seconds": 2450.0,
+    "name": "Streamer 1",
+    "text": "ほろろんちゃん、え、ありがとう。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2449,
+    "name": "wutnev3r",
+    "text": "ちょっと、瞑想してくる",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2450.0,
+    "end_seconds": 2451.5,
+    "name": "Streamer 0",
+    "text": "うん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2457.0,
+    "end_seconds": 2459.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、ちょっと"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2459.0,
+    "end_seconds": 2461.0,
+    "name": "Streamer 1",
+    "text": "瞑想してくる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2461.0,
+    "end_seconds": 2465.0,
+    "name": "Streamer 0",
+    "text": "瞑想で年齢はどうにもならんけどな。正直なとこ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2465,
+    "name": "imamu_mamu",
+    "text": "まるさん未成年にはだめですよ",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2473.0,
+    "end_seconds": 2477.0,
+    "name": "Streamer 1",
+    "text": "今むちゃ、ウマ娘未成年にはダメですよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2477.0,
+    "end_seconds": 2478.5,
+    "name": "Streamer 0",
+    "text": "未成年？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2477,
+    "name": "tio_culus",
+    "text": "お、ボスかな",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2481.0,
+    "end_seconds": 2483.5,
+    "name": "Streamer 0",
+    "text": "普通にボス戦来た。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2482,
+    "name": "wutnev3r",
+    "text": "二ボスだと",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2485.0,
+    "end_seconds": 2488.0,
+    "name": "Streamer 1",
+    "text": "みうちゃん、動くかな？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2491.0,
+    "end_seconds": 2493.0,
+    "name": "Streamer 1",
+    "text": "ぶいくんちゃん、ウニボスだと。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2517.0,
+    "end_seconds": 2520.0,
+    "name": "Streamer 0",
+    "text": "なんか知らんとこ来たな。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2520,
+    "name": "imr1p",
+    "text": "こんまる～",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2525,
+    "name": "acluca00",
+    "text": "mizuna13Zii mizuna13Zii",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2527.0,
+    "end_seconds": 2531.0,
+    "name": "Streamer 1",
+    "text": "いおちゃん、ボコボコまる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2531.0,
+    "end_seconds": 2533.0,
+    "name": "Streamer 0",
+    "text": "あいあぷさん、こんちゃ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2533.0,
+    "end_seconds": 2535.0,
+    "name": "Streamer 1",
+    "text": "あくるかちゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2535.0,
+    "end_seconds": 2536.5,
+    "name": "Streamer 0",
+    "text": "あくるかさん、こんちゃ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2537.0,
+    "end_seconds": 2546.0,
+    "name": "Streamer 0",
+    "text": "早めに処理したほうがいいな、小さいほうだけど。ちょっと無理だな。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2539,
+    "name": "wutnev3r",
+    "text": "冷静の立ち回り、これがまる",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2540,
+    "name": "acluca00",
+    "text": "mizuna13WAAAI mizuna13WAAAI",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2547.0,
+    "end_seconds": 2551.0,
+    "name": "Streamer 1",
+    "text": "ぶいくんちゃん、冷静の立ち回り、それがまる。あくるかちゃん。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2552,
+    "name": "acluca00",
+    "text": "mizuna13Uwaaaa mizuna13Uwaaaa",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2554.0,
+    "end_seconds": 2555.0,
+    "name": "Streamer 1",
+    "text": "あくるかちゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2562.0,
+    "end_seconds": 2564.0,
+    "name": "Streamer 0",
+    "text": "どうしましたか？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2566,
+    "name": "acluca00",
+    "text": "ﾎﾟｴﾎﾟｴﾎﾟｴﾎﾟｴﾎﾟｴﾎﾟｴ",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2573.0,
+    "end_seconds": 2578.0,
+    "name": "Streamer 1",
+    "text": "あくるかちゃん、ぽいぽいぽいぽいぽい。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2580,
+    "name": "tio_culus",
+    "text": "ナイスワンダウン",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2588.0,
+    "end_seconds": 2590.0,
+    "name": "Streamer 1",
+    "text": "いおちゃん、ナイスワンダウン。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2588,
+    "name": "tio_culus",
+    "text": "冷静ですねえ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2595.0,
+    "end_seconds": 2598.0,
+    "name": "Streamer 1",
+    "text": "いおちゃん、冷静ですね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2615,
+    "name": "tio_culus",
+    "text": "位置取りうまいですね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2628.0,
+    "end_seconds": 2631.5,
+    "name": "Streamer 1",
+    "text": "みーちゃん、ナイスワンダウン"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2635,
+    "name": "nekornata",
+    "text": "うますぎてくさ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2636.0,
+    "end_seconds": 2639.0,
+    "name": "Streamer 1",
+    "text": "みーちゃん、冷静ですね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2644,
+    "name": "589_sirayuki",
+    "text": "一発でクリアうみゃい",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2649,
+    "name": "tio_culus",
+    "text": "おー",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2650,
+    "name": "wutnev3r",
+    "text": "まあ～まるちゃんだからね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2655,
+    "name": "tio_culus",
+    "text": "初見で撃破しちゃうかあ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2657,
+    "name": "seeker9119",
+    "text": "まるちゃんさすが！！",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2659,
+    "name": "imamu_mamu",
+    "text": "ないすぅ～",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2662,
+    "name": "nekornata",
+    "text": "mizuna13Tensaii",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2663.0,
+    "end_seconds": 2667.0,
+    "name": "Streamer 1",
+    "text": "みーちゃん、打ち取りうまいですね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2664,
+    "name": "seeker9119",
+    "text": "落ち着いたらJ押してくれたら嬉しい！",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2666,
+    "name": "589_sirayuki",
+    "text": "さすまる",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2667.5,
+    "end_seconds": 2672.5,
+    "name": "Streamer 0",
+    "text": "え、これうまくね？これ。初見だとは到底思えないと思うな。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2680,
+    "name": "seeker9119",
+    "text": "ありがとう！",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2681,
+    "name": "tio_culus",
+    "text": "パッシブ振り忘れてるのに勝てるなんて",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2718,
+    "name": "seeker9119",
+    "text": "送れない悲しい",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2724.0,
+    "end_seconds": 2728.0,
+    "name": "Streamer 1",
+    "text": "みつまたのねこまたちゃん、うますぎて草"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2743.0,
+    "end_seconds": 2745.0,
+    "name": "Streamer 0",
+    "text": "天才だったかもな"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2750.0,
+    "end_seconds": 2757.0,
+    "name": "Streamer 0",
+    "text": "うーん、進むんで65%そう。クリティカルヒットで6.5、35%"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2758.0,
+    "end_seconds": 2764.0,
+    "name": "Streamer 0",
+    "text": "なんか、こっち、うん、こっちの方が、いや、うん、こっちの方が強いな。残してる"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2760,
+    "name": "seeker9119",
+    "text": "シャープ無しで送れた！",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2763,
+    "name": "589_sirayuki",
+    "text": "だれ？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2766,
+    "name": "imamu_mamu",
+    "text": "８２５５ ヤニゴーゴー",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2767.0,
+    "end_seconds": 2770.0,
+    "name": "Streamer 1",
+    "text": "ちぃかーちゃん、遅れない悲しい"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2768,
+    "name": "tio_culus",
+    "text": "Act2のラストではないですね",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2770.0,
+    "end_seconds": 2771.0,
+    "name": "Streamer 0",
+    "text": "なんで？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2779.0,
+    "end_seconds": 2784.0,
+    "name": "Streamer 0",
+    "text": "うさすまる、シャープ8255だよ。8255だよ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2781,
+    "name": "wutnev3r",
+    "text": "どうやって送るの？",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2784,
+    "name": "nekornata",
+    "text": "ぽれもフレ送ってもよろし？",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2793,
+    "name": "589_sirayuki",
+    "text": "あーさっきのダブルボスね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2795.0,
+    "end_seconds": 2841.0,
+    "name": "Streamer 0",
+    "text": "え、これアクト2のボス？あ、来た来た来た来た。これアクト2のボスなの？今の"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2798,
+    "name": "seeker9119",
+    "text": "水無瀬まるで送れたよ！",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2802,
+    "name": "kuroryun1",
+    "text": "俺も送っていい？",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2830,
+    "name": "wutnev3r",
+    "text": "UIがわかりませんご",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2834,
+    "name": "tio_culus",
+    "text": "マウスオーバー中にSHIFT押すと比較できますよ",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2843,
+    "name": "589_sirayuki",
+    "text": "えろていまいふっど？",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2848.0,
+    "end_seconds": 2854.0,
+    "name": "Streamer 1",
+    "text": "ちぃかーちゃん、シャープなしで送れた。かくゆきこはくちゃん、うだれ？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2852.0,
+    "end_seconds": 2855.0,
+    "name": "Streamer 1",
+    "text": "たくゆきこはくちゃん、べろていまいふっと？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2856.0,
+    "end_seconds": 2858.0,
+    "name": "Streamer 0",
+    "text": "何を言ってる？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2874.0,
+    "end_seconds": 2878.0,
+    "name": "Streamer 0",
+    "text": "なんでフレ送れないの？Gから送れない？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2879.0,
+    "end_seconds": 2880.0,
+    "name": "Streamer 0",
+    "text": "ほら。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2882.0,
+    "end_seconds": 2885.0,
+    "name": "Streamer 0",
+    "text": "97、57。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2887.0,
+    "end_seconds": 2890.0,
+    "name": "Streamer 0",
+    "text": "もういけないよ、みんな。はい。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2893.0,
+    "end_seconds": 2900.0,
+    "name": "Streamer 0",
+    "text": "この情けない声出した時の喉への激痛が半端ない。これ絶対風邪や。最悪やな、もう。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2908,
+    "name": "tio_culus",
+    "text": "具合悪いなら、早めに休むことも検討してくださいね",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2916.0,
+    "end_seconds": 2922.0,
+    "name": "Streamer 1",
+    "text": "ひぃちゃん、うがわるいなら、お早めに休むことも検討してくださいね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2921,
+    "name": "nekornata",
+    "text": "自分のペースで楽しんでね～",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2922.0,
+    "end_seconds": 2924.0,
+    "name": "Streamer 0",
+    "text": "うん、ありがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2929.0,
+    "end_seconds": 2936.0,
+    "name": "Streamer 1",
+    "text": "三つ又の猫またちゃん、自分のペースで楽しんでね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2936.0,
+    "end_seconds": 2938.0,
+    "name": "Streamer 0",
+    "text": "ありがとう。優しいな。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2936,
+    "name": "kuroryun1",
+    "text": "けど休ませませんよ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2945.0,
+    "end_seconds": 2948.0,
+    "name": "Streamer 1",
+    "text": "ころろんちゃん、うけど休ませませんよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2948.0,
+    "end_seconds": 2951.0,
+    "name": "Streamer 0",
+    "text": "誰を休ませるとは言ってない。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2953.0,
+    "end_seconds": 2955.0,
+    "name": "Streamer 0",
+    "text": "誰が言ってない。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2955,
+    "name": "589_sirayuki",
+    "text": "あーりがとん！",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2961.0,
+    "end_seconds": 2963.0,
+    "name": "Streamer 0",
+    "text": "たこ焼き食べたい気分なんだけど。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2963.0,
+    "end_seconds": 2965.0,
+    "name": "Streamer 1",
+    "text": "たくゆきこはくちゃん、わーりがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2965.0,
+    "end_seconds": 2967.0,
+    "name": "Streamer 0",
+    "text": "ありがとう。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 2966,
+    "name": "tio_culus",
+    "text": "いいですね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2971.0,
+    "end_seconds": 2974.0,
+    "name": "Streamer 0",
+    "text": "なんか、味噌煮込みうどんとか食べたいな。食欲が。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2974.0,
+    "end_seconds": 2976.0,
+    "name": "Streamer 1",
+    "text": "イオちゃん、いいですね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2976.0,
+    "end_seconds": 2979.0,
+    "name": "Streamer 0",
+    "text": "うん、ちょっとまた食べたくなってきちゃってね。よかった、またちょっと戻ってきた。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 2991.0,
+    "end_seconds": 2993.0,
+    "name": "Streamer 0",
+    "text": "こっちかな？こっちであってるか？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3000.0,
+    "end_seconds": 3002.0,
+    "name": "Streamer 0",
+    "text": "次どこ行くの、これ？えーっと、ちょっと待ってよ。よし。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3010.0,
+    "end_seconds": 3012.0,
+    "name": "Streamer 0",
+    "text": "なんか受け取れって言ってるな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3016.0,
+    "end_seconds": 3022.0,
+    "name": "Streamer 0",
+    "text": "穢れなき者の通路を探索せよ。主要拠点表示。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3027.0,
+    "end_seconds": 3029.0,
+    "name": "Streamer 0",
+    "text": "今私ここ行って、"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3032,
+    "name": "tio_culus",
+    "text": "ウェイポイントにいかないとワープはできませんね",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3033.0,
+    "end_seconds": 3035.0,
+    "name": "Streamer 0",
+    "text": "マストドンの不毛地帯。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3040.0,
+    "end_seconds": 3045.0,
+    "name": "Streamer 1",
+    "text": "イオちゃん、ウェイポイントに行かないとワープはできませんね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3042,
+    "name": "seeker9119",
+    "text": "ウェーイ",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3045.0,
+    "end_seconds": 3046.0,
+    "name": "Streamer 0",
+    "text": "うん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3046.0,
+    "end_seconds": 3049.0,
+    "name": "Streamer 0",
+    "text": "あ、ここ繋がってるから次ここ行けるのかな？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3050.0,
+    "end_seconds": 3052.0,
+    "name": "Streamer 1",
+    "text": "キーカーちゃん、ウェイ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3052.0,
+    "end_seconds": 3053.0,
+    "name": "Streamer 0",
+    "text": "ウェイ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3052,
+    "name": "jagaas",
+    "text": "チェックポイントクリックしたら地図見やすいよ",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3056.0,
+    "end_seconds": 3059.0,
+    "name": "Streamer 0",
+    "text": "アンダーラバーンになんか、"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3061.0,
+    "end_seconds": 3065.0,
+    "name": "Streamer 1",
+    "text": "イオちゃん、チェックポイントクリックしたら地図見やすいよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3065.0,
+    "end_seconds": 3068.0,
+    "name": "Streamer 0",
+    "text": "あ、前教えてくれたね。ね、教えてもらってたわ。ありがとう。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3066,
+    "name": "nekornata",
+    "text": "陽気なポイントやな",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3071.0,
+    "end_seconds": 3074.0,
+    "name": "Streamer 0",
+    "text": "セケマサラさんにちょっと何かお届けもの。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3074.0,
+    "end_seconds": 3078.0,
+    "name": "Streamer 1",
+    "text": "三つ又の猫またちゃん、陽気なポイントやな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3083.0,
+    "end_seconds": 3085.0,
+    "name": "Streamer 0",
+    "text": "これ何？どれ選んだらいいの？名誉に縛られ、"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3085,
+    "name": "tio_culus",
+    "text": "もうOKみたいです",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3088.0,
+    "end_seconds": 3090.0,
+    "name": "Streamer 0",
+    "text": "あ、全部？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3101.0,
+    "end_seconds": 3105.0,
+    "name": "Streamer 1",
+    "text": "りゆちゃん、チェックポイントクリックしたら地図見やすいよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3105.0,
+    "end_seconds": 3109.0,
+    "name": "Streamer 0",
+    "text": "あ、な、前教えてくれたね。ね、教えてやってたわ。ありがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3112.0,
+    "end_seconds": 3115.0,
+    "name": "Streamer 0",
+    "text": "セケマサラさんにちょっと何かお届けもの。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3115.0,
+    "end_seconds": 3119.0,
+    "name": "Streamer 1",
+    "text": "三つ又のねこまたちゃん、病気なポイントやな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3123.0,
+    "end_seconds": 3125.0,
+    "name": "Streamer 0",
+    "text": "これ何？どれ選んだらいいの？名誉に縛られ、"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3134.0,
+    "end_seconds": 3136.0,
+    "name": "Streamer 1",
+    "text": "りゆちゃん、もう見たいです。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3136,
+    "name": "tio_culus",
+    "text": "今のところに合った、ウェイポイントをクリックするとワープできるかも？",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3142.0,
+    "end_seconds": 3145.0,
+    "name": "Streamer 0",
+    "text": "マストドンの不毛地帯って、"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3152.0,
+    "end_seconds": 3154.0,
+    "name": "Streamer 0",
+    "text": "で、えーっと、"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3154,
+    "name": "tio_culus",
+    "text": "よかったよかった",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3155.0,
+    "end_seconds": 3202.0,
+    "name": "Streamer 0",
+    "text": "Ｕをして、ガレナキものの通路に行くんだな、これ多分。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3165,
+    "name": "jagaas",
+    "text": "ウェイポイントでうぇーーーーいしちゃいましょ",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3171,
+    "name": "tio_culus",
+    "text": "そういうことですね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3173,
+    "name": "seeker9119",
+    "text": "各チェックポイントもワープできるのは知ってる？",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3205.0,
+    "end_seconds": 3207.0,
+    "name": "Streamer 0",
+    "text": "おけおけおけ、了解。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3209,
+    "name": "seeker9119",
+    "text": "俺もこの前知ったｗ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3211.0,
+    "end_seconds": 3217.0,
+    "name": "Streamer 0",
+    "text": "これ盾持ってるやつって、後方射撃したら盾貫通して肉体にダメージが入る仕組みなのかな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3217.0,
+    "end_seconds": 3222.0,
+    "name": "Streamer 1",
+    "text": "りおちゃん、俺もこの前知った。笑。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3222.0,
+    "end_seconds": 3225.0,
+    "name": "Streamer 0",
+    "text": "本当？教えてくれないと分かんないな、これでもな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3225.0,
+    "end_seconds": 3228.0,
+    "name": "Streamer 0",
+    "text": "分からんと思う。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3241.0,
+    "end_seconds": 3244.0,
+    "name": "Streamer 0",
+    "text": "あ、入ってるな。なるほど。盾系のボスは。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3257.0,
+    "end_seconds": 3261.0,
+    "name": "Streamer 0",
+    "text": "なんか毒々しいトンネル、ちゃ、トンネルでやるな。トンネルじゃない、トンネル。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3294.0,
+    "end_seconds": 3299.0,
+    "name": "Streamer 0",
+    "text": "ストームも大丈夫か。あとは上行くだけだよな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3324.0,
+    "end_seconds": 3328.0,
+    "name": "Streamer 0",
+    "text": "何のダメージ？今の。全然分からん。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3336,
+    "name": "tio_culus",
+    "text": "なんか爆発したみたいに見えましたね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3359,
+    "name": "rockuma_33",
+    "text": "mizuna13Konmaru mizuna13Konmaru",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3365.0,
+    "end_seconds": 3368.5,
+    "name": "Streamer 0",
+    "text": "なんのダメージ？今の。全然わからん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3372.0,
+    "end_seconds": 3374.5,
+    "name": "Streamer 0",
+    "text": "何で食らった？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3385.0,
+    "end_seconds": 3388.5,
+    "name": "Streamer 1",
+    "text": "みおちゃん、うなんか爆発したように見えましたね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3389.0,
+    "end_seconds": 3391.5,
+    "name": "Streamer 0",
+    "text": "ねえ、なんか毒の玉みたいなのが"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3397,
+    "name": "tio_culus",
+    "text": "wwww",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3399,
+    "name": "nekornata",
+    "text": "おれ",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3444.0,
+    "end_seconds": 3447.0,
+    "name": "Streamer 0",
+    "text": "あ、これか。あ、わかったわかった。なんか緑の玉みたいなのが爆発してる"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3447.0,
+    "end_seconds": 3448.0,
+    "name": "Streamer 1",
+    "text": "ワンちゃん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3448.0,
+    "end_seconds": 3451.0,
+    "name": "Streamer 0",
+    "text": "あいるくまさん、こんにちは"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3461.0,
+    "end_seconds": 3464.0,
+    "name": "Streamer 0",
+    "text": "ラインのレフラスを。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3469,
+    "name": "jagaas",
+    "text": "３回目は２LDKの１４坪の家らしいですよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3474.0,
+    "end_seconds": 3481.0,
+    "name": "Streamer 0",
+    "text": "いや、アクト3ではまたこの拠点みたいなところが代わるんだろうな。どこになるんだろう。最初、村、村だったのにな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3517.0,
+    "end_seconds": 3522.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、3回目は2の14坪の家らしいですよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3522.0,
+    "end_seconds": 3527.0,
+    "name": "Streamer 0",
+    "text": "3回目は2LDKの14坪の家？リアルだな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3537.0,
+    "end_seconds": 3541.0,
+    "name": "Streamer 0",
+    "text": "あ、ウェイポイントで飛べばよかったのか、この場合は。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3537,
+    "name": "tio_culus",
+    "text": "https://www.twitch.tv/mizunase_maru/clip/CovertWittyJaguarFutureMan-vxlNq1fhQ0dO46f7",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3546.0,
+    "end_seconds": 3547.0,
+    "name": "Streamer 0",
+    "text": "そうだよね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3552.0,
+    "end_seconds": 3559.0,
+    "name": "Streamer 0",
+    "text": "ねえねえ、なんで私さ、ここで飛んできちゃったの？あ、いいのか。戻ればよかったのね、ワープで。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3558,
+    "name": "tadanotawashi73yen",
+    "text": "フラグのまる",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3560,
+    "name": "ariettaheals",
+    "text": "今いる場所の中で、新しいエリアを探さないといけないよ。",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3568,
+    "name": "tio_culus",
+    "text": "もうわざとやってますよね？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3583.0,
+    "end_seconds": 3585.0,
+    "name": "Streamer 0",
+    "text": "いや、終わってるぞ、これ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3585.0,
+    "end_seconds": 3588.0,
+    "name": "Streamer 1",
+    "text": "きぃちゃん、ご愁傷様。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3588.0,
+    "end_seconds": 3597.0,
+    "name": "Streamer 0",
+    "text": "すぐフラグ回収するから。フラグ回収のスピードだけは誰にも負けないからな、私。それだけは誇れる。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3595,
+    "name": "jagaas",
+    "text": "お願いします",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3597,
+    "name": "seeker9119",
+    "text": "DV・・",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3607.0,
+    "end_seconds": 3610.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん。フラグの丸。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3608,
+    "name": "kuritoru3",
+    "text": "物理的・・・？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3610.0,
+    "end_seconds": 3616.0,
+    "name": "Streamer 1",
+    "text": "今いる場所の中で新しいエリアを探さないといけないよ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3614,
+    "name": "seeker9119",
+    "text": "あ、舐めるか",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3614,
+    "name": "rabibirabi07",
+    "text": "なめてもらっちゃおっかな",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3616.0,
+    "end_seconds": 3620.0,
+    "name": "Streamer 0",
+    "text": "うん、と、こっち来てないから、そういうことだよね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3617.0,
+    "end_seconds": 3619.0,
+    "name": "Streamer 1",
+    "text": "もうわざとやってますよね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3620.0,
+    "end_seconds": 3626.0,
+    "name": "Streamer 0",
+    "text": "違う違う。なんか、だって急に攻撃パターン変わるんだもん。読めないよね、本当に。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3629.0,
+    "end_seconds": 3637.0,
+    "name": "Streamer 0",
+    "text": "私はすぐ人を舐める癖がある。物理的にも。うん、本当にそれが良くない。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3629,
+    "name": "seeker9119",
+    "text": "物理的に舐めるマジ？とんでもないこと言ってんね？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3683.0,
+    "end_seconds": 3685.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、おねがいします。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3684,
+    "name": "tio_culus",
+    "text": "ドロップは運ですからね",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3685.0,
+    "end_seconds": 3687.0,
+    "name": "Streamer 1",
+    "text": "ＤＶかーちゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3687.0,
+    "end_seconds": 3689.0,
+    "name": "Streamer 0",
+    "text": "ＤＶ？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3689.0,
+    "end_seconds": 3691.0,
+    "name": "Streamer 0",
+    "text": "舐めることがＤＶになんの？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3713.0,
+    "end_seconds": 3718.0,
+    "name": "Streamer 0",
+    "text": "ロードキルの仮面。なんか別に美味しい、美味しいものを落としてくれるわけでもないね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3733.0,
+    "end_seconds": 3737.0,
+    "name": "Streamer 1",
+    "text": "虫、ドロップは運ですからね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3733,
+    "name": "tio_culus",
+    "text": "お、弓のレアだ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3737.0,
+    "end_seconds": 3738.0,
+    "name": "Streamer 0",
+    "text": "うん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3743.0,
+    "end_seconds": 3750.0,
+    "name": "Streamer 0",
+    "text": "でも私、虫の中で唯一触れるのダンゴムシなんだよね。まだ許せる、あの虫は。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3744,
+    "name": "rabibirabi07",
+    "text": "おれはね、蚊がさわれるよ。フルスイングでぶち殺すのがとくいなんだ",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3760,
+    "name": "tio_culus",
+    "text": "そういうことなら、早く休んでください",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3766,
+    "name": "tadanotawashi73yen",
+    "text": "かってにやっとってｗｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3770,
+    "name": "tio_culus",
+    "text": "あ、モノマネの話か",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3809,
+    "name": "gasen0204",
+    "text": "あらあらあら今度まとめて頂きます mizuna13Batabatabata",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3817.0,
+    "end_seconds": 3819.0,
+    "name": "Streamer 0",
+    "text": "ダメージを食らうから、"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3819.0,
+    "end_seconds": 3822.0,
+    "name": "Streamer 1",
+    "text": "わらわらあらら、今度まとめていただきます。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3819,
+    "name": "tio_culus",
+    "text": "与える感電デバフの話かも？",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3822.0,
+    "end_seconds": 3827.0,
+    "name": "Streamer 0",
+    "text": "うん、ごめんね、本当。喉がね、朝から痛くてね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3827.5,
+    "end_seconds": 3831.0,
+    "name": "Streamer 1",
+    "text": "ひよちゃん、は耐える感電デバフの話かも。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3831.0,
+    "end_seconds": 3834.0,
+    "name": "Streamer 0",
+    "text": "あ,そっち？だったら、向こうのが良かったか。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3840,
+    "name": "589_sirayuki",
+    "text": "以心電信ってこと？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3841,
+    "name": "gasen0204",
+    "text": "龍角散1キロ mizuna13Uwaaaaaaa",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3847.0,
+    "end_seconds": 3849.0,
+    "name": "Streamer 0",
+    "text": "でも、いば、え、移動、"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3849.0,
+    "end_seconds": 3853.0,
+    "name": "Streamer 1",
+    "text": "たくゆきこはくちゃん、以心伝心ってこと？がせんちゃん、龍角散1キロ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3854,
+    "name": "tio_culus",
+    "text": "お、右上のクエストが魂の井戸に入れに変わりましたね",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3857.0,
+    "end_seconds": 3859.0,
+    "name": "Streamer 0",
+    "text": "龍角散1キロもあったら、死んじゃうけど。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3863.0,
+    "end_seconds": 3868.0,
+    "name": "Streamer 1",
+    "text": "ひよちゃん、う、右上のクエストが魂の井戸の入れに変わりましたね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3868.0,
+    "end_seconds": 3869.5,
+    "name": "Streamer 0",
+    "text": "本当だ、変わった。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3871.0,
+    "end_seconds": 3874.0,
+    "name": "Streamer 0",
+    "text": "コンポジットボウ、ちょっとお買い得。行くか。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3881.0,
+    "end_seconds": 3883.0,
+    "name": "Streamer 0",
+    "text": "でも、龍角散ってさ、たまに飲みたくなるよね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3884,
+    "name": "tio_culus",
+    "text": "そうですか？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3892.0,
+    "end_seconds": 3895.0,
+    "name": "Streamer 1",
+    "text": "ひよちゃん、そうですか？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3895.0,
+    "end_seconds": 3896.0,
+    "name": "Streamer 0",
+    "text": "うん。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3897,
+    "name": "kuritoru3",
+    "text": "のどの調子わるかったら真っ先に龍角散",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3904.0,
+    "end_seconds": 3906.0,
+    "name": "Streamer 0",
+    "text": "たまに妙に舐めたくなる味ではある。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3906.0,
+    "end_seconds": 3911.0,
+    "name": "Streamer 1",
+    "text": "ぷり取るちゃん、喉の調子悪かったら真っ先に龍角散。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3906,
+    "name": "gasen0204",
+    "text": "喉いかれた時のオトモ mizuna13Zii",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3906,
+    "name": "jagaas",
+    "text": "あ",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3911.0,
+    "end_seconds": 3913.0,
+    "name": "Streamer 0",
+    "text": "え、効くの？やっぱり龍角散って。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3911,
+    "name": "tio_culus",
+    "text": "龍角散、可能なら舐めたくないですね。ドクター・ペッパーでお願いします。",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3913.0,
+    "end_seconds": 3923.0,
+    "name": "Streamer 1",
+    "text": "がせんちゃん、喉いかれた時の音。じゃがーちゃん、は、ひよちゃん、龍角散、可能なら舐めたくないですね。ドクターペッパーでお願いします。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3924,
+    "name": "jagaas",
+    "text": "上質な とか穴空いてるやつはサルベージベンチのアイテムで解体して",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3927.0,
+    "end_seconds": 3929.0,
+    "name": "Streamer 0",
+    "text": "ドクターペッパー飲んだことないんだよな。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3928,
+    "name": "nekornata",
+    "text": "りゅうかくさんはさいつよ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3932.0,
+    "end_seconds": 3945.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、上質な、とか穴あいてるやつはサルベージベンチのアイテムで解体して。ねこまたのねこまたちゃん、龍角散は最強。ただのたわしちゃん、龍角散きれい"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3937,
+    "name": "tadanotawashi73yen",
+    "text": "りうかくさんきりゃい",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3948,
+    "name": "589_sirayuki",
+    "text": "ドクターペーパは前言ってたね",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3950.0,
+    "end_seconds": 3952.0,
+    "name": "Streamer 0",
+    "text": "龍角散きれい？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3950,
+    "name": "rumiylol",
+    "text": "ぽえぽえぽえ〜",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3954.0,
+    "end_seconds": 3957.0,
+    "name": "Streamer 0",
+    "text": "そんな情報知らなかったよ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3954,
+    "name": "jagaas",
+    "text": "次からでもいいよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3957.0,
+    "end_seconds": 3961.0,
+    "name": "Streamer 1",
+    "text": "たくゆきこはくちゃん、ドクターペッパーは前言ってたね。うみちゃん、ぽえぽえぽえ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3961.0,
+    "end_seconds": 3962.0,
+    "name": "Streamer 0",
+    "text": "うみちゃん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3963.0,
+    "end_seconds": 3965.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、次からでもいいよ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3965,
+    "name": "kuritoru3",
+    "text": "龍角散はガチで効く",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3970.0,
+    "end_seconds": 3972.0,
+    "name": "Streamer 0",
+    "text": "おまるちゃん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3974.0,
+    "end_seconds": 3977.0,
+    "name": "Streamer 1",
+    "text": "くりとるちゃん、龍角散はガチで効く"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3976,
+    "name": "589_sirayuki",
+    "text": "なにここ初めてみるかも",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3977.0,
+    "end_seconds": 3984.0,
+    "name": "Streamer 0",
+    "text": "龍角散買ってこようかな、じゃあ。喉痛すぎなんだって、本当に。助けてほしい"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3984.0,
+    "end_seconds": 3988.0,
+    "name": "Streamer 1",
+    "text": "たくゆきこはくちゃん、何ここ、初めて見るかも"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 3988.0,
+    "end_seconds": 3991.0,
+    "name": "Streamer 0",
+    "text": "私と秘密の部屋。来る？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3991,
+    "name": "wutnev3r",
+    "text": "いく",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3994,
+    "name": "seeker9119",
+    "text": "うっひょー",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3997,
+    "name": "rumiylol",
+    "text": "まるちゃんかわよ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 3998,
+    "name": "589_sirayuki",
+    "text": "ｗｗｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4000.0,
+    "end_seconds": 4005.0,
+    "name": "Streamer 1",
+    "text": "ぷいくんちゃん、リーク。ちかーちゃん、うっきょー"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4005.0,
+    "end_seconds": 4005.5,
+    "name": "Streamer 0",
+    "text": "何これ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4005.5,
+    "end_seconds": 4008.0,
+    "name": "Streamer 1",
+    "text": "うみちゃん、おまるちゃんかわよ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4008.0,
+    "end_seconds": 4008.5,
+    "name": "Streamer 0",
+    "text": "かわよ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4008.5,
+    "end_seconds": 4011.0,
+    "name": "Streamer 1",
+    "text": "たくゆきこはくちゃん、わらわら"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4016,
+    "name": "rabibirabi07",
+    "text": "なに？ひみつのへやで？物理的に舐める？まじ？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4018.0,
+    "end_seconds": 4025.0,
+    "name": "Streamer 0",
+    "text": "みはつ、みはつ、未発言の冒涜も、何を言ってるの？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4025.0,
+    "end_seconds": 4031.0,
+    "name": "Streamer 1",
+    "text": "やびびちゃん、何？秘密の部屋で物理的に舐める。うまそう"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4027,
+    "name": "rumiylol",
+    "text": "合法なんですか？！",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4031.0,
+    "end_seconds": 4035.0,
+    "name": "Streamer 0",
+    "text": "何でそんな、もううまく、何？何も言ってないじゃん"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4034,
+    "name": "kuritoru3",
+    "text": "ここはあごの骨みたいなアイテムで装備を冒涜状態にしないと使えないよ",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4035.0,
+    "end_seconds": 4038.0,
+    "name": "Streamer 1",
+    "text": "うみちゃん、合法なんですか？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4038.0,
+    "end_seconds": 4039.0,
+    "name": "Streamer 0",
+    "text": "合法ですよ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4041.0,
+    "end_seconds": 4043.0,
+    "name": "Streamer 0",
+    "text": "私、今からどこに行く？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4043.0,
+    "end_seconds": 4050.0,
+    "name": "Streamer 1",
+    "text": "くりとるちゃん、ここは顎の骨みたいなアイテムで装備を冒涜状態にしないと使えないよ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4053,
+    "name": "tio_culus",
+    "text": "とりあえずクエストは終わったみたいですね！",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4065.0,
+    "end_seconds": 4070.0,
+    "name": "Streamer 1",
+    "text": "やびびちゃん、うな、秘密の部屋で物理的に舐める。うまし。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4065,
+    "name": "tio_culus",
+    "text": "よし！",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4068,
+    "name": "tio_culus",
+    "text": "いってらっしゃい",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4070.0,
+    "end_seconds": 4075.0,
+    "name": "Streamer 0",
+    "text": "なんでそんな、もう、うまく、何？何も言ってないじゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4075.0,
+    "end_seconds": 4078.0,
+    "name": "Streamer 1",
+    "text": "うみちゃん、合法なんですか？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4078.0,
+    "end_seconds": 4079.0,
+    "name": "Streamer 0",
+    "text": "合法ですよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4081.0,
+    "end_seconds": 4083.0,
+    "name": "Streamer 0",
+    "text": "私、今、どこに…"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4083.0,
+    "end_seconds": 4089.0,
+    "name": "Streamer 1",
+    "text": "ぷり とるちゃん、ここは顎の骨みたいなアイテムで装備を冒涜状態にしないと使えないよ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4089.0,
+    "end_seconds": 4101.0,
+    "name": "Streamer 0",
+    "text": "顎の骨みたいなアイテムで装備を冒涜状態に…冒涜状態って何？だからもう分からないって言ってるのに、何で教えてくれないの？もう！"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4101.0,
+    "end_seconds": 4105.0,
+    "name": "Streamer 1",
+    "text": "うみちゃん、とりあえずクエストは終わったみたいですね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4105.0,
+    "end_seconds": 4106.0,
+    "name": "Streamer 0",
+    "text": "終わった。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4107.0,
+    "end_seconds": 4113.0,
+    "name": "Streamer 0",
+    "text": "あいだ。ちょっと飲み物持って来るわ。待っときな。いい子で待ってな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4113.0,
+    "end_seconds": 4115.0,
+    "name": "Streamer 1",
+    "text": "りおちゃん、よし"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4115.0,
+    "end_seconds": 4116.0,
+    "name": "Streamer 0",
+    "text": "すぐ戻るから。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4116.0,
+    "end_seconds": 4118.0,
+    "name": "Streamer 1",
+    "text": "りおちゃん、いってらっしゃい"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4117,
+    "name": "tio_culus",
+    "text": "え？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4119,
+    "name": "wutnev3r",
+    "text": "お姉さんキャラやってみて？",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4121,
+    "name": "seeker9119",
+    "text": "そんなことないよ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4123,
+    "name": "youtuberkimura",
+    "text": "e?",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4123,
+    "name": "tadanotawashi73yen",
+    "text": "まるママもすき",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4126,
+    "name": "aoi_tachibana7",
+    "text": "お姉さん...?",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4131,
+    "name": "gasen0204",
+    "text": "あら〜 mizuna13E",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4145,
+    "name": "wutnev3r",
+    "text": "あらあら～",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4156,
+    "name": "tio_culus",
+    "text": "あー、ワンチャンあるかもですね？",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4167,
+    "name": "youtuberkimura",
+    "text": "つーちゃんはあるよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4176.0,
+    "end_seconds": 4178.0,
+    "name": "Streamer 1",
+    "text": "ドクターきむらちゃん、つーちゃんはあるよ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4178.0,
+    "end_seconds": 4184.0,
+    "name": "Streamer 0",
+    "text": "つーちゃんなんだ。つーちゃんって結構あるけどね"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4181,
+    "name": "kuritoru3",
+    "text": "前回もみたな・・・？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4189.0,
+    "end_seconds": 4191.0,
+    "name": "Streamer 1",
+    "text": "ぷりとるちゃん、前回も見たな"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4191.0,
+    "end_seconds": 4198.0,
+    "name": "Streamer 0",
+    "text": "見たね、ここ。私なんか来た記憶あんだよね、ここ。あれ？何しに、え？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4201.0,
+    "end_seconds": 4203.0,
+    "name": "Streamer 1",
+    "text": "何？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4207.0,
+    "end_seconds": 4209.0,
+    "name": "Streamer 0",
+    "text": "何いんの？ここで"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4210,
+    "name": "tio_culus",
+    "text": "前回差し込めなかった遺物を見つけたのかもしれませんね？",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4218.0,
+    "end_seconds": 4223.0,
+    "name": "Streamer 1",
+    "text": "みおちゃん、前回差し込めなかった遺物を見つけたのかもしれませんね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4223.0,
+    "end_seconds": 4233.0,
+    "name": "Streamer 0",
+    "text": "あー、三つはめ込むやつかな？多分。そんなのあったね。ありがとね、覚えててくれて。そんなのあったわ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4241.0,
+    "end_seconds": 4248.0,
+    "name": "Streamer 0",
+    "text": "なぜやってる本人が忘れていて、見ている人が覚えているのか。本当に。なぜ？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4255.0,
+    "end_seconds": 4257.0,
+    "name": "Streamer 0",
+    "text": "どこだったか"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4265.0,
+    "end_seconds": 4267.0,
+    "name": "Streamer 0",
+    "text": "こっちか"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4271.0,
+    "end_seconds": 4278.0,
+    "name": "Streamer 0",
+    "text": "ちょっと導かれてるから、とりあえず導かれてみるか、一回。変なとこ連れてかないでね、私のこと導くんなら"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4296.0,
+    "end_seconds": 4298.0,
+    "name": "Streamer 0",
+    "text": "ちょっとまずいか？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4296,
+    "name": "tio_culus",
+    "text": "その光、敵にバフをつける悪いやつですよ（個人の感想です",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4300.0,
+    "end_seconds": 4301.0,
+    "name": "Streamer 0",
+    "text": "オッケー。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4301.0,
+    "end_seconds": 4304.0,
+    "name": "Streamer 0",
+    "text": "ああ、いいの落とした。おとまずい。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4304.0,
+    "end_seconds": 4311.5,
+    "name": "Streamer 1",
+    "text": "みおちゃん、その光、敵にバフをつける悪いやつです。個人の感想です。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4311.5,
+    "end_seconds": 4320.5,
+    "name": "Streamer 0",
+    "text": "あ、バフつけるんだ、これ。嫌なやつじゃん。なんか黄色だからいいのあるのかなってついてったら、ゴミだった。ゴミだったな、ちょっと。騙しやがったな、よくも。これだ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4325.0,
+    "end_seconds": 4328.0,
+    "name": "Streamer 0",
+    "text": "ジャガジャガジャンジャガジャガジャガジャンジャン。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4328.0,
+    "end_seconds": 4330.0,
+    "name": "Streamer 0",
+    "text": "蛍？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4332,
+    "name": "wutnev3r",
+    "text": "でも報酬もあるんじゃない？ないっけ？",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4340.0,
+    "end_seconds": 4345.0,
+    "name": "Streamer 1",
+    "text": "迷宮ちゃん、腕も報酬もあるんじゃない？まいっか。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4344,
+    "name": "589_sirayuki",
+    "text": "敵のところに呼び寄せる精霊",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4345.0,
+    "end_seconds": 4351.0,
+    "name": "Streamer 0",
+    "text": "いや、一応金の装備落としたから、無駄ではないね。ちょっと言いすぎた。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4350,
+    "name": "kuritoru3",
+    "text": "ほんのりいいドロップになる",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4352.0,
+    "end_seconds": 4357.0,
+    "name": "Streamer 1",
+    "text": "各雪コハクちゃん、敵のところに呼び寄せる精霊。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4357.0,
+    "end_seconds": 4358.5,
+    "name": "Streamer 0",
+    "text": "あ、そうなんだ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4358.5,
+    "end_seconds": 4362.0,
+    "name": "Streamer 1",
+    "text": "フリトルちゃん、ほんのりいいドロップになる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4362.0,
+    "end_seconds": 4363.5,
+    "name": "Streamer 0",
+    "text": "ああ、ほんのりなんだ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4385,
+    "name": "tio_culus",
+    "text": "光ってて綺麗だから良いやつだと思ってたのに、騙されました",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4393.0,
+    "end_seconds": 4399.5,
+    "name": "Streamer 1",
+    "text": "みおちゃん、光ってて綺麗だから良い奴だと思ってたのに、騙されました。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4416,
+    "name": "tio_culus",
+    "text": "ひっかかると焦りますよね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4423,
+    "name": "tio_culus",
+    "text": "話し合おう（弓連射",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4425,
+    "name": "589_sirayuki",
+    "text": "まるちゃんの熱狂ファンきちゃ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4435.0,
+    "end_seconds": 4440.0,
+    "name": "Streamer 1",
+    "text": "りおちゃん、引っかかって起きれればいい奴だと思ってたのに、騙されました。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4452.0,
+    "end_seconds": 4454.0,
+    "name": "Streamer 0",
+    "text": "ちょっとまずいかも。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4455.0,
+    "end_seconds": 4461.0,
+    "name": "Streamer 0",
+    "text": "にゃ、ちょっと待って。一回落ち着こう。一回話し合おう、ちょっと私と。話したくないと思うけど。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4456,
+    "name": "tio_culus",
+    "text": "www",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4458,
+    "name": "589_sirayuki",
+    "text": "ｗｗｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4460,
+    "name": "kuritoru3",
+    "text": "ファンサ（弓 物理）",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4464.0,
+    "end_seconds": 4467.0,
+    "name": "Streamer 1",
+    "text": "りおちゃん、引っかかって焦りますよね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4464,
+    "name": "ariettaheals",
+    "text": "www",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4464,
+    "name": "nekornata",
+    "text": "ｗｗｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4467.0,
+    "end_seconds": 4468.0,
+    "name": "Streamer 0",
+    "text": "うん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4468.0,
+    "end_seconds": 4471.0,
+    "name": "Streamer 0",
+    "text": "転んだ時が不安になる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4471.0,
+    "end_seconds": 4477.0,
+    "name": "Streamer 1",
+    "text": "りおちゃん、話し合おう。弓連射。各雪琥珀ちゃん、こまるちゃんの熱狂ファンきちゃ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4471,
+    "name": "589_sirayuki",
+    "text": "いつのまにか朝までやる説ｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4476,
+    "name": "tio_culus",
+    "text": "早く落ち着くといいですね、一緒に徹夜でPoEしましょうね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4476,
+    "name": "rabibirabi07",
+    "text": "あさまでやっちゃおっか",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4477.0,
+    "end_seconds": 4479.0,
+    "name": "Streamer 0",
+    "text": "お？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4480,
+    "name": "gasen0204",
+    "text": "ww mizuna13Batabatabata",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4508,
+    "name": "tio_culus",
+    "text": "今日じゃなくてね？落ち着いたらね？ww",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4515,
+    "name": "tio_culus",
+    "text": "24%はデカくね？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4529,
+    "name": "tio_culus",
+    "text": "Gでスキル見るとDPSみれるんですけど",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4539,
+    "name": "kuritoru3",
+    "text": "装備してDPS比べるといいよ",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4541,
+    "name": "tio_culus",
+    "text": "装備変えた時にそこがどう変わるか見るといいですよ",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4545,
+    "name": "nekornata",
+    "text": "俺はこの前24時間やったよ、君もそうなるんだよ mizuna13Uwaaa",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4547.0,
+    "end_seconds": 4552.0,
+    "name": "Streamer 0",
+    "text": "え、20、ダメージ24%増加？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4553.0,
+    "end_seconds": 4556.0,
+    "name": "Streamer 0",
+    "text": "良くない？これ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4557.0,
+    "end_seconds": 4562.0,
+    "name": "Streamer 1",
+    "text": "りおちゃん、しようじゃなくてね。落ち着いたらね。うわらわら。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4562.0,
+    "end_seconds": 4563.0,
+    "name": "Streamer 0",
+    "text": "もちろん、もちろん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4563.0,
+    "end_seconds": 4566.0,
+    "name": "Streamer 1",
+    "text": "りおちゃん、24%はでかくね？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4566.0,
+    "end_seconds": 4577.0,
+    "name": "Streamer 0",
+    "text": "どっちが強いのかなっていうところなんだよね。スキルダメージが24%？ 評価ダメージ、アタック強い。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4569,
+    "name": "tio_culus",
+    "text": "上がりましたね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4575,
+    "name": "tio_culus",
+    "text": "そうですね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4576,
+    "name": "589_sirayuki",
+    "text": "つえべ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4577.0,
+    "end_seconds": 4580.0,
+    "name": "Streamer 1",
+    "text": "りおちゃん、これスキル見ると見れるんですけど。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4587.0,
+    "end_seconds": 4599.0,
+    "name": "Streamer 1",
+    "text": "くりとるちゃ、装備して比べるといいよ。りおちゃん、装備変えた時にそこがどう変わるか見るといいですよ。みつまたのねこまたちゃ、俺はこの前24時間やったよ。君もそうなるんだ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4594,
+    "name": "tio_culus",
+    "text": "じゃ、新人君は解雇ということで",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4599.0,
+    "end_seconds": 4645.0,
+    "name": "Streamer 0",
+    "text": "やばすぎな。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4614,
+    "name": "tadanotawashi73yen",
+    "text": "あの日気持ち悪くて午後年休とった",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4617,
+    "name": "nekornata",
+    "text": "解雇RTA",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4627,
+    "name": "tio_culus",
+    "text": "僕も午前中休んで寝てました",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4650.0,
+    "end_seconds": 4653.0,
+    "name": "Streamer 0",
+    "text": "明日はね、忙しいからね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4655,
+    "name": "tadanotawashi73yen",
+    "text": "まるちゃんが心配で心配で仕方なかったけど最後は寝落ちしたよね",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4656.0,
+    "end_seconds": 4659.0,
+    "name": "Streamer 0",
+    "text": "ああ、忙しい忙しい。忙したわし、わたがしおいち。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4658,
+    "name": "tio_culus",
+    "text": "人をダメにする水無瀬まる",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4664.0,
+    "end_seconds": 4670.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、うまるちゃんが心配で心配で仕方なかったけど最後は寝落ちしたよね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4664,
+    "name": "wutnev3r",
+    "text": "うお",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4670.0,
+    "end_seconds": 4671.0,
+    "name": "Streamer 0",
+    "text": "大容だよ、ありがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4671.0,
+    "end_seconds": 4675.0,
+    "name": "Streamer 1",
+    "text": "ぎうちゃん、人をダメにする水なせまる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4675.0,
+    "end_seconds": 4676.0,
+    "name": "Streamer 0",
+    "text": "ええー。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4676.0,
+    "end_seconds": 4677.0,
+    "name": "Streamer 1",
+    "text": "ぶいくんちゃん、うお。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4677.0,
+    "end_seconds": 4680.0,
+    "name": "Streamer 0",
+    "text": "人もダメにするし自分もダメにするから。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4680.0,
+    "end_seconds": 4681.0,
+    "name": "Streamer 0",
+    "text": "うお。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4681,
+    "name": "tadanotawashi73yen",
+    "text": "やっぱまるちゃんは魔性の女って事",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4689,
+    "name": "kuritoru3",
+    "text": "NPCが売ってる武器もたまに強いのあるよ たまにみるのおススメ",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4690.0,
+    "end_seconds": 4694.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、やっぱまるちゃんは魔性の女ってことで。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4694.0,
+    "end_seconds": 4697.0,
+    "name": "Streamer 0",
+    "text": "そうなんかな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4697.0,
+    "end_seconds": 4701.0,
+    "name": "Streamer 1",
+    "text": "ふりとるちゃん、売ってる武器もたまに強いのあるよ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4697,
+    "name": "tio_culus",
+    "text": "よぎぼーまる",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4701.0,
+    "end_seconds": 4703.0,
+    "name": "Streamer 1",
+    "text": "たまに見るのおすすめ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4702,
+    "name": "acluca00",
+    "text": "mizuna13PEROPERO mizuna13PEROPERO",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4703.0,
+    "end_seconds": 4705.0,
+    "name": "Streamer 0",
+    "text": "たまにって一番難しい。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4705.0,
+    "end_seconds": 4707.0,
+    "name": "Streamer 1",
+    "text": "よぎぼうまる。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4705,
+    "name": "wutnev3r",
+    "text": "魔女さま",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4707.0,
+    "end_seconds": 4709.0,
+    "name": "Streamer 0",
+    "text": "よぎぼう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4709.0,
+    "end_seconds": 4711.0,
+    "name": "Streamer 1",
+    "text": "あくりょかちゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4711.0,
+    "end_seconds": 4713.0,
+    "name": "Streamer 0",
+    "text": "あくりょかちゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4713.0,
+    "end_seconds": 4715.0,
+    "name": "Streamer 1",
+    "text": "ぶいくんちゃん、うまさ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4715.0,
+    "end_seconds": 4718.0,
+    "name": "Streamer 0",
+    "text": "よぎぼうまるはやばい。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4715,
+    "name": "acluca00",
+    "text": "よぎまる？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4722,
+    "name": "tadanotawashi73yen",
+    "text": "まるぼー",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4723.0,
+    "end_seconds": 4725.0,
+    "name": "Streamer 1",
+    "text": "あくりょかちゃん、よぎまる？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4725.0,
+    "end_seconds": 4729.0,
+    "name": "Streamer 0",
+    "text": "なんで略さないでくれる？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4730.0,
+    "end_seconds": 4733.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、うまるぼう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4733.0,
+    "end_seconds": 4734.0,
+    "name": "Streamer 0",
+    "text": "まるぼうです。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4735.0,
+    "end_seconds": 4738.0,
+    "name": "Streamer 0",
+    "text": "おいおいおい。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4738,
+    "name": "kuritoru3",
+    "text": "よぎま",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4742,
+    "name": "tio_culus",
+    "text": "今日は水無瀬さんを笑わせるコメントができてるようで満足感高いです（）",
+    "expected_category": "blogpost"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4745.0,
+    "end_seconds": 4747.0,
+    "name": "Streamer 1",
+    "text": "ふりとるちゃん、よぎま。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4747.0,
+    "end_seconds": 4748.0,
+    "name": "Streamer 0",
+    "text": "よぎま。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4748.0,
+    "end_seconds": 4751.0,
+    "name": "Streamer 0",
+    "text": "どうした？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4751.0,
+    "end_seconds": 4757.0,
+    "name": "Streamer 1",
+    "text": "ぎうちゃん、今日は水なせさんを笑わせるコメントができているようで満足感高いです。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4757.0,
+    "end_seconds": 4758.0,
+    "name": "Streamer 0",
+    "text": "ふふ、何その格好。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4765.0,
+    "end_seconds": 4767.0,
+    "name": "Streamer 0",
+    "text": "いつも面白いけどな。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4771,
+    "name": "tio_culus",
+    "text": "お褒めに預かり光栄の至り",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4780.0,
+    "end_seconds": 4783.0,
+    "name": "Streamer 1",
+    "text": "ぎうちゃん、お褒めに預かり光栄の至り"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4785.0,
+    "end_seconds": 4789.0,
+    "name": "Streamer 0",
+    "text": "普通にありがとうでよくない？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4786,
+    "name": "tadanotawashi73yen",
+    "text": "屁理屈の極み",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4788,
+    "name": "tio_culus",
+    "text": "www",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4789.0,
+    "end_seconds": 4792.0,
+    "name": "Streamer 0",
+    "text": "普通にありがとうでよくない？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4795.0,
+    "end_seconds": 4797.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、屁理屈の極み"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4797.0,
+    "end_seconds": 4799.0,
+    "name": "Streamer 1",
+    "text": "ぎうちゃん、わらわら"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4806,
+    "name": "tio_culus",
+    "text": "僕のことをかっこつけだって言いたいんですか？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4814.0,
+    "end_seconds": 4815.0,
+    "name": "Streamer 1",
+    "text": "ぎうちゃん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4815.0,
+    "end_seconds": 4819.0,
+    "name": "Streamer 0",
+    "text": "僕のことをカッコつけだと言いたいんだ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4821.0,
+    "end_seconds": 4824.0,
+    "name": "Streamer 0",
+    "text": "被害妄想甚だしいな"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4824.0,
+    "end_seconds": 4828.0,
+    "name": "Streamer 0",
+    "text": "どうしたそんな上、普通に"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4833.0,
+    "end_seconds": 4835.0,
+    "name": "Streamer 0",
+    "text": "痛い"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4836,
+    "name": "tio_culus",
+    "text": "冗談ですww",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4843.0,
+    "end_seconds": 4846.0,
+    "name": "Streamer 1",
+    "text": "ぎうちゃん、冗談です。わらわら"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4846.0,
+    "end_seconds": 4851.0,
+    "name": "Streamer 0",
+    "text": "少し前の私もそうでした。少し前の私もそういう感じでした"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4855.0,
+    "end_seconds": 4858.0,
+    "name": "Streamer 0",
+    "text": "何かに付け、こう言ってるわけ？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4856,
+    "name": "tio_culus",
+    "text": "似ると言いますもんね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4861.0,
+    "end_seconds": 4863.0,
+    "name": "Streamer 0",
+    "text": "あれも言ってるねって"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4864.0,
+    "end_seconds": 4867.0,
+    "name": "Streamer 1",
+    "text": "ぎうちゃん、見ると言いますもんね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4867.0,
+    "end_seconds": 4868.0,
+    "name": "Streamer 0",
+    "text": "本当だよ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4873,
+    "name": "tio_culus",
+    "text": "一体どこにあるんです？",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4876,
+    "name": "wutnev3r",
+    "text": "あ～はいはい私が悪いよね、モー全部私が悪いはいはい。あーいえばそういう",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4881.0,
+    "end_seconds": 4884.0,
+    "name": "Streamer 1",
+    "text": "ぎうちゃん、一体どこにあるんです？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4884.0,
+    "end_seconds": 4889.0,
+    "name": "Streamer 1",
+    "text": "ういクンちゃん、わーはいはい私が悪いよね。もう全部"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4889.0,
+    "end_seconds": 4893.0,
+    "name": "Streamer 1",
+    "text": "私が悪いはいはい。あー言えばそう言う"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4901.0,
+    "end_seconds": 4904.0,
+    "name": "Streamer 0",
+    "text": "あれも言ってたね、って"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4902,
+    "name": "tio_culus",
+    "text": "チェックポイント触ってみませんか？",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4904.0,
+    "end_seconds": 4907.0,
+    "name": "Streamer 1",
+    "text": "ぎうちゃん、見ると言いますもんね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4907.0,
+    "end_seconds": 4908.0,
+    "name": "Streamer 0",
+    "text": "本当だよ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4917.0,
+    "end_seconds": 4921.0,
+    "name": "Streamer 0",
+    "text": "えーっと、これよ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4921.0,
+    "end_seconds": 4925.0,
+    "name": "Streamer 1",
+    "text": "ぎうちゃん、一体どこにあるんです？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4925.0,
+    "end_seconds": 4931.0,
+    "name": "Streamer 1",
+    "text": "うい君ちゃん、はーはいはい私が悪いよね。もう全部"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4931.0,
+    "end_seconds": 4934.0,
+    "name": "Streamer 1",
+    "text": "私が悪い、はいはい。あ、言えばそう言う"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4933,
+    "name": "wutnev3r",
+    "text": "ここクスとあるの？",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4934.0,
+    "end_seconds": 4939.0,
+    "name": "Streamer 0",
+    "text": "言えばそう言う、日本語上手くなってんだろ、普通"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4935,
+    "name": "kuritoru3",
+    "text": "前もみたな。。。？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4949.0,
+    "end_seconds": 4951.0,
+    "name": "Streamer 0",
+    "text": "どこだ、これは"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4951.0,
+    "end_seconds": 4954.0,
+    "name": "Streamer 1",
+    "text": "ぎうちゃん、チェックポイント触ってみませんか？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4954.0,
+    "end_seconds": 4956.0,
+    "name": "Streamer 0",
+    "text": "うーん、触るか"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 4956.0,
+    "end_seconds": 5004.0,
+    "name": "Streamer 0",
+    "text": "おおおおおおおお、これかな？前も来たぞ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4963,
+    "name": "tio_culus",
+    "text": "そこかもですね",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 4978,
+    "name": "wutnev3r",
+    "text": "僕も結構迷った気がする",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5004.0,
+    "end_seconds": 5011.0,
+    "name": "Streamer 0",
+    "text": "そうだよね"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5021,
+    "name": "tio_culus",
+    "text": "あれれー？",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5025,
+    "name": "wutnev3r",
+    "text": "もしかしたらこのマップじゃなくて．．．",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5027.5,
+    "end_seconds": 5031.5,
+    "name": "Streamer 1",
+    "text": "ういクンちゃん、う僕も結構迷った気がする。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5028,
+    "name": "589_sirayuki",
+    "text": "はにゃ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5032.0,
+    "end_seconds": 5036.5,
+    "name": "Streamer 0",
+    "text": "結構迷うよね、これ。あ、チェストきた。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5047.0,
+    "end_seconds": 5052.5,
+    "name": "Streamer 0",
+    "text": "え？終わり？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5052,
+    "name": "jagaas",
+    "text": "行く道ここじゃなくない？",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5062.5,
+    "end_seconds": 5064.5,
+    "name": "Streamer 0",
+    "text": "これかな？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5065,
+    "name": "589_sirayuki",
+    "text": "どういうこちょ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5069.0,
+    "end_seconds": 5071.5,
+    "name": "Streamer 2",
+    "text": "ぎうちゃん、ぱーれー。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5072.0,
+    "end_seconds": 5079.5,
+    "name": "Streamer 1",
+    "text": "ういクンちゃん、うもしかしてこのマップじゃなくて、かくゆきこはくちゃん、うわな。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5081,
+    "name": "jagaas",
+    "text": "そこのちょっとイベントあるだけだなんだよね",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5087,
+    "name": "tio_culus",
+    "text": "ここタイタンの谷って右上に書いてますよね",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5092,
+    "name": "jagaas",
+    "text": "ウェイポイントのとこ",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5120,
+    "name": "jagaas",
+    "text": "チェックポイントから飛べる",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5120,
+    "name": "tio_culus",
+    "text": "左上のほうかな",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5127.0,
+    "end_seconds": 5129.5,
+    "name": "Streamer 0",
+    "text": "ん？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5131.0,
+    "end_seconds": 5132.0,
+    "name": "Streamer 0",
+    "text": "あとで出る。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5132.0,
+    "end_seconds": 5135.0,
+    "name": "Streamer 1",
+    "text": "りうちゃん、左上の方かな。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5136.0,
+    "end_seconds": 5137.0,
+    "name": "Streamer 0",
+    "text": "うん。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5146,
+    "name": "jagaas",
+    "text": "そのうえのほう",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5150,
+    "name": "tio_culus",
+    "text": "あ、その上のところ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5153.0,
+    "end_seconds": 5156.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、その上の方。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5158.0,
+    "end_seconds": 5160.0,
+    "name": "Streamer 0",
+    "text": "間違えた。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5160.0,
+    "end_seconds": 5162.0,
+    "name": "Streamer 1",
+    "text": "りうちゃん、その上のところ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5162.0,
+    "end_seconds": 5164.0,
+    "name": "Streamer 0",
+    "text": "え、間違えて撃っちゃった。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5163,
+    "name": "tio_culus",
+    "text": "大丈夫、戻れますよ",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5165.0,
+    "end_seconds": 5166.0,
+    "name": "Streamer 0",
+    "text": "どこだっけ？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5165,
+    "name": "jagaas",
+    "text": "たいたん",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5171.0,
+    "end_seconds": 5177.0,
+    "name": "Streamer 1",
+    "text": "りうちゃん、大丈夫。戻れますよ。じゃがーちゃん、タイタン。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5180,
+    "name": "tio_culus",
+    "text": "それだー",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5186.0,
+    "end_seconds": 5188.0,
+    "name": "Streamer 0",
+    "text": "おお、ありがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5188.0,
+    "end_seconds": 5190.0,
+    "name": "Streamer 1",
+    "text": "りうちゃん、それで"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5190.0,
+    "end_seconds": 5195.0,
+    "name": "Streamer 0",
+    "text": "わからんて。やっとだ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5197,
+    "name": "wutnev3r",
+    "text": "それ推して？",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5197,
+    "name": "jagaas",
+    "text": "どっちか選択していってね",
+    "expected_category": "advice"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5198,
+    "name": "tio_culus",
+    "text": "あ、それ右化左選びましょう",
+    "expected_category": "advice"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5203.0,
+    "end_seconds": 5204.0,
+    "name": "Streamer 0",
+    "text": "なんでここで終わりなのか？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5204.0,
+    "end_seconds": 5206.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、それ押して。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5206.0,
+    "end_seconds": 5210.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、どっちか選択して行ってね。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5210.0,
+    "end_seconds": 5214.0,
+    "name": "Streamer 1",
+    "text": "りうちゃん、それ右か左選びましょう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5221.0,
+    "end_seconds": 5225.0,
+    "name": "Streamer 0",
+    "text": "チャームってなんだっけ？あ、装備品ね、そっか。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5224,
+    "name": "tio_culus",
+    "text": "そうそう",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5231.0,
+    "end_seconds": 5232.0,
+    "name": "Streamer 0",
+    "text": "チャージって何？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5232.0,
+    "end_seconds": 5235.0,
+    "name": "Streamer 1",
+    "text": "りうちゃん、そうそう。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5237,
+    "name": "tio_culus",
+    "text": "発動エネルギーみたいなかんじですね",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5239,
+    "name": "terr1ne3",
+    "text": "mizuna13Konmaru mizuna13Nemu mizuna13Nemu mizuna13Nemu mizuna13Nemu",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5244.0,
+    "end_seconds": 5245.0,
+    "name": "Streamer 0",
+    "text": "チャージって何？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5245.0,
+    "end_seconds": 5250.0,
+    "name": "Streamer 1",
+    "text": "りうちゃん、発動エネルギーみたいな感じですね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5251,
+    "name": "tio_culus",
+    "text": "短時間に何時間も発動しなくなっています",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5254.0,
+    "end_seconds": 5255.0,
+    "name": "Streamer 0",
+    "text": "眠そうだね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5255.0,
+    "end_seconds": 5258.0,
+    "name": "Streamer 0",
+    "text": "私も眠たい。もう寝るよ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5257,
+    "name": "tio_culus",
+    "text": "何回も",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5261.0,
+    "end_seconds": 5265.0,
+    "name": "Streamer 1",
+    "text": "りゆちゃん、う短時間に何時間も発動しなくなっています"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5265.0,
+    "end_seconds": 5268.0,
+    "name": "Streamer 1",
+    "text": "りゆちゃん、う何回も"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5268.0,
+    "end_seconds": 5272.0,
+    "name": "Streamer 0",
+    "text": "1回30分、30%のがいいか"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5270,
+    "name": "youtuberkimura",
+    "text": "そろそろかね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5271,
+    "name": "tio_culus",
+    "text": "つまり、クールダウンみたいな感じですね",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5278.0,
+    "end_seconds": 5281.0,
+    "name": "Streamer 1",
+    "text": "ろくたーきむらちゃん、うそろそろかね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5281.0,
+    "end_seconds": 5285.0,
+    "name": "Streamer 1",
+    "text": "りゆちゃん、うつまり、うクールダウンみたいな感じですね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5291.0,
+    "end_seconds": 5293.0,
+    "name": "Streamer 0",
+    "text": "じゃあ、30%にするか"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5292,
+    "name": "wutnev3r",
+    "text": "それ使ってる感じしないよねｗ勝手に使うから",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5299,
+    "name": "tio_culus",
+    "text": "OK",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5300.0,
+    "end_seconds": 5306.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、うそれ使ってる感じしないよね。勝手に使うから"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5305,
+    "name": "tio_culus",
+    "text": "クエスト完了ですね",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5307.0,
+    "end_seconds": 5308.0,
+    "name": "Streamer 1",
+    "text": "りゆちゃん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5308.0,
+    "end_seconds": 5313.0,
+    "name": "Streamer 0",
+    "text": "しないね。なんかカチッと終わり、終わりんだ。ブブーンとかってなるのかなと思って"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5313.0,
+    "end_seconds": 5316.0,
+    "name": "Streamer 1",
+    "text": "りゆちゃん、うクエスト完了ですね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5316.0,
+    "end_seconds": 5317.0,
+    "name": "Streamer 0",
+    "text": "うん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5321.0,
+    "end_seconds": 5327.0,
+    "name": "Streamer 0",
+    "text": "じゃあ、また明日も配信したいから、ちょっと早めに終わって"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5323,
+    "name": "tio_culus",
+    "text": "いいですね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5327.0,
+    "end_seconds": 5331.0,
+    "name": "Streamer 0",
+    "text": "やろうかな。今日でも結構頑張ったから、明日ちょっとサボる"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5331.0,
+    "end_seconds": 5333.0,
+    "name": "Streamer 1",
+    "text": "りゆちゃん、ういいですね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5333.0,
+    "end_seconds": 5336.0,
+    "name": "Streamer 0",
+    "text": "今日結構頑張ったから、明日サボる日、よし"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5339,
+    "name": "tio_culus",
+    "text": "私生活も配信も頑張ってえらい",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5339,
+    "name": "kuritoru3",
+    "text": "明日もタイタンの谷くる？",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5339,
+    "name": "wutnev3r",
+    "text": "一日おつかれさまよまるちゃん mizuna13Rabubiiimu",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5342.0,
+    "end_seconds": 5344.0,
+    "name": "Streamer 0",
+    "text": "お、レアリティ14%増加？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5347.0,
+    "end_seconds": 5354.0,
+    "name": "Streamer 1",
+    "text": "りゆちゃん、う私生活も配信も頑張って偉い。とりとるちゃん、明日もタイタンの谷来る？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5355.0,
+    "end_seconds": 5358.0,
+    "name": "Streamer 1",
+    "text": "ういくんちゃん、う1日お疲れ様よ、まるちゃん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5358.0,
+    "end_seconds": 5359.0,
+    "name": "Streamer 0",
+    "text": "ありがとう"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5362,
+    "name": "poelis_",
+    "text": "mizuna13CHINE mizuna13CHINE mizuna13CHINE mizuna13CHINE",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5365,
+    "name": "tio_culus",
+    "text": "水無瀬さんほど偉い人を見たことがありません",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5369,
+    "name": "tio_culus",
+    "text": "言い過ぎました",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5382.0,
+    "end_seconds": 5384.0,
+    "name": "Streamer 0",
+    "text": "お、レアリティ14%か。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5383,
+    "name": "tadanotawashi73yen",
+    "text": "透析のぽえさんだ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5387.0,
+    "end_seconds": 5398.0,
+    "name": "Streamer 1",
+    "text": "りおちゃん、私生活も配信も頑張って偉い。とりとるちゃん、明日もタイタンの谷来る？うい君ちゃん、1日お疲れ様よ、まるちゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5398.0,
+    "end_seconds": 5399.0,
+    "name": "Streamer 0",
+    "text": "ありがとう。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5399,
+    "name": "poelis_",
+    "text": "ガハハ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5413.0,
+    "end_seconds": 5417.0,
+    "name": "Streamer 1",
+    "text": "りおちゃん、水野瀬さんほど偉い人を見たことがありません。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5413,
+    "name": "tadanotawashi73yen",
+    "text": "ｗｗｗｗ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5417.0,
+    "end_seconds": 5420.0,
+    "name": "Streamer 0",
+    "text": "え？どうしてそんな、嘘だよね、早いね。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5428,
+    "name": "tio_culus",
+    "text": "この枠の2大投石人として名を轟かせることになってしまいましたね",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5431.0,
+    "end_seconds": 5436.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、等石の声さんだ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5444,
+    "name": "wutnev3r",
+    "text": "かっこいい",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5447,
+    "name": "poelis_",
+    "text": "隕石落としてこうよ",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5455,
+    "name": "wutnev3r",
+    "text": "僕円卓騎士ね",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5457,
+    "name": "tio_culus",
+    "text": "ダブルメテオだ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5482,
+    "name": "tio_culus",
+    "text": "wwww",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5485,
+    "name": "imamu_mamu",
+    "text": "メテマルオ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5487.0,
+    "end_seconds": 5488.0,
+    "name": "Streamer 1",
+    "text": "ちゃん、ダハハ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5491.0,
+    "end_seconds": 5493.0,
+    "name": "Streamer 1",
+    "text": "いおちゃん、わらわら"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5491,
+    "name": "tio_culus",
+    "text": "めっちゃ溜め込んでて草",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5491,
+    "name": "wutnev3r",
+    "text": "なさそ～",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5493.0,
+    "end_seconds": 5496.0,
+    "name": "Streamer 1",
+    "text": "今むちゃ、うめてまる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5496.0,
+    "end_seconds": 5497.0,
+    "name": "Streamer 0",
+    "text": "それ言いたいだけじゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5498.0,
+    "end_seconds": 5501.0,
+    "name": "Streamer 1",
+    "text": "いおちゃん、うめっちゃ溜め込んでて草。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5501.0,
+    "end_seconds": 5503.0,
+    "name": "Streamer 1",
+    "text": "ぶいくんちゃん、なさそう。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5507,
+    "name": "jagaas",
+    "text": "下のとこでキーワード打てば打ったやつ見やすくなるよ",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5508.0,
+    "end_seconds": 5510.0,
+    "name": "Streamer 0",
+    "text": "1個だけかな？"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5512.0,
+    "end_seconds": 5513.0,
+    "name": "Streamer 0",
+    "text": "で？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5512,
+    "name": "tio_culus",
+    "text": "赤いチャーム見えたような気がしました",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5515.0,
+    "end_seconds": 5519.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、下のとこでキーワード打てば打ったやつ見やすくなるよ。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5515,
+    "name": "tio_culus",
+    "text": "左下の",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5519.0,
+    "end_seconds": 5520.0,
+    "name": "Streamer 0",
+    "text": "え、すごい。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5520.0,
+    "end_seconds": 5524.0,
+    "name": "Streamer 1",
+    "text": "いおちゃん、赤いチャーム見えたような気がしました。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5524.0,
+    "end_seconds": 5525.0,
+    "name": "Streamer 0",
+    "text": "チャーム？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5524,
+    "name": "wutnev3r",
+    "text": "あるわ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5525.0,
+    "end_seconds": 5527.0,
+    "name": "Streamer 1",
+    "text": "いおちゃん、左下の。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5531.0,
+    "end_seconds": 5533.0,
+    "name": "Streamer 1",
+    "text": "ぶいくんちゃん、パールは。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5533.0,
+    "end_seconds": 5534.0,
+    "name": "Streamer 0",
+    "text": "お。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5534.0,
+    "end_seconds": 5538.0,
+    "name": "Streamer 0",
+    "text": "ダメージを受けた時に使用される。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5535,
+    "name": "hanabi010",
+    "text": "CoolCat",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5543.0,
+    "end_seconds": 5545.0,
+    "name": "Streamer 1",
+    "text": "まうはなびちゃん。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5545.0,
+    "end_seconds": 5549.0,
+    "name": "Streamer 0",
+    "text": "あ、まうはなびさんちゃん、初めてのチャットありがとうございます。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5547,
+    "name": "589_sirayuki",
+    "text": "自動に使わる",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5548,
+    "name": "wutnev3r",
+    "text": "多分効果は火耐性＋２５",
+    "expected_category": "response"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5549.0,
+    "end_seconds": 5554.0,
+    "name": "Streamer 0",
+    "text": "ごめんね、ちょっと喉痛くてね、声量がちょっといつもよりも弱いんだけど。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5554.0,
+    "end_seconds": 5557.0,
+    "name": "Streamer 1",
+    "text": "かくゆきこはくちゃん、自動に使われる。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5557.0,
+    "end_seconds": 5561.0,
+    "name": "Streamer 1",
+    "text": "ぶいくんちゃん、多分効果は被耐性プラス25。"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5558,
+    "name": "poelis_",
+    "text": "いつも鼻声だから大丈夫だよ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5561.0,
+    "end_seconds": 5564.0,
+    "name": "Streamer 0",
+    "text": "おお、被耐性付けとこう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5566.0,
+    "end_seconds": 5569.0,
+    "name": "Streamer 1",
+    "text": "ちゃん、いつも鼻声だから大丈夫。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5569.0,
+    "end_seconds": 5573.0,
+    "name": "Streamer 0",
+    "text": "鼻声とかじゃなくて喉が痛いって話。鼻の話はしてないよね、今。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5575.0,
+    "end_seconds": 5577.0,
+    "name": "Streamer 0",
+    "text": "してた？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5576,
+    "name": "tadanotawashi73yen",
+    "text": "www",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5582.0,
+    "end_seconds": 5583.0,
+    "name": "Streamer 0",
+    "text": "どうかな？"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5582,
+    "name": "jagaas",
+    "text": "鼻声でも可愛いよ",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5584.0,
+    "end_seconds": 5586.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、わらわら"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5588,
+    "name": "tio_culus",
+    "text": "www",
+    "expected_category": "reaction"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5591.0,
+    "end_seconds": 5593.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、鼻声でも可愛いよ。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5593.0,
+    "end_seconds": 5594.0,
+    "name": "Streamer 0",
+    "text": "ありがとう。"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5596.0,
+    "end_seconds": 5598.0,
+    "name": "Streamer 1",
+    "text": "いおちゃん、わらわら"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5609,
+    "name": "ariettaheals",
+    "text": "マルちゃん、未加工スキルジェムでスキルを更新するのを忘れないでね。それと、スキルにはサポートジェムも付けておくといいよ。",
+    "expected_category": "backseat"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5624.0,
+    "end_seconds": 5626.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、わらわら"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5627.0,
+    "end_seconds": 5629.0,
+    "name": "Streamer 0",
+    "text": "怖いです"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5631.0,
+    "end_seconds": 5634.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、鼻声でも可愛いよ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5634.0,
+    "end_seconds": 5635.0,
+    "name": "Streamer 0",
+    "text": "ありがとう"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5636.0,
+    "end_seconds": 5638.0,
+    "name": "Streamer 1",
+    "text": "りゅうちゃん、わらわら"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5654,
+    "name": "tio_culus",
+    "text": "おやすみー",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5657.0,
+    "end_seconds": 5668.0,
+    "name": "Streamer 1",
+    "text": "ちゃん、うまるちゃん、ミカコースキルジェムでスキルを更新するのを忘れないでね。それと、スキルにはサポートジェムもつけておくといいよ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5668.0,
+    "end_seconds": 5678.0,
+    "name": "Streamer 0",
+    "text": "あーね、うん。もうちょっと久々すぎてね、ちんぷんかんぷんちゃんちゃんちゃんだからさ"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5668,
+    "name": "tadanotawashi73yen",
+    "text": "ゆっくりねてまた明日も頑張ろうね",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5671,
+    "name": "wutnev3r",
+    "text": "おやすみよ～おつかれちゃん",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5674,
+    "name": "jagaas",
+    "text": "おちゅまる",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5677,
+    "name": "hanabi010",
+    "text": "喉お大事に",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5686,
+    "name": "poelis_",
+    "text": "お鼻大事に",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5687,
+    "name": "aoi_tachibana7",
+    "text": "aoitacOTU",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5689,
+    "name": "seeker9119",
+    "text": "まるちゃんおっつー",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5690,
+    "name": "tio_culus",
+    "text": "やることたくさんあって大変だと思いますが、頑張ってくださいね",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5695,
+    "name": "589_sirayuki",
+    "text": "おちゅまる mizuna13Yotiyoti",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5697,
+    "name": "youtuberkimura",
+    "text": "お疲れ様でした、ゆっくり休んでね",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5701,
+    "name": "gasen0204",
+    "text": "お疲れ様です mizuna13Zii gasen0Sanndokku mizuna13Yotiyoti",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5705,
+    "name": "imamu_mamu",
+    "text": "おやすみまるちゃん、お薬飲んでね",
+    "expected_category": "response"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5707,
+    "name": "poelis_",
+    "text": "mizuna13Unti mizuna13Unti mizuna13Unti",
+    "expected_category": "other"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5716,
+    "name": "kuritoru3",
+    "text": "おつかれさまでした('ω')",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5725.0,
+    "end_seconds": 5739.0,
+    "name": "Streamer 0",
+    "text": "これじゃない？一旦。兄さんたち。いいでしょ、これで。合ってるでしょ。もうちゃん寝るよ、もう眠たいもん。今日Kさん来てくれないな、ごめんね"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5738,
+    "name": "nekornata",
+    "text": "おつー",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5741.0,
+    "end_seconds": 5742.0,
+    "name": "Streamer 0",
+    "text": "喉が"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5742.0,
+    "end_seconds": 5744.0,
+    "name": "Streamer 1",
+    "text": "りゅうちゃん、おやすみ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5744.0,
+    "end_seconds": 5745.0,
+    "name": "Streamer 0",
+    "text": "うん"
+  },
+  {
+    "type": "listener",
+    "offset_seconds": 5751,
+    "name": "ariettaheals",
+    "text": "おやすみ <3",
+    "expected_category": "other"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5752.0,
+    "end_seconds": 5756.0,
+    "name": "Streamer 0",
+    "text": "明日も配信したいからやるわ。明日ちょっと早めに点けたい、頑張って"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5756.0,
+    "end_seconds": 5761.0,
+    "name": "Streamer 1",
+    "text": "ただのたわしちゃん、ゆっくり寝てまた明日も頑張ろうね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5761.0,
+    "end_seconds": 5762.0,
+    "name": "Streamer 0",
+    "text": "うん、頑張る"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5762.0,
+    "end_seconds": 5764.0,
+    "name": "Streamer 1",
+    "text": "Vくんちゃん、おやすみお疲れちゃん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5764.0,
+    "end_seconds": 5766.0,
+    "name": "Streamer 0",
+    "text": "お疲れ、ありがとう"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5766.0,
+    "end_seconds": 5766.0,
+    "name": "Streamer 1",
+    "text": "じゃがーちゃん、おちまる"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5767.0,
+    "end_seconds": 5769.0,
+    "name": "Streamer 1",
+    "text": "まおはなびちゃん、喉をお大事に"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5769.0,
+    "end_seconds": 5771.0,
+    "name": "Streamer 0",
+    "text": "あー、ありがとうね、まおはなびさん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5774.0,
+    "end_seconds": 5776.0,
+    "name": "Streamer 1",
+    "text": "ちゃん、お肌大事に。お肌"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5776.0,
+    "end_seconds": 5778.0,
+    "name": "Streamer 0",
+    "text": "何でお肌になって"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5778.0,
+    "end_seconds": 5821.0,
+    "name": "Streamer 1",
+    "text": "ちぃかぁちゃん、うまるちゃんおつ"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5821.0,
+    "end_seconds": 5822.0,
+    "name": "Streamer 0",
+    "text": "はい、お疲れ様"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5822.0,
+    "end_seconds": 5828.0,
+    "name": "Streamer 1",
+    "text": "りゅうちゃん、やることたくさんあって大変だと思いますが、頑張ってくださいね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5828.0,
+    "end_seconds": 5829.0,
+    "name": "Streamer 0",
+    "text": "うん"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5829.0,
+    "end_seconds": 5831.0,
+    "name": "Streamer 1",
+    "text": "かくゆきこはくちゃん、おちまる"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5831.0,
+    "end_seconds": 5832.0,
+    "name": "Streamer 0",
+    "text": "おちまる"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5832.0,
+    "end_seconds": 5836.0,
+    "name": "Streamer 1",
+    "text": "おおききむらちゃん、お疲れ様でした。ゆっくり休んでね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5837.0,
+    "end_seconds": 5839.0,
+    "name": "Streamer 1",
+    "text": "がーてんちゃん、お疲れ様です"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5839.0,
+    "end_seconds": 5840.0,
+    "name": "Streamer 0",
+    "text": "あー、お疲れ様です"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5840.0,
+    "end_seconds": 5844.0,
+    "name": "Streamer 1",
+    "text": "いまむーちゃん、おやすみまるちゃん。お薬飲んでね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5844.0,
+    "end_seconds": 5845.0,
+    "name": "Streamer 0",
+    "text": "うん、飲む。ありがとう"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5845.0,
+    "end_seconds": 5848.0,
+    "name": "Streamer 1",
+    "text": "ちゃん、りとりとちゃん、お疲れ様でした"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5848.0,
+    "end_seconds": 5850.0,
+    "name": "Streamer 0",
+    "text": "はい、お疲れ様。また明日ね"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5850.0,
+    "end_seconds": 5853.0,
+    "name": "Streamer 0",
+    "text": "頑張ってやります"
+  },
+  {
+    "type": "streamer",
+    "offset_seconds": 5856.0,
+    "end_seconds": 5859.0,
+    "name": "Streamer 0",
+    "text": "ね、お疲れ。おやすみ"
+  }
+]
