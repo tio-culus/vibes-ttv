@@ -75,8 +75,11 @@ def calculate_chat_velocities(chat_data: list[dict], duration_seconds: int) -> t
         return 0.0, 0, "[]"
     df = pd.DataFrame(chat_data)
     total_chats = len(df)
-    hours = max(duration_seconds / 3600.0, 0.01)
-    avg_velocity_hour = total_chats / hours
+    # Why not calculate hourly velocity?
+    # Calculating minutely average chat velocity matches the maximum instantaneous velocity unit
+    # and aligns with the user request to unify everything into per-minute rate.
+    minutes = max(duration_seconds / 60.0, 0.1)
+    avg_velocity_min = total_chats / minutes
     
     df['minute_bin'] = (df['offset_seconds'] // 60).astype(int)
     chats_per_minute = df.groupby('minute_bin').size()
@@ -97,7 +100,7 @@ def calculate_chat_velocities(chat_data: list[dict], duration_seconds: int) -> t
         velocity_list.append({"minute": m, "count": count})
         
     velocity_json = json.dumps(velocity_list)
-    return avg_velocity_hour, max_velocity_min, velocity_json
+    return avg_velocity_min, max_velocity_min, velocity_json
 
 def extract_vod_id(url: str) -> str:
     # Why use regex for VOD ID extraction?
@@ -253,7 +256,10 @@ def run_real_analysis(
             duration_seconds=duration,
             streamed_at=streamed_at,
             average_viewers=0,  # Viewer count input is removed from UI
-            avg_chat_velocity_hour=avg_vel,
+            # Why not avg_chat_velocity_hour?
+            # Changed parameter to match the updated database column avg_chat_velocity_min
+            # for storing the minutely average velocity.
+            avg_chat_velocity_min=avg_vel,
             max_chat_velocity_min=max_vel,
             merged_timeline_json=None,
             chat_velocity_json=vel_json
@@ -741,10 +747,13 @@ def main():
         """, unsafe_allow_html=True)
         
     with m_col3:
+        # Why not avg_chat_velocity_hour?
+        # Replaced average comment rate hourly metric with minutely metric (avg_chat_velocity_min)
+        # to achieve consistency across the dashboard interface.
         st.markdown(f"""
         <div class="dashboard-card">
-            <div class="metric-title">平均コメント時速</div>
-            <div class="metric-value">{vod.avg_chat_velocity_hour:.1f} 回/h</div>
+            <div class="metric-title">平均コメント分速</div>
+            <div class="metric-value">{vod.avg_chat_velocity_min:.1f} 回/分</div>
         </div>
         """, unsafe_allow_html=True)
         

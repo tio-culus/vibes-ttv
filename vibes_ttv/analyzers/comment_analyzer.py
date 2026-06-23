@@ -20,7 +20,7 @@ from vibes_ttv.analyzers.gemini_classifier import GeminiCommentClassifier
 class CommentAnalyzer:
     # Why not use legacy google-generativeai package?
     # The new google-genai SDK is the unified, official package that supports the newest models 
-    # (gemini-3.5-flash) and native structured output typing.
+    # (gemini-3.1-flash-lite) and native structured output typing.
     def __init__(self, classifier: CommentClassifier = None, api_key: str = None):
         # Why support injecting classifier?
         # Injecting a CommentClassifier implementation allows swappable backend strategies 

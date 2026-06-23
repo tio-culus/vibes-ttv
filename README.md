@@ -1,12 +1,12 @@
 # vibes-ttv | Twitch 配信分析ダッシュボード
 
-Twitchの配信アーカイブ（VOD）からチャットログと配信音声を収集し、ローカルの Whisper（GPU加速）および Gemini API（gemini-3.5-flash）を組み合わせて、「視聴者の態度」と「配信中の話題」を高度に分析・可視化するツールです。
+Twitchの配信アーカイブ（VOD）からチャットログと配信音声を収集し、ローカルの Whisper（GPU加速）および Gemini API（gemini-3.1-flash-lite）を組み合わせて、「視聴者の態度」と「配信中の話題」を高度に分析・可視化するツールです。
 
 ## 技術スタックと特徴
 - **音声処理**: `yt-dlp` で VOD の音声（MP3）を抽出。
 - **チャット取得**: `chat-downloader` によるチャットログ取得。
 - **文字起こし**: `openai-whisper` を用いたローカルの GPU (GeForce RTX 4070 等) 加速による高精度文字起こし。
-- **AI分析**: `google-genai` SDK を通じて `gemini-3.5-flash` を利用。Pydantic モデルを用いた安定した構造化出力 (Structured Outputs) により、コメントの内訳分類や話題タイムラインを抽出。
+- **AI分析**: `google-genai` SDK を通じて `gemini-3.1-flash-lite` を利用。Pydantic モデルを用いた安定した構造化出力 (Structured Outputs) により、コメントの内訳分類や話題タイムラインを抽出。
 - **データ管理**: SQLAlchemy と SQLite を用いた堅牢なリレーショナルモデル。
 - **UI**: Streamlit を採用し、ダークモードやカスタムCSSを適用したプレミアムなデザイン。
 
@@ -140,7 +140,7 @@ APIキー不要で即座に動作し、LLM導入の費用対効果を評価す�
 評価対象モデルや、一度に分類器へ渡すチャットの件数（スライスサイズ）を調整して、最適なモデル・分割パラメータを検証することができます。
 ```powershell
 # モデル名とスライスサイズを指定して実行
-.\venv\Scripts\python tests/run_classifier_benchmark.py --classifier gemini --model gemini-3.5-flash --slice-size 50 --api-key "あなたのGeminiAPIキー"
+.\venv\Scripts\python tests/run_classifier_benchmark.py --classifier gemini --model gemini-3.1-flash-lite --slice-size 50 --api-key "あなたのGeminiAPIキー"
 ```
 
 ---

@@ -16,7 +16,7 @@ class GeminiCommentClassifier(CommentClassifier):
     def __init__(self, api_key: str = None, model_name: str = "gemini-3.1-flash-lite", slice_size: int = 100):
         # Why not use legacy google-generativeai package?
         # The new google-genai SDK is the unified, official package that supports the newest models 
-        # (gemini-3.5-flash) and native structured output typing.
+        # (gemini-3.1-flash-lite) and native structured output typing.
         self.client = genai.Client(api_key=api_key) if api_key else genai.Client()
         self.model_name = model_name
         self.slice_size = slice_size
@@ -116,9 +116,10 @@ class GeminiCommentClassifier(CommentClassifier):
             prompt_timeline = "\n".join(lines)
             category_rules = "\n".join(f"- {cat.value}: {cat.description}" for cat in CommentCategory)
             prompt = (
-                "あなたはTwitchのライブ配信のチャットモデレーター兼分析者です。\n"
+                "あなたはライブ配信のアナリストです。ライブ配信がどんなコメントで構成されているかを分析するためにコメントを分類します。\n"
                 "提示された【統合タイムライン】の文脈（配信者の発言や他のリスナーのコメントの流れ）を考慮して、\n"
-                "指定された【分類依頼対象コメント】が以下のどのカテゴリに属するかを分類してください。\n\n"
+                "指定された【分類依頼対象コメント】が以下のどのカテゴリに属するかを分類してください。\n"
+                "ただし、ラグなどの影響でStreamerの発言とListenerの発言が1分ほど前後することを考慮して文脈を捉えてください。\n\n"
                 "【カテゴリ分類ルール】\n"
                 f"{category_rules}\n\n"
                 "【統合タイムライン】\n"

@@ -167,8 +167,11 @@ def test_calculate_chat_velocities():
         {"offset_seconds": 70.0, "username": "user2", "message": "world"},
         {"offset_seconds": 130.0, "username": "user1", "message": "again"}
     ]
+    # Why not test hourly velocity?
+    # Since we changed calculate_chat_velocities to compute minutely average rate instead of hourly,
+    # we assert the rate is 1.0 (3 chats / 3.0 minutes).
     avg_vel, max_vel, vel_json = calculate_chat_velocities(chat_data, 180)
-    assert avg_vel == 60.0  # 3 chats / 0.05 hours = 60.0
+    assert avg_vel == 1.0  # 3 chats / 3.0 minutes = 1.0
     assert max_vel == 1     # max chats in a single minute bin is 1
     
     import json
@@ -380,15 +383,15 @@ def test_comment_analyzer_sliced_context():
     mock_response = MagicMock()
     mock_response.parsed = SliceClassificationResponse(
         results=[
-            LineClassification(line_id="L2", category="spoiler")
+            LineClassification(line_id="L2", category="backseat")
         ]
     )
-    analyzer.client.models.generate_content = MagicMock(return_value=mock_response)
+    analyzer.classifier.client.models.generate_content = MagicMock(return_value=mock_response)
     
     # Setup chat_data and merged_events
     # Line 0: Streamer comment (context only, ignored for client classification)
     # Line 1: 'www' is a simple reaction (pre-classified locally, no Gemini call)
-    # Line 2: 'このボスは火属性に弱いと思います' is a complex comment (Gemini classified as 'spoiler')
+    # Line 2: 'このボスは火属性に弱いと思います' is a complex comment (Gemini classified as 'backseat')
     merged_events = [
         {"type": "streamer", "offset_seconds": 10.0, "text": "ゲームを開始します"},
         {"type": "listener", "name": "user_a", "offset_seconds": 12.0, "text": "www"},
@@ -403,13 +406,13 @@ def test_comment_analyzer_sliced_context():
     assert stats["username"] == "user_a"
     assert stats["total_comments"] == 2
     assert stats["category_counts"]["reaction"] == 1
-    assert stats["category_counts"]["spoiler"] == 1
+    assert stats["category_counts"]["backseat"] == 1
     assert stats["category_counts"].get("other", 0) == 0
     
-    # Tie-breaker logic: 'spoiler' (1) vs 'reaction' (1) -> 'reaction' should win (alphabetical)
-    # Why not 'spoiler'?
-    # The tie-breaker resolution logic uses alphabetical sorting, so 'reaction' (r) is selected before 'spoiler' (s).
-    assert stats["persona_type"] == "reaction"
+    # Tie-breaker logic: 'backseat' (1) vs 'reaction' (1) -> 'backseat' should win (alphabetical)
+    # Why not 'reaction'?
+    # The tie-breaker resolution logic uses alphabetical sorting, so 'backseat' (b) is selected before 'reaction' (r).
+    assert stats["persona_type"] == "backseat"
     
     # Check detail content order
     details = stats["comment_details"]
@@ -418,8 +421,8 @@ def test_comment_analyzer_sliced_context():
     assert details[0]["category"] == "reaction"
     assert details[1]["message"] == "このボスは火属性に弱いと思います"
     # Why not 'insight'?
-    # The 'insight' category is no longer present in CommentCategory and has been replaced by 'spoiler'.
-    assert details[1]["category"] == "spoiler"
+    # The 'insight' category is no longer present in CommentCategory and has been replaced by 'backseat'.
+    assert details[1]["category"] == "backseat"
 
 
 def test_get_twitch_vod_url():
@@ -452,10 +455,10 @@ def test_comment_serialization_flow():
     mock_response = MagicMock()
     mock_response.parsed = SliceClassificationResponse(
         results=[
-            LineClassification(line_id="L2", category="spoiler")
+            LineClassification(line_id="L2", category="backseat")
         ]
     )
-    analyzer.client.models.generate_content = MagicMock(return_value=mock_response)
+    analyzer.classifier.client.models.generate_content = MagicMock(return_value=mock_response)
     
     # 3. Setup events
     merged_events = [
@@ -469,13 +472,13 @@ def test_comment_serialization_flow():
     
     # Verify categories are assigned in-place
     assert merged_events[1]["category"] == "reaction"
-    assert merged_events[2]["category"] == "spoiler"
+    assert merged_events[2]["category"] == "backseat"
     
     # 5. Format to text with categories
     merger = TimelineMerger()
     formatted = merger.format_to_text(merged_events, show_categories=True)
     assert "[00:00:12] [reaction] user_a: www" in formatted
-    assert "[00:00:15] [spoiler] user_a: ここは火属性ですね" in formatted
+    assert "[00:00:15] [backseat] user_a: ここは火属性ですね" in formatted
     
     # 6. JSON serialization check
     serialized = json.dumps(merged_events, ensure_ascii=False)
@@ -505,5 +508,5 @@ def test_comment_serialization_flow():
     assert len(user_comments) == 2
     assert user_comments[0]["category"] == "reaction"
     # Why not 'insight'?
-    # The 'insight' category has been renamed to 'spoiler' in the new CommentCategory definition.
-    assert user_comments[1]["category"] == "spoiler"
+    # The 'insight' category has been renamed to 'backseat' in the new CommentCategory definition.
+    assert user_comments[1]["category"] == "backseat"

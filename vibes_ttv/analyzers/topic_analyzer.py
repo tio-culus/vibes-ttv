@@ -22,13 +22,17 @@ class TopicAnalysisResponse(BaseModel):
 class TopicAnalyzer:
     # Why not use legacy google-generativeai package?
     # The new google-genai SDK is the unified, official package that supports the newest models 
-    # (gemini-3.5-flash) and native structured output typing.
-    def __init__(self, api_key: str = None):
+    # (gemini-3.1-flash-lite) and native structured output typing.
+    # Why support model_name parameter?
+    # Parameterizing model_name allows the user to choose more cost-effective models 
+    # like gemini-3.1-flash-lite while preserving the flexibility to scale up.
+    def __init__(self, api_key: str = None, model_name: str = "gemini-3.1-flash-lite"):
         self.client = genai.Client(api_key=api_key) if api_key else genai.Client()
+        self.model_name = model_name
         
     def analyze_topics(self, timeline_text: str) -> list[dict]:
         # Why not segment the timeline into chunks?
-        # Gemini 3.5 Flash supports a 1M token window, meaning it can ingest the entire stream 
+        # Gemini 3.1 Flash Lite supports a large token window, meaning it can ingest the entire stream 
         # (transcription + chat) at once. This allows the model to maintain complete global awareness 
         # of the stream's timeline and detect continuous topics much better than chunked analysis,
         # preventing edge cases where a single topic is split across artificial chunk boundaries.
@@ -62,7 +66,7 @@ class TopicAnalyzer:
             for attempt in range(max_retries):
                 try:
                     response = self.client.models.generate_content(
-                        model="gemini-3.5-flash",
+                        model=self.model_name,
                         contents=prompt,
                         config=types.GenerateContentConfig(
                             response_mime_type="application/json",

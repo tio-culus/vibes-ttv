@@ -37,7 +37,9 @@ class VOD(Base):
     # Using timezone-aware datetime.now(timezone.utc) prevents DeprecationWarning.
     streamed_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     average_viewers = Column(Integer, default=0)
-    avg_chat_velocity_hour = Column(Float, default=0.0)
+    # Why not avg_chat_velocity_hour?
+    # Unifying the metrics to minutely rate to keep consistency on the dashboard.
+    avg_chat_velocity_min = Column(Float, default=0.0)
     max_chat_velocity_min = Column(Integer, default=0)
     # Why save the merged timeline as a structured JSON array?
     # Storing the combined whisper segments and chat messages as a raw JSON string 
