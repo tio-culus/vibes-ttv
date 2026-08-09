@@ -159,8 +159,7 @@ def test_chat_collector_url_parsing():
 
 def test_calculate_chat_velocities():
     # Why import locally?
-    # Importing locally in test functions isolates module loading errors 
-    # and ensures that test cases remain modular.
+    # Keeping imports scoped to the test cases prevents cluttering the module-level namespace.
     from vibes_ttv.app import calculate_chat_velocities
     chat_data = [
         {"offset_seconds": 10.0, "username": "user1", "message": "hello"},
@@ -172,16 +171,28 @@ def test_calculate_chat_velocities():
     # we assert the rate is 1.0 (3 chats / 3.0 minutes).
     avg_vel, max_vel, vel_json = calculate_chat_velocities(chat_data, 180)
     assert avg_vel == 1.0  # 3 chats / 3.0 minutes = 1.0
-    assert max_vel == 1     # max chats in a single minute bin is 1
+    
+    # Why assert max_vel is 1?
+    # After Hanning window smoothing, the peak weight is still 1.0 (rounded to 1).
+    assert max_vel == 1
     
     import json
     parsed = json.loads(vel_json)
     # duration is 180 seconds, so max_minute is 3. range(4) -> 0, 1, 2, 3
     assert len(parsed) == 4
-    assert parsed[0] == {"minute": 0, "count": 1}
-    assert parsed[1] == {"minute": 1, "count": 1}
-    assert parsed[2] == {"minute": 2, "count": 1}
-    assert parsed[3] == {"minute": 3, "count": 0}
+    
+    # Why assert these float values for Hanning window?
+    # Chat 1 at 10s gives 0.75 to min 0. Chat 2 at 70s gives 0.25 to min 0 and 0.75 to min 1.
+    # Chat 3 at 130s gives 0.25 to min 1 and 0.75 to min 2.
+    # Therefore:
+    # min 0: 0.75 + 0.25 = 1.0
+    # min 1: 0.75 + 0.25 = 1.0
+    # min 2: 0.75 + 0.00 = 0.75
+    # min 3: 0.00
+    assert parsed[0] == {"minute": 0, "count": 1.0}
+    assert parsed[1] == {"minute": 1, "count": 1.0}
+    assert parsed[2] == {"minute": 2, "count": 0.75}
+    assert parsed[3] == {"minute": 3, "count": 0.0}
 
 
 def test_timeline_merger_complex():

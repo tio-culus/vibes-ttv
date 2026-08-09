@@ -71,36 +71,68 @@ def format_twitch_offset(seconds: int) -> str:
     return "".join(parts)
 
 def calculate_chat_velocities(chat_data: list[dict], duration_seconds: int) -> tuple[float, int, str]:
+    # Why not run velocity logic on empty chat?
+    # Returning zero values immediately prevents divisions by zero and avoids JSON formatting errors for empty streams.
     if not chat_data:
         return 0.0, 0, "[]"
+    
+    import math
     df = pd.DataFrame(chat_data)
     total_chats = len(df)
+    
     # Why not calculate hourly velocity?
     # Calculating minutely average chat velocity matches the maximum instantaneous velocity unit
     # and aligns with the user request to unify everything into per-minute rate.
     minutes = max(duration_seconds / 60.0, 0.1)
     avg_velocity_min = total_chats / minutes
     
-    df['minute_bin'] = (df['offset_seconds'] // 60).astype(int)
-    chats_per_minute = df.groupby('minute_bin').size()
-    max_velocity_min = int(chats_per_minute.max()) if not chats_per_minute.empty else 0
-    
-    # Why fill zero for missing minutes?
-    # Skipping minutes without chats would make the line chart discontinuous 
-    # and skew the timeline representation. Generating a complete range of minutes 
-    # filled with zeros preserves temporal fidelity.
     duration_minutes = int(duration_seconds // 60)
     max_minute = duration_minutes
-    if not chats_per_minute.empty:
-        max_minute = max(max_minute, int(chats_per_minute.index.max()))
+    max_offset = df['offset_seconds'].max() if not df.empty else 0
+    max_minute = max(max_minute, int(max_offset // 60))
+    
+    # Why use Hanning window?
+    # A Hanning window smoothens the chat velocity transition, preventing instantaneous spikes 
+    # from being cut off or distorted at the minute boundaries (e.g. 59s vs 61s).
+    # Why set window width to 120 seconds?
+    # With a 120-second width (2 minutes) and 60-second bin intervals, the windows overlap by 50%.
+    # This guarantees that the sum of weights at any time t is exactly 1.0 (excluding boundary edges),
+    # preserving the total count of chats (energy conservation) when converted to minutely velocities.
+    counts = [0.0] * (max_minute + 1)
+    half_width = 60.0  # window_width = 120.0
+    
+    for chat in chat_data:
+        t_i = chat.get("offset_seconds", 0.0)
         
-    velocity_list = []
-    for m in range(max_minute + 1):
-        count = int(chats_per_minute.get(m, 0))
-        velocity_list.append({"minute": m, "count": count})
+        # Why limit index bounds to (m1, m2)?
+        # Since the Hanning window is limited to +/- 60s, each chat event can only contribute
+        # to at most 2 adjacent minute bins. This allows an O(N) linear time implementation 
+        # instead of O(M * N), ensuring high performance even for long streams with thousands of chats.
+        m1 = int((t_i - 30.0) // 60.0)
+        m2 = m1 + 1
         
+        for m in (m1, m2):
+            if 0 <= m <= max_minute:
+                t_c = m * 60.0 + 30.0
+                d = t_i - t_c
+                if -half_width <= d <= half_width:
+                    # Why use math.cos?
+                    # math.cos is standard in Python and avoids the overhead of loading external scientific libraries (like scipy or numpy).
+                    weight = 0.5 + 0.5 * math.cos(math.pi * d / half_width)
+                    counts[m] += weight
+                    
+    # Why round to 2 decimal places?
+    # Keeps the JSON payload small and ensures readable floats in the frontend tooltips.
+    velocity_list = [{"minute": m, "count": round(counts[m], 2)} for m in range(max_minute + 1)]
+    
+    # Why cast max_velocity_min to int?
+    # Streamlit components and API callers expect max_velocity_min to be an integer (e.g., maximum whole comments per minute).
+    # We round the smoothed peak value to the nearest integer.
+    max_velocity_min = int(round(max(counts))) if counts else 0
+    
     velocity_json = json.dumps(velocity_list)
     return avg_velocity_min, max_velocity_min, velocity_json
+
 
 def extract_vod_id(url: str) -> str:
     # Why use regex for VOD ID extraction?
