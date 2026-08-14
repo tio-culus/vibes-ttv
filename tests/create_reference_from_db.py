@@ -46,10 +46,10 @@ def main():
             {"type": "streamer", "offset_seconds": 30.0, "name": "Streamer", "text": "あ、R2ボタンですね。ありがとうございます！"},
             {"type": "listener", "offset_seconds": 32.0, "name": "UserA", "text": "お、できたできた", "expected_category": "reaction"},
             {"type": "listener", "offset_seconds": 35.0, "name": "UserD", "text": "ちなみにさっきのガチャでレア装備引けた？", "expected_category": "blogpost"},
-            {"type": "listener", "offset_seconds": 40.0, "name": "UserE", "text": "この先ネタバレ注意。ボスが隠れてるよ", "expected_category": "spoiler"},
+            {"type": "listener", "offset_seconds": 40.0, "name": "UserE", "text": "この先ネタバレ注意。ボスが隠れてるよ", "expected_category": "backseat"},
             {"type": "streamer", "offset_seconds": 45.0, "name": "Streamer", "text": "えっ、ボスがいるんですか？気をつけます。"},
             {"type": "listener", "offset_seconds": 50.0, "name": "UserB", "text": "合ってる、その武器で大丈夫", "expected_category": "advice"},
-            {"type": "listener", "offset_seconds": 55.0, "name": "UserC", "text": "〇〇さんは違う武器使ってたなー", "expected_category": "cross-chat"},
+            {"type": "listener", "offset_seconds": 55.0, "name": "UserC", "text": "〇〇さんは違う武器使ってたなー", "expected_category": "other"},
             {"type": "listener", "offset_seconds": 60.0, "name": "UserA", "text": "今日のご飯はカレーです", "expected_category": "blogpost"},
             {"type": "streamer", "offset_seconds": 65.0, "name": "Streamer", "text": "何でそんなこと言うの？"},
             {"type": "listener", "offset_seconds": 70.0, "name": "UserA", "text": "意味不明な発言ですみません", "expected_category": "other"}
@@ -87,6 +87,18 @@ def main():
             ev_copy["expected_category"] = cat
             if "category" in ev_copy:
                 del ev_copy["category"]
+
+            # Why map 3-axis flags to expected_*?
+            # Preserving 3-axis contextual classifications in exported references allows 
+            # future benchmarks to evaluate accuracy on individual reasoning axes.
+            if "interpreted_comment" in ev_copy:
+                ev_copy["expected_interpreted_comment"] = ev_copy.pop("interpreted_comment")
+            if "is_subject_streamer" in ev_copy:
+                ev_copy["expected_is_subject_streamer"] = ev_copy.pop("is_subject_streamer")
+            if "is_topic_relevant" in ev_copy:
+                ev_copy["expected_is_topic_relevant"] = ev_copy.pop("is_topic_relevant")
+            if "is_future" in ev_copy:
+                ev_copy["expected_is_future"] = ev_copy.pop("is_future")
                 
         extracted_events.append(ev_copy)
         

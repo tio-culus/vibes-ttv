@@ -7,11 +7,13 @@ from pydantic import BaseModel
 # Inheriting from str ensures the enum values act as native strings,
 # allowing seamless JSON serialization and preserving backward compatibility with downstream DB/UI models.
 class CommentCategory(str, Enum):
+    # Why remove CROSS_CHAT?
+    # Cross-chat (reporting on third-party streamers) requires specialized knowledge of streaming communities
+    # that is poorly represented in binary evaluation axes and is easily identifiable by streamers directly.
     REACTION = 'reaction'
     RESPONSE = 'response'
     ADVICE = 'advice'
     BACKSEAT = 'backseat'
-    CROSS_CHAT = 'cross-chat'
     BLOGPOST = 'blogpost'
     OTHER = 'other'
 
@@ -25,7 +27,6 @@ class CommentCategory(str, Enum):
             CommentCategory.RESPONSE: "レスポンス",
             CommentCategory.ADVICE: "アドバイス",
             CommentCategory.BACKSEAT: "指示・ネタバレ",
-            CommentCategory.CROSS_CHAT: "鳩",
             CommentCategory.BLOGPOST: "自分語り",
             CommentCategory.OTHER: "その他",
         }
@@ -39,7 +40,6 @@ class CommentCategory(str, Enum):
             CommentCategory.RESPONSE: "レスポンス",
             CommentCategory.ADVICE: "アドバイス",
             CommentCategory.BACKSEAT: "指示・ネタバレ",
-            CommentCategory.CROSS_CHAT: "鳩",
             CommentCategory.BLOGPOST: "自分語り",
             CommentCategory.OTHER: "その他",
         }
@@ -54,8 +54,7 @@ class CommentCategory(str, Enum):
             CommentCategory.RESPONSE: "#60a5fa",      # Light blue
             CommentCategory.ADVICE: "#facc15",       # Light yellow
             CommentCategory.BACKSEAT: "#f87171",   # Light red
-            CommentCategory.CROSS_CHAT: "#4ade80",      # Light green
-            CommentCategory.BLOGPOST: "#fb923c",      # Light red
+            CommentCategory.BLOGPOST: "#fb923c",      # Light orange
             CommentCategory.OTHER: "#9ca3af",         # Gray
         }
         return colors[self]
@@ -69,7 +68,6 @@ class CommentCategory(str, Enum):
             CommentCategory.RESPONSE: "今の話題に関連したコメント。例、それって本当はこうらしいよ、こういうものもあるんだって、自分の時はこうだった",
             CommentCategory.ADVICE: "ストリーマーから尋ねられたことに対しての助言や提案。例、「音量どうですか？」に対して「ゲーム音小さい」",
             CommentCategory.BACKSEAT: "ストリーマーから尋ねられていないのに、未来の展開や知らない知識に関するコメント・助言・提案。例、上からくるよ、その武器強いよ、右に行くと楽だよ、その武器は強化したほうが良いよ",            
-            CommentCategory.CROSS_CHAT: "話題に上がっていない他の人物についてのコメント。例、 〇〇さんはこうしてたよ、〇〇さんが困っている",
             CommentCategory.BLOGPOST: "話題と関係ない自分についてのコメント。例、ガチャ爆死しました、ポンデリング食べました、今日風邪気味です",
             CommentCategory.OTHER: "上記に分類できないコメント。",
         }
@@ -89,6 +87,23 @@ class BatchClassificationResponse(BaseModel):
 
 class LineClassification(BaseModel):
     line_id: str
+    # Why require interpreted_comment?
+    # Live chat comments often omit subjects and objects. Having the LLM explicitly reconstruct
+    # the comment in context before classifying acts as a Chain of Thought reasoning step,
+    # significantly increasing category accuracy.
+    interpreted_comment: str = ""
+    # Why evaluate is_subject_streamer?
+    # Distinguishing whether the comment refers to the streamer's actions/game vs the viewer themselves
+    # or third parties is essential to separate reactions/backseat from blogpost or other topics.
+    is_subject_streamer: bool = False
+    # Why evaluate is_topic_relevant?
+    # Binary evaluation of topic relevance directly identifies blogpost (viewer's unrelated daily life)
+    # and unrelated chatter from on-topic responses.
+    is_topic_relevant: bool = True
+    # Why evaluate is_future?
+    # Identifying whether the message refers to future events/actions is the defining boundary
+    # separating unsolicited backseating/spoilers from past/current reactions and responses.
+    is_future: bool = False
     category: CommentCategory
 
 class SliceClassificationResponse(BaseModel):

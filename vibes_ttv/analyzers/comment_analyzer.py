@@ -82,11 +82,24 @@ class CommentAnalyzer:
                 # or database serializers to access classifications without rebuilding maps.
                 ev["category"] = cat_str
                 
-                user_stats[username]["details"].append({
+                # Why capture contextual interpretation and 3-axis attributes in details?
+                # Attaching these fields to comment_details enables detailed inspectability 
+                # in downstream benchmark analytics or debug logs without breaking schema compatibility.
+                detail_entry = {
                     "message": msg,
                     "offset_seconds": offset,
                     "category": cat_str
-                })
+                }
+                if "interpreted_comment" in ev:
+                    detail_entry["interpreted_comment"] = ev["interpreted_comment"]
+                if "is_subject_streamer" in ev:
+                    detail_entry["is_subject_streamer"] = ev["is_subject_streamer"]
+                if "is_topic_relevant" in ev:
+                    detail_entry["is_topic_relevant"] = ev["is_topic_relevant"]
+                if "is_future" in ev:
+                    detail_entry["is_future"] = ev["is_future"]
+                
+                user_stats[username]["details"].append(detail_entry)
                 
         # 4. Generate final stats and persona type
         final_results = []

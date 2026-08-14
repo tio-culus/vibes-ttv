@@ -115,18 +115,28 @@ class GeminiCommentClassifier(CommentClassifier):
             # Call Gemini with slice context
             prompt_timeline = "\n".join(lines)
             category_rules = "\n".join(f"- {cat.value}: {cat.description}" for cat in CommentCategory)
+            # Why prompt for contextual interpretation and 3-axis binary evaluation explicitly?
+            # Instructing the model to perform contextual completion and evaluate the 3 clear binary axes 
+            # (subject, topic relevance, future tense) acts as chain-of-thought grounding, preventing
+            # misclassification of ambiguous shorthand comments typical in live streams.
             prompt = (
-                "あなたはライブ配信のアナリストです。ライブ配信がどんなコメントで構成されているかを分析するためにコメントを分類します。\n"
+                "あなたはライブ配信の専門アナリストです。ライブ配信がどのようなコメントで構成されているかを高精度に分析するために、リスナーコメントを分類します。\n"
                 "提示された【統合タイムライン】の文脈（配信者の発言や他のリスナーのコメントの流れ）を考慮して、\n"
-                "指定された【分類依頼対象コメント】が以下のどのカテゴリに属するかを分類してください。\n"
-                "ただし、ラグなどの影響でStreamerの発言とListenerの発言が1分ほど前後することを考慮して文脈を捉えてください。\n\n"
+                "指定された【分類依頼対象コメント】それぞれについて、以下のステップに従って構造化データを出力してください。\n"
+                "※配信ラグ等の影響により、Streamerの発言とListenerの発言が1分ほど前後することを考慮して文脈を捉えてください。\n\n"
+                "【分析・判定ステップ】\n"
+                "1. interpreted_comment（文脈補完）: 前後の配信者の発言やチャットの流れを踏まえ、コメント内で省略された主語・目的語・状況を補完した解釈を記述してください。\n"
+                "2. is_subject_streamer（主語判定）: コメントの主語は「配信者（または配信者が操作するキャラクター/ゲーム状況）」ですか？（true: 配信者 / false: それ以外[リスナー自身、第三者など]）\n"
+                "3. is_topic_relevant（話題関連性判定）: コメントの話題(目的語)は「配信中の話題・進行中の出来事」と関係がありますか？（true: 関係あり / false: 関係なし）\n"
+                "4. is_future（未来判定）: コメントの内容は「未来の話（先の展開のネタバレ、未起きの指示・助言・先回りしたアドバイス等）」ですか？（true: 未来の話 / false: それ以外[現在・過去の感想、リアクション、返答等]）\n"
+                "5. category（最終カテゴリ）: 上記の文脈補完と3軸2値判定を踏まえ、以下の【カテゴリ分類ルール】から最も適切なカテゴリを選択してください。\n\n"
                 "【カテゴリ分類ルール】\n"
                 f"{category_rules}\n\n"
                 "【統合タイムライン】\n"
                 f"{prompt_timeline}\n\n"
                 "【分類依頼対象コメント】\n"
                 f"{json.dumps(to_classify, ensure_ascii=False, indent=2)}\n\n"
-                "それぞれの comment に対する line_id を維持し、各コメントのカテゴリ分類を出力してください。"
+                "それぞれの comment に対する line_id を維持し、上記ステップに従って結果を出力してください。"
             )
             
             try:
@@ -164,7 +174,18 @@ class GeminiCommentClassifier(CommentClassifier):
                         try:
                             g_idx = int(line_res.line_id[1:])
                             # Convert string category to CommentCategory Enum
-                            classified_events[g_idx] = CommentCategory(line_res.category)
+                            cat = CommentCategory(line_res.category)
+                            classified_events[g_idx] = cat
+                            
+                            # Why store auxiliary 3-axis evaluation metadata in merged_events?
+                            # Storing interpreted_comment and 3-axis flags directly in the event dictionary
+                            # allows downstream reporting and debugging tools to inspect the LLM's reasoning
+                            # without breaking callers expecting a simple category map.
+                            if 0 <= g_idx < len(merged_events):
+                                merged_events[g_idx]["interpreted_comment"] = line_res.interpreted_comment
+                                merged_events[g_idx]["is_subject_streamer"] = line_res.is_subject_streamer
+                                merged_events[g_idx]["is_topic_relevant"] = line_res.is_topic_relevant
+                                merged_events[g_idx]["is_future"] = line_res.is_future
                         except Exception:
                             pass
                             

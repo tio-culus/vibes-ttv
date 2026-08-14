@@ -4,91 +4,143 @@
     "offset_seconds": 18,
     "name": "wizebot",
     "text": "✔️ LIVEはPath of Exile 2カテゴリーでオンラインです。稼働時間が始まります。",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "配信開始のシステムアナウンス",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 36,
     "name": "shonya0w0",
     "text": "mizuna13Konmaru",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 43,
     "name": "589_sirayuki",
     "text": "mizuna13Paku mizuna13Paku mizuna13Paku mizuna13Paku mizuna13Paku mizuna13Paku",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への反応（スタンプ）",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 43,
     "name": "kanitama02",
     "text": "mizuna13Konmaru",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 49,
     "name": "youtuberkimura",
     "text": "こん mizuna13PEROPERO",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 51,
     "name": "tio_culus",
     "text": "こんまるちゃん mizuna13Konmaru",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 51,
     "name": "fumianmaomao",
     "text": "mochi8401 mochi8401 mochi8401",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "挨拶や反応のスタンプ",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 56,
     "name": "wutnev3r",
     "text": "mizuna13Tyukii",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への挨拶・リアクション",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 65,
     "name": "fumianmaomao",
     "text": "こんまる mochi8401",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 92,
     "name": "steroidyazawa",
     "text": "こんばんは",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 100,
     "name": "589_sirayuki",
     "text": "ぽえぽえだ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の現在の様子に対するリアクション",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 107,
     "name": "589_sirayuki",
     "text": "mizuna13WAAAI mizuna13WAAAI",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への歓喜のリアクション",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 113,
     "name": "ho_o_neko",
     "text": "ビリビリ～～",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のマイク音声がノイズでビリビリしているという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
@@ -102,105 +154,165 @@
     "offset_seconds": 115,
     "name": "wutnev3r",
     "text": "え",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の音声異常に対する反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 117,
     "name": "steroidyazawa",
     "text": "ロボになってる",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の声がノイズでロボットのようになっているという感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 117,
     "name": "wutnev3r",
     "text": "マイク",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "問題の原因がマイクにあるという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 117,
     "name": "589_sirayuki",
     "text": "まるちゃんんんんんんんんんんんんんんんんんんんんんんんんんんんんんんんｎ",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への愛情表現",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 120,
     "name": "tio_culus",
     "text": "マイクにノイズ載ってるかも",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者のマイクにノイズが入っているという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 121,
     "name": "shonya0w0",
     "text": "すんごいｗ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "マイクの異常がひどいことへのリアクション",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 128,
     "name": "wutnev3r",
     "text": "声びりびりしてるよ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の声にノイズが乗っているという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 129,
     "name": "youtuberkimura",
     "text": "なんか声おかしくなってるね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の声が変であるという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 132,
     "name": "steroidyazawa",
     "text": "喉のダメージが相当ですね",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者の喉が痛いという話に対する推測",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 133,
     "name": "imamu_mamu",
     "text": "こんまるちゃん～",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 136,
     "name": "589_sirayuki",
     "text": "なんかロボマイクになってるｗ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のマイクがロボットのようになっているという感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 137,
     "name": "shonya0w0",
     "text": "百均のイヤホンくらいのノイズになってる",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者のマイクノイズの質を具体的に例えた指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 146,
     "name": "gil_blood",
     "text": "こんばんは",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 149,
     "name": "wutnev3r",
     "text": "びりびり",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のマイクノイズに対する反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 150,
     "name": "henachocoaim",
     "text": "接触悪いですって感じのノイズ",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "マイクの接触不良ではないかという考察",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -214,98 +326,154 @@
     "offset_seconds": 151,
     "name": "shonya0w0",
     "text": "まだなってる",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "マイクのノイズが治っていないという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 153,
     "name": "youtuberkimura",
     "text": "かわらないね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "マイクの状態が変わっていないという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 155,
     "name": "steroidyazawa",
     "text": "ロボです",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の声が依然としてロボットのようであるという感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 158,
     "name": "gil_blood",
     "text": "あ”あ”あ”あ”",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の声がノイズで聞き取りにくい様子を模倣",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 159,
     "name": "ho_o_neko",
     "text": "治ってない",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "マイクのノイズが治っていないという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 162,
     "name": "wutnev3r",
     "text": "ぴかちゅうのモノマネうまいね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のマイクノイズをピカチュウに例えた皮肉",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 165,
     "name": "imamu_mamu",
     "text": "ＡＩ ＭＡＲＵ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者がロボットのような声になっていることに対する命名",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 201,
     "name": "henachocoaim",
     "text": "なおってない",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "マイクのノイズが治っていないという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 203,
     "name": "wutnev3r",
     "text": "びりびり",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のマイクノイズに対する反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 203,
     "name": "tio_culus",
     "text": "まだっぽいですね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "まだマイクのノイズが続いているという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 207,
     "name": "steroidyazawa",
     "text": "ﾀﾞﾒｯ!",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の音声異常に対する否定的な反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 221,
     "name": "wutnev3r",
     "text": "びりびりだって",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "リスナー間でノイズについて言及していることへの反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 222,
     "name": "shonya0w0",
     "text": "まだだめ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ノイズが治っていない状態に対する指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 223,
     "name": "henachocoaim",
     "text": "まだ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ノイズが治っていないという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
@@ -319,14 +487,22 @@
     "offset_seconds": 238,
     "name": "kuroryun1",
     "text": "こんばんわ水無瀬",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者への挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 238,
     "name": "youtuberkimura",
     "text": "マイクの接触とかどうだろう",
-    "expected_category": "advise"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "マイク故障の原因についてのアドバイス（提案）",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -340,7 +516,11 @@
     "offset_seconds": 247,
     "name": "gil_blood",
     "text": "コードの接触とかじゃ？",
-    "expected_category": "advise"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "マイクケーブルの接触不良を疑うアドバイス",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -354,7 +534,11 @@
     "offset_seconds": 253,
     "name": "shonya0w0",
     "text": "しょにゃ watched 140 consecutive streams and sparked a watch streak! コードになにか接触か抜け掛けてるか",
-    "expected_category": "advise"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者の機材トラブルに対して、配線が接触不良を起こしているのではないかと推測して伝えている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -368,42 +552,66 @@
     "offset_seconds": 260,
     "name": "steroidyazawa",
     "text": "なおったぞ？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の機材トラブルが解消したことに対する反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 261,
     "name": "henachocoaim",
     "text": "なおった",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の機材トラブルが解消したことに対する反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 263,
     "name": "ho_o_neko",
     "text": "うん？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の機材トラブルに対する状況確認の反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 263,
     "name": "youtuberkimura",
     "text": "あ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の機材トラブルに対する気付きの反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 267,
     "name": "589_sirayuki",
     "text": "なおった",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の機材トラブルが解消したことに対する反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 269,
     "name": "ho_o_neko",
     "text": "治った",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の機材トラブルが解消したことに対する反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -417,63 +625,99 @@
     "offset_seconds": 271,
     "name": "youtuberkimura",
     "text": "なおったわｗ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の機材トラブルが解消したことに対する反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 274,
     "name": "wutnev3r",
     "text": "治った",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の機材トラブルが解消したことに対する反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 279,
     "name": "shonya0w0",
     "text": "おかえり",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "機材トラブルからの復旧に対する歓迎の意",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 280,
     "name": "tio_culus",
     "text": "なおりましたね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の機材トラブルが解消したことに対する反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 293,
     "name": "gil_blood",
     "text": "ノイズの感じが接触だったよね",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者の配信トラブルの原因について、ノイズの様子から接触不良が原因だったと考察するコメント",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 293,
     "name": "youtuberkimura",
     "text": "お子さん何かさわっちゃったかな",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "トラブルの原因として、配信者の家のお子さんが何か触ってしまったのではないかと推測するコメント",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 294,
     "name": "imamu_mamu",
     "text": "叩いたら治ったの？",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "PCが治ったかを確認するために配信者が叩いたのかと質問している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 296,
     "name": "589_sirayuki",
     "text": "ロボまるいた？",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "画面上にロボまるというキャラクターがいたのかどうかを質問している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 312,
     "name": "steroidyazawa",
     "text": "PC叩くなしwww",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者がPCを叩く動作をしたことに対して、叩いてはいけないと嗜める反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -487,21 +731,33 @@
     "offset_seconds": 340,
     "name": "youtuberkimura",
     "text": "早めにやすみましょ",
-    "expected_category": "advice"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者が体調不良を訴えていることに対する休息の提案",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 343,
     "name": "imamu_mamu",
     "text": "お大事に",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の体調不良に対する気遣いの言葉",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 344,
     "name": "589_sirayuki",
     "text": "むりしないようにね",
-    "expected_category": "advice"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の体調不良に対する気遣いの言葉",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -543,7 +799,11 @@
     "offset_seconds": 394,
     "name": "589_sirayuki",
     "text": "１月前",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が言及したエラーに関連して、その発生時期について言及している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -564,70 +824,110 @@
     "offset_seconds": 407,
     "name": "589_sirayuki",
     "text": "（多分",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "先ほどの発言の根拠として、恐らくという推測を補足している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 409,
     "name": "wutnev3r",
     "text": "まるちゃんかわいいね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のキャラクターであるまるちゃんに対する称賛",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 413,
     "name": "nekornata",
     "text": "ぽぇ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "キャラクターの動作やセリフに対する可愛いというニュアンスの反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 426,
     "name": "kuritoru3",
     "text": "こんばんわまるちゃん",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者に対する挨拶",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 436,
     "name": "tio_culus",
     "text": "えらいね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の言動や状況に対する称賛",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 439,
     "name": "wutnev3r",
     "text": "16日まえらしい",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "話題に上がっている出来事の時期について補足している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 440,
     "name": "kuroryun1",
     "text": "くろろん1 watched 130 consecutive streams and sparked a watch streak! 出会って130日経ちましたね。長い間配信ありがとうございます、じゃ　おやすみ",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "130日連続視聴の感謝と、配信に対する労い、離脱の挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 444,
     "name": "kuroryun1",
     "text": "ｚｚｚ",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "眠ることを表す擬音、離脱の挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 444,
     "name": "nekornata",
     "text": "けっこうやっつる",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が配信を長く続けていることに対する感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 447,
     "name": "seeker9119",
     "text": "きたきたー",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が登場したこと、あるいは期待していた展開になったことに対する喜びの反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -648,7 +948,11 @@
     "offset_seconds": 471,
     "name": "tadanotawashi73yen",
     "text": "まるちゃんだああああああああああああああああ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者(まるちゃん)が登場したことに対する喜びと歓声",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -662,7 +966,11 @@
     "offset_seconds": 476,
     "name": "tadanotawashi73yen",
     "text": "こんまるこんまるこんまるこんまるこんまる",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者に対する定番の挨拶「こんまる」の連呼",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -683,7 +991,11 @@
     "offset_seconds": 483,
     "name": "tadanotawashi73yen",
     "text": "こおおおおおおおおおおんまあああああああああああああああるううううううううううううう",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者に対する定番の挨拶「こんまる」を強調して伝えている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -704,7 +1016,11 @@
     "offset_seconds": 490,
     "name": "kuroryun1",
     "text": "すきいいいいいいいいいいいいいいいい",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者に対して好きという感情を伝えている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -739,7 +1055,11 @@
     "offset_seconds": 502,
     "name": "kuroryun1",
     "text": "よし",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の挨拶や状況に対する肯定的なリアクション",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -767,7 +1087,11 @@
     "offset_seconds": 513,
     "name": "tadanotawashi73yen",
     "text": "とられた",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ゲーム内でアイテムや権利を他のプレイヤーに取られたことへの反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
@@ -802,14 +1126,22 @@
     "offset_seconds": 525,
     "name": "589_sirayuki",
     "text": "なにくらべ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が先ほど言った「たわしさんは1人しかいない」等の発言を受けて「何を比較しているのか」と尋ねている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 528,
     "name": "wutnev3r",
     "text": "モブを倒すゲーム",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者の「どういうゲームだったっけ？」という問いかけに対し、モブを倒すゲームであると回答している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -830,7 +1162,11 @@
     "offset_seconds": 538,
     "name": "kuroryun1",
     "text": "イマジナリーたわしは いるよおおぉおんんんんえぬ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "前後の配信者の発言を受けて、架空のキャラクター（イマジナリーたわし）の存在を主張している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -844,7 +1180,11 @@
     "offset_seconds": 552,
     "name": "wutnev3r",
     "text": "なんかビックリマーク出たら推す、とりあえずモブを倒す",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "ゲームの遊び方について、ビックリマークが出たら押すこととモブを倒すことを提案している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -858,7 +1198,11 @@
     "offset_seconds": 559,
     "name": "tio_culus",
     "text": "マップ上にピン立ってるところにクエストあるので、そこに行けば良いかもですね",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者がどこに行くべきか迷っている状況に対し、ピンの場所へ行くようアドバイスしている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -893,14 +1237,22 @@
     "offset_seconds": 582,
     "name": "kuroryun1",
     "text": "そうするとクエストが受けれるのでそうするといいですね",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "ピンの場所へ行くべきという配信者の判断に対し、そこに行くことでクエストが受けられると助言している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 583,
     "name": "wutnev3r",
     "text": "でも今立ってる場所にも￥ぴんあるよね？",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "現在地にもピンがあることを指摘し、配信者の行動方針に対して疑問を投げかけている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -935,7 +1287,11 @@
     "offset_seconds": 596,
     "name": "seeker9119",
     "text": "まるちゃんこのゲームギルドあるらしいぞ、作ってくれ",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者に対して、ゲーム内でギルドを作ってほしいと提案している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -963,7 +1319,11 @@
     "offset_seconds": 610,
     "name": "tio_culus",
     "text": "ワールドマップならUかな",
-    "expected_category": "advice"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "マップを開く方法を尋ねる配信者に対し、キーボードのUキーで開けることを教えている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -984,7 +1344,11 @@
     "offset_seconds": 621,
     "name": "589_sirayuki",
     "text": "ウェイポイントで見れる",
-    "expected_category": "advice"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "マップの確認方法について、ウェイポイントから見られることを教えている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -998,7 +1362,11 @@
     "offset_seconds": 623,
     "name": "kuroryun1",
     "text": "ギルド名は poepoeきゅんですか？",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "作成予定のギルド名について、具体的に名前を確認している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1068,7 +1436,11 @@
     "offset_seconds": 707,
     "name": "kuritoru3",
     "text": "やってるうちに思い出すね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者がゲーム操作を忘れていても、プレイを続けていれば自然と思い出すはずだという励まし。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1103,7 +1475,11 @@
     "offset_seconds": 733,
     "name": "seeker9119",
     "text": "へへ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の「やれる子だから」という発言に対する笑い声や微笑み。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1124,14 +1500,22 @@
     "offset_seconds": 745,
     "name": "wutnev3r",
     "text": "マルちゃん今20レべぐらい？かわいいね＾＾",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者のゲーム内キャラクターのレベルを確認し、可愛がっている。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 745,
     "name": "kuroryun1",
     "text": "だいじょうぶやってない",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（自分は）配信者と進行度を合わせるために、あえてゲームをプレイしていない。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1159,35 +1543,55 @@
     "offset_seconds": 762,
     "name": "kuritoru3",
     "text": "アクト４まで進めちゃったよ",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "自分はゲームを既にアクト4まで進めてしまったという報告。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 763,
     "name": "seeker9119",
     "text": "Act4終わるくらい！",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "自分は現在アクト4を終えるくらいの進捗であるという報告。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 774,
     "name": "kuroryun1",
     "text": "まるちゃんを 抜かす可能性があるゲームなんてやらないよ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者（まるちゃん）の進行度を追い越してしまう可能性のあるプレイはしないようにしている。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 776,
     "name": "nekornata",
     "text": "2週間で140時間こえてた",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "自分は2週間で140時間以上このゲームをプレイしたという個人の近況報告。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 781,
     "name": "589_sirayuki",
     "text": "まるちゃんと進行同じにしたくてやってないんだよね",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者と進行を合わせるために、自分はあえてゲームをプレイしていない。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1201,77 +1605,121 @@
     "offset_seconds": 819,
     "name": "kuroryun1",
     "text": "誰を滅した？みつハチさん？",
-    "expected_category": "cross-chat"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が「痛っ！」と言った際、誰が原因でダメージを受けたのか（誰に滅したのか）を尋ねている。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 820,
     "name": "wutnev3r",
     "text": "僕も同じ進行にしたくて今日やってないよ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者と同じ進行速度でプレイしたいため、自分は今日あえてゲームをプレイしていない。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 834,
     "name": "kazuha1019",
     "text": "こんばんは mizuna13Zii",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "他の視聴者に対するこんばんはという挨拶。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 850,
     "name": "wutnev3r",
     "text": "だってやりたいんだもん mizuna13Batabatabata",
-    "expected_category": "blogpost"
+    "expected_category": "response",
+    "expected_interpreted_comment": "ゲームをプレイしたい気持ちを抑えて進行を合わせていることについての心情吐露。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 851,
     "name": "589_sirayuki",
     "text": "そしてアンインストールした.. mizuna13Zii （おい",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "ゲームをアンインストールしたという個人の近況報告。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 863,
     "name": "seeker9119",
     "text": "サブスクしないしな！",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "自分はサブスクライブをしないという宣言。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 883,
     "name": "kuroryun1",
     "text": "いないとこでぼろかすいわれてかわいそう",
-    "expected_category": "reaction"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "配信中に話題に上がっていない人物が悪口を言われていることへの同情。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 885,
     "name": "kuroryun1",
     "text": "もっとやれ",
-    "expected_category": "reaction"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "話題の人物に対するもっと悪口を言えという煽り。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 894,
     "name": "wutnev3r",
     "text": "うらやましい",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "他のリスナーのプレイ状況に対しての羨望。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 896,
     "name": "589_sirayuki",
     "text": "まるちゃんができないと思って",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者がプレイできないことを前提として行動していることについてのコメント。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 916,
     "name": "jagaas",
     "text": "こんまる",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "配信者に対する「こんばんは、まるちゃん」という挨拶。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1306,7 +1754,11 @@
     "offset_seconds": 964,
     "name": "tio_culus",
     "text": "つよい",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が自身の弓の強さを評価したことに対する同意。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1348,7 +1800,11 @@
     "offset_seconds": 985,
     "name": "kuritoru3",
     "text": "弓は序盤の覇権武器",
-    "expected_category": "response"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者が使っている弓という武器は、ゲーム序盤において非常に強力な武器であるという助言。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1383,14 +1839,22 @@
     "offset_seconds": 1001,
     "name": "wutnev3r",
     "text": "ニコニコで見てるよ",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "自分はニコニコ動画経由でこの配信を見ているという視聴環境の報告。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1005,
     "name": "tio_culus",
     "text": "うまいね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のゲームプレイが上手であることに対する賞賛。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1404,7 +1868,11 @@
     "offset_seconds": 1010,
     "name": "589_sirayuki",
     "text": "ほなまたインストールするか mizuna13Paku",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "ゲームをまたインストールしてプレイしようと思う",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -1439,7 +1907,11 @@
     "offset_seconds": 1024,
     "name": "wutnev3r",
     "text": "まるちゃんだ～ってにこにこしてるよ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "（配信者のプレイを見て）まるちゃんがニコニコしている様子を伝えている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1481,7 +1953,11 @@
     "offset_seconds": 1057,
     "name": "wutnev3r",
     "text": "レベルアップしてるじゃん",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "（配信者のゲーム状況に対して）レベルアップしていることを指摘した",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1516,7 +1992,11 @@
     "offset_seconds": 1074,
     "name": "wutnev3r",
     "text": "左下にパッシブポイント振ってないよ",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "（配信者に対して）左下のパッシブポイントをまだ割り振っていないことを指摘する",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1530,7 +2010,11 @@
     "offset_seconds": 1084,
     "name": "kuritoru3",
     "text": "下に＋マーク出てる",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "（配信者に対して）画面下の＋マークが表示されていることを伝えた",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1544,7 +2028,11 @@
     "offset_seconds": 1086,
     "name": "kuroryun1",
     "text": "あーるがなにかしりたい？ きゅーのつぎだよ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（配信者の質問に対して）Rキーの役割について補足説明をしている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
@@ -1565,14 +2053,22 @@
     "offset_seconds": 1098,
     "name": "tio_culus",
     "text": "いいね。余裕ある大人の対応ですね。",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "（配信者のゲームの進め方や発言に対して）大人の対応で素晴らしいと称賛する",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1098,
     "name": "589_sirayuki",
     "text": "パッシブ警察",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "（パッシブポイントの指摘が相次いだことに対し）パッシブポイントを指摘するリスナーを「パッシブ警察」と表現した",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1586,7 +2082,11 @@
     "offset_seconds": 1105,
     "name": "wutnev3r",
     "text": "いつでもいいけどｗ忘れてないかなーって久しぶりだし",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（自身のパッシブポイント指摘について）忘れていないか気になったので伝えた",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1600,49 +2100,77 @@
     "offset_seconds": 1112,
     "name": "nekornata",
     "text": "ドパガキだからむずむずするんご",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "（パッシブポイントを振っていない状況が）気になって仕方がない",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1120,
     "name": "kuroryun1",
     "text": "りゅうじのあーるってわけ、つまり らぶってこと！？それはえるだよ しずかに",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者のRに関する発言に対して誤解を指摘しつつ冗談を言っている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1133,
     "name": "tadanotawashi73yen",
     "text": "ぽえたのしいんご？",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（ゲームに対して）このゲームは楽しいですか？と尋ねている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1136,
     "name": "nekornata",
     "text": "がはは",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "（前のコメントの流れに対して）笑っている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1138,
     "name": "wutnev3r",
     "text": "mizuna13E",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "特定のスタンプを表示している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1147,
     "name": "jagaas",
     "text": "とりあえず端までまっすぐ進んだらいいよ",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "（配信者に対して）端まで真っ直ぐ進むのが良いと指示した",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 1156,
     "name": "kuroryun1",
     "text": "この画面見ると頭痛いからやめてほしい 宇宙ネコになりそう",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "（ゲーム画面を見て）画面が複雑で頭が痛くなるような感覚がある",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1677,14 +2205,22 @@
     "offset_seconds": 1176,
     "name": "kuroryun1",
     "text": "ふ、、ふるい？",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（配信者の発言が）古いと言っているのか？と聞き返している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1178,
     "name": "wutnev3r",
     "text": "宇宙猫すき",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "宇宙猫のキャラクターが好きだと述べている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1698,7 +2234,11 @@
     "offset_seconds": 1183,
     "name": "589_sirayuki",
     "text": "ういいあーい？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の発言に対する聞き返し",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1740,14 +2280,22 @@
     "offset_seconds": 1195,
     "name": "wutnev3r",
     "text": "白黒猫もっとすき",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "白黒猫の方がもっと好きだと言っている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1198,
     "name": "kuroryun1",
     "text": "それまわってるほうのミーム猫",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（話題の猫について）回っているほうのミーム猫のことだと補足している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1789,7 +2337,11 @@
     "offset_seconds": 1221,
     "name": "tio_culus",
     "text": "いいね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が宇宙猫の話をしていることに対して肯定的な反応をしている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1810,14 +2362,22 @@
     "offset_seconds": 1226,
     "name": "wutnev3r",
     "text": "それがいい",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の話す宇宙猫の話題に対して、それが良いと同意している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1227,
     "name": "589_sirayuki",
     "text": "あー宇宙黒猫ね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の話している宇宙猫を、宇宙黒猫のことだと解釈して反応している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1831,14 +2391,22 @@
     "offset_seconds": 1232,
     "name": "kuritoru3",
     "text": "最近バズってる山でこけてる猫すこ",
-    "expected_category": "blogpost"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信中の猫の話題に関連して、最近のネット上の猫動画について自分の感想を述べている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1233,
     "name": "kuroryun1",
     "text": "それを ちまたでなんていうかしりたい？",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "特定の猫を指す言葉について、配信者に問いかけている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1852,49 +2420,77 @@
     "offset_seconds": 1238,
     "name": "seeker9119",
     "text": "今なんて言ったの？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の前の発言が聞き取れず、内容を確認している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1251,
     "name": "rino0408",
     "text": "りのちゃん__ subscribed at Tier 1. They've subscribed for 4 months! こんばんは mizuna13Rabubiiimu",
-    "expected_category": "other"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "サブスクリプションの更新と挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1252,
     "name": "wizebot",
     "text": "⭐️ リサブ ⭐️ りのちゃん__ (rino0408)（+1） ⭐️",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "サブスクリプション更新の自動システム通知",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1253,
     "name": "kuroryun1",
     "text": "のうきんめすごりら",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が話題にしていた言葉（脳筋雌ゴリラ）を補完して発言している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1253,
     "name": "wizebot",
     "text": "⭐️ リサブ ⭐️ 兎雪はみぃ (hami_i)（+2） ⭐️",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "サブスクリプション更新の自動システム通知",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1257,
     "name": "nekornata",
     "text": "みんなそんなもんだよ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が「考えているのか」という話題に対し、皆そんなものだと同意している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1265,
     "name": "seeker9119",
     "text": "ああ！脳が筋肉で出来てるって言ったんだ",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の発言「脳が筋肉でできている」という内容を再確認している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1915,14 +2511,22 @@
     "offset_seconds": 1293,
     "name": "jagaas",
     "text": "だいたいあってる",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の考察や発言内容に対して同意している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1300,
     "name": "nekornata",
     "text": "うん",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の発言に対する短い肯定の相槌",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1936,7 +2540,11 @@
     "offset_seconds": 1301,
     "name": "kuroryun1",
     "text": "まるちゃんのリスナーが考えてると思う？",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が話題にしている「リスナーは考えているか」というテーマについて質問を投げかけている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1957,7 +2565,11 @@
     "offset_seconds": 1311,
     "name": "589_sirayuki",
     "text": "脳筋しかかたんだよ",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "話題に出ている「脳筋」という言葉を使って、配信者の語録に同調している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1971,7 +2583,11 @@
     "offset_seconds": 1319,
     "name": "wutnev3r",
     "text": "ゴリゴリガイドみてる",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者のゲームプレイや考察に関連して、攻略情報を見ていることを伝えている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -1992,14 +2608,22 @@
     "offset_seconds": 1325,
     "name": "tio_culus",
     "text": "今こっち見ました？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信中の出来事に対して、配信者が自分を見ているのか確認している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1325,
     "name": "kuroryun1",
     "text": "考えてるふりする人もいるよ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者の「みんな考えているか？」という問いに対して、そうではない人もいると補足している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2020,7 +2644,11 @@
     "offset_seconds": 1338,
     "name": "seeker9119",
     "text": "ビルドプランナーってやつで人のやつを参考にしてる",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "ゲーム攻略において他人のビルドを参考にしていることを伝えている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2041,14 +2669,22 @@
     "offset_seconds": 1344,
     "name": "tmsao",
     "text": "mizuna13Konmaru",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "スタンプによる挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1345,
     "name": "589_sirayuki",
     "text": "右クリックで売れる",
-    "expected_category": "backseat"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信中のゲームの操作方法について助言をしている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2062,7 +2698,11 @@
     "offset_seconds": 1347,
     "name": "nekornata",
     "text": "人のビルド見てまねしてる",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が問いかけている攻略や考え方について、自分も人のビルドを真似していると答えている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2097,77 +2737,121 @@
     "offset_seconds": 1368,
     "name": "nekornata",
     "text": "mizuna13PEROPERO",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "スタンプによる反応",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1378,
     "name": "seeker9119",
     "text": "パッシブツリーオリジナルで振るなんて無理よ無理無理",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "パッシブツリーを独自構成で組むのはゲーム仕様上無理があるため不可能である",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1378,
     "name": "tio_culus",
     "text": "攻略情報見ずにこのゲームクリアした人いるのかな？",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "攻略情報を見ずにこのゲームをクリアした人は存在するのかという疑問",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1382,
     "name": "kuroryun1",
     "text": "たぶんこういうのやったら 拳で解決したくなるからむいてない",
-    "expected_category": "response"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "私がこのゲームの複雑な攻略をやろうとするとイライラして向いていないと思う",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1386,
     "name": "hami_i",
     "text": "兎雪はみぃ is gifting 2 Tier 1 Subs to 水無瀬まる's community!",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "兎雪はみぃさんがコミュニティサブスクリプションを2つギフトした",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1386,
     "name": "wizebot",
     "text": "🎁 兎雪はみぃ (hami_i) ⭐️がコミュニティにサブスクリプションを2回提供しました！",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "兎雪はみぃさんがコミュニティサブスクリプションを2つギフトした（Wizebotによる通知）",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1387,
     "name": "hami_i",
     "text": "兎雪はみぃ gifted a Tier 1 sub to monmon_216!",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "兎雪はみぃさんがmonmon_216さんにサブスクをギフトした",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1387,
     "name": "hami_i",
     "text": "兎雪はみぃ gifted a Tier 1 sub to MonkWTF!",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "兎雪はみぃさんがMonkWTFさんにサブスクをギフトした",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1390,
     "name": "wutnev3r",
     "text": "おおお",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "サブスクギフトに対する感嘆",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1393,
     "name": "seeker9119",
     "text": "うんちぶりぶり",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "ふざけた内容のコメント",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1395,
     "name": "wutnev3r",
     "text": "mizuna13Naigihu",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のエモート表示",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2181,7 +2865,11 @@
     "offset_seconds": 1407,
     "name": "kuroryun1",
     "text": "mizuna13Kyaaaa mizuna13Kyaaaa mizuna13Niceee",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のエモート表示",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2195,42 +2883,66 @@
     "offset_seconds": 1412,
     "name": "589_sirayuki",
     "text": "自分で新しいビルドを作ったらすごいよ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が自分で新しいビルドを構築できたら凄いことである",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1412,
     "name": "youtuberkimura",
     "text": "mizuna13Naigihu",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のエモート表示",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1415,
     "name": "tio_culus",
     "text": "水無瀬さんがそうなるなら、あまりにも偉大ですね",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "もし配信者が情報なしでクリアできたら偉大であるという感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1415,
     "name": "kuroryun1",
     "text": "mizuna13Naigihu mizuna13Naigihu",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のエモート表示",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1419,
     "name": "nekornata",
     "text": "mizuna13Naigihu",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のエモート表示",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1420,
     "name": "hami_i",
     "text": "mizuna13Untiti mizuna13Untiti",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のエモート表示",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2286,7 +2998,11 @@
     "offset_seconds": 1462,
     "name": "589_sirayuki",
     "text": "mizuna13WAAAI mizuna13WAAAI mizuna13WAAAI mizuna13WAAAI",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のエモート表示",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2314,28 +3030,44 @@
     "offset_seconds": 1484,
     "name": "tio_culus",
     "text": "いまのところ、誰もいませんね。未踏の地ですよ。",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "攻略情報を見ずにクリアした人は現時点で一人もいないという回答",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1489,
     "name": "kuroryun1",
     "text": "それはもしかしたら たいしたもん、なのかもしれないですね。",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "攻略情報なしでクリアすることは素晴らしいことであるかもしれないという意見",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1509,
     "name": "wutnev3r",
     "text": "えっ初めてのガイドはだれが作ったの？",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "最初にゲームのガイドを作成したのは誰かという質問",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1514,
     "name": "kuroryun1",
     "text": "たいしたもん もおおおおおおだもおおおお",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "先ほどのコメントへの反応や盛り上がり",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2349,7 +3081,11 @@
     "offset_seconds": 1526,
     "name": "589_sirayuki",
     "text": "積んだら装備更新だね",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "もし詰まったら装備を更新すべきだという助言",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -2377,7 +3113,11 @@
     "offset_seconds": 1540,
     "name": "wutnev3r",
     "text": "いや、好奇心が mizuna13Odoodo",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "何かに対して好奇心が湧いている様子",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2398,7 +3138,11 @@
     "offset_seconds": 1552,
     "name": "kuroryun1",
     "text": "そうだよ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "現在は木曜日であるという配信者の質問への回答",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2419,14 +3163,22 @@
     "offset_seconds": 1570,
     "name": "seeker9119",
     "text": "なんか、地味だね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "今の状況やゲーム内容に対して地味だという感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1571,
     "name": "wutnev3r",
     "text": "でも僕明日休みだよ",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "話の流れとは無関係なリスナー自身の明日が休みだという個人的報告",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2461,7 +3213,11 @@
     "offset_seconds": 1588,
     "name": "seeker9119",
     "text": "かわい",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が自分のキャラクターを可愛いと言ったことに対する同意のリアクション",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2489,7 +3245,11 @@
     "offset_seconds": 1597,
     "name": "kuroryun1",
     "text": "じゃあ おまえは！はでなのかああああああああ それとも！！はげかああ！",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が自分のキャラクターを地味だと言われたことに対し、反論または煽るようなツッコミ",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2510,7 +3270,11 @@
     "offset_seconds": 1610,
     "name": "589_sirayuki",
     "text": "装備を更新してなおクリアできないならパッシブを振りなおすの考える",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "ゲーム攻略において、装備更新でクリアできない場合のパッシブスキル振り直しという助言",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -2538,14 +3302,22 @@
     "offset_seconds": 1621,
     "name": "gil_blood",
     "text": "ふーーーーーん",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の発言に対する流し聞きや呆れなどの反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1624,
     "name": "seeker9119",
     "text": "おいハゲじゃないよ頭皮がちょっと臭いだけだよ",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者がハゲと疑われたことに対する否定と独自のジョーク",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2559,7 +3331,11 @@
     "offset_seconds": 1625,
     "name": "kuroryun1",
     "text": "後者に噴射",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の発言（はげか？という問い）に対して、後者を選ぶというネタ的な反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2608,7 +3384,11 @@
     "offset_seconds": 1661,
     "name": "589_sirayuki",
     "text": "ジェット噴射",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者がジェット風車と言い間違えた、あるいは聞き間違えた語句の修正または便乗",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2636,14 +3416,22 @@
     "offset_seconds": 1681,
     "name": "kuroryun1",
     "text": "水力噴射 じぇっとふんしゃ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の言い間違いの話題に乗っかる言葉遊び",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1685,
     "name": "ariettaheals",
     "text": "ariettaheals watched 15 consecutive streams and sparked a watch streak! こんにちは、マルちゃん。元気にしてる？また配信で会えて嬉しいよ <3",
-    "expected_category": "other"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者への挨拶と視聴継続報告",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2657,7 +3445,11 @@
     "offset_seconds": 1697,
     "name": "589_sirayuki",
     "text": "あ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の話に対する注意を引きつける反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2685,7 +3477,11 @@
     "offset_seconds": 1707,
     "name": "shadowmimickingbox_fairy",
     "text": "mizuna13Konmaru ROM",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者への挨拶とROM（読み専）であることの表明",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2727,14 +3523,22 @@
     "offset_seconds": 1730,
     "name": "kuroryun1",
     "text": "い",
-    "expected_category": "reaction"
+    "expected_category": "other",
+    "expected_interpreted_comment": "リスナーが協力して「い」という文字を送って言葉遊びをしようとしている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1736,
     "name": "wutnev3r",
     "text": "し",
-    "expected_category": "reaction"
+    "expected_category": "other",
+    "expected_interpreted_comment": "リスナーが協力して「し」という文字を送って言葉遊びをしようとしている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2755,7 +3559,11 @@
     "offset_seconds": 1743,
     "name": "589_sirayuki",
     "text": "ううんなんでもなかった mizuna13Paku",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者に何の文字か尋ねられたことに対する、冗談混じりの取り繕い",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2783,14 +3591,22 @@
     "offset_seconds": 1747,
     "name": "seeker9119",
     "text": "て",
-    "expected_category": "reaction"
+    "expected_category": "other",
+    "expected_interpreted_comment": "言葉遊び（い・し・て・る）の一部として「て」を送っている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1750,
     "name": "tio_culus",
     "text": "る",
-    "expected_category": "reaction"
+    "expected_category": "other",
+    "expected_interpreted_comment": "言葉遊び（い・し・て・る）の一部として「る」を送っている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2804,7 +3620,11 @@
     "offset_seconds": 1751,
     "name": "jagaas",
     "text": "あ（かわいい）言葉もなくなるくらい可愛いって思ったんだよ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者（または画面内の対象）を見て、言葉を失うほど可愛いと感じた",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2846,7 +3666,11 @@
     "offset_seconds": 1764,
     "name": "kuritoru3",
     "text": "今の子ドリカムわかるんか",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者がドリカムの曲を口ずさんだことに対し、今の若い世代がドリカムを知っているのかという疑問",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2867,7 +3691,11 @@
     "offset_seconds": 1771,
     "name": "wutnev3r",
     "text": "あいしてるの”あ”、あいしてるの”い”以下略",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が話題にしているドリカムの歌詞の続きを補完している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2888,7 +3716,11 @@
     "offset_seconds": 1782,
     "name": "seeker9119",
     "text": "まるちゃんサドンアタックCBT募集してたよ",
-    "expected_category": "other"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "サドンアタックというゲームについて、他の方（まるちゃん）がCBT募集をしていたという情報提供",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2916,21 +3748,33 @@
     "offset_seconds": 1802,
     "name": "589_sirayuki",
     "text": "なにそのゲーム",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が話題にしているサドンアタックというゲームが何なのか尋ねている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1804,
     "name": "seeker9119",
     "text": "世代じゃん",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "サドンアタックというゲームを知っていることは特定の年代層であることを指摘している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1808,
     "name": "tio_culus",
     "text": "お、ピンだ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "画面上のゲーム内でピン（マーカー）が刺さったことに反応している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2951,7 +3795,11 @@
     "offset_seconds": 1814,
     "name": "kuroryun1",
     "text": "ベータからやってた",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "自分はサドンアタックというゲームをベータ版の頃からプレイしていた",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2979,7 +3827,11 @@
     "offset_seconds": 1821,
     "name": "seeker9119",
     "text": "サドンアタック楽しかったー",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "サドンアタックというゲームは楽しかったという過去の感想",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -2993,7 +3845,11 @@
     "offset_seconds": 1825,
     "name": "kuroryun1",
     "text": "サドンで育ったといっても過言ではない",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "自分自身の過去においてサドンアタックというゲームが大きな影響を与えたという感想",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3063,14 +3919,22 @@
     "offset_seconds": 1902,
     "name": "wutnev3r",
     "text": "マジックは青いやつでレアは金のやつかな",
-    "expected_category": "advice"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者がゲーム内のアイテムのレアリティの見分け方について疑問を持っていたため、マジックは青色、レアは金色であると助言している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1909,
     "name": "nekornata",
     "text": "いえーす",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者がアイテムのレアリティについての推測を求めた際、その通りだと肯定している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3140,14 +4004,22 @@
     "offset_seconds": 1985,
     "name": "tio_culus",
     "text": "いいですね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の現在のゲーム進行や状態に対する肯定的な反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 1987,
     "name": "wutnev3r",
     "text": "それ、残像ですよ（イケボ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者がゲーム内で不思議な現象（残像のようなもの）について言及したことへの返答",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3182,7 +4054,11 @@
     "offset_seconds": 2045,
     "name": "jagaas",
     "text": "盾持ってるからね",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "敵が盾を持っているから硬いのだと思う",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
@@ -3210,7 +4086,11 @@
     "offset_seconds": 2075,
     "name": "tio_culus",
     "text": "盾持ち固いですよね、盾持ってますもんね",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "盾を持っている敵は硬いですね、盾を装備しているからでしょう",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
@@ -3224,14 +4104,22 @@
     "offset_seconds": 2090,
     "name": "kuroryun1",
     "text": "ばかになった？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "（配信者がゲーム内で異常な挙動をしているのを見て）配信者は馬鹿になったのか？",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2101,
     "name": "rabibirabi07",
     "text": "ぽぇぽぇにぃ～♪",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ぽえぽえ（配信者の定型句）",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3245,7 +4133,11 @@
     "offset_seconds": 2143,
     "name": "jagaas",
     "text": "矢を気にしなくていいのがいいよね",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "矢の残数を気にしなくていいのは良いことだ",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3259,7 +4151,11 @@
     "offset_seconds": 2147,
     "name": "aoi_tachibana7",
     "text": "立華あおい subscribed at Tier 1. They've subscribed for 11 months, currently on a 11 month streak! おはにょ",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "立華あおいがリサブした。おはにょ。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3273,7 +4169,11 @@
     "offset_seconds": 2148,
     "name": "wizebot",
     "text": "⭐️ リサブ ⭐️ 立華あおい (aoi_tachibana7)（+5） ⭐️",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "立華あおいがサブスクを更新した",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3294,21 +4194,33 @@
     "offset_seconds": 2157,
     "name": "purplemaguro",
     "text": "mizuna13Konmaru",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "リスナーによる挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2169,
     "name": "aoi_tachibana7",
     "text": "POE2とは懐かしい",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "POE2（話題のゲーム）の話は懐かしい",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2172,
     "name": "jagaas",
     "text": "でも矢が無くなってヤ～ネ～って言わせれないのは残念",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "矢が無くなって敵に「ヤ～ネ～」と言わせられないのは残念だ",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3329,14 +4241,22 @@
     "offset_seconds": 2188,
     "name": "wutnev3r",
     "text": "本当にこのままだとロルの英ディーシーもできそう",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者のプレイスタイルなら、League of LegendsのADCという役割もできそうだ",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2189,
     "name": "tio_culus",
     "text": "いいね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "その意見に賛成する",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3371,28 +4291,44 @@
     "offset_seconds": 2199,
     "name": "aoi_tachibana7",
     "text": "リリースした時にめっちゃやってた！",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（POE2について）リリースした時にかなりプレイしていた",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2214,
     "name": "tio_culus",
     "text": "ADC向いてそうだと思います",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（配信者は）ADC（攻撃役）に向いていると思う",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2235,
     "name": "aoi_tachibana7",
     "text": "もうやりたい遊びはやり尽くした！",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（POE2について）もうやりたいことはやり尽くした",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2242,
     "name": "tio_culus",
     "text": "エイムが良いのと、キルラインの見極めがうまそうですし、回避も上手です",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（配信者は）エイムが良い、キルラインの見極めが上手い、回避が上手いのでADCに向いている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3441,7 +4377,11 @@
     "offset_seconds": 2263,
     "name": "tio_culus",
     "text": "ちょろすぎて草",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が簡単にやられてしまったのが面白い",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3455,14 +4395,22 @@
     "offset_seconds": 2270,
     "name": "kuroryun1",
     "text": "多分ですが 彼女に似合うのはトゥイッチです",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者に似合うのはLoLのトゥイッチというキャラクターだと思う",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2277,
     "name": "kuroryun1",
     "text": "なぜならちくちくうつのがすきそうだから",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（トゥイッチというキャラが）ちくちく攻撃するのが好きそうだから（配信者に似合う）",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3483,7 +4431,11 @@
     "offset_seconds": 2288,
     "name": "imamu_mamu",
     "text": "まるさんはＡＤＣのＡだよ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者の「まるさん」はADCの「A」の役割だよ",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3497,7 +4449,11 @@
     "offset_seconds": 2294,
     "name": "wutnev3r",
     "text": "マーベルうまそうだよねまるちゃん、ＯＷうまいし",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "まるちゃんはOWも上手いし、きっとマーベル（Marvel Rivals等のゲーム）も上手そうだよ",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3511,7 +4467,11 @@
     "offset_seconds": 2297,
     "name": "seeker9119",
     "text": "まるちゃんフレンド送ってもいいー？",
-    "expected_category": "other"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "リスナーが配信者にゲーム内フレンド申請をしていいか尋ねている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -3532,7 +4492,11 @@
     "offset_seconds": 2311,
     "name": "wutnev3r",
     "text": "どう？マーベルやりたくなった？",
-    "expected_category": "response"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者にマーベル（ゲーム）をプレイしたくなったか尋ねている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -3546,35 +4510,55 @@
     "offset_seconds": 2326,
     "name": "aoi_tachibana7",
     "text": "マーベルはもういいwww",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "マーベル（ゲーム）をプレイすることに対して否定的な感想を述べている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2336,
     "name": "kuroryun1",
     "text": "せいかくわるいってこと？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が性格が悪いキャラクターを好むことについて確認している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2339,
     "name": "wutnev3r",
     "text": "後ろからちまちまって言っちゃだめだよね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が遠距離から攻撃するプレイスタイルを評価していることに対し、それは言ってはいけないと指摘している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2347,
     "name": "nekornata",
     "text": "安全圏から石を投げたい性格なのか",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が遠距離攻撃キャラクターを好む理由を、安全圏から攻撃したい性格だからだと解釈している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2351,
     "name": "imamu_mamu",
     "text": "まるさん斧やハンマー持ってほしいときあるね",
-    "expected_category": "backseat"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者に遠距離武器ではなく、斧やハンマーなどの近接武器を使ってほしいと提案している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -3595,14 +4579,22 @@
     "offset_seconds": 2368,
     "name": "tio_culus",
     "text": "一方的に殴れるからですかね",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "遠距離キャラを好む理由が、相手を一方的に殴れるからではないかと推測している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2371,
     "name": "kuroryun1",
     "text": "できるのかな？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "近接武器を使うという提案がゲーム的に可能なのか疑問を呈している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3616,7 +4608,11 @@
     "offset_seconds": 2372,
     "name": "seeker9119",
     "text": "マーベルってくっそ狭い界隈の癖に上位ランクにいるガキンチョが調子乗ってるだけよ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "マーベルというゲームのプレイヤー層に対する批判的な意見を述べている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3658,7 +4654,11 @@
     "offset_seconds": 2390,
     "name": "tio_culus",
     "text": "実際、スペースを維持しながら叩くの大事ですからね",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "一定の距離を保ちながら攻撃することが戦術として重要であると同意している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3672,7 +4672,11 @@
     "offset_seconds": 2396,
     "name": "kuroryun1",
     "text": "PVPで敵に居たら ガチできらいで台パンするレベルの相手だと思ってるまるちゃんは",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が対戦相手として遭遇したくないと感じるような嫌な相手について語っている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3707,7 +4711,11 @@
     "offset_seconds": 2410,
     "name": "youtuberkimura",
     "text": "一時いっしょにやってた子16歳だったわ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "以前一緒にプレイしていた人が16歳だったというエピソードを共有している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3735,7 +4743,11 @@
     "offset_seconds": 2422,
     "name": "kuroryun1",
     "text": "自分近接しか使わないから遠距離職に発狂してる",
-    "expected_category": "response"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "自分自身が近接職しか使わないため、遠距離職に攻撃されると苛立つと語っている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3770,7 +4782,11 @@
     "offset_seconds": 2439,
     "name": "kuroryun1",
     "text": "え、ありがと",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が自分のコメントを拾ってくれたことに対してお礼を言っている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3784,7 +4800,11 @@
     "offset_seconds": 2449,
     "name": "wutnev3r",
     "text": "ちょっと、瞑想してくる",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "配信者が若者の年齢について語る中で、自分は瞑想してくるという独自の行動をとることを示唆している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3819,7 +4839,11 @@
     "offset_seconds": 2465,
     "name": "imamu_mamu",
     "text": "まるさん未成年にはだめですよ",
-    "expected_category": "backseat"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者に対して、未成年のプレイヤーには関わらないほうがいいと警告している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -3840,7 +4864,11 @@
     "offset_seconds": 2477,
     "name": "tio_culus",
     "text": "お、ボスかな",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ゲーム進行がボス戦に突入したことを察知し、言及している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3854,7 +4882,11 @@
     "offset_seconds": 2482,
     "name": "wutnev3r",
     "text": "二ボスだと",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "現在は2番目のボス戦であると認識しています",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3882,14 +4914,22 @@
     "offset_seconds": 2520,
     "name": "imr1p",
     "text": "こんまる～",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "まるさん（配信者）、こんにちは",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2525,
     "name": "acluca00",
     "text": "mizuna13Zii mizuna13Zii",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "スタンプによる挨拶や反応",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3931,14 +4971,22 @@
     "offset_seconds": 2539,
     "name": "wutnev3r",
     "text": "冷静の立ち回り、これがまる",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の冷静なプレイ立ち回りは素晴らしい",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2540,
     "name": "acluca00",
     "text": "mizuna13WAAAI mizuna13WAAAI",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "スタンプによる感情表現",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3952,7 +5000,11 @@
     "offset_seconds": 2552,
     "name": "acluca00",
     "text": "mizuna13Uwaaaa mizuna13Uwaaaa",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "スタンプによる感情表現",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3973,7 +5025,11 @@
     "offset_seconds": 2566,
     "name": "acluca00",
     "text": "ﾎﾟｴﾎﾟｴﾎﾟｴﾎﾟｴﾎﾟｴﾎﾟｴ",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "配信者の「どうしましたか？」に対するふざけた返答",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -3987,7 +5043,11 @@
     "offset_seconds": 2580,
     "name": "tio_culus",
     "text": "ナイスワンダウン",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が敵を一人倒したことを称賛する",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4001,7 +5061,11 @@
     "offset_seconds": 2588,
     "name": "tio_culus",
     "text": "冷静ですねえ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のプレイ中の冷静さを称賛する",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4015,7 +5079,11 @@
     "offset_seconds": 2615,
     "name": "tio_culus",
     "text": "位置取りうまいですね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の戦闘中の位置取りが上手い",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4029,7 +5097,11 @@
     "offset_seconds": 2635,
     "name": "nekornata",
     "text": "うますぎてくさ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者のプレイが上手すぎて笑える",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4043,49 +5115,77 @@
     "offset_seconds": 2644,
     "name": "589_sirayuki",
     "text": "一発でクリアうみゃい",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者がボスを一発でクリアしたことを称賛する",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2649,
     "name": "tio_culus",
     "text": "おー",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "感嘆のリアクション",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2650,
     "name": "wutnev3r",
     "text": "まあ～まるちゃんだからね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "まるちゃん（配信者）だからこそできたことだ",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2655,
     "name": "tio_culus",
     "text": "初見で撃破しちゃうかあ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が初見でボスを撃破したことに驚いている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2657,
     "name": "seeker9119",
     "text": "まるちゃんさすが！！",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "まるちゃん（配信者）のプレイはさすがである",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2659,
     "name": "imamu_mamu",
     "text": "ないすぅ～",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ナイスプレイの賞賛",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2662,
     "name": "nekornata",
     "text": "mizuna13Tensaii",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "スタンプによる天才という称賛",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4099,14 +5199,22 @@
     "offset_seconds": 2664,
     "name": "seeker9119",
     "text": "落ち着いたらJ押してくれたら嬉しい！",
-    "expected_category": "backseat"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者に対して、落ち着いたタイミングでJキーを押すことを提案する",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 2666,
     "name": "589_sirayuki",
     "text": "さすまる",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "さすがまるちゃん（配信者）",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4120,21 +5228,33 @@
     "offset_seconds": 2680,
     "name": "seeker9119",
     "text": "ありがとう！",
-    "expected_category": "reaction"
+    "expected_category": "other",
+    "expected_interpreted_comment": "（何かに対しての）感謝",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2681,
     "name": "tio_culus",
     "text": "パッシブ振り忘れてるのに勝てるなんて",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "パッシブスキルを振り忘れていたのに勝てたという驚き",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2718,
     "name": "seeker9119",
     "text": "送れない悲しい",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "（何らかの理由で）コメントが送信できなくて悲しいという自分語り",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4169,21 +5289,33 @@
     "offset_seconds": 2760,
     "name": "seeker9119",
     "text": "シャープ無しで送れた！",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "シャープ記号なしでコメント送信に成功した報告",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2763,
     "name": "589_sirayuki",
     "text": "だれ？",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が話している対象についての質問",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2766,
     "name": "imamu_mamu",
     "text": "８２５５ ヤニゴーゴー",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "数字の語呂合わせによるコメント",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4197,7 +5329,11 @@
     "offset_seconds": 2768,
     "name": "tio_culus",
     "text": "Act2のラストではないですね",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "現在進行中の状況がAct2の最後ではないという補足情報",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4218,21 +5354,33 @@
     "offset_seconds": 2781,
     "name": "wutnev3r",
     "text": "どうやって送るの？",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者に対して、フレンド申請の具体的な操作方法を質問している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2784,
     "name": "nekornata",
     "text": "ぽれもフレ送ってもよろし？",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者に対して、フレンド申請を送って良いか許可を求めている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2793,
     "name": "589_sirayuki",
     "text": "あーさっきのダブルボスね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が直前に遭遇したボス戦について、話題を共有している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4246,35 +5394,55 @@
     "offset_seconds": 2798,
     "name": "seeker9119",
     "text": "水無瀬まるで送れたよ！",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者に対して、特定の名前でフレンド申請が送信できたことを報告している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2802,
     "name": "kuroryun1",
     "text": "俺も送っていい？",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者に対して、フレンド申請を送って良いか許可を求めている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2830,
     "name": "wutnev3r",
     "text": "UIがわかりませんご",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が苦戦しているゲームのUI操作が理解できないと伝えている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2834,
     "name": "tio_culus",
     "text": "マウスオーバー中にSHIFT押すと比較できますよ",
-    "expected_category": "advice"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者のUIに関する疑問に対し、アイテム比較の操作方法を助言している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 2843,
     "name": "589_sirayuki",
     "text": "えろていまいふっど？",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が読み上げに失敗した名前の聞き返しまたはイタズラコメント",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4337,7 +5505,11 @@
     "offset_seconds": 2908,
     "name": "tio_culus",
     "text": "具合悪いなら、早めに休むことも検討してくださいね",
-    "expected_category": "advice"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者が体調不良を訴えていることに対し、休息を提案している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4351,7 +5523,11 @@
     "offset_seconds": 2921,
     "name": "nekornata",
     "text": "自分のペースで楽しんでね～",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の体調を気遣い、マイペースに配信を続けてほしいと伝えている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4379,7 +5555,11 @@
     "offset_seconds": 2936,
     "name": "kuroryun1",
     "text": "けど休ませませんよ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者に対し、休ませないというジョーク（リスナーとしての期待）を伝えている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4407,7 +5587,11 @@
     "offset_seconds": 2955,
     "name": "589_sirayuki",
     "text": "あーりがとん！",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の発言に対する感謝をふざけて表現している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4435,7 +5619,11 @@
     "offset_seconds": 2966,
     "name": "tio_culus",
     "text": "いいですね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の食べたいもの（たこ焼き）の話に対して賛同している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4498,7 +5686,11 @@
     "offset_seconds": 3032,
     "name": "tio_culus",
     "text": "ウェイポイントにいかないとワープはできませんね",
-    "expected_category": "advice"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者がマップ移動で悩んでいるのに対し、ワープの条件を指摘している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4519,7 +5711,11 @@
     "offset_seconds": 3042,
     "name": "seeker9119",
     "text": "ウェーイ",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の発言の語尾を拾って盛り上げている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4554,7 +5750,11 @@
     "offset_seconds": 3052,
     "name": "jagaas",
     "text": "チェックポイントクリックしたら地図見やすいよ",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者が地図の操作で迷っている様子を見て、チェックポイントのアイコンをクリックすると地図が見やすくなることを教える助言。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -4582,7 +5782,11 @@
     "offset_seconds": 3066,
     "name": "nekornata",
     "text": "陽気なポイントやな",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が発言した「三つ又の猫またちゃん」という名称を、陽気なポイントの場所として面白がっている。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4610,7 +5814,11 @@
     "offset_seconds": 3085,
     "name": "tio_culus",
     "text": "もうOKみたいです",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が選択肢で迷っている状況に対し、既にその段階はクリア可能であることを伝えている。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4666,7 +5874,11 @@
     "offset_seconds": 3136,
     "name": "tio_culus",
     "text": "今のところに合った、ウェイポイントをクリックするとワープできるかも？",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者が地図や移動で迷っている様子に対し、ウェイポイントからワープ移動ができることを提案している。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -4687,7 +5899,11 @@
     "offset_seconds": 3154,
     "name": "tio_culus",
     "text": "よかったよかった",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が進捗を確認できたことに対する安堵のリアクション。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4701,21 +5917,33 @@
     "offset_seconds": 3165,
     "name": "jagaas",
     "text": "ウェイポイントでうぇーーーーいしちゃいましょ",
-    "expected_category": "other"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "ウェイポイントでのワープ機能を使った移動を、言葉遊びを交えて促している。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 3171,
     "name": "tio_culus",
     "text": "そういうことですね",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が移動先の確認をしている状況に対し、自身の提案内容を肯定する返答。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3173,
     "name": "seeker9119",
     "text": "各チェックポイントもワープできるのは知ってる？",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者が移動の仕組みを理解しているか確認する問いかけ。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -4729,7 +5957,11 @@
     "offset_seconds": 3209,
     "name": "seeker9119",
     "text": "俺もこの前知ったｗ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者の「前教えてくれたね」という発言に対して、自分も最近知ったという共感の返答。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4792,14 +6024,22 @@
     "offset_seconds": 3336,
     "name": "tio_culus",
     "text": "なんか爆発したみたいに見えましたね",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が受けた突然のダメージに対して、何が起きたかを推測して説明している。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3359,
     "name": "rockuma_33",
     "text": "mizuna13Konmaru mizuna13Konmaru",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "定型文スタンプを用いた挨拶や反応。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4841,7 +6081,11 @@
     "offset_seconds": 3399,
     "name": "nekornata",
     "text": "おれ",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "配信者の発言に対する何らかの自称や相槌。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4876,7 +6120,11 @@
     "offset_seconds": 3469,
     "name": "jagaas",
     "text": "３回目は２LDKの１４坪の家らしいですよ",
-    "expected_category": "response"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信中のゲームの次回の展開（3回目の拠点など）に関する情報を提示している。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -4911,7 +6159,11 @@
     "offset_seconds": 3537,
     "name": "tio_culus",
     "text": "https://www.twitch.tv/mizunase_maru/clip/CovertWittyJaguarFutureMan-vxlNq1fhQ0dO46f7",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の現在のミスに関するクリップを共有しています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4932,21 +6184,33 @@
     "offset_seconds": 3558,
     "name": "tadanotawashi73yen",
     "text": "フラグのまる",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者がすぐにフラグを立てて回収する様子を「フラグの丸」と呼んでいます。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3560,
     "name": "ariettaheals",
     "text": "今いる場所の中で、新しいエリアを探さないといけないよ。",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "現在の場所から新しいエリアを探す必要があるというゲーム進行上の指示。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 3568,
     "name": "tio_culus",
     "text": "もうわざとやってますよね？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者がわざとミスをしてフラグを回収しているのではないかと疑っています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4974,14 +6238,22 @@
     "offset_seconds": 3595,
     "name": "jagaas",
     "text": "お願いします",
-    "expected_category": "other"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者がフラグ回収について語った後、その後の展開を期待して「お願いします」と促しています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 3597,
     "name": "seeker9119",
     "text": "DV・・",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の「ご愁傷様」という発言に対して、DVという言葉を当てています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -4995,7 +6267,11 @@
     "offset_seconds": 3608,
     "name": "kuritoru3",
     "text": "物理的・・・？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が発言した「物理的」という単語に対して困惑しています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5009,14 +6285,22 @@
     "offset_seconds": 3614,
     "name": "seeker9119",
     "text": "あ、舐めるか",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が言及した「舐める」という行為に対して反応しています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3614,
     "name": "rabibirabi07",
     "text": "なめてもらっちゃおっかな",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が「舐める」という発言をしたことに対する反応。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5051,7 +6335,11 @@
     "offset_seconds": 3629,
     "name": "seeker9119",
     "text": "物理的に舐めるマジ？とんでもないこと言ってんね？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の「物理的に舐める」という発言に対して、その過激さに驚いています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5065,7 +6353,11 @@
     "offset_seconds": 3684,
     "name": "tio_culus",
     "text": "ドロップは運ですからね",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "アイテムドロップは運であるというゲームの仕様を説明しています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5107,7 +6399,11 @@
     "offset_seconds": 3733,
     "name": "tio_culus",
     "text": "お、弓のレアだ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ドロップされたアイテムがレアな弓であることに気づきました。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5128,35 +6424,55 @@
     "offset_seconds": 3744,
     "name": "rabibirabi07",
     "text": "おれはね、蚊がさわれるよ。フルスイングでぶち殺すのがとくいなんだ",
-    "expected_category": "blogpost"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者の虫の話を受けて、リスナー自身の虫（蚊）への対処法を語っています。",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3760,
     "name": "tio_culus",
     "text": "そういうことなら、早く休んでください",
-    "expected_category": "backseat"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者が喉が痛いと言っているのを聞き、休息を勧めています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 3766,
     "name": "tadanotawashi73yen",
     "text": "かってにやっとってｗｗ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が喉の不調について語っていることに対する放任的な反応。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3770,
     "name": "tio_culus",
     "text": "あ、モノマネの話か",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "前の会話の流れがモノマネに関する話題だったと気づきました。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3809,
     "name": "gasen0204",
     "text": "あらあらあら今度まとめて頂きます mizuna13Batabatabata",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者の発言に対して同意や返答を示しています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5177,7 +6493,11 @@
     "offset_seconds": 3819,
     "name": "tio_culus",
     "text": "与える感電デバフの話かも？",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が話していたデバフに関する話題の推測を述べています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5205,14 +6525,22 @@
     "offset_seconds": 3840,
     "name": "589_sirayuki",
     "text": "以心電信ってこと？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の発言内容から、以心伝心という言葉で要約しています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3841,
     "name": "gasen0204",
     "text": "龍角散1キロ mizuna13Uwaaaaaaa",
-    "expected_category": "response"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "喉が痛いという配信者に対して、龍角散を提案しています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -5233,7 +6561,11 @@
     "offset_seconds": 3854,
     "name": "tio_culus",
     "text": "お、右上のクエストが魂の井戸に入れに変わりましたね",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信中のゲーム画面上のクエスト内容の変化を指摘しています。",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5275,7 +6607,11 @@
     "offset_seconds": 3884,
     "name": "tio_culus",
     "text": "そうですか？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "龍角散がたまに飲みたくなるという配信者の意見に対して、本当にそうなのか疑問を呈している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5296,7 +6632,11 @@
     "offset_seconds": 3897,
     "name": "kuritoru3",
     "text": "のどの調子わるかったら真っ先に龍角散",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "喉の調子が悪いときは龍角散を飲むのが一番良いという提案",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5317,14 +6657,22 @@
     "offset_seconds": 3906,
     "name": "gasen0204",
     "text": "喉いかれた時のオトモ mizuna13Zii",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "喉の調子が悪いときの相棒（オトモ）として龍角散が最適であるという主張",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3906,
     "name": "jagaas",
     "text": "あ",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の話に対する納得や反応",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5338,7 +6686,11 @@
     "offset_seconds": 3911,
     "name": "tio_culus",
     "text": "龍角散、可能なら舐めたくないですね。ドクター・ペッパーでお願いします。",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "龍角散の味が苦手であることと、代わりにドクターペッパーを推奨するという個人的意見",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5352,7 +6704,11 @@
     "offset_seconds": 3924,
     "name": "jagaas",
     "text": "上質な とか穴空いてるやつはサルベージベンチのアイテムで解体して",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "サルベージベンチで上質なアイテムや穴の空いたアイテムを解体すべきというゲーム攻略の指示",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -5366,7 +6722,11 @@
     "offset_seconds": 3928,
     "name": "nekornata",
     "text": "りゅうかくさんはさいつよ",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "龍角散は喉の薬として最強であるという意見",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5380,14 +6740,22 @@
     "offset_seconds": 3937,
     "name": "tadanotawashi73yen",
     "text": "りうかくさんきりゃい",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "龍角散の味が嫌いであるという個人的な感想",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3948,
     "name": "589_sirayuki",
     "text": "ドクターペーパは前言ってたね",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "以前の配信で配信者がドクターペッパーについて言及していたことを指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5401,7 +6769,11 @@
     "offset_seconds": 3950,
     "name": "rumiylol",
     "text": "ぽえぽえぽえ〜",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "配信者の発言に対する愉快な合いの手",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5415,7 +6787,11 @@
     "offset_seconds": 3954,
     "name": "jagaas",
     "text": "次からでもいいよ",
-    "expected_category": "response"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "先ほどのアイテム解体の作業は、次の機会に行っても良いという許可",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -5443,7 +6819,11 @@
     "offset_seconds": 3965,
     "name": "kuritoru3",
     "text": "龍角散はガチで効く",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "龍角散は実際に喉に対して効果があるという主張",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5464,7 +6844,11 @@
     "offset_seconds": 3976,
     "name": "589_sirayuki",
     "text": "なにここ初めてみるかも",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "画面内の現在の場所が初めて見る場所であるという感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5492,21 +6876,33 @@
     "offset_seconds": 3991,
     "name": "wutnev3r",
     "text": "いく",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が秘密の部屋に行こうと誘ったことに対する承諾",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3994,
     "name": "seeker9119",
     "text": "うっひょー",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の「来る？」という誘いに対する興奮した反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 3997,
     "name": "rumiylol",
     "text": "まるちゃんかわよ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "おまるちゃんが可愛いという感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
@@ -5555,7 +6951,11 @@
     "offset_seconds": 4016,
     "name": "rabibirabi07",
     "text": "なに？ひみつのへやで？物理的に舐める？まじ？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "秘密の部屋で何をするのか、何を物理的に舐めるのかについての困惑と確認",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5576,7 +6976,11 @@
     "offset_seconds": 4027,
     "name": "rumiylol",
     "text": "合法なんですか？！",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "秘密の部屋での行動が法律的に問題ないのかという確認",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5590,7 +6994,11 @@
     "offset_seconds": 4034,
     "name": "kuritoru3",
     "text": "ここはあごの骨みたいなアイテムで装備を冒涜状態にしないと使えないよ",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "現在の場所で装備を冒涜状態にするために必要なアイテムについての攻略情報",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -5625,7 +7033,11 @@
     "offset_seconds": 4053,
     "name": "tio_culus",
     "text": "とりあえずクエストは終わったみたいですね！",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者がクエストを完了したことに対する確認の感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5639,14 +7051,22 @@
     "offset_seconds": 4065,
     "name": "tio_culus",
     "text": "よし！",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "クエストが終わったという状況に対する肯定的な反応",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4068,
     "name": "tio_culus",
     "text": "いってらっしゃい",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が飲み物を取りに行くと言ったことに対する見送りの言葉",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5737,70 +7157,110 @@
     "offset_seconds": 4117,
     "name": "tio_culus",
     "text": "え？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が飲み物を取りに行ってすぐに戻ると言った際、配信者の状況に対する疑問",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4119,
     "name": "wutnev3r",
     "text": "お姉さんキャラやってみて？",
-    "expected_category": "other"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者に対してお姉さんキャラを演じてほしいという要望",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 4121,
     "name": "seeker9119",
     "text": "そんなことないよ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "お姉さんキャラへの要望に対して、そうではないという否定",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4123,
     "name": "youtuberkimura",
     "text": "e?",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の唐突な行動や反応に対する戸惑い",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4123,
     "name": "tadanotawashi73yen",
     "text": "まるママもすき",
-    "expected_category": "other"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "リスナー自身が「まるママ」というキャラクターを好きだという自己主張",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4126,
     "name": "aoi_tachibana7",
     "text": "お姉さん...?",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "お姉さんキャラについての話題に対する困惑",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4131,
     "name": "gasen0204",
     "text": "あら〜 mizuna13E",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "お姉さんキャラの口調を模倣した挨拶",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4145,
     "name": "wutnev3r",
     "text": "あらあら～",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "お姉さんキャラを模倣した反応",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4156,
     "name": "tio_culus",
     "text": "あー、ワンチャンあるかもですね？",
-    "expected_category": "response"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信中の状況に対して、何らかの可能性（ワンチャン）があるのではないかという予測",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 4167,
     "name": "youtuberkimura",
     "text": "つーちゃんはあるよ",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "「つーちゃん」という要素について、可能性があるという主張",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5821,7 +7281,11 @@
     "offset_seconds": 4181,
     "name": "kuritoru3",
     "text": "前回もみたな・・・？",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "現在の場所について、以前にも訪れたことがあるという指摘",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5856,7 +7320,11 @@
     "offset_seconds": 4210,
     "name": "tio_culus",
     "text": "前回差し込めなかった遺物を見つけたのかもしれませんね？",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "現在の場所で起きていることに対して、以前の未解決クエストに関連した遺物ではないかという推測",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5912,7 +7380,11 @@
     "offset_seconds": 4296,
     "name": "tio_culus",
     "text": "その光、敵にバフをつける悪いやつですよ（個人の感想です",
-    "expected_category": "response"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者が追いかけている光について、敵にバフをかけるので避けるべきという忠告",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -5961,7 +7433,11 @@
     "offset_seconds": 4332,
     "name": "wutnev3r",
     "text": "でも報酬もあるんじゃない？ないっけ？",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "迷宮の報酬について、確か報酬はあるのではないか？",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5975,7 +7451,11 @@
     "offset_seconds": 4344,
     "name": "589_sirayuki",
     "text": "敵のところに呼び寄せる精霊",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "この精霊は敵のところに呼び寄せる効果を持っている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -5989,7 +7469,11 @@
     "offset_seconds": 4350,
     "name": "kuritoru3",
     "text": "ほんのりいいドロップになる",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "その精霊はほんのり良いアイテムをドロップさせる効果がある",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6024,7 +7508,11 @@
     "offset_seconds": 4385,
     "name": "tio_culus",
     "text": "光ってて綺麗だから良いやつだと思ってたのに、騙されました",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "精霊が光っていて綺麗だったので良いものだと思っていたが、罠で騙されました",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6038,21 +7526,33 @@
     "offset_seconds": 4416,
     "name": "tio_culus",
     "text": "ひっかかると焦りますよね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "精霊にひっかかると焦りますよね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4423,
     "name": "tio_culus",
     "text": "話し合おう（弓連射",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "敵と「話し合おう」と言いながら弓を連射する（攻撃して倒す）",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4425,
     "name": "589_sirayuki",
     "text": "まるちゃんの熱狂ファンきちゃ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の熱狂的なファンが現れた",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6094,7 +7594,11 @@
     "offset_seconds": 4460,
     "name": "kuritoru3",
     "text": "ファンサ（弓 物理）",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "弓で物理攻撃するファンサービスを行っている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6143,21 +7647,33 @@
     "offset_seconds": 4471,
     "name": "589_sirayuki",
     "text": "いつのまにか朝までやる説ｗ",
-    "expected_category": "reaction"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信がいつのまにか朝まで続くのではないかという予感",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 4476,
     "name": "tio_culus",
     "text": "早く落ち着くといいですね、一緒に徹夜でPoEしましょうね",
-    "expected_category": "reaction"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "早く状況が落ち着くといいですね。落ち着いたら一緒に徹夜でゲーム（PoE）しましょう",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 4476,
     "name": "rabibirabi07",
     "text": "あさまでやっちゃおっか",
-    "expected_category": "reaction"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "朝までゲームをやってしまおう",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -6171,49 +7687,77 @@
     "offset_seconds": 4480,
     "name": "gasen0204",
     "text": "ww mizuna13Batabatabata",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "笑っている。ドタバタしている様子",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4508,
     "name": "tio_culus",
     "text": "今日じゃなくてね？落ち着いたらね？ww",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "徹夜するのは今日ではなく、状況が落ち着いたらですね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 4515,
     "name": "tio_culus",
     "text": "24%はデカくね？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ダメージ24%増加というのはかなり大きい数値ではないか？",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4529,
     "name": "tio_culus",
     "text": "Gでスキル見るとDPSみれるんですけど",
-    "expected_category": "advice"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "ゲーム内でGキーを押すとスキルごとのDPSを確認できます",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4539,
     "name": "kuritoru3",
     "text": "装備してDPS比べるといいよ",
-    "expected_category": "advice"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "装備を実際に装着してDPSを比較するといいですよ",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4541,
     "name": "tio_culus",
     "text": "装備変えた時にそこがどう変わるか見るといいですよ",
-    "expected_category": "advice"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "装備を変えた時にDPSがどう変化するかを確認するといいですよ",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4545,
     "name": "nekornata",
     "text": "俺はこの前24時間やったよ、君もそうなるんだよ mizuna13Uwaaa",
-    "expected_category": "blogpost"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "自分はこの前24時間ゲームをプレイした。あなたも同じように長時間プレイすることになるよ",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -6262,21 +7806,33 @@
     "offset_seconds": 4569,
     "name": "tio_culus",
     "text": "上がりましたね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "DPSの数値が上がりましたね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4575,
     "name": "tio_culus",
     "text": "そうですね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "はい、その通りですね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4576,
     "name": "589_sirayuki",
     "text": "つえべ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "とても強いですね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6297,7 +7853,11 @@
     "offset_seconds": 4594,
     "name": "tio_culus",
     "text": "じゃ、新人君は解雇ということで",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ゲーム内の新人キャラクターを解雇してしまおう",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6311,21 +7871,33 @@
     "offset_seconds": 4614,
     "name": "tadanotawashi73yen",
     "text": "あの日気持ち悪くて午後年休とった",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "配信者の「やばすぎな」という発言に対し、自分も体調不良で休んだことがあると話している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4617,
     "name": "nekornata",
     "text": "解雇RTA",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の過激な発言（やばすぎな）を受けて、会社をクビになるスピードを競うゲームのようだと言っている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4627,
     "name": "tio_culus",
     "text": "僕も午前中休んで寝てました",
-    "expected_category": "blogpost"
+    "expected_category": "blogpost",
+    "expected_interpreted_comment": "配信者の「やばすぎな」という話題に共感し、自分も不調で休んだことを伝えている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6339,7 +7911,11 @@
     "offset_seconds": 4655,
     "name": "tadanotawashi73yen",
     "text": "まるちゃんが心配で心配で仕方なかったけど最後は寝落ちしたよね",
-    "expected_category": "blogpost"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者（まるちゃん）が心配で寝落ちしたという過去の体験談を共有している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6353,7 +7929,11 @@
     "offset_seconds": 4658,
     "name": "tio_culus",
     "text": "人をダメにする水無瀬まる",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者（水無瀬まる）は人をダメにするクッション（ヨギボー）のような存在だと言っている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6367,7 +7947,11 @@
     "offset_seconds": 4664,
     "name": "wutnev3r",
     "text": "うお",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の発言に対する驚きや反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6416,14 +8000,22 @@
     "offset_seconds": 4681,
     "name": "tadanotawashi73yen",
     "text": "やっぱまるちゃんは魔性の女って事",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者（まるちゃん）は魔性の女であると評している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4689,
     "name": "kuritoru3",
     "text": "NPCが売ってる武器もたまに強いのあるよ たまにみるのおススメ",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "ゲームのNPCが売る武器も強いのでチェックすべきだと勧めている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -6451,7 +8043,11 @@
     "offset_seconds": 4697,
     "name": "tio_culus",
     "text": "よぎぼーまる",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者（水無瀬まる）を「ヨギボー」と掛け合わせて呼んでいる",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6465,7 +8061,11 @@
     "offset_seconds": 4702,
     "name": "acluca00",
     "text": "mizuna13PEROPERO mizuna13PEROPERO",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者に対する愛着表現（ペロペロ）",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6486,7 +8086,11 @@
     "offset_seconds": 4705,
     "name": "wutnev3r",
     "text": "魔女さま",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者を魔性の女（魔女）と呼んでいる",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6528,14 +8132,22 @@
     "offset_seconds": 4715,
     "name": "acluca00",
     "text": "よぎまる？",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者から言われた略称の確認",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4722,
     "name": "tadanotawashi73yen",
     "text": "まるぼー",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者の呼び名を提案している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6577,14 +8189,22 @@
     "offset_seconds": 4738,
     "name": "kuritoru3",
     "text": "よぎま",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者の呼び名の略称",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4742,
     "name": "tio_culus",
     "text": "今日は水無瀬さんを笑わせるコメントができてるようで満足感高いです（）",
-    "expected_category": "blogpost"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者を笑わせるコメントができて満足しているという感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6633,7 +8253,11 @@
     "offset_seconds": 4771,
     "name": "tio_culus",
     "text": "お褒めに預かり光栄の至り",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者から自分のコメントを褒められたことに対する礼儀正しい返答",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6654,7 +8278,11 @@
     "offset_seconds": 4786,
     "name": "tadanotawashi73yen",
     "text": "屁理屈の極み",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の物言いを屁理屈の極みだと批判している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
@@ -6689,7 +8317,11 @@
     "offset_seconds": 4806,
     "name": "tio_culus",
     "text": "僕のことをかっこつけだって言いたいんですか？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者に対して、自分のことをかっこつけだと言いたいのかと問いかけている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6731,7 +8363,11 @@
     "offset_seconds": 4836,
     "name": "tio_culus",
     "text": "冗談ですww",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "直前の発言は冗談であると説明している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6759,7 +8395,11 @@
     "offset_seconds": 4856,
     "name": "tio_culus",
     "text": "似ると言いますもんね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の話に対し、似ると言いますよねと同意している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6787,14 +8427,22 @@
     "offset_seconds": 4873,
     "name": "tio_culus",
     "text": "一体どこにあるんです？",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が探している対象物が一体どこにあるのかと尋ねている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4876,
     "name": "wutnev3r",
     "text": "あ～はいはい私が悪いよね、モー全部私が悪いはいはい。あーいえばそういう",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の口調を真似て、言い争っている様子をロールプレイしている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6829,7 +8477,11 @@
     "offset_seconds": 4902,
     "name": "tio_culus",
     "text": "チェックポイント触ってみませんか？",
-    "expected_category": "backseat"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "ゲーム内で進め方に悩んでいる配信者に対し、チェックポイントを触ることを提案している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -6878,7 +8530,11 @@
     "offset_seconds": 4933,
     "name": "wutnev3r",
     "text": "ここクスとあるの？",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ゲームの目的地がそこにあるのかと尋ねている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6892,7 +8548,11 @@
     "offset_seconds": 4935,
     "name": "kuritoru3",
     "text": "前もみたな。。。？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "現在配信者が到達した場所を、過去にも見たことがあると言っている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6927,14 +8587,22 @@
     "offset_seconds": 4963,
     "name": "tio_culus",
     "text": "そこかもですね",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が触ろうとしているチェックポイントが正しい場所かもしれないと同意している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 4978,
     "name": "wutnev3r",
     "text": "僕も結構迷った気がする",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者と同じゲームエリアで自分も過去に迷った経験があると言っている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6948,14 +8616,22 @@
     "offset_seconds": 5021,
     "name": "tio_culus",
     "text": "あれれー？",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が予期せぬ展開に直面したことに対する驚きの反応",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5025,
     "name": "wutnev3r",
     "text": "もしかしたらこのマップじゃなくて．．．",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者の進行が迷走していることを指摘し、別のマップが正解ではないかと示唆している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -6969,7 +8645,11 @@
     "offset_seconds": 5028,
     "name": "589_sirayuki",
     "text": "はにゃ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "現在の状況に対するリアクション",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -6990,7 +8670,11 @@
     "offset_seconds": 5052,
     "name": "jagaas",
     "text": "行く道ここじゃなくない？",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者が進もうとしているルートが間違っているのではないかと指摘している",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -7004,7 +8688,11 @@
     "offset_seconds": 5065,
     "name": "589_sirayuki",
     "text": "どういうこちょ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "どういう状況か分からない",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7025,35 +8713,55 @@
     "offset_seconds": 5081,
     "name": "jagaas",
     "text": "そこのちょっとイベントあるだけだなんだよね",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "今の場所には少しイベントがあるだけです",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5087,
     "name": "tio_culus",
     "text": "ここタイタンの谷って右上に書いてますよね",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "現在地はタイタンの谷と画面右上に表示されていますね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5092,
     "name": "jagaas",
     "text": "ウェイポイントのとこ",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（マップの）ウェイポイントの場所のことです",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5120,
     "name": "jagaas",
     "text": "チェックポイントから飛べる",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "チェックポイントからファストトラベルで飛べます",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5120,
     "name": "tio_culus",
     "text": "左上のほうかな",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "左上のほうにあるのではないでしょうか",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7088,14 +8796,22 @@
     "offset_seconds": 5146,
     "name": "jagaas",
     "text": "そのうえのほう",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "場所はその上の方です",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5150,
     "name": "tio_culus",
     "text": "あ、その上のところ",
-    "expected_category": "reaction"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "あ、その上のところですね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7130,7 +8846,11 @@
     "offset_seconds": 5163,
     "name": "tio_culus",
     "text": "大丈夫、戻れますよ",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が間違えて撃った状況でも大丈夫、元の場所に戻れますよ",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7144,7 +8864,11 @@
     "offset_seconds": 5165,
     "name": "jagaas",
     "text": "たいたん",
-    "expected_category": "advice"
+    "expected_category": "response",
+    "expected_interpreted_comment": "場所はタイタンです",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7158,7 +8882,11 @@
     "offset_seconds": 5180,
     "name": "tio_culus",
     "text": "それだー",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "それ（タイタンの場所）ですね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7186,21 +8914,33 @@
     "offset_seconds": 5197,
     "name": "wutnev3r",
     "text": "それ推して？",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "画面上のそれを押してください",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5197,
     "name": "jagaas",
     "text": "どっちか選択していってね",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "どっちかを選択して進んでいってください",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5198,
     "name": "tio_culus",
     "text": "あ、それ右化左選びましょう",
-    "expected_category": "advice"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "あ、それ（選択肢）を右か左で選びましょう",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7242,7 +8982,11 @@
     "offset_seconds": 5224,
     "name": "tio_culus",
     "text": "そうそう",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "その通りですね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7263,14 +9007,22 @@
     "offset_seconds": 5237,
     "name": "tio_culus",
     "text": "発動エネルギーみたいなかんじですね",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "チャージというのは発動エネルギーみたいな感じですね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5239,
     "name": "terr1ne3",
     "text": "mizuna13Konmaru mizuna13Nemu mizuna13Nemu mizuna13Nemu mizuna13Nemu",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "スタンプ連打",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7291,7 +9043,11 @@
     "offset_seconds": 5251,
     "name": "tio_culus",
     "text": "短時間に何時間も発動しなくなっています",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "チャージは短時間に何度も発動しなくなっています（クールダウンがある）",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7312,7 +9068,11 @@
     "offset_seconds": 5257,
     "name": "tio_culus",
     "text": "何回も",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "（チャージは）何回も連続では発動できません",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7340,14 +9100,22 @@
     "offset_seconds": 5270,
     "name": "youtuberkimura",
     "text": "そろそろかね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "もう配信終了の時間ですかね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5271,
     "name": "tio_culus",
     "text": "つまり、クールダウンみたいな感じですね",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "つまり、チャージの制限はクールダウンみたいな感じですね",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7375,14 +9143,22 @@
     "offset_seconds": 5292,
     "name": "wutnev3r",
     "text": "それ使ってる感じしないよねｗ勝手に使うから",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が使用しているスキルやアイテムが自動発動型であるため、使っている実感が湧かないことに対する感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5299,
     "name": "tio_culus",
     "text": "OK",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の進行や提案に対する同意",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7396,7 +9172,11 @@
     "offset_seconds": 5305,
     "name": "tio_culus",
     "text": "クエスト完了ですね",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "現在のゲームプレイの状況報告",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7438,7 +9218,11 @@
     "offset_seconds": 5323,
     "name": "tio_culus",
     "text": "いいですね",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が明日配信するために今日早めに切り上げるという方針に対する賛同",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7466,21 +9250,33 @@
     "offset_seconds": 5339,
     "name": "tio_culus",
     "text": "私生活も配信も頑張ってえらい",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "私生活と配信の両立を頑張る配信者を褒める感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5339,
     "name": "kuritoru3",
     "text": "明日もタイタンの谷くる？",
-    "expected_category": "response"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "明日も配信者が特定のゲームエリア（タイタンの谷）に来る予定があるか尋ねる質問",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 5339,
     "name": "wutnev3r",
     "text": "一日おつかれさまよまるちゃん mizuna13Rabubiiimu",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "一日配信を頑張った配信者に対する労い",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7515,21 +9311,33 @@
     "offset_seconds": 5362,
     "name": "poelis_",
     "text": "mizuna13CHINE mizuna13CHINE mizuna13CHINE mizuna13CHINE",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "特定のキャラクターや演出に対するスタンプでのリアクション",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5365,
     "name": "tio_culus",
     "text": "水無瀬さんほど偉い人を見たことがありません",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者を極めて偉い人だと称賛する感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5369,
     "name": "tio_culus",
     "text": "言い過ぎました",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "先ほどの過剰な称賛に対する自己ツッコミ",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7543,7 +9351,11 @@
     "offset_seconds": 5383,
     "name": "tadanotawashi73yen",
     "text": "透析のぽえさんだ",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "視聴者poelisが投石（スパムコメント）を繰り返していることに対する指摘",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7564,7 +9376,11 @@
     "offset_seconds": 5399,
     "name": "poelis_",
     "text": "ガハハ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "会話の流れに対する笑いのリアクション",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7592,7 +9408,11 @@
     "offset_seconds": 5428,
     "name": "tio_culus",
     "text": "この枠の2大投石人として名を轟かせることになってしまいましたね",
-    "expected_category": "reaction"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信枠内で頻繁に投稿する視聴者たちを揶揄する感想",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7606,28 +9426,44 @@
     "offset_seconds": 5444,
     "name": "wutnev3r",
     "text": "かっこいい",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "現在の流れや状況をかっこいいと称する感想",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5447,
     "name": "poelis_",
     "text": "隕石落としてこうよ",
-    "expected_category": "response"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "会話の流れに乗じて、投石（コメント投稿）の続きを促す提案",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 5455,
     "name": "wutnev3r",
     "text": "僕円卓騎士ね",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ロールプレイに乗っかり自分を円卓騎士と名乗るコメント",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5457,
     "name": "tio_culus",
     "text": "ダブルメテオだ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "連投されているコメントに対してダブルメテオと呼ぶ感想",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
@@ -7641,7 +9477,11 @@
     "offset_seconds": 5485,
     "name": "imamu_mamu",
     "text": "メテマルオ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "メテオと配信者の名前を組み合わせた造語",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7662,14 +9502,22 @@
     "offset_seconds": 5491,
     "name": "tio_culus",
     "text": "めっちゃ溜め込んでて草",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者がコメントを溜め込んでから一気に読み上げる様子に対する感想",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5491,
     "name": "wutnev3r",
     "text": "なさそ～",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "何かに対して「なさそう」と否定的な感想",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7704,7 +9552,11 @@
     "offset_seconds": 5507,
     "name": "jagaas",
     "text": "下のとこでキーワード打てば打ったやつ見やすくなるよ",
-    "expected_category": "backseat"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者がゲーム内のインターフェース操作に苦戦しているため、検索や表示設定についてアドバイスしている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7725,7 +9577,11 @@
     "offset_seconds": 5512,
     "name": "tio_culus",
     "text": "赤いチャーム見えたような気がしました",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "ゲーム画面内に赤いチャームのようなものが見えたと報告している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7739,7 +9595,11 @@
     "offset_seconds": 5515,
     "name": "tio_culus",
     "text": "左下の",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "赤いチャームが見えた場所について、画面の左下であると補足している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7767,7 +9627,11 @@
     "offset_seconds": 5524,
     "name": "wutnev3r",
     "text": "あるわ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者がチャームについて言及したことに対し、ゲーム画面内にそれが存在していると肯定している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7802,7 +9666,11 @@
     "offset_seconds": 5535,
     "name": "hanabi010",
     "text": "CoolCat",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "CoolCatというスタンプを使用して、配信者の話題に対するリアクションを示している",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7823,14 +9691,22 @@
     "offset_seconds": 5547,
     "name": "589_sirayuki",
     "text": "自動に使わる",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "アイテム（パール）がダメージを受けた際に自動的に使用されることを伝えている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5548,
     "name": "wutnev3r",
     "text": "多分効果は火耐性＋２５",
-    "expected_category": "response"
+    "expected_category": "response",
+    "expected_interpreted_comment": "配信者が話題にしているアイテムの性能について、火耐性＋25の効果があると推測して伝えている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7858,7 +9734,11 @@
     "offset_seconds": 5558,
     "name": "poelis_",
     "text": "いつも鼻声だから大丈夫だよ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が喉の痛みで声が弱っているとこぼしたことに対し、いつも通り鼻声だから気にしなくていいと慰めている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7907,7 +9787,11 @@
     "offset_seconds": 5582,
     "name": "jagaas",
     "text": "鼻声でも可愛いよ",
-    "expected_category": "reaction"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の声が鼻声であっても可愛いと伝えている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -7949,7 +9833,11 @@
     "offset_seconds": 5609,
     "name": "ariettaheals",
     "text": "マルちゃん、未加工スキルジェムでスキルを更新するのを忘れないでね。それと、スキルにはサポートジェムも付けておくといいよ。",
-    "expected_category": "backseat"
+    "expected_category": "backseat",
+    "expected_interpreted_comment": "配信者に対し、ゲーム攻略のためにスキルジェムの更新やサポートジェムの装着をするよう勧めている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "streamer",
@@ -7991,7 +9879,11 @@
     "offset_seconds": 5654,
     "name": "tio_culus",
     "text": "おやすみー",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "配信終了間際において、リスナーが配信者に別れの挨拶をしている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -8012,98 +9904,154 @@
     "offset_seconds": 5668,
     "name": "tadanotawashi73yen",
     "text": "ゆっくりねてまた明日も頑張ろうね",
-    "expected_category": "response"
+    "expected_category": "other",
+    "expected_interpreted_comment": "配信者に対し、ゆっくり休んで明日も頑張ってほしいと伝えている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 5671,
     "name": "wutnev3r",
     "text": "おやすみよ～おつかれちゃん",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "配信者への別れの挨拶と、配信への労いの言葉を述べている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5674,
     "name": "jagaas",
     "text": "おちゅまる",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "配信終了にあたって、お疲れ様というニュアンスの挨拶をしている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5677,
     "name": "hanabi010",
     "text": "喉お大事に",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者が喉が痛いと言及したことに対し、体調を気遣うコメントをしている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5686,
     "name": "poelis_",
     "text": "お鼻大事に",
-    "expected_category": "response"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者の体調（鼻）を気遣うコメントをしている",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5687,
     "name": "aoi_tachibana7",
     "text": "aoitacOTU",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "配信終了の挨拶として独自のスタンプや定型句を送っている",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5689,
     "name": "seeker9119",
     "text": "まるちゃんおっつー",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者まるちゃん、配信お疲れ様でした",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5690,
     "name": "tio_culus",
     "text": "やることたくさんあって大変だと思いますが、頑張ってくださいね",
-    "expected_category": "response"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者まるちゃんは忙しそうだが、頑張ってください",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 5695,
     "name": "589_sirayuki",
     "text": "おちゅまる mizuna13Yotiyoti",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者まるちゃん、配信お疲れ様でした",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5697,
     "name": "youtuberkimura",
     "text": "お疲れ様でした、ゆっくり休んでね",
-    "expected_category": "other"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者まるちゃん、配信お疲れ様でした。ゆっくり休んでください",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 5701,
     "name": "gasen0204",
     "text": "お疲れ様です mizuna13Zii gasen0Sanndokku mizuna13Yotiyoti",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者まるちゃん、配信お疲れ様でした",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5705,
     "name": "imamu_mamu",
     "text": "おやすみまるちゃん、お薬飲んでね",
-    "expected_category": "response"
+    "expected_category": "advice",
+    "expected_interpreted_comment": "配信者まるちゃん、おやすみなさい。体調管理のために薬を飲んでください",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": true
   },
   {
     "type": "listener",
     "offset_seconds": 5707,
     "name": "poelis_",
     "text": "mizuna13Unti mizuna13Unti mizuna13Unti",
-    "expected_category": "other"
+    "expected_category": "other",
+    "expected_interpreted_comment": "スタンプによる挨拶や感情表現",
+    "expected_is_subject_streamer": false,
+    "expected_is_topic_relevant": false,
+    "expected_is_future": false
   },
   {
     "type": "listener",
     "offset_seconds": 5716,
     "name": "kuritoru3",
     "text": "おつかれさまでした('ω')",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者まるちゃん、配信お疲れ様でした",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -8117,7 +10065,11 @@
     "offset_seconds": 5738,
     "name": "nekornata",
     "text": "おつー",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者まるちゃん、配信お疲れ様",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",
@@ -8145,7 +10097,11 @@
     "offset_seconds": 5751,
     "name": "ariettaheals",
     "text": "おやすみ <3",
-    "expected_category": "other"
+    "expected_category": "reaction",
+    "expected_interpreted_comment": "配信者まるちゃん、おやすみなさい",
+    "expected_is_subject_streamer": true,
+    "expected_is_topic_relevant": true,
+    "expected_is_future": false
   },
   {
     "type": "streamer",

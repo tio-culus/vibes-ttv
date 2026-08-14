@@ -521,3 +521,53 @@ def test_comment_serialization_flow():
     # Why not 'insight'?
     # The 'insight' category has been renamed to 'backseat' in the new CommentCategory definition.
     assert user_comments[1]["category"] == "backseat"
+
+
+def test_gemini_classifier_3axis_parsing():
+    # Why test 3-axis evaluation structure?
+    # Verifying that interpreted_comment, is_subject_streamer, is_topic_relevant, and is_future
+    # are correctly populated into event dictionary and comment_details guarantees that the new
+    # contextual classification schema works end-to-end without breaking data flows.
+    from unittest.mock import MagicMock
+    from vibes_ttv.analyzers.comment_analyzer import CommentAnalyzer, SliceClassificationResponse, LineClassification
+    from vibes_ttv.analyzers.classifier import CommentCategory
+
+    analyzer = CommentAnalyzer(api_key="mock_key")
+    mock_response = MagicMock()
+    mock_response.parsed = SliceClassificationResponse(
+        results=[
+            LineClassification(
+                line_id="L1",
+                interpreted_comment="配信者が現在戦っているボスに対して、右に避けると攻撃をかわせるという未来の行動提案",
+                is_subject_streamer=True,
+                is_topic_relevant=True,
+                is_future=True,
+                category=CommentCategory.BACKSEAT
+            )
+        ]
+    )
+    analyzer.classifier.client.models.generate_content = MagicMock(return_value=mock_response)
+
+    merged_events = [
+        {"type": "streamer", "offset_seconds": 10.0, "text": "このボス強いな"},
+        {"type": "listener", "name": "viewer_1", "offset_seconds": 12.0, "text": "右に避けるといいよ"}
+    ]
+
+    results = analyzer.analyze_listeners(merged_events=merged_events)
+
+    # Check that events have the 3-axis and contextual interpretation metadata
+    assert merged_events[1]["category"] == "backseat"
+    assert merged_events[1]["interpreted_comment"] == "配信者が現在戦っているボスに対して、右に避けると攻撃をかわせるという未来の行動提案"
+    assert merged_events[1]["is_subject_streamer"] is True
+    assert merged_events[1]["is_topic_relevant"] is True
+    assert merged_events[1]["is_future"] is True
+
+    # Check listener detail
+    assert len(results) == 1
+    detail = results[0]["comment_details"][0]
+    assert detail["category"] == "backseat"
+    assert detail["interpreted_comment"] == "配信者が現在戦っているボスに対して、右に避けると攻撃をかわせるという未来の行動提案"
+    assert detail["is_subject_streamer"] is True
+    assert detail["is_topic_relevant"] is True
+    assert detail["is_future"] is True
+

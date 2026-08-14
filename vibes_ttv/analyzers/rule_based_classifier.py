@@ -54,22 +54,12 @@ class RuleBasedCommentClassifier(CommentClassifier):
             if any(word in msg for word in ("右", "左", "上", "下", "したほうが", "すればいい", "行こう", "とれる", "取れる")):
                 classified[idx] = CommentCategory.BACKSEAT
                 
-            # Rule 3: Cross chat (mentioning other streamers)
-            # Why check honorific suffix "さん" or other streamer terms?
-            # Viewer comments comparing with other players ("A-san was doing X") usually carry these terms.
-            elif any(word in msg for word in ("さん", "他の方", "別の人", "枠")):
-                classified[idx] = CommentCategory.CROSS_CHAT
-                
-            # Rule 4: Blogpost (self-talk, out of context)
+            # Rule 3: Blogpost (self-talk, out of context)
             # Why check first-person pronouns or daily-life verbs?
             # Comments starting with "I did", "my case", or unrelated daily topics ("ate ramen") 
             # generally match self-talk.
             elif any(word in msg for word in ("自分", "私", "俺", "僕", "食べた", "寝た", "ガチャ", "爆死", "眠い")):
                 classified[idx] = CommentCategory.BLOGPOST
-                
-            # Rule 5: Spoiler warnings
-            elif any(word in msg for word in ("ネタバレ", "この先", "後で")):
-                classified[idx] = CommentCategory.SPOILER
                 
             # Rule 6: Advice (answers to streamer questions)
             # Why check agreement terms?
